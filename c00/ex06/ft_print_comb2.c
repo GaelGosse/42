@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 15:09:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/11 08:49:15 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/14 16:56:02 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/16 20:26:33 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,35 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+void	print(int one, int two)
+{
+	ft_putchar((two / 10) + '0');
+	ft_putchar((two % 10) + '0');
+	ft_putchar(' ');
+	ft_putchar((one / 10) + '0');
+	ft_putchar((one % 10) + '0');
+}
+void	ft_print_comb2(void)
+{
+	int	left;
+	int	right;
+
+	right = 0;
+	left = 0;
+	while(left <= 98)
+	{
+		right = left + 1;
+		while(right <= 99)
+		{
+        		print(right,left);
+			ft_putchar(',');
+			ft_putchar(' ');
+			right++;
+		}
+		left++;
+	}
+}
+int main(){
+	ft_print_comb2();
 }

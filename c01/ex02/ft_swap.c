@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 18:13:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/14 10:34:24 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/17 18:52:03 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/17 19:14:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_reverse_alphabet(void)
+void	ft_swap(int *a, int *b)
 {
-	char	l;
+	int	tmp;
 
-	l = 'z';
-	while (l >= 'a')
-	{
-		write(1, &l, 1);
-		l--;
-	}
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

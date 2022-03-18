@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 18:13:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/14 10:34:24 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/18 12:37:26 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/18 13:22:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void	ft_putstr(char *str)
 {
-	char	l;
-
-	l = 'z';
-	while (l >= 'a')
+	int	i;
+   
+	i = 0;
+	while(str[i] != '\0')
 	{
-		write(1, &l, 1);
-		l--;
+		i++;
 	}
+	write(1, str, i);
+}
+int	main()
+{
+	char	*a;
+
+	a = "hello bo ";
+	ft_putstr(a);
 }

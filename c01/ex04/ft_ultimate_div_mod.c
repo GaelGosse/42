@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 18:13:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/14 10:34:24 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/17 18:52:03 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/18 12:37:06 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_reverse_alphabet(void)
+void	 ft_div_mod(int a, int b)
 {
-	char	l;
-
-	l = 'z';
-	while (l >= 'a')
-	{
-		write(1, &l, 1);
-		l--;
-	}
+	int	tmp;
+	tmp = a / b;
+        b = a % b;
+	a = tmp;
 }
