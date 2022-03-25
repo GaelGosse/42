@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 18:52:03 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/23 21:49:50 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/23 20:51:59 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/24 00:47:22 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-void	ft_div_mod(int *a, int *b)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	tmp;
+	unsigned int	i;
 
-	tmp = *a / *b;
-	*b = *a % *b;
-	*a = tmp;
+	i = 0;
+	while(i < n)
+	{
+		if(s1[i] != s2[i])
+		{
+			return s1[i] - s2[i];
+		}
+		i++;
+	}
+	return (0);
 }

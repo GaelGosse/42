@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 18:52:03 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/23 21:49:50 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/22 17:27:48 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/24 23:34:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_div_mod(int *a, int *b)
+int	ft_str_is_numeric(char *str)
 {
-	int	tmp;
+	int	i;
 
-	tmp = *a / *b;
-	*b = *a % *b;
-	*a = tmp;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] < 48) || (str[i] > 57))
+			return (0);
+		i++;
+	}
+	return (1);
 }

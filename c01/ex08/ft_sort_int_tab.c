@@ -1,48 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 16:56:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/21 16:54:25 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/18 12:37:26 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/23 12:50:10 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	ft_swap(int *a, int *b)
 {
-	write(1, &c, 1);
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
-void	print(int one, int two)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	ft_putchar((two / 10) + '0');
-	ft_putchar((two % 10) + '0');
-	ft_putchar(' ');
-	ft_putchar((one / 10) + '0');
-	ft_putchar((one % 10) + '0');
-}
+	int	global;
+	int	inside;
+	int	max;
+	int	i_max;
 
-void	ft_print_comb2(void)
-{
-	int	left;
-	int	right;
-
-	right = 0;
-	left = 0;
-	while (left <= 98)
+	global = 0;
+	inside = 0;
+	max = tab[0];
+	while (size > 0)
 	{
-		right = left + 1;
-		while (right <= 99)
+		inside = 0;
+		max = tab[0];
+		while (inside < size)
 		{
-			print(right, left);
-			if (left != 98 && right != 99)
-				ft_putchar(',');
-			right++;
+			if (tab[inside] >= max)
+			{
+				max = tab[inside];
+				i_max = inside;
+			}
+			inside++;
 		}
-		left++;
+		ft_swap(&tab[size - 1], &tab[i_max]);
+		size--;
+		global++;
 	}
 }

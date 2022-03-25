@@ -6,13 +6,11 @@
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:40:14 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/17 18:44:00 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/03/23 12:46:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void ft_ultimate_ft(int *********nbr)
+void	ft_ultimate_ft(int *********nbr)
 {
 	*********nbr = 42;
 }

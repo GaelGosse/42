@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 18:52:03 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/23 21:49:50 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/22 17:41:06 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/24 23:35:26 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	ft_div_mod(int *a, int *b)
+int	ft_str_is_lowercase(char *str)
 {
-	int	tmp;
+	int	i;
 
-	tmp = *a / *b;
-	*b = *a % *b;
-	*a = tmp;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 97) && (str[i] <= 122))
+			return (1);
+		i++;
+	}
+	return (0);
 }

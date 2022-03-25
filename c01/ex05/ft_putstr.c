@@ -6,7 +6,7 @@
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:37:26 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/18 13:22:53 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/03/23 12:43:55 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,11 @@
 void	ft_putstr(char *str)
 {
 	int	i;
-   
+
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		i++;
 	}
 	write(1, str, i);
-}
-int	main()
-{
-	char	*a;
-
-	a = "hello bo ";
-	ft_putstr(a);
 }

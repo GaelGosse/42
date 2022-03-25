@@ -6,20 +6,20 @@
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:27:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/14 10:42:30 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/03/21 16:42:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_print_numbers(void)
+void	ft_print_numbers(void)
 {
-       	int	l;
+	int	l;
 
 	l = 48;
-       	while(l < 58){
-               	write(1, &l, 1);
-               	l++;
-       	}
+	while (l < 58)
+	{
+		write(1, &l, 1);
+		l++;
+	}
 }
-void	ft_print_numbers(void);
