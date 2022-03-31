@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_str.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 16:02:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/19 16:52:33 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/28 15:21:35 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/28 15:21:44 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_split_str(char *str)
+void	ft_putchar(char c)
 {
-	int	cpt;
-	char	tab[16];
-
-	cpt = 0;
-
-	(void)tab;
-	while(cpt < 31)
-	{
-		if(str[cpt] != ' ')
-		{
-			printf("%c\n", str[cpt]);
-		}
-		cpt++;
-	}
-	
-	return	str;
+	write(1, &c, 1);
 }
-int	main()
-{
-	char	*a;
 
-	a = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
-	ft_split_str(a);
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0 && nb != -2147483648)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb < 10)
+	{
+		ft_putchar(nb + '0');
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }

@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 18:51:57 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/28 20:25:41 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/29 23:33:06 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/29 23:35:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_fibonacci(int index)
 {
-	int	i;
+	int	res;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			str[i] += 32;
-		}
-		i++;
-	}
-	return (str);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	res = ft_fibonacci(index - 1) + ft_fibonacci(index - 2);
+	return (res);
 }
-
-/*
-int	main()
-{
-	char	c[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-	printf("%s", ft_strlowcase(c));
-}
-*/

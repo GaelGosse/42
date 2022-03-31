@@ -6,7 +6,7 @@
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 00:47:50 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/24 02:03:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/03/28 21:01:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ char	*ft_strcat(char *dest, char *src)
 	int	i;
 	int	j;
 
-	j = 0;
 	i = ft_strlen(dest);
-	while(i < (ft_strlen(src) + ft_strlen(dest)))
+	j = 0;
+	while (src[j])
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
 	dest[i] = '\0';
-	return dest;
+	return (dest);
 }
-
+/*
 int	main()
 {
 	char	c[100] = "hello ";
@@ -50,3 +50,4 @@ int	main()
 	//printf("%s\n", ft_strcat(c, d));
 	printf("%s\n", strcat(c, d));
 }
+*/

@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 18:51:57 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/28 20:25:41 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/28 15:27:42 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/30 17:20:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
+	int	sign;
+	int	res;
 
 	i = 0;
-	while (str[i] != '\0')
+	res = 0;
+	sign = 1;
+	while (((str[i] >= 9) && (str[i] <= 13)) || str[i] == 32)
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			str[i] += 32;
-		}
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (str);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}
+	return (res * sign);
 }
-
 /*
 int	main()
 {
-	char	c[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-	printf("%s", ft_strlowcase(c));
+	printf("%i", ft_atoi("75694"));
 }
 */

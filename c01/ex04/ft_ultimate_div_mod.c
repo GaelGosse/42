@@ -6,13 +6,13 @@
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:52:03 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/23 21:49:50 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/03/25 11:58:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_div_mod(int *a, int *b)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
 	int	tmp;
 

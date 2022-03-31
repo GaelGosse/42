@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 18:51:57 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/28 20:25:41 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/29 22:41:44 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/29 23:28:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+#include <unistd.h>
+
+int ft_iterative_power(int nb, int power)
 {
+	int	res;
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 1;
+	res = 1;
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	while (i <= power)
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			str[i] += 32;
-		}
+		res = res * nb;
 		i++;
 	}
-	return (str);
+	return (res);
 }
-
-/*
-int	main()
-{
-	char	c[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-	printf("%s", ft_strlowcase(c));
-}
-*/

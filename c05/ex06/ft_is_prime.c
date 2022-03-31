@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 18:51:57 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/28 20:25:41 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/29 23:53:18 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/29 23:55:06 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 2;
+	if (nb <= 1)
+		return (0);
+	while (i <= nb / i)
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			str[i] += 32;
-		}
+		if ((nb % i) == 0)
+			return (0);
 		i++;
 	}
-	return (str);
+	return (1);
 }
-
-/*
-int	main()
-{
-	char	c[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-	printf("%s", ft_strlowcase(c));
-}
-*/

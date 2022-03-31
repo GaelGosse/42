@@ -6,13 +6,11 @@
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 18:55:14 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/24 23:46:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/03/28 20:27:29 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-
 
 char	*ft_strcapitalize(char *str)
 {
@@ -25,22 +23,19 @@ char	*ft_strcapitalize(char *str)
 	i = 1;
 	while (str[i] != '\0')
 	{
-		if(((str[i - 1] >= 97) && (str[i - 1] <= 122)) 
-			|| ((str[i - 1] >= 65) && (str[i - 1] <= 90)) 
+		if (((str[i - 1] >= 97) && (str[i - 1] <= 122))
+			|| ((str[i - 1] >= 65) && (str[i - 1] <= 90))
 			|| ((str[i - 1] >= 48) && (str[i - 1] <= 57)))
-        	{
-			if((str[i] >= 65) && (str[i] <= 90))
+		{
+			if ((str[i] >= 65) && (str[i] <= 90))
 				str[i] += 32;
-        	}
+		}
 		else
 		{
-			if(str[i] >= 97 && str[i] <= 122)
-			{
+			if (str[i] >= 97 && str[i] <= 122)
 				str[i] -= 32;
-			}
 		}
 		i++;
-
 	}
 	return (str);
 }

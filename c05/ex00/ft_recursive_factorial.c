@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 18:51:57 by ggosse            #+#    #+#             */
-/*   Updated: 2022/03/28 20:25:41 by ggosse           ###   ########.fr       */
+/*   Created: 2022/03/29 17:04:47 by ggosse            #+#    #+#             */
+/*   Updated: 2022/03/29 22:30:04 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+#include <stdio.h>
+
+int	ft_iterative_factorial(int nb)
 {
+	int	res;
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 2;
+	res = 1;
+	if (nb < 0)
+		return (0);
+	if ((nb == 0) || (nb == 1))
+		return (1);
+	while(i <= nb)
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			str[i] += 32;
-		}
+		res = res * i;
 		i++;
-	}
-	return (str);
+	}	
+	return (res);	
 }
 
-/*
 int	main()
 {
-	char	c[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-	printf("%s", ft_strlowcase(c));
+	printf("%i\n", ft_iterative_factorial(8));
+	return (0);
 }
-*/
