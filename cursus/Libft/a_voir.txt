@@ -1,1 +1,2 @@
-ft strlen : unsigned int a verifier 
+ft strlen : unsigned int a verifier size_t
+ft strrchr : include lib.h pour avoir strlen

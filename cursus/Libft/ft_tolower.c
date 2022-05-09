@@ -6,22 +6,28 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 22:12:45 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/04 15:55:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/09 19:34:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_tolower(char	*str)
+int	ft_tolower(int	chr)
 {
-	int     i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if ((chr >= 'A') && (chr <= 'Z'))
 	{
-			if ((str[i] >= 'A') && (str[i] <= 'Z'))
-			{
-					str[i] += 32;
-			}
-			i++;
+			chr += 32;
 	}
-	return (str);
+	return (chr);
 }
+
+/*
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main()
+{
+	printf("%i\n", tolower('a'));
+	printf("%i\n", ft_tolower('a'));
+}
+*/
