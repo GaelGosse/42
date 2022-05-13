@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *str, int search)
 {
 	int	i;
 
-	i = ft_strlen((char	*)(str)) - 1;
+	i = ft_strlen((char	*)(str));
 	while(i > 0)
 	{
 		if(str[i] == search)
@@ -36,7 +36,7 @@ char	*ft_strrchr(const char *str, int search)
 
 int main()
 {
-	// printf("%s \n", strrchr("mais ou est donc or ni car", 'x'));
-	printf("%s \n", ft_strrchr("mais ou est donc or ni car", 'x'));
+	printf("%s \n", strrchr("abc defg h ijkl mnop", '\0'));
+	printf("%s \n", ft_strrchr("abc defg h ijkl mnop", '\0'));
 	return (0);
 }

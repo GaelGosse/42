@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:07:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/09 19:07:52 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/03 22:12:45 by ggosse            #+#    #+#             */
+/*   Updated: 2022/05/12 16:37:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int	c)
+int	ft_tolower(int chr)
 {
-	if ((c >= 'A') && (c <= 'Z'))
+	if ((chr >= 'A') && (chr <= 'Z'))
 	{
-			c += 32;
+			chr += 32;
 	}
-	return (c);
+	return (chr);
 }
 
+/*
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -29,3 +30,4 @@ int main()
 	printf("%i\n", tolower('a'));
 	printf("%i\n", ft_tolower('a'));
 }
+*/

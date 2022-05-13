@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:07:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/09 19:07:48 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/12 16:19:59 by gael              #+#    #+#             */
+/*   Updated: 2022/05/12 16:37:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int	c)
+char    *ft_strjoin(char    **str)
 {
-	if ((c >= 'A') && (c <= 'Z'))
-	{
-			c += 32;
-	}
-	return (c);
-}
-
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
-
-int main()
-{
-	printf("%i\n", tolower('a'));
-	printf("%i\n", ft_tolower('a'));
+    (void)str;
+    return (str);
 }

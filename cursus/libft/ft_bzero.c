@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 22:12:45 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/09 19:34:53 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/03 21:26:10 by ggosse            #+#    #+#             */
+/*   Updated: 2022/05/12 17:14:43 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int	chr)
-{
-	if ((chr >= 'A') && (chr <= 'Z'))
-	{
-			chr += 32;
-	}
-	return (chr);
-}
-
-/*
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
 
+void ft_bzero(void *str, size_t n)
+{
+	// memset \0
+}
+
 int main()
 {
-	printf("%i\n", tolower('a'));
-	printf("%i\n", ft_tolower('a'));
+	char	a[] = "abcdef ghijk";
+	
+	printf("%i\n", bzero('a'));
+	printf("%i \n", ft_bzero(a + 3, 5));
 }
-*/

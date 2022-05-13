@@ -1,0 +1,2 @@
+ft str len : unsigned int a verifier size_t
+ft str trim : est-ce qu'on doit réécrire le resultat dans str (l'argument en entrée) ?

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 15:53:52 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/09 19:17:20 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/09 19:08:09 by ggosse            #+#    #+#             */
+/*   Updated: 2022/05/12 16:18:03 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int	chr)
+int	ft_memmove(int	c)
 {
-	if ((chr >= 'a') && (chr <= 'z'))
+	if ((c >= 'A') && (c <= 'Z'))
 	{
-			chr -= 32;
+			c += 32;
 	}
-	return (chr);
+	return (c);
 }
 
-/*
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -27,7 +26,6 @@ int	ft_toupper(int	chr)
 
 int main()
 {
-	printf("%i\n", toupper('a'));
-	printf("%i\n", ft_toupper('a'));
+	printf("%i\n", memmove('a'));
+	printf("%i\n", ft_memmove('a'));
 }
-*/
