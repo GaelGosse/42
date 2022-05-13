@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/13 17:07:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/13 21:28:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,13 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	}
 	return (new_str);
 }
-/*
+
 int	main(void)
 {
 	char	a[] = "xyxyxyxabc defgyxzyxyyx";
 	char	b[] = "yyyyyabc defgxxxxxx";
 
-	printf("%s \n", ft_strtrim(a, "xy"));
-	printf("%s \n", ft_strtrim(b, "xy"));
+	printf("%s \n", ft_strtrim(a, "xyz"));
+	printf("%s \n", ft_strtrim(b, "xyz"));
 	return (0);
 }
-*/

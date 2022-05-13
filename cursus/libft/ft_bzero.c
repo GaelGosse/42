@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:26:10 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/13 21:06:33 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/13 21:21:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void ft_bzero(void *str, size_t n)
 int main()
 {
 	char	a[] = "abcdef ghijk";
-	bzero(a + 3, 5);
-	ft_bzero(a + 3, 5);	
+	printf("", bzero(a + 3, 5));
+	printf("", ft_bzero(a + 3, 5));	
 }
