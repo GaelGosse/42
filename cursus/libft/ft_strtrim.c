@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/12 16:59:00 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/13 17:07:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,51 +16,51 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_isspace(int chr)
+int	ft_isset(const char c, const char	*set)
 {
-	if ((8 < chr && chr < 14) || chr == 32)
+	int	i;
+
+	i = 0;
+	while (set[i])
 	{
-		return (1);
+		if (set[i] == c)
+			return (1);
+		i++;
 	}
 	return (0);
 }
 
-char	*ft_strtrim(char *str)
+char	*ft_strtrim(const char	*str, const char	*set)
 {
-	int	start;
-	int	end;
-	int	ite;
-	
+	int		start;
+	int		end;
+	int		ite;
+	char	*new_str;
+
 	ite = 0;
-	end = ft_strlen(str) - 1;
 	start = 0;
-	while (ft_isspace(str[start]) == 1)
+	end = ft_strlen((char *)(str)) - 1;
+	while (ft_isset(str[start], set) == 1)
 		start++;
-	while (ft_isspace(str[end]) == 1)
+	while (ft_isset(str[end], set) == 1)
 		end--;
+	new_str = (char *)malloc((end - start) * sizeof(char) + 1);
 	while (start <= end)
 	{
-		str[ite] = str[start];
+		new_str[ite] = str[start];
 		ite++;
 		start++;
 	}
-	while (end <= ft_strlen(str) - 1)
-	{
-		str[ite] = '\0';
-		end++;
-	}
-	// printf("%i: %c\n", start, str[start]);
-	// printf("%i: %c\n\n", end, str[end]);
-	return (str);
+	return (new_str);
 }
-
-int main()
+/*
+int	main(void)
 {
-	char	a[] = "  \n    abc defg   \t ";
-	char	b[] = "   \n  \t   abc defg    ";
-	// ft_strtrim(a);
-	// ft_strtrim(b);
-	printf("%s \n", ft_strtrim(a));
-	printf("%s \n", ft_strtrim(b));
+	char	a[] = "xyxyxyxabc defgyxzyxyyx";
+	char	b[] = "yyyyyabc defgxxxxxx";
+
+	printf("%s \n", ft_strtrim(a, "xy"));
+	printf("%s \n", ft_strtrim(b, "xy"));
 	return (0);
 }
+*/

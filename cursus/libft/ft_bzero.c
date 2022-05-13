@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:26:10 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/12 17:14:43 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/13 21:06:33 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include "libft.h"
 
 void ft_bzero(void *str, size_t n)
 {
-	// memset \0
+	ft_memset((char	*)(str), '\0', n);
 }
 
 int main()
 {
 	char	a[] = "abcdef ghijk";
-	
-	printf("%i\n", bzero('a'));
-	printf("%i \n", ft_bzero(a + 3, 5));
+	bzero(a + 3, 5);
+	ft_bzero(a + 3, 5);	
 }

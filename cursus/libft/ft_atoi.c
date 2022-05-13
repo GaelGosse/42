@@ -6,9 +6,23 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/03 21:22:56 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/13 11:05:01 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int	ft_isspace(int chr)
+{
+	if ((8 < chr && chr < 14) || chr == 32)
+	{
+		return (1);
+	}
+	return (0);
+}
 
 int	ft_atoi(char *str)
 {
@@ -19,7 +33,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	res = 0;
 	sign = 1;
-	while (str[i] == 32)
+	while (ft_isspace(str[i]) == 1)
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -34,3 +48,10 @@ int	ft_atoi(char *str)
 	}
 	return (res * sign);
 }
+
+/*
+int	main(void)
+{
+	printf("%i", ft_atoi("   \n -++---+4576"));
+}
+*/
