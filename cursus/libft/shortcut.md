@@ -43,7 +43,7 @@
 |shortcut|mainly used|
 |:---:                       | :---: |
 |**ctrl** + **tab**						| change on the next tab|
-|**ctrl** + **shift** + tab				| change on the previous tab|
+|**ctrl** + **shift** + **tab**				| change on the previous tab|
 |**ctrl** + **1**						| change on the first tab opened|
 |**ctrl** + **2**						| change on the second tab opened|
 |**ctrl** + **3**						| change on the third tab opened|
