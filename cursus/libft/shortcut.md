@@ -70,7 +70,7 @@
 |code -r .| open vscode on the current directory in the most recenlty used window/tab|
 |code --locale=fr| change the language|
 |code --disable-extensions .| disable extensions |
-|code --enable-extensions .| disable extensions |
+|code --enable-extensions .| enable extensions |
 
 ### Mainly used 
 |shortcuts|mainly used|
@@ -80,7 +80,7 @@
 |ctrl + shift + e				| place the cursor on the left zone of vscode to select files/folders of your opened project|
 |ctrl + shift + x				| place the cursor on the left zone of vscode to see extensions that you have already installed and also to search one|
 |ctrl + shift + x				| place the cursor on the left zone of vscdoe to 
-|---                       | --- |
+| :---:                       | :---: |
 |ctrl + f						| search something on a page|
 |ctrl + h						| replace something on a page by another|
 |ctrl + shift + f				| search something in all files (and files in subfolder) of your project|
@@ -102,13 +102,13 @@
 |:---:                       | :---: |
 |ctrl + shift + arrowUp			| place cursor above the actual one|
 |ctrl + shift + arrowDown		| place cursor below the actual one|
-|---                       | --- |
+|:---:                       | :---: |
 |alt + shift + arrowUp			| duplicate line on the previous line (not computer at school)|
 |alt + shift + arrowDown		| duplicate line on the next line (not computer at school)|
-|---                       | --- |
+|:---:                       | :---: |
 |alt + arrowUp			        | move the current line up (move a block of lines if multiple lines are selected)|
 |alt + arrowDown		        | move the current lien down (move a block of lines if multiple lines are selected) |
-|---                       | --- |
+|:---:                       | :---: |
 |ctrl + l						| select the whole line where the cursor is actually placed|
 |alt + z                        | display too long lines that are not display normally with line virtual line break|
-|---                       | --- |
+|:---:                       | :---: |
