@@ -2,7 +2,7 @@
 
 ## Basics (available on chrome and vscode) 
 
-|shortcut                       | what it do|
+|shortcuts|mainly used|
 |---                       | --- |
 |alt + tab   					| change application's window|
 |ctrl + arrowRight				| move your cursor at the end of the next word|
@@ -13,7 +13,7 @@
 
 ### tabs
 
-|tabs||
+|shortcut|for the tabs|
 |---                       | --- |
 |ctrl + w						| close the current tab|
 |ctrl + t						| open new tab|
@@ -22,13 +22,13 @@
 
 ## Shell
 
-|shortcut                       | what it do|
+|shortcuts|mainly used|
 |---                       | --- |
 |ctrl + f						| search something on viewing shell window|
 |ctrl + c						| stop/cancel a running programm/command|
 
 ### flags
-|flag                       | what it could often do|
+|flags| what it could often do|
 |---                       | --- |
 |-v								| flag usually used to get version of the following software|
 |-f								| flag usually used to force a command|
@@ -38,6 +38,8 @@
 
 ## Chrome
 
+|shortcut|mainly used|
+|---                       | --- |
 |ctrl + tab						| change on the next tab|
 |ctrl + shift + tab				| change on the previous tab|
 |ctrl + 1						| change on the first tab opened|
@@ -56,7 +58,7 @@
 ## Visual Code Studio
 
 ### Mainly used 
-|shortcut                       | what it do|
+|shortcuts|mainly used|
 |---                       | --- |
 |ctrl + tab						| change on the last tab used|
 |ctrl + shift + tab				| change on the first tab used|
@@ -70,7 +72,7 @@
 
 ### Main commands
 
-|shortcut                       | what it do|
+|shortcut|for general setup and usage|
 |---                       | --- |
 |ctrl + shift + p				| Show command palette|
 |ctrl + ,						| access to user settings|
@@ -80,11 +82,11 @@
 
 ### About lines
 
-|shortcut                       | what it do|
+|shortcut|to manipulate lines|
 |---                       | --- |
 |ctrl + shift + arrowUp			| place cursor above the actual one|
 |ctrl + shift + arrowDown		| place cursor below the actual one|
 |alt + shift + arrowUp			| duplicate line (not computer at school)|
 |alt + shift + arrowDown		| duplicate line (not computer at school)|
 |ctrl + l						| select the whole line where the cursor is actually placed|
-|alt + z                        | display lines|
+|alt + z                        | display too long lines that are not display normally with line virtual line break|
