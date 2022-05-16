@@ -13,7 +13,7 @@
 
 ### tabs
 
-|tabs|
+|tabs||
 |---                       | --- |
 |ctrl + w						| close the current tab|
 |ctrl + t						| open new tab|
