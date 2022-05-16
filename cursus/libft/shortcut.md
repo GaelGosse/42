@@ -2,7 +2,7 @@
 
 ## Basics (available on chrome and vscode) 
 
-alt + tab						: change application's window
+alt + tab emsp					: change application's window
 
 ctrl + arrowRight				: move your cursor at the end of the next word
 
@@ -11,6 +11,7 @@ ctrl + arrowLeft				: move your cursor at the beginning of the previous word
 shift + arrowRight				: select the next character
 
 shift + arrowLeft				: move your cursor at the beginning of the previous word
+
 
 
 ### tabs
@@ -35,6 +36,7 @@ ctrl + c						: stop/cancel a running programm/command
 -h								: flag usually used to get some help
 
 
+
 ## Chrome
 
 ctrl + tab						: change on the next tab
@@ -57,6 +59,7 @@ ctrl + 9						: change on the last tab opened (even if there are more than nine 
 ctrl + shift + i				: open DevTools (you can see the source code of a webpage and also execute some javascript snippets on the tab console in the DevTools)
 
 ctrl + shift + c				: select an html tag on a webpage and see where it placed on the DevTools (of course it will open the DevTools)
+
 
 
 ## Visual Code Studio
