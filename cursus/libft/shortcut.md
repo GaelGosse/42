@@ -2,6 +2,8 @@
 
 ## Basics (available on chrome and vscode) 
 
+|shortcut                       | what it do|
+|---                       | --- |
 |alt + tab   					| change application's window|
 |ctrl + arrowRight				| move your cursor at the end of the next word|
 |ctrl + arrowLeft				| move your cursor at the beginning of the previous word|
@@ -10,6 +12,9 @@
 
 
 ### tabs
+
+|tabs|
+|---                       | --- |
 |ctrl + w						| close the current tab|
 |ctrl + t						| open new tab|
 |ctrl + shift + t				| open the last tab closed|
@@ -17,10 +22,14 @@
 
 ## Shell
 
+|shortcut                       | what it do|
+|---                       | --- |
 |ctrl + f						| search something on viewing shell window|
 |ctrl + c						| stop/cancel a running programm/command|
 
 ### flags
+|flag                       | what it could often do|
+|---                       | --- |
 |-v								| flag usually used to get version of the following software|
 |-f								| flag usually used to force a command|
 |-h								| flag usually used to get some help|
@@ -53,7 +62,7 @@
 |ctrl + shift + tab				| change on the first tab used|
 |ctrl + shift + e				| place the cursor on the left zone of vscode to select files/folders of your opened project|
 |ctrl + shift + x				| place the cursor on the left zone to see extensions that you have already installed and also to search one|
-
+|---                       | --- |
 |ctrl + f						| search something on a page|
 |ctrl + h						| replace something on a page by another|
 |ctrl + shift + f				| search something in all files (and files in subfolder) of your project|
@@ -61,6 +70,8 @@
 
 ### Main commands
 
+|shortcut                       | what it do|
+|---                       | --- |
 |ctrl + shift + p				| Show command palette|
 |ctrl + ,						| access to user settings|
 |ctrl + ~ 						| view/toggle termnial (at school on ubuntu)|
@@ -69,6 +80,8 @@
 
 ### About lines
 
+|shortcut                       | what it do|
+|---                       | --- |
 |ctrl + shift + arrowUp			| place cursor above the actual one|
 |ctrl + shift + arrowDown		| place cursor below the actual one|
 |alt + shift + arrowUp			| duplicate line (not computer at school)|
