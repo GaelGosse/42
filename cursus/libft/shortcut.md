@@ -50,6 +50,7 @@
 |ctrl + 9						| change on the last tab opened (even if there are more than nine tabs opened)|
 
 ### Not useful for beginners (except for project in web)
+|---                       | --- |
 |ctrl + shift + i				| open DevTools (you can see the source code of a webpage and also execute some javascript snippets on the tab console in the DevTools)|
 |ctrl + shift + c				| select an html tag on a webpage and see where it placed on the DevTools (of course it will open the DevTools)|
 
