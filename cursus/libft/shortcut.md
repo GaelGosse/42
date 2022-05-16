@@ -2,7 +2,7 @@
 
 ## Basics (available on chrome and vscode) 
 
-alt + tab emsp					: change application's window
+alt + tab   					: change application's window
 
 ctrl + arrowRight				: move your cursor at the end of the next word
 
