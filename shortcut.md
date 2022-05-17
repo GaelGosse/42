@@ -156,4 +156,4 @@ void ft_putchar_fd(char c, int fd)
 }
 ```
 
-move your mouse on the previous rectangle
+move your mouse on the previous rectangle, to see button "copy to the clipboard" even in discord
