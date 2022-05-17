@@ -128,9 +128,24 @@ your code
 \`\`\`
 
 example :
+
 \`\`\`c
+
+void ft_putchar_fd(char c, int fd)
+
+{
+
+	write(fd, &c, 1);
+
+}
+
+\`\`\`
+
+render:
+
+```c
 void ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-\`\`\`
+```
