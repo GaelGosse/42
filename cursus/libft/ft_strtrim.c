@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/13 21:28:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/17 15:31:09 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	while (ft_isset(str[end], set) == 1)
 		end--;
 	new_str = (char *)malloc((end - start) * sizeof(char) + 1);
+	if (!new_str)
+		return (NULL);
 	while (start <= end)
 	{
 		new_str[ite] = str[start];

@@ -2,8 +2,8 @@ ft str trim :
 
 
 ft_atoi.c			: OK
-ft_itoa.c			: 
-ft_bzero.c			: apres memset 
+ft_itoa.c			: OK
+ft_bzero.c			: OK 
 ft_calloc.c			: 
 ft_isalpha.c		: OK
 ft_isprint.c		: OK
@@ -23,7 +23,7 @@ ft_putnbr_fd.c		:
 ft_strdup.c			: 
 ft_strlcat.c		: 
 ft_strmapi.c		:  
-ft_strrchr.c		: return NULL mais pas declarerpour renvoyer NULL
+ft_strrchr.c		: return NULL mais pas declarer pour renvoyer NULL
 ft_split.c			:
 ft_striteri.c		:
 ft_strlcpy.c		:

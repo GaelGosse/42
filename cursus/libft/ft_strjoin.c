@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:19:59 by gael              #+#    #+#             */
-/*   Updated: 2022/05/12 16:37:54 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/17 16:08:51 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strjoin(char    **str)
-{
-    (void)str;
-    return (str);
-}
+// char    *ft_strjoin(char    **str)
+// {
+//     (void)str;
+//     return (str);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:42 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/12 16:14:39 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/17 16:08:06 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	ft_memchr(int	c)
 #include <ctype.h>
 #include <stdlib.h>
 
-int main()
-{
-	printf("%i\n", memchr('a'));
-	printf("%i\n", ft_memchr('a'));
-}
+// int main()
+// {
+// 	printf("%i\n", memchr('a'));
+// 	printf("%i\n", ft_memchr('a'));
+// }

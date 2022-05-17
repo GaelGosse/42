@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/12 16:14:41 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/17 16:08:14 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	ft_memcmp(int	c)
 #include <string.h>
 #include <stdlib.h>
 
-int main()
-{
-	printf("%i\n", memcmp('a'));
-	printf("%i\n", ft_memcmp('a'));
-}
+// int main()
+// {
+// 	printf("%i\n", memcmp('a'));
+// 	printf("%i\n", ft_memcmp('a'));
+// }

@@ -19,7 +19,6 @@
 |ctrl + **t**						| open new tab|
 |ctrl + shift + **t**				| open the last tab closed|
 
-
 ## Shell
 
 |shortcuts|mainly used|
@@ -117,3 +116,21 @@
 |ctrl + shift + **l**               | select all the occurences of the selected word/string in the page|
 |---                       | --- |
 |ctrl + **/**                       | turn the selected lines into comments
+
+### Discord
+
+To send code, write :
+
+``` name of your language
+
+your code
+
+````
+
+example :
+```c
+void ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+```

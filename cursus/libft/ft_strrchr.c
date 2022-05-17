@@ -6,10 +6,14 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:21 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/13 11:07:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/17 17:06:04 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *str, int search)
@@ -29,14 +33,9 @@ char	*ft_strrchr(const char *str, int search)
 	return ((char *)(&str[i]));
 }
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
-
-int main()
-{
-	printf("%s \n", strrchr("abc defg h ijkl mnop", 'x'));
-	printf("%s \n", ft_strrchr("abc defg h ijkl mnop", 'x'));
-	return (0);
-}
+// int main()
+// {
+// 	printf("%s \n", strrchr("abc defg h ijkl mnop", 'x'));
+// 	printf("%s \n", ft_strrchr("abc defg h ijkl mnop", 'x'));
+// 	return (0);
+// }
