@@ -65,5 +65,10 @@ $3: for the third parameter
 ...
 
 
+### extension for zsh's theme
+
+*to get it:* sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
 Like shortcut.md, I hope it could be useful for some :)
 
