@@ -90,7 +90,7 @@
 
 |shortcut|for general setup and usage|
 |:---:                       | :---: |
-|**ctrl** + **shift** + p				| Show command palette|
+|**ctrl** + **shift** + **p**			| Show command palette|
 |**ctrl** + **,**						| access to user settings|
 |**ctrl** + **~** 						| view/toggle termnial (at school on ubuntu)|
 |**ctrl** + **ù** 						| view/toggle termnial (lot of chance to work on Windows)|
@@ -100,11 +100,11 @@
 
 |shortcuts|to manipulate lines|
 |:---:                       | :---: |
-|**ctrl** + **shift** + arrowUp			| place cursor above the actual one|
-|**ctrl** + **shift** + arrowDown		| place cursor below the actual one|
+|**ctrl** + **shift** + **arrowUp**			| place cursor above the actual one|
+|**ctrl** + **shift** + **arrowDown**		| place cursor below the actual one|
 |---                       | --- |
-|**alt** + **shift** + arrowUp			| duplicate line on the previous line (not computer at school)|
-|**alt** + **shift** + arrowDown		| duplicate line on the next line (not computer at school)|
+|**alt** + **shift** + **arrowUp**			| duplicate line on the previous line (not computer at school)|
+|**alt** + **shift** + **arrowDown**		| duplicate line on the next line (not computer at school)|
 |---                       | --- |
 |**alt** + **arrowUp**			        | move the current line up (move a block of lines if multiple lines are selected)|
 |**alt** + **arrowDown**		        | move the current lien down (move a block of lines if multiple lines are selected) |
