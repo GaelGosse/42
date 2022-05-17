@@ -123,7 +123,7 @@ To send code, write :
 
 \`\`\` name of your language
 
-your code
+your code...
 
 \`\`\`
 
@@ -135,7 +135,7 @@ void ft_putchar_fd(char c, int fd)
 
 {
 
-	\write(fd, &c, 1);
+write(fd, &c, 1);
 
 }
 
