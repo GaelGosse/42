@@ -121,16 +121,16 @@
 
 To send code, write :
 
-``` name of your language
+\`\`\` name of your language
 
 your code
 
-````
+\`\`\`
 
 example :
-```c
+\`\`\`c
 void ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-```
+\`\`\`
