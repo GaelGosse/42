@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:21 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/17 18:33:45 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/18 12:00:47 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strrchr(const char *str, int search)
 {
@@ -29,8 +30,8 @@ char	*ft_strrchr(const char *str, int search)
 		}
 		i--;
 	}
-
-	return ((char *)(&str[i]));
+	return (NULL);
+	// return ((char *)(&str[i]));
 }
 
 // int main()
