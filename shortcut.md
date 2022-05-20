@@ -1,6 +1,6 @@
 # Shortcuts
 
->**( ! )** ***Last modifications*** 
+>***Last modifications*** **( ! )**
 >
 >*Ctrl + Shift + L or (for Mac) Cmd + Shift + l* : *place in a printf the selected variable (extension required: Go Log Utils)* 
 
