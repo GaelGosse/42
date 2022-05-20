@@ -8,39 +8,39 @@
 
 |shortcuts|mainly used|
 |:---:                       | :---: |
-|alt + **tab**   					| change application's window|
-|ctrl + **arrowRight**				| move your cursor at the end of the next word|
-|ctrl + **arrowLeft**				| move your cursor at the beginning of the previous word|
-|shift + **arrowRight**				| select the next character|
-|shift + **arrowLeft**				| move your cursor at the beginning of the previous word|
+| Alt + **tab**   					| change application's window|
+| Ctrl + **arrowRight**				| move your cursor at the end of the next word|
+| Ctrl + **arrowLeft**				| move your cursor at the beginning of the previous word|
+| Shift + **arrowRight**				| select the next character|
+| Shift + **arrowLeft**				| move your cursor at the beginning of the previous word|
 
 
 ### tabs
 
 |shortcut|for the tabs|
 |:---:                       | :---: |
-|ctrl + **w**						| close the current tab|
-|ctrl + **t**						| open new tab|
-|ctrl + shift + **t**				| open the last tab closed|
+| Ctrl + **w**						| close the current tab|
+| Ctrl + **t**						| open new tab|
+| Ctrl + shift + **t**				| open the last tab closed|
 
 ## Shell
 
 |shortcuts|mainly used|
 |:---:                       | :---: |
-|ctrl + **f**						| search something on the shell window|
-|ctrl + **c**						| stop/cancel a running programm/command|
-|ctrl + shift + **c**				| copy the selected line(s)/character(s)|
-|ctrl + shift + **v**               | paste the clipboard on the prompt|
-|ctrl + alt + **l**                 | clear your shell like the command "clear"|
-|**ctrl++**                 | Zoom ++ |
-|**ctrl--**                 | Zoom -- |
+| Ctrl + **f**						| Search something on the shell window|
+| Ctrl + **c**						| Stop/cancel a running programm/command|
+| Ctrl + shift + **c**				| Copy the selected line(s)/character(s)|
+| Ctrl + shift + **v**               | Paste the clipboard on the prompt|
+| Ctrl + alt + **l**                 | Clear your shell like the command "clear"|
+| **ctrl++**                 | Zoom ++ |
+| **ctrl--**                 | Zoom -- |
 
 ### flags
 |flags| what it could often do|
 |:---:                       | :---: |
-|-v								| flag usually used to get version of the following software|
-|-f								| flag usually used to force a command|
-|-h								| flag usually used to get some help|
+| -v								| Flag usually used to get version of the following software|
+| -f								| Flag usually used to force a command|
+| -h								| Flag usually used to get some help|
 
 
 
@@ -48,20 +48,20 @@
 
 |shortcut|mainly used|
 |:---:                       | :---: |
-|ctrl + **tab**						| change on the next tab|
-|ctrl + shift + **tab**				| change on the previous tab|
-|ctrl + **1**						| change on the first tab opened|
-|ctrl + **2**						| change on the second tab opened|
-|ctrl + **3**						| change on the third tab opened|
-|ctrl + **4**						| change on the fourth tab opened|
+| Ctrl + **tab**						| Change on the next tab|
+| Ctrl + shift + **tab**				| Change on the previous tab|
+| Ctrl + **1**						| Change on the first tab opened|
+| Ctrl + **2**						| Change on the second tab opened|
+| Ctrl + **3**						| Change on the third tab opened|
+| Ctrl + **4**						| Change on the fourth tab opened|
 |...                            |   |
-|ctrl + **9**						| change on the last tab opened (even if there are more than nine tabs opened)|
+| Ctrl + **9**						| Change on the last tab opened (even if there are more than nine tabs opened)|
 
 ### Not useful for beginners (except for project in web)
 |shortcuts||
 |:---:                       | :---: |
-|ctrl + shift + **i**				| open DevTools (you can see the source code of a webpage and also execute some javascript snippets on the tab console in the DevTools)|
-|ctrl + shift + **c**				| select an html tag on a webpage and see where it placed on the DevTools (of course it will open the DevTools)|
+| Ctrl + shift + **i**				| Open DevTools (you can see the source code of a webpage and also execute some javascript snippets on the tab console in the DevTools)|
+| Ctrl + shift + **c**				| Select an html tag on a webpage and see where it placed on the DevTools (of course it will open the DevTools)|
 
 
 
@@ -69,62 +69,62 @@
 
 ### Before open a project with vscode
 |shortcuts|to open vscode|
-|:---:                       | :---: |
-|code .| open vscode on the current directory|
-|code file.c / folder|open the file/folder specified|
-|code -n| open a new window in vscode|
-|code -r .| open vscode on the current directory in the most recenlty used window/tab|
-|code --locale=fr| change the language|
-|code --disable-extensions .| disable extensions |
-|code --enable-extensions .| enable extensions |
+|:---:                       	| :---: |
+| code .							| Open vscode on the current directory|
+| code file.c / folder			| Open the file/folder specified|
+| code -n						| Open a new window in vscode|
+| code -r .						| Open vscode on the current directory in the most recenlty used window/tab|
+| code --locale=fr				| Change the language|
+| code --disable-extensions .	| Disable extensions |
+| code --enable-extensions .		| Enable extensions |
 
 ### Mainly used 
 |shortcuts|mainly used|
 |:---:                       | :---: |
-|ctrl + **tab**						| change on the last tab used|
-|ctrl + shift + **tab**				| change on the first tab used|
-|ctrl + shift + **e**				| place the cursor on the left zone of vscode to select files/folders of your opened project|
-|ctrl + shift + **x**				| place the cursor on the left zone of vscode to see extensions that you have already installed and also to search one|
-|ctrl + shift + **x**				| place the cursor on the left zone of vscdoe to 
+| Ctrl + **tab**						| Change on the last tab used|
+| Ctrl + shift + **tab**				| Change on the first tab used|
+| Ctrl + shift + **e**				| Place the cursor on the left zone of vscode to select files/folders of your opened project|
+| Ctrl + shift + **x**				| Place the cursor on the left zone of vscode to see extensions that you have already installed and also to search one|
+| Ctrl + shift + **x**				| Place the cursor on the left zone of vscdoe to 
 |---                       | --- |
-|ctrl + **f**						| search something on a page|
-|ctrl + **h**						| replace something on a page by another|
-|ctrl + shift + **f**				| search something in all files (and files in subfolder) of your project|
-|ctrl + shift + **h**				| replace something in all files (and files in subfolder) of your project by another|
+| Ctrl + **f**						| Search something on a page|
+| Ctrl + **h**						| Replace something on a page by another|
+| Ctrl + shift + **f**				| Search something in all files (and files in subfolder) of your project|
+| Ctrl + shift + **h**				| Replace something in all files (and files in subfolder) of your project by another|
 
 ### Main commands
 
 |shortcut|for general setup and usage|
 |:---:                       | :---: |
-|ctrl + shift + **p**			| Show command palette|
-|ctrl + **,**						| access to user settings|
-|ctrl + **~** 						| view/toggle termnial (at school on ubuntu)|
-|ctrl + **ù** 						| view/toggle termnial (lot of chance to work on Windows)|
+| Ctrl + shift + **p**				| Show command palette|
+| Ctrl + **,**						| Access to user settings|
+| Ctrl + **~** 						| View/toggle termnial (at school on ubuntu)|
+| Ctrl + **ù** 						| View/toggle termnial (lot of chance to work on Windows)|
 
 
 ### About lines
 
 |shortcuts|to manipulate lines|
 |:---:                       | :---: |
-|ctrl + shift + **arrowUp**			| place cursor above the actual one|
-|ctrl + shift + **arrowDown**		| place cursor below the actual one|
+| Ctrl + shift + **arrowUp**							| Place cursor above the actual one|
+| Ctrl + shift + **arrowDown**						| Place cursor below the actual one|
 |---                       | --- |
-|alt + shift + **arrowUp**			| duplicate line on the previous line (not computer at school)|
-|alt + shift + **arrowDown**		| duplicate line on the next line (not computer at school)|
+| Alt + shift + **arrowUp**							| Duplicate line on the previous line (not computer at school)|
+| Alt + shift + **arrowDown**						| Duplicate line on the next line (not computer at school)|
 |---                       | --- |
-|alt + **arrowUp**			        | move the current line up (move a block of lines if multiple lines are selected)|
-|alt + **arrowDown**		        | move the current lien down (move a block of lines if multiple lines are selected) |
+| Alt + **arrowUp**			        				| Move the current line up (move a block of lines if multiple lines are selected)|
+| Alt + **arrowDown**		        				| Move the current lien down (move a block of lines if multiple lines are selected) |
 |---                       | --- |
-|ctrl + **l**						| select the whole line where the cursor is actually placed|
-|alt + **z**                        | display too long lines that are not display normally with line virtual line break (word wrap)|
+| Ctrl + **l**										| Select the whole line where the cursor is actually placed|
+| Alt + **z**                        				| Display too long lines that are not display normally with line virtual line break (word wrap)|
 |---                       | --- |
-|ctrl + **d**                       | find the next occurence of the selected word/string (continue to press ctrl and tap on "d" to select the next occurences - as many times as you want)|
-|ctrl + shift + **l**               | select all the occurences of the selected word/string in the page|
+| Ctrl + **d**                       				| Find the next occurence of the selected word/string (continue to press ctrl and tap on "d" to select the next occurences - as many times as you want)|
+| Ctrl + shift + **l**               				| Select all the occurences of the selected word/string in the page|
 |---                       | --- |
-|ctrl + **/**                       | turn the selected lines into comments with //
-|ctrl + **\***                       | turn the selected lines into comments with /* */
+| Ctrl + **/**                       				| Turn the selected lines into comments with //
+| Ctrl + **\***                      				| Turn the selected lines into comments with /* */
 |---                       | --- |
-|Ctrl + Shift + L or (for Mac) Cmd + Shift + **l**                       | place in a printf the selected variable (extension required: Go Log Utils) 
+| Ctrl + Shift + L or (for Mac) Cmd + Shift + **l**  | place in a printf the selected variable (extension required: Go Log Utils) 
 
 
 
