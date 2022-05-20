@@ -2,7 +2,7 @@
 
 ***Last modifications:***
 
-*Ctrl + Shift + L or (for Mac) Cmd + Shift + l*: *place in a printf the selected variable (extension required: Go Log Utils)*
+*Ctrl + Shift + L or (for Mac) Cmd + Shift + l* : *place in a printf the selected variable (extension required: Go Log Utils)*
 
 ## Basics (available on chrome and vscode) 
 
@@ -32,6 +32,8 @@
 |ctrl + shift + **c**				| copy the selected line(s)/character(s)|
 |ctrl + shift + **v**               | paste the clipboard on the prompt|
 |ctrl + alt + **l**                 | clear your shell like the command "clear"|
+|**ctrl++**                 | Zoom ++ |
+|**ctrl--**                 | Zoom -- |
 
 ### flags
 |flags| what it could often do|
