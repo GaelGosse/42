@@ -2,7 +2,7 @@
 
 ***Last modifications:***
 
-**(!)** *Ctrl + Shift + L or (for Mac) Cmd + Shift + l* : *place in a printf the selected variable (extension required: Go Log Utils)* ***(!)***
+**( ! )** *Ctrl + Shift + L or (for Mac) Cmd + Shift + l* : *place in a printf the selected variable (extension required: Go Log Utils)* **( ! )**
 
 ## Basics (available on chrome and vscode) 
 
