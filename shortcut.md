@@ -1,5 +1,8 @@
 # Shortcuts
 
+***|Ctrl + Shift + L or (for Mac) Cmd + Shift + l***
+***place in a printf the selected variable (extension required: Go Log Utils) ***
+
 ## Basics (available on chrome and vscode) 
 
 |shortcuts|mainly used|
@@ -115,7 +118,12 @@
 |ctrl + **d**                       | find the next occurence of the selected word/string (continue to press ctrl and tap on "d" to select the next occurences - as many times as you want)|
 |ctrl + shift + **l**               | select all the occurences of the selected word/string in the page|
 |---                       | --- |
-|ctrl + **/**                       | turn the selected lines into comments
+|ctrl + **/**                       | turn the selected lines into comments with //
+|ctrl + **\***                       | turn the selected lines into comments with /* */
+|---                       | --- |
+|Ctrl + Shift + L or (for Mac) Cmd + Shift + **l**                       | place in a printf the selected variable (extension required: Go Log Utils) 
+
+
 
 ### Discord
 
