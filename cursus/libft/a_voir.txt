@@ -37,5 +37,19 @@ ft_strlen.c			: unsigned int a verifier size_t
 ft_strnstr.c		: 
 ft_substr.c			:   
 
-libft.h a faire
-Makefile
+
+
+
+int	main()
+{
+    char    a[] = "abc def gh ijkl mnop";
+    char    b[] = "abc def gh ijkl mnop";
+    char    c[200];
+    int     d = 0;
+    int     e = 10;
+
+	printf("xxx %i", xxx);
+	printf("xxy %s", xxy);
+
+	return (0);
+}
