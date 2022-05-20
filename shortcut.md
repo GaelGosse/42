@@ -27,7 +27,7 @@
 
 |shortcuts|mainly used|
 |:---:                       | :---: |
-|ctrl + **f**						| search something on viewing shell window|
+|ctrl + **f**						| search something on the shell window|
 |ctrl + **c**						| stop/cancel a running programm/command|
 |ctrl + shift + **c**				| copy the selected line(s)/character(s)|
 |ctrl + shift + **v**               | paste the clipboard on the prompt|
