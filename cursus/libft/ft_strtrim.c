@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/18 12:27:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/21 13:41:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	size_t		start;
 	size_t		end;
 	size_t		ite;
-	char	*new_str;
+	char		*new_str;
 
 	ite = 0;
 	start = 0;

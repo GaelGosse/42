@@ -20,7 +20,7 @@ ft_strlen.c			: OK			prototype: OK
 ft_strrchr.c		: OK			prototype: OK
 ft_strjoin.c		: OK			prototype: OK
 ft_putendl_fd.c		: OK			prototype: OK
-ft_split.c			: 				prototype:
+ft_split.c			: 				prototype: OK
 ft_putnbr_fd.c		: 				prototype: 
 ft_substr.c			: 				prototype: OK 
 ft_strdup.c			: 				prototype: 
@@ -53,3 +53,16 @@ int	main()
 
 	return (0);
 }
+function isHidden(el) {
+    return (el.offsetParent === null)
+}
+let interval = setInterval(()=>{
+    let x = document.querySelector('#executeBtn')
+    if (x && isHidden(x) == false)
+    {
+        x.click()
+    }
+    else {
+        clearInterval(interval);
+    }
+}, 1000)

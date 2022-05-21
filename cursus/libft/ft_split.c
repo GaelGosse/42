@@ -6,91 +6,106 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/05/21 12:17:12 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/21 18:26:32 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
-void	print_array(char	**arr)
+int    count_sep(const char *str, char sep)
 {
-	int	i;
+    int    ite;
+    int    count;
 
-	i = 0;
-	while (arr[i])
-	{
-		printf("arr[%i]: %s", i, arr[i]);
-	}
-}
-
-int	count_sep(const char *str, char sep)
-{
-	int	ite;
-	int	count;
-
-	ite = 0;
-	while (str[ite])
-	{
-		if (str[ite] == sep || str[ite] == '\0')
-		{
-			printf("str: %i\n", ite);
-			count++;
-		}
-		ite++;
-	}
-	return (count);
+    count = 0;
+    ite = 0;
+    while (str[ite] != '\0')
+    {
+        while (str[ite] == sep)
+            ite++;
+        while (str[ite] != sep && str[ite] != '\0')
+            ite++;
+        if (str[ite] != '\0')
+            count++;
+        ite++;
+    }
+    printf("%i", count);
+    return (count);
 }
 
 char **ft_split(const char *str, char sep)
 {
-	char	**result;
-	// char	*item;
-	int		len_word;
-	int		ite;
-	int		j;
-	int		k;
-	int		nbr_sep;
+    char    **result;
+    // char    *item;
+    int        len_word;
+    int        ite;
+    int        j;
+    int        k;
+    int        nbr_sep;
 
-	nbr_sep = count_sep(str, sep);
-	ite = 0;
-	len_word = 0;
-	result = (char **)malloc(nbr_sep * sizeof(char *) + 1);
-	// if (!result)
-	// 	return (NULL);
-	while (ite < nbr_sep + 1)
-	{
-		len_word = 0;
-		while (str[j] != sep && str[j] != '\0')
-		{
-			printf("%c", str[j]);
-			len_word++;
-			j++;
-		}
-		while (str[j] == sep)
-			j++;
-		printf(" ");
-		result[ite] = (char *)malloc(len_word * sizeof(char) + 1);
-		ite++;
-	}
-	ite = 0;
-	j = 0;
-	k = 0;
-	while (ite < nbr_sep)
-	{
-		result[ite][j]
-	}
-	return (result);
+    nbr_sep = count_sep(str, sep);
+    ite = 0;
+    j = 0;
+    len_word = 0;
+    result = (char **)malloc((nbr_sep + 1) * sizeof(char *) + 1);
+    // if (!result)
+    //     return (NULL);
+    while (ite < nbr_sep + 1)
+    {
+        len_word = 0;
+        while (str[j] != sep && str[j] != '\0')
+        {
+            len_word++;
+            j++;
+        }
+        while (str[j] == sep)
+            j++;
+        if (len_word != 0)
+            result[ite] = (char *)malloc(len_word * sizeof(char) + 1);
+        ite++;
+    }
+    ite = 0;
+    j = 0;
+    k = 0;
+    while (ite < nbr_sep + 1)
+    {
+        k = 0;
+        while (str[j] == sep)
+            j++;
+        while (str[j] != sep && str[j] != '\0')
+        {
+            result[ite][k] = str[j];
+            k++;
+            j++;
+        }
+        result[ite][k] = '\0';
+        while (str[j] == sep)
+            j++;
+        ite++;
+    }
+    result[ite] = (char *)malloc(sizeof(char) + 1);
+    result[ite][0] = '\0';
+    return (result);
 }
 
-int	main(void)
+void    print_array(char    **arr)
 {
-	char	*str = "abc def gh ijkl mnop";
-	// char	**result;
+    int    i;
 
-	// result =
-	// printf("%i", ft_strlen(str));
-	ft_split(str, ' ');
-	
-	return (0);
+    i = 0;
+    while (arr[i])
+    {
+        printf("arr[%i]: %s \n", i, arr[i]);
+        i++;
+    }
+}
+
+int    main(void)
+{
+    char    *str = "       abc   def gh    ijkl  mnop   ";
+    
+    print_array(ft_split(str, ' '));
+    
+    return (0);
 }
