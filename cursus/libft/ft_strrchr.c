@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:21 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/18 12:00:47 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/18 12:42:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 char	*ft_strrchr(const char *str, int search)
 {
-	int	i;
+	size_t	i;
 
-	i = ft_strlen((char	*)(str));
+	i = ft_strlen((const char	*)(str));
 	while(i > 0)
 	{
 		if(str[i] == search)
@@ -31,12 +31,12 @@ char	*ft_strrchr(const char *str, int search)
 		i--;
 	}
 	return (NULL);
-	// return ((char *)(&str[i]));
 }
 
 // int main()
 // {
-// 	printf("%s \n", strrchr("abc defg h ijkl mnop", 'x'));
-// 	printf("%s \n", ft_strrchr("abc defg h ijkl mnop", 'x'));
+// 	printf("%s \n", ft_strrchr("abc defg h ijkl mnop", 'e'));
+// 	printf("%s \n", strrchr("abc defg h ijkl mnop", 'e'));
+
 // 	return (0);
 // }

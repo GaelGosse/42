@@ -14,6 +14,9 @@
 | Shift + **arrowRight**				| select the next character|
 | Shift + **arrowLeft**				| move your cursor at the beginning of the previous word|
 
+### Ubuntu
+
+change shortcuts settings
 
 ### tabs
 

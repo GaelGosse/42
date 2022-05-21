@@ -1,41 +1,41 @@
 ft str trim : 
 
 
-ft_atoi.c			: OK
-ft_itoa.c			: OK
-ft_bzero.c			: OK 
-ft_calloc.c			: 
-ft_isalpha.c		: OK
-ft_isprint.c		: OK
-ft_isascii.c		: OK
-ft_isalnum.c		: OK
-ft_isdigit.c		: OK 
-ft_join.c			: 
-ft_memchr.c			:  
-ft_memcpy.c			:  
-ft_memmove.c		:  
-ft_memcmp.c			: 
-ft_memset.c			: OK
-ft_putendl_fd.c		: 
-ft_putchar_fd.c		: OK
-ft_putstr_fd.c		: OK
-ft_putnbr_fd.c		: 
-ft_strdup.c			: 
-ft_strlcat.c		: 
-ft_strmapi.c		:  
-ft_strrchr.c		: return NULL mais pas declarer pour renvoyer NULL
-ft_split.c			:
-ft_striteri.c		:
-ft_strlcpy.c		:
-ft_strncmp.c		:
-ft_strtrim.c		: OK
-ft_tolower.c		: OK
-ft_toupper.c		: OK
-ft_strchr.c			: OK
-ft_strjoin.c		: 
-ft_strlen.c			: unsigned int a verifier size_t 
-ft_strnstr.c		: 
-ft_substr.c			:   
+ft_atoi.c			: OK			prototype: OK
+ft_itoa.c			: OK			prototype: OK
+ft_bzero.c			: OK			prototype:  
+ft_isalpha.c		: OK			prototype: 
+ft_isprint.c		: OK			prototype: 
+ft_isascii.c		: OK			prototype: 
+ft_isalnum.c		: OK			prototype: 
+ft_isdigit.c		: OK			prototype:  
+ft_memset.c			: OK			prototype: 
+ft_putchar_fd.c		: OK			prototype: 
+ft_putstr_fd.c		: OK			prototype: 
+ft_strtrim.c		: OK			prototype: 
+ft_tolower.c		: OK			prototype: 
+ft_toupper.c		: OK			prototype: 
+ft_strchr.c			: OK			prototype: 
+ft_strlen.c			: OK			prototype: OK 
+ft_strrchr.c		: OK			prototype: OK
+ft_strjoin.c		: OK			prototype: OK
+ft_putendl_fd.c		: OK			prototype: OK
+ft_split.c			: 				prototype:
+ft_putnbr_fd.c		: 				prototype: 
+ft_substr.c			: 				prototype: OK 
+ft_strdup.c			: 				prototype: 
+ft_memchr.c			: 				prototype:  
+ft_memcpy.c			: 				prototype:  
+ft_memcmp.c			: 				prototype: 
+ft_strmapi.c		: 				prototype: OK 
+ft_striteri.c		: 				prototype:
+ft_strncmp.c		: 				prototype:
+ft_strlcat.c		: 				prototype:
+ft_strlcpy.c		: 				prototype:
+ft_strnstr.c		: 				prototype:
+ft_calloc.c			: 				prototype:
+ft_join.c			: 				prototype:
+ft_memmove.c		: 				prototype: 
 
 
 
