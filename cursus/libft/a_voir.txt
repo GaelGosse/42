@@ -20,12 +20,12 @@ ft_strlen.c			: OK			prototype: OK
 ft_strrchr.c		: OK			prototype: OK
 ft_strjoin.c		: OK			prototype: OK
 ft_putendl_fd.c		: OK			prototype: OK
-ft_split.c			: 				prototype: OK
-ft_putnbr_fd.c		: 				prototype: 
-ft_substr.c			: 				prototype: OK 
-ft_strdup.c			: 				prototype: 
-ft_memchr.c			: 				prototype:  
+ft_split.c			: OK			prototype: OK
+ft_putnbr_fd.c		: OK			prototype: OK
+ft_substr.c			: OK			prototype: OK 
+ft_strdup.c			: OK			prototype: OK
 ft_memcpy.c			: 				prototype:  
+ft_memchr.c			: 				prototype:  
 ft_memcmp.c			: 				prototype: 
 ft_strmapi.c		: 				prototype: OK 
 ft_striteri.c		: 				prototype:
@@ -37,7 +37,7 @@ ft_calloc.c			: 				prototype:
 ft_join.c			: 				prototype:
 ft_memmove.c		: 				prototype: 
 
-
+FREE malloc : 
 
 
 int	main()
@@ -53,12 +53,13 @@ int	main()
 
 	return (0);
 }
+
 function isHidden(el) {
     return (el.offsetParent === null)
 }
 let interval = setInterval(()=>{
     let x = document.querySelector('#executeBtn')
-    if (x && isHidden(x) == false)
+    if (x && isHidden(x) == false && x.textContent == "Visualize Execution")
     {
         x.click()
     }
@@ -66,3 +67,23 @@ let interval = setInterval(()=>{
         clearInterval(interval);
     }
 }, 1000)
+
+
+shell task
+ps -aux | sort -nk +4 | tail -n 10
+ps aux --sort -rss | head
+
+
+void    print_array(char    **arr)
+{
+    int    i;
+
+    i = 0;
+    while (arr[i])
+    {
+        printf("arr[%i]: %s \n", i, arr[i]);
+        i++;
+    }
+}
+
+ norm | grep -v -i space | grep -v -i empty | grep -v -i brace | grep -v -i include | grep -v -i few | grep -v -i misaligned | grep -v -i consecutive | grep -v -i wrong | grep -v -i ok | grep -i -v vars | grep -v -i decl | grep -v -i long 

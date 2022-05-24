@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 11:23:37 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/13 11:26:27 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/24 15:36:33 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void ft_putstr_fd(char *s, int fd)
 	write(fd, s, i);
 }
 
-int	main(void)
-{
-	char	str[] = "abc";
-	ft_putstr_fd(str, 1);
-}
+// int	main(void)
+// {
+// 	char	str[] = "abc";
+// 	ft_putstr_fd(str, 1);
+// }

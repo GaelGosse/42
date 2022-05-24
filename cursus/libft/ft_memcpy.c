@@ -6,26 +6,46 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/17 16:08:25 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/24 18:54:26 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcpy(int	c)
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void	*ft_memcpy(void *destination, const void *source, size_t size)
 {
-	if ((c >= 'A') && (c <= 'Z'))
+	unsigned int	i;
+	const char		*new_src;
+	char			*new_dest;
+
+	new_dest = destination;
+	new_src = source;
+	i = 0;
+	new_dest = (char *)malloc(size);
+	while (new_src[i])
 	{
-			c += 32;
+		new_dest[i] = new_src[i]; 
+		i++;
 	}
-	return (c);
+	return 	(new_dest);
 }
 
-// #include <stdio.h>
-// #include <string.h>
-// #include <ctype.h>
-// #include <stdlib.h>
+int main() {
 
-// int main()
-// {
-// 	printf("%i\n", memcpy('a'));
-// 	printf("%i\n", ft_memcpy('a'));
-// }
+    char array[] = "abc";
+    char *copy = NULL;
+    int length = sizeof(char) * 3;
+       
+    copy = (char *) malloc( length );
+    ft_memcpy(copy, array, length );
+        
+    printf("%s", copy);
+    printf("\n" );
+        
+    free( copy );
+    
+    return (0);
+}

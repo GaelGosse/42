@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   save.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/05/24 11:08:11 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/23 18:18:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,27 @@ int    count_word(const char *str, char sep)
     return (count);
 }
 
-void    allocm(const char *str, char sep, int ite, int j, int len_word, int nbr_word, char **result)
+void    allocm()
 {
+    
+}
+
+char **ft_split(const char *str, char sep)
+{
+    char    **result;
+    int        len_word;
+    int        ite;
+    int        j;
+    int        k;
+    int        nbr_word;
+
+    nbr_word = count_word(str, sep);
+    ite = 0;
+    j = 0;
+    len_word = 0;
+    result = (char **)malloc((nbr_word + 1) * sizeof(char *));
+    if (!result)
+        return (NULL);
     while (str[j] == sep)
         j++;
     while (ite < nbr_word + 1)
@@ -51,10 +70,6 @@ void    allocm(const char *str, char sep, int ite, int j, int len_word, int nbr_
             result[ite] = (char *)malloc((len_word + 1) * sizeof(char));
         ite++;
     }
-}
-
-void    wrte(const char *str, char sep, int ite, int j, int k, int nbr_word, char **result)
-{
     ite = 0;
     j = 0;
     k = 0;
@@ -75,37 +90,29 @@ void    wrte(const char *str, char sep, int ite, int j, int k, int nbr_word, cha
         ite++;
     }
     result[ite] = 0;
+    return (result);
 }
 
-char **ft_split(const char *str, char sep)
+void    print_array(char    **arr)
 {
-    char    **result;
-    int        len_word;
-    int        ite;
-    int        j;
-    int        k;
-    int        nbr_word;
+    int    i;
 
-    nbr_word = count_word(str, sep);
-    ite = 0;
-    j = 0;
-    k = 0;
-    len_word = 0;
-    result = (char **)malloc((nbr_word + 1) * sizeof(char *));
-    if (!result)
-        return (NULL);
-    allocm(str, sep, ite, j, len_word, nbr_word, result);
-    wrte(str, sep, ite, j, k, nbr_word, result);
-    return (result);
+    i = 0;
+    while (arr[i])
+    {
+        printf("arr[%i]: %s \n", i, arr[i]);
+        i++;
+    }
 }
 
 int    main(void)
 {
     char    *str = "       abc   def gh    ijkl  mnop   ";
     char    charset =  ' ';
+    char    **result;
 
-    // result = ft_split(str, charset);    
-    print_array(ft_split(str, charset));
+    result = ft_split(str, charset);    
+    // print_array(ft_split(str, charset));
 
     
     return (0);
