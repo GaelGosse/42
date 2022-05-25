@@ -6,11 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:42 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/18 12:00:16 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/25 18:56:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memchr(int	c)
+void *memchr(const void *b, int c, size_t len)
 {
 	if ((c >= 'A') && (c <= 'Z'))
 	{

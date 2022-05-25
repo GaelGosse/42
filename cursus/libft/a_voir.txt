@@ -24,17 +24,17 @@ ft_split.c			: OK			prototype: OK
 ft_putnbr_fd.c		: OK			prototype: OK
 ft_substr.c			: OK			prototype: OK 
 ft_strdup.c			: OK			prototype: OK
+ft_strnstr.c		: OK			prototype: OK
+ft_strncmp.c		: OK            prototype: OK
+ft_strlcat.c		: 				prototype:
+ft_strlcpy.c		: 				prototype:
+ft_join.c			: 				prototype:
+ft_strmapi.c		: 				prototype: OK 
+ft_striteri.c		: 				prototype:
+ft_calloc.c			: 				prototype:
 ft_memcpy.c			: 				prototype:  
 ft_memchr.c			: 				prototype:  
 ft_memcmp.c			: 				prototype: 
-ft_strmapi.c		: 				prototype: OK 
-ft_striteri.c		: 				prototype:
-ft_strncmp.c		: 				prototype:
-ft_strlcat.c		: 				prototype:
-ft_strlcpy.c		: 				prototype:
-ft_strnstr.c		: 				prototype:
-ft_calloc.c			: 				prototype:
-ft_join.c			: 				prototype:
 ft_memmove.c		: 				prototype: 
 
 FREE malloc : 

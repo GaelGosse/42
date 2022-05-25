@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/05/24 11:08:11 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/25 13:20:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int    main(void)
     char    charset =  ' ';
 
     // result = ft_split(str, charset);    
-    print_array(ft_split(str, charset));
+    ft_split(str, charset);
 
     
     return (0);

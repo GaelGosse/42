@@ -6,27 +6,27 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/09 19:06:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/25 19:40:32 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_tolower(int	c)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if ((c >= 'A') && (c <= 'Z'))
-	{
-			c += 32;
-	}
-	return (c);
-}
+	int	total_len;
+	char	*
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
+	total_len = ft_strlen(dst) + ft_strlen(src);
+
+
+	return (total_len);
+}
 
 int main()
 {
-	printf("%i\n", tolower('a'));
-	printf("%i\n", ft_tolower('a'));
+	char	*a = "abc";
+	char	*b = "def";
+
+	printf("%i\n", ft_strlcat(a, b, 7));
 }

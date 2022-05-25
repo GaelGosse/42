@@ -6,13 +6,13 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:42 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/09 19:06:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/25 19:28:11 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int	ft_tolower(int	c)
-{
+size_tstrlcpy(char * restrict dst, const	char * restrict	src, size_t dstsize){
 	if ((c >= 'A') && (c <= 'Z'))
 	{
 			c += 32;
@@ -20,10 +20,6 @@ int	ft_tolower(int	c)
 	return (c);
 }
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:30 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/17 19:34:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/25 18:55:46 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,39 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char    *ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t		i;
-	size_t		j;
+    size_t	b;
+    size_t	l;
+    size_t	lil_len;
+	char	*conv_big;
 
-	j = 0;
-	i = 0;
-	while (i < len || big[i] != '\0')
-	{
-		while ((little[j] == big[i]) && (little[i] != '\0'))
-		{
-			
-			j++;
-		}
-		if (little[i] != '\0')
-			return ((char *)(&big[i]));
-		i++;
-		printf("i: %li \n", i);
-		printf("big[i] != '0': %i \n", big[i] != '\0');
-		printf("i < len: %i \n", i < len);
-	}
-	return (NULL);
+    b = 0;
+    l = 0;
+    conv_big = (char *)big;
+    lil_len = ft_strlen(little); 
+    if (little[0] == '\0')
+        return (conv_big);
+    while (b < len && big[b] != '\0')
+    {
+        while (big[b] == little[l] && little[l] != '\0' && l < len)
+        {
+            b++;
+            l++;
+        }
+        if (l == lil_len )
+            return (conv_big + b);
+        b++;
+    }
+    return (NULL);
 }
 
-int main(void)
-{
-	printf("%s \n", ft_strnstr("abc defg hij kl mnop", "ef", 5));
-	return (0);
-}
+// int main(void)
+// {
+// 	printf("defg hij kl mnop\n%s\n", ft_strnstr("abc defg hij kl mnop", "c ", 4));
+// 	printf("(null) : %s \n", ft_strnstr("abc defg hij kl mnop", "ef", 4));
+// 	printf("(null) : %s \n", ft_strnstr("abc defg hij kl mnop", "bc def", 4));
+// 	return (0);
+// }
