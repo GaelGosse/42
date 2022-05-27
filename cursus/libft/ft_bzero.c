@@ -6,14 +6,10 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 21:26:10 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/18 12:02:45 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/27 21:26:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
 void ft_bzero(void *str, size_t n)

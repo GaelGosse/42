@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/05/27 17:27:59 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/27 21:31:39 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int    count_word(const char *str, char sep)
     return (count);
 }
 
-void    allocm(const char *str, char sep, int ite, int j, int len_word, int nbr_word, char **result)
+int    allocm(const char *str, char sep, int ite, int j, int len_word, int nbr_word, char **result)
 {
     while (str[j] == sep)
         j++;
@@ -48,14 +48,17 @@ void    allocm(const char *str, char sep, int ite, int j, int len_word, int nbr_
         while (str[j] == sep)
             j++;
         if (len_word != 0)
+        {
             result[ite] = (char *)malloc((len_word + 1) * sizeof(char));
             if (!result)
                 return (0);
+        }
         ite++;
     }
+    return (1);
 }
 
-int    wrte(const char *str, char sep, int ite, int j, int k, int nbr_word, char **result)
+void    wrte(const char *str, char sep, int ite, int j, int k, int nbr_word, char **result)
 {
     ite = 0;
     j = 0;
@@ -98,7 +101,7 @@ char **ft_split(const char *str, char sep)
         return (NULL);
     if (allocm(str, sep, ite, j, len_word, nbr_word, result) == 0)
         return (NULL);
-    wrte(str, sep, ite, j, k, nbr_word, result) == 0);
+    wrte(str, sep, ite, j, k, nbr_word, result);
     return (result);
 }
 

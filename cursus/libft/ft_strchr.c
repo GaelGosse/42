@@ -6,11 +6,13 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:54 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 20:46:33 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/27 21:33:05 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+#include "libft.h"
+
+char *strchr(const char *str, int search)
 {
 	size_t	i;
 

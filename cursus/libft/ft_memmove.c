@@ -6,15 +6,17 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:08:09 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 20:20:27 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/27 21:29:52 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*memmove(void *destination, const void *source, size_t n)
 {
 	unsigned char	*dst;
 	unsigned char	*src;
-	int				i;
+	size_t				i;
 
 	dst = (unsigned char *)destination;
 	src = (unsigned char *)source;
@@ -37,6 +39,7 @@ void	*memmove(void *destination, const void *source, size_t n)
 			n--;
 		}
 	}
+	return (dst);
 }
 
 

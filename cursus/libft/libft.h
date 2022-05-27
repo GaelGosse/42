@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 21:12:59 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/27 21:26:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_isascii(int	c);
 int		ft_isdigit(int c);
 int		ft_isprint(int	c);
 char 	*ft_itoa(int n);
-void	*ft_memchr(const void *s, int c, size_t len)
+void	*ft_memchr(const void *s, int c, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *destination, const void *source, size_t size);
 void	*memmove(void *destination, const void *source, size_t n);
@@ -46,7 +46,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t 	ft_strlcpy(char * restrict dst, const	char * restrict	src, size_t dstsize);
 size_t	ft_strlen(const char *str);
-char 	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
+char 	*ft_strmapi(const char *str, char (*f)(unsigned int, char));
 int		ft_strncmp( const char * first, const char * second, size_t length);
 char    *ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *str, int search);
