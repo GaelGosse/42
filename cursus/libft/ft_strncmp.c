@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:34 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/25 19:24:35 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/27 16:32:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ft_strncmp( const char * first, const char * second, size_t length )
 	size_t	i;
 
 	i = 0;
-	while (first[i] != '\0' && second[i] != '\0' && i < length)
+	while ((first[i] || second[i]) && i < length)
 	{
 		if (first[i] != second[i])
 		{

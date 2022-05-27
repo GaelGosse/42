@@ -26,16 +26,15 @@ ft_substr.c			: OK			prototype: OK
 ft_strdup.c			: OK			prototype: OK
 ft_strnstr.c		: OK			prototype: OK
 ft_strncmp.c		: OK            prototype: OK
-ft_strlcat.c		: 				prototype:
-ft_strlcpy.c		: 				prototype:
-ft_join.c			: 				prototype:
+ft_strlcat.c		: OK			prototype: OK
+ft_strlcpy.c		: OK			prototype: OK
 ft_strmapi.c		: 				prototype: OK 
 ft_striteri.c		: 				prototype:
-ft_calloc.c			: 				prototype:
-ft_memcpy.c			: 				prototype:  
-ft_memchr.c			: 				prototype:  
-ft_memcmp.c			: 				prototype: 
-ft_memmove.c		: 				prototype: 
+ft_calloc.c			: OK			prototype: OK
+ft_memcpy.c			: OK			prototype: OK
+ft_memchr.c			: OK			prototype: OK
+ft_memcmp.c			: OK			prototype: OK
+ft_memmove.c		: 				prototype: OK
 
 FREE malloc : 
 
@@ -59,12 +58,14 @@ function isHidden(el) {
 }
 let interval = setInterval(()=>{
     let x = document.querySelector('#executeBtn')
-    if (x && isHidden(x) == false && x.textContent == "Visualize Execution")
+    if (x && isHidden(x) == false)
     {
-        x.click()
+        if (x.textContent == "Visualize Execution")
+            x.click()
     }
     else {
         clearInterval(interval);
+        console.clear();
     }
 }, 1000)
 

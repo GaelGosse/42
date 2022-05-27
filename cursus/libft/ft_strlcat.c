@@ -3,24 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/25 19:40:32 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/26 23:00:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	total_len;
-	char	*
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i_dst;
+	size_t	i_src;
 
-	total_len = ft_strlen(dst) + ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
 
+	i_src = 0;
+	i_dst = dst_len;
 
-	return (total_len);
+	if (dst_len < size - 1 && size > 0)
+	{
+		while (*(src + i_src) != '\0' && i_dst < size)
+		{
+			*(dst + i_dst) = *(src + i_src);
+			i_dst++;
+			i_src++;
+		}
+		*(dst + i_dst) = '\0';
+	}
+	if (dst_len >= size)
+		dst_len = size;
+
+	return (dst_len + src_len);
 }
 
 int main()
@@ -28,5 +47,5 @@ int main()
 	char	*a = "abc";
 	char	*b = "def";
 
-	printf("%i\n", ft_strlcat(a, b, 7));
+	printf("%li\n", ft_strlcat(a, b, 7));
 }
