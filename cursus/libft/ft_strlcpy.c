@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:42 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/26 17:01:51 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/27 21:16:47 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// size_tstrlcpy(char * restrict dst, const	char * restrict	src, size_t dstsize){
-// 	if ((c >= 'A') && (c <= 'Z'))
-// 	{
-// 			c += 32;
-// 	}
-// 	return (c);
-// }
+size_t	strlcpy(char *dst, const char *src, size_t size)
+{
+	int	i;
+
+	i = 0;
+	while ()
+	{
+		
+	}
+}
 
 
 // int main()

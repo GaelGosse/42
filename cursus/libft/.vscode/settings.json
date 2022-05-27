@@ -3,6 +3,7 @@
 	"files.associations": {
 		"ctype.h": "c",
 		"sstream": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"libft.h": "c"
 	}
 }
