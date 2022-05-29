@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 17:13:02 by gael              #+#    #+#             */
-/*   Updated: 2022/05/27 21:28:18 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/29 20:57:50 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *calloc(size_t nmemb, size_t size)
+void    *ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res;
 	
@@ -25,7 +25,7 @@ void    *calloc(size_t nmemb, size_t size)
 	return (res);
 }
 
-int main(void)
-{
-	return (0);
-}
+// int main(void)
+// {
+// 	return (0);
+// }

@@ -28,13 +28,13 @@ ft_strnstr.c		: OK			prototype: OK
 ft_strncmp.c		: OK            prototype: OK
 ft_strlcat.c		: OK			prototype: OK
 ft_strlcpy.c		: OK			prototype: OK
-ft_strmapi.c		: 				prototype: OK 
-ft_striteri.c		: 				prototype:
+ft_strmapi.c		: OK			prototype: OK 
+ft_striteri.c		: OK			prototype: OK
 ft_calloc.c			: OK			prototype: OK
 ft_memcpy.c			: OK			prototype: OK
 ft_memchr.c			: OK			prototype: OK
 ft_memcmp.c			: OK			prototype: OK
-ft_memmove.c		: 				prototype: OK
+ft_memmove.c		: OK			prototype: OK
 
 FREE malloc : 
 

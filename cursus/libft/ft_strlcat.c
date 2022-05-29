@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/26 23:00:54 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/29 21:48:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	if (dst_len < size - 1 && size > 0)
 	{
-		while (*(src + i_src) != '\0' && i_dst < size)
+		while (*(src + i_src) && i_dst < size - 1)
 		{
 			*(dst + i_dst) = *(src + i_src);
 			i_dst++;
@@ -42,10 +42,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (dst_len + src_len);
 }
 
-int main()
-{
-	char	*a = "abc";
-	char	*b = "def";
+// int main()
+// {
+// 	char	*a = "abc";
+// 	char	*b = "def";
 
-	printf("%li\n", ft_strlcat(a, b, 7));
-}
+// 	printf("%li\n", ft_strlcat(a, b, 7));
+// }

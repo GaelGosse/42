@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:34 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 16:32:22 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/28 20:11:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@ int ft_strncmp( const char * first, const char * second, size_t length )
 	return (0);
 }
 
-int main()
-{
-	printf("%i\n", ft_strncmp("abc", "abd", 3));
-	// printf("%i\n\n", strncmp("abc", "abd", 3));
-	printf("%i\n", ft_strncmp("abd", "abc", 3));
-	// printf("%i\n\n", strncmp("abd", "abc", 3));
-	printf("%i\n", ft_strncmp("abc", "abc", 3));
-	// printf("%i\n\n", strncmp("abc", "abc", 3));
-}
+// int main()
+// {
+// 	printf("%i\n", ft_strncmp("abc", "abd", 3));
+// 	printf("%i\n", ft_strncmp("abd", "abc", 3));
+// 	printf("%i\n", ft_strncmp("abc", "abc", 3));
+// }

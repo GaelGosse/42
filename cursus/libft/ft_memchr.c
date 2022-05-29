@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:42 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 21:25:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/28 16:09:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,23 @@ void	*ft_memchr(const void *s, int c, size_t len)
 
 
 
-int main()
-{
+// int main()
+// {
 
-	char s[] = {0, 1, 2 ,3 ,4 ,5};
+// 	char s[] = {0, 1, 2 ,3 ,4 ,5};
 
-	printf("%p \n", memchr(s, 0, 0));
-	printf("%p \n\n", ft_memchr(s, 0, 0));
+// 	printf("%p \n", memchr(s, 0, 0));
+// 	printf("%p \n\n", ft_memchr(s, 0, 0));
 	
-	printf("%p \n", memchr(s, 0, 1));
-	printf("%p \n\n", ft_memchr(s, 0, 1));
+// 	printf("%p \n", memchr(s, 0, 1));
+// 	printf("%p \n\n", ft_memchr(s, 0, 1));
 	
-	printf("%p \n", memchr(s, 2, 3));
-	printf("%p \n\n", ft_memchr(s, 2, 3));
+// 	printf("%p \n", memchr(s, 2, 3));
+// 	printf("%p \n\n", ft_memchr(s, 2, 3));
 	
-	printf("%p \n", memchr(s, 6, 6));
-	printf("%p \n\n", ft_memchr(s, 6, 6));
+// 	printf("%p \n", memchr(s, 6, 6));
+// 	printf("%p \n\n", ft_memchr(s, 6, 6));
 	
-	printf("%p \n", memchr(s, 2 + 256, 3));
-	printf("%p \n\n", ft_memchr(s, 2 + 256, 3));
-}
+// 	printf("%p \n", memchr(s, 2 + 256, 3));
+// 	printf("%p \n\n", ft_memchr(s, 2 + 256, 3));
+// }

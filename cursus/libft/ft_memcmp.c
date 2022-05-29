@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 21:28:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/29 20:13:17 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	unsigned char	*str1;
 	unsigned char	*str2;
 
+	i = 0;
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
-	i = 0;
-	while ((str1[i] || str2[i]) && i < n)
+	while ((str1 && str2) && (i < n))
 	{
 		if (str1[i] != str2[i])
 			return (str1[i] - str2[i]);
@@ -31,8 +31,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 }
 
 
+
 // int main()
 // {
-// 	printf("%i\n", memcmp('a'));
-// 	printf("%i\n", ft_memcmp('a'));
+// 	char s2[] = {0, 0, 127, 0};
+// 	char s3[] = {0, 0, 42, 0};
+// 	printf("%i\n", ft_memcmp(s2, s3, 4));
 // }

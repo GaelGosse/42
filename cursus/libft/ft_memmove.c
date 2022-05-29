@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:08:09 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 21:29:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/28 20:01:11 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memmove(void *destination, const void *source, size_t n)
+void	*ft_memmove(void *destination, const void *source, size_t n)
 {
 	unsigned char	*dst;
 	unsigned char	*src;
@@ -33,7 +33,7 @@ void	*memmove(void *destination, const void *source, size_t n)
 	else
 	{
 		// on part de la fin
-		while (i > n)
+		while (i < n)
 		{
 			dst[n - 1] = src[n - 1];
 			n--;
@@ -51,11 +51,8 @@ void	*memmove(void *destination, const void *source, size_t n)
 // 	char sResult[] = {67, 68, 67, 68, 69, 0, 45};
 // 	char sResult2[] = {67, 67, 68, 68, 69, 0, 45};
 
-// 	printf("%s \n %s \n\n", ft_memmove(s0, s, 7), memcmp(s, s0, 7));
-// 	printf("%s \n %s \n\n", ft_memmove(s, s + 2, 0), memmove(s, s + 2, 0));
-// 	printf("%s \n %s \n\n", ft_memmove(s0, s, 7), memcmp(s, s0, 7));
-// 	printf("%s \n %s \n\n", ft_memmove(s0, s, 7), memcmp(s, s0, 7));
-
+// 	printf("%p", ft_memmove(s, s + 2, 0));
+// 	printf("%s", ft_memmove(s, s + 2, 2));
 // 	printf("%i \n", ft_memmove(s0, s, 7) == s0 && !memcmp(s, s0, 7));
 // 	printf("%i \n", ft_memmove(s, s + 2, 0) && !memcmp(s, sCpy, 7));
 // 	printf("%i \n", ft_memmove(s, s + 2, 2) == s && !memcmp(s, sResult, 7));

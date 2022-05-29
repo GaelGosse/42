@@ -18,7 +18,7 @@ int main(void)
 
 	char haystack[30] = "aaabcabcd";
 	char needle[10] = "aabc";
-	char * empty = (char*)"";
+	char *empty = (char*)"";
 	/* 1 */ check(ft_strnstr(haystack, needle, 0) == 0); showLeaks();
 	/* 2 */ check(ft_strnstr(haystack, needle, -1) == haystack + 1); showLeaks();
 	/* 3 */ check(ft_strnstr(haystack, "a", -1) == haystack); showLeaks();
@@ -27,6 +27,7 @@ int main(void)
 	/* 6 */ check(ft_strnstr(empty, "", 0) == empty); showLeaks();
 	/* 7 */ check(ft_strnstr(empty, "coucou", -1) == 0); showLeaks();
 	/* 8 */ check(ft_strnstr(haystack, "aaabc", 5) == haystack); showLeaks();
+	// printf("\n %s \n", ft_strnstr(haystack, "aaabc", 5));
 	/* 9 */ check(ft_strnstr(empty, "12345", 5) == 0); showLeaks();
 	/* 10 */ check(ft_strnstr(haystack, "abcd", 9) == haystack + 5); showLeaks();
 	/* 11 */ check(ft_strnstr(haystack, "cd", 8) == NULL); showLeaks();

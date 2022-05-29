@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 13:11:07 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/27 20:36:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/28 15:44:49 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char *ft_strmapi(const char *str, char (*f)(unsigned int, char))
 	res = (char *)malloc(ft_strlen(str) * sizeof(char));
 	if (!res)
 		return (NULL);
-	res = ft_strdup(str);
+	ft_memcpy(res, str, ft_strlen(str));
 	while (res[i])
 	{
 		res[i] = (*f)(i, res[i]);

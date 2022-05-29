@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:30 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/25 18:55:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/30 01:17:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     lil_len = ft_strlen(little); 
     if (little[0] == '\0')
         return (conv_big);
-    while (b < len && big[b] != '\0')
+    while (big[b] && b < len)
     {
-        while (big[b] == little[l] && little[l] != '\0' && l < len)
+        l = 0;
+        while (big[b] == little[l] && lil_len + b <= len)
         {
-            b++;
             l++;
         }
         if (l == lil_len )
@@ -43,6 +43,30 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     }
     return (NULL);
 }
+
+// char	*ft_strnstr(const char *str, const char *to_find, size_t n)
+// {
+// 	size_t	i;
+// 	size_t	j;
+//     size_t  lil_len;
+
+// 	i = 0;
+//     lil_len = ft_strlen(to_find);
+// 	if (lil_len == 0)
+// 		return ((char *)str);
+// 	while (str[i] && i < n)
+// 	{
+// 		j = 0;
+// 		while (str[i] == to_find[j])
+// 		{
+// 			if (ft_strncmp(str[i], to_find[j], lil_len) == 0 && i + lil_len <= n)
+// 				return ((char *)str + i);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
 
 // int main(void)
 // {

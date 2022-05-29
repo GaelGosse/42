@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:07:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/24 18:54:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/28 16:05:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 
 void	*ft_memcpy(void *destination, const void *source, size_t size)
 {
-	unsigned int	i;
-	const char		*new_src;
-	char			*new_dest;
+	size_t	i;
+	unsigned char	*new_src;
+	unsigned char	*new_dest;
 
-	new_dest = destination;
-	new_src = source;
+	new_dest = (unsigned char *)destination;
+	new_src = (unsigned char *)source;
 	i = 0;
-	new_dest = (char *)malloc(size);
-	while (new_src[i])
+	while (i < size)
 	{
 		new_dest[i] = new_src[i]; 
 		i++;
@@ -33,19 +32,19 @@ void	*ft_memcpy(void *destination, const void *source, size_t size)
 	return 	(new_dest);
 }
 
-int main() {
+// int main() {
 
-    char array[] = "abc";
-    char *copy = NULL;
-    int length = sizeof(char) * 3;
+//     char array[] = "abc";
+//     char *copy = NULL;
+//     int length = sizeof(char) * 3;
        
-    copy = (char *) malloc( length );
-    ft_memcpy(copy, array, length );
+//     copy = (char *) malloc( length );
+//     ft_memcpy(copy, array, length );
         
-    printf("%s", copy);
-    printf("\n" );
+//     printf("%s", copy);
+//     printf("\n" );
         
-    free( copy );
+//     free( copy );
     
-    return (0);
-}
+//     return (0);
+// }

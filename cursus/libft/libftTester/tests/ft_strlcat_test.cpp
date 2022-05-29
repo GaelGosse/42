@@ -24,7 +24,9 @@ int main(void)
 	/* 2 */ check(ft_strlcat(dest, src, 1) == 10 && !strcmp(dest, "B")); showLeaks();
 	memset(dest, 'B', 4);
 	/* 3 */ check(ft_strlcat(dest, src, 3) == 3 + strlen(src) && !strcmp(dest, "BBBB")); showLeaks();
+	// printf("\ndest: %s \n", dest);
 	/* 4 */ check(ft_strlcat(dest, src, 6) == 13 && !strcmp(dest, "BBBBA")); showLeaks();
+	// printf("\ndest: %s \n", dest);
 	memset(dest, 'C', 5);
 	/* 5 */ check(ft_strlcat(dest, src, -1) == 14 && !strcmp(dest, "CCCCCAAAAAAAAA")); showLeaks();
 	memset(dest, 'C', 15);
