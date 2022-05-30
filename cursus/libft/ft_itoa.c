@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:20:36 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/17 16:27:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/30 02:00:36 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static char	*wrte_pos(char *str, int n, int len)
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *str;
+	char		*str;
 	long int	len;
 
 	if (n == -2147483648)
@@ -76,13 +76,9 @@ char *ft_itoa(int n)
 	}
 	len--;
 	if (str[0] == '-')
-	{
 		return (wrte_neg(str, n, len));
-	}
-	else 
-	{
+	else
 		return (wrte_pos(str, n, len));
-	}
 }
 
 // int	main(void)

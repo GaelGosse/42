@@ -6,16 +6,16 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 17:13:02 by gael              #+#    #+#             */
-/*   Updated: 2022/05/29 20:57:50 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/30 01:56:43 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res;
-	
+
 	if (nmemb && ((nmemb * size / nmemb) != size))
 		return (NULL);
 	res = malloc(nmemb * size);
