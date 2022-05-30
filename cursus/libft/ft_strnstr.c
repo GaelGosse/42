@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:30 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/30 01:17:24 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/30 18:07:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,28 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     l = 0;
     conv_big = (char *)big;
     lil_len = ft_strlen(little); 
+    if (lil_len == 0)
+        return ((char *)conv_big);
     if (little[0] == '\0')
         return (conv_big);
     while (big[b] && b < len)
     {
         l = 0;
-        while (big[b] == little[l] && lil_len + b <= len)
+        if (big[b] == little[l])
         {
+            if (!strncmp(big + b, little + l, lil_len) && ((b + lil_len) <= len))
+            {
+                return (conv_big + b);
+            }
+            
             l++;
         }
-        if (l == lil_len )
-            return (conv_big + b);
         b++;
     }
     return (NULL);
 }
 
-// char	*ft_strnstr(const char *str, const char *to_find, size_t n)
+// char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 // {
 // 	size_t	i;
 // 	size_t	j;
@@ -54,12 +59,12 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
 //     lil_len = ft_strlen(to_find);
 // 	if (lil_len == 0)
 // 		return ((char *)str);
-// 	while (str[i] && i < n)
+// 	while (str[i] && i < len)
 // 	{
 // 		j = 0;
 // 		while (str[i] == to_find[j])
 // 		{
-// 			if (ft_strncmp(str[i], to_find[j], lil_len) == 0 && i + lil_len <= n)
+// 			if (ft_strncmp(str[i], to_find[j], lil_len) == 0 && i + lil_len <= len)
 // 				return ((char *)str + i);
 // 			j++;
 // 		}

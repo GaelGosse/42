@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:42 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/29 20:55:17 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/30 16:57:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (src_len);
 }
 
-
-// int main()
-// {
-// 	printf("%i\n", tolower('a'));
-// 	printf("%i\n", ft_tolower('a'));
-// }
+/*
+int main()
+{
+	printf("%i\n", tolower('a'));
+	printf("%i\n", ft_tolower('a'));
+}
+*/

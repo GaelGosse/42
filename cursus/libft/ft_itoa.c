@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:20:36 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/30 02:00:36 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/30 19:50:52 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ char	*ft_itoa(int n)
 		return ("-2147483648");
 	}
 	len = num_len(n);
-	str = (char *)malloc(len * sizeof(char) + 1);
+	str = (char *)malloc((len +1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	str[len] = '\0';
 	if (n < 0)
 	{
@@ -83,13 +85,15 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
+// 	printf("%s \n", ft_itoa(-2147483648));
+// 	return (0);
+// }
+
+
+
 // 	printf("%s \n", ft_itoa(12597));
 // 	printf("%s \n", ft_itoa(-12597));
 // 	printf("%s \n", ft_itoa(1));
 // 	printf("%s \n", ft_itoa(-1));
-// 	printf("%s \n", ft_itoa(INT_MIN));
 // 	printf("%s \n", ft_itoa(INT_MAX));
 // 	printf("%s \n", ft_itoa(12597));
-
-// 	return (0);
-// }

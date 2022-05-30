@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/29 21:48:23 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/30 16:59:58 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-
 	i_src = 0;
 	i_dst = dst_len;
-
 	if (dst_len < size - 1 && size > 0)
 	{
 		while (*(src + i_src) && i_dst < size - 1)
@@ -38,7 +36,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	if (dst_len >= size)
 		dst_len = size;
-
 	return (dst_len + src_len);
 }
 

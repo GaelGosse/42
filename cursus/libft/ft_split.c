@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/05/27 21:31:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/30 16:54:13 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ void    wrte(const char *str, char sep, int ite, int j, int k, int nbr_word, cha
 
 char **ft_split(const char *str, char sep)
 {
-    char    **result;
-    int        len_word;
-    int        ite;
-    int        j;
-    int        k;
-    int        nbr_word;
+    char	**result;
+    int		len_word;
+    int		ite;
+    int		j;
+    int		k;
+    int		nbr_word;
 
     nbr_word = count_word(str, sep);
     ite = 0;
@@ -105,6 +105,7 @@ char **ft_split(const char *str, char sep)
     return (result);
 }
 
+/*
 int    main(void)
 {
     char    *str = "       abc   def gh    ijkl  mnop   ";
@@ -116,3 +117,4 @@ int    main(void)
     
     return (0);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 13:16:37 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/19 21:27:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/30 17:00:31 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
+/*
 int	main(void)
 {
 	char	p[] = "abc";
 
 	ft_putendl_fd(p, 1);
 }
+*/
