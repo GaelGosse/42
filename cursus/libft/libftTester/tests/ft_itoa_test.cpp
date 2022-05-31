@@ -28,9 +28,11 @@ int main(void)
 	s = ft_itoa(0);
 	/* 5 */ check(!strcmp(s, to_string(0).c_str()));
 	/* 6 */ mcheck(s, strlen(to_string(0).c_str()) + 1); free(s); showLeaks();
+	
 	s = ft_itoa(1);
 	/* 7 */ check(!strcmp(s, to_string(1).c_str()));
 	/* 8 */ mcheck(s, strlen(to_string(1).c_str()) + 1); free(s); showLeaks();
+	
 	s = ft_itoa(-1);
 	/* 9 */ check(!strcmp(s, to_string(-1).c_str()));
 	/* 10 */ mcheck(s, strlen(to_string(-1).c_str()) + 1); free(s); showLeaks();

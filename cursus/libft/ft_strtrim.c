@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/31 13:40:08 by gael             ###   ########.fr       */
+/*   Updated: 2022/05/31 19:18:14 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,68 @@ int	ft_isset(const char c, const char	*set)
 	while (set[i])
 	{
 		if (set[i] == c)
+		{
+			// printf("%c is set\n", c);
 			return (1);
+		}	
 		i++;
 	}
+	// printf("%c is NOT set\n", c);
 	return (0);
 }
 
+char	*ft_strtrim(const char *str, const char *set)
+{
+	size_t	start;
+	size_t	end;
+	char	*res;
+
+	if (!str)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(str));
+	start = 0;
+	end = ft_strlen(str);
+	while (ft_isset(str[start], set) && str[start])
+		start++;
+	if (start == ft_strlen(str))
+	{
+		if (!(res = ft_strdup("")))
+			return (NULL);
+		else
+			return (res);
+	}		
+}
+
+int	main(void)
+{
+	char * s = ft_strtrim("   xxxtripouille", " x");
+	printf("1: %i\n", strcmp(s, "tripouille"));
+
+	s = ft_strtrim("tripouille   xxx", " x");
+	printf("3: %i\n", strcmp(s, "tripouille"));
+
+	s = ft_strtrim("   xxxtripouille   xxx", " x");
+	printf("5: %i\n", strcmp(s, "tripouille"));
+
+	s = ft_strtrim("   xxx   xxx", " x");
+	printf("7: %i\n", strcmp(s, ""));
+
+	s = ft_strtrim("", "123");
+	printf("9: %i\n", strcmp(s, ""));
+
+	s = ft_strtrim("123", "");
+	printf("11: %i\n", strcmp(s, "123"));
+
+	s = ft_strtrim("", "");
+	printf("13: %i\n", strcmp(s, ""));
+	
+	s = ft_strtrim("abcdba", "acb");
+	printf("15: %i\n", strcmp(s, "d"));
+
+	return (0);
+}
+/*
 char	*ft_strtrim(const char	*str, const char	*set)
 {
 	size_t		start;
@@ -42,7 +98,8 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	end = ft_strlen((const char *)(str)) - 1;
 	while (ft_isset(str[start], set) == 1 && str[start] != '\0')
 		start++;
-	if (start >=)
+	if (start >= end)
+		return ((char *)str);
 	while (ft_isset(str[end], set) == 1 && str[end] != '\0')
 		end--;
 	printf("start: %li end: %li\n", start, end);
@@ -58,12 +115,32 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	return (new_str);
 }
 
-int	main(void)
+char	*ft_strtrim(const char	*str, const char	*set)
 {
-	char	a[] = "xyxyxyxabc defgyxzyxyyx";
-	char	b[] = "yxyxxyxxyxyx";
- 
-	printf("%s \n", ft_strtrim(a, "xy"));
-	printf("%s \n", ft_strtrim(b, "xy"));
-	return (0);
+	size_t		start;
+	size_t		end;
+	size_t		ite;
+	char		*new_str;
+
+	ite = 0;
+	start = 0;
+	end = ft_strlen((const char *)(str)) - 1;
+	while (ft_isset(str[start], set) == 1 && str[start] != '\0')
+		start++;
+	if (start >= end)
+		return ((char *)str);
+	while (ft_isset(str[end], set) == 1 && str[end] != '\0')
+		end--;
+	new_str = malloc(((end - start) + 1) * sizeof(char));
+	if (!new_str)
+		return (NULL);
+	while (start <= end)
+	{
+		new_str[ite] = str[start];
+		start++;
+		ite++;
+	}
+	new_str[ite] = '\0';
+	return (new_str);
 }
+*/
