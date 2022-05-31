@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/30 17:10:29 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/31 13:40:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	ite = 0;
 	start = 0;
 	end = ft_strlen((const char *)(str)) - 1;
-	while (ft_isset(str[start], set) == 1)
+	while (ft_isset(str[start], set) == 1 && str[start] != '\0')
 		start++;
-	while (ft_isset(str[end], set) == 1)
+	if (start >=)
+	while (ft_isset(str[end], set) == 1 && str[end] != '\0')
 		end--;
+	printf("start: %li end: %li\n", start, end);
 	new_str = (char *)malloc((end - start) * sizeof(char) + 1);
 	if (!new_str)
 		return (NULL);
@@ -56,14 +58,12 @@ char	*ft_strtrim(const char	*str, const char	*set)
 	return (new_str);
 }
 
-/*
 int	main(void)
 {
 	char	a[] = "xyxyxyxabc defgyxzyxyyx";
-	char	b[] = "yyyyyabc defgxxxxxx";
+	char	b[] = "yxyxxyxxyxyx";
  
 	printf("%s \n", ft_strtrim(a, "xy"));
 	printf("%s \n", ft_strtrim(b, "xy"));
 	return (0);
 }
-*/
