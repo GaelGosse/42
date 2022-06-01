@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/05/31 19:18:14 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/05/31 23:16:17 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ char	*ft_strtrim(const char *str, const char *set)
 			return (NULL);
 		else
 			return (res);
-	}		
+	}
+	while (ft_isset(str[end], set) && str[end])
+		end++;
+	res = ft_substr(str, start, end - start);
+	return (res);
 }
 
 int	main(void)
