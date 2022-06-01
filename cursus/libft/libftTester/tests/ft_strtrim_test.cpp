@@ -48,7 +48,7 @@ int main(void)
 	s = ft_strtrim("abcdba", "acb");
 	/* opsec-infosec 15 */ check(!strcmp(s, "d"));
  	/* opsec-infosec 16 */ mcheck(s, 2); free(s); showLeaks();
-	
+
 	write(1, "\n", 1);
 	return (0);	
 }
