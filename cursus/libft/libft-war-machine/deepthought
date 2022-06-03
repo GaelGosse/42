@@ -1,24 +1,24 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-e3r4p6.clusters.42paris.fr
-Linux 5.4.0-113-generic x86_64
+msi-modern
+Linux 5.10.26-1-MANJARO x86_64
 $> date
-Wed 01 Jun 2022 10:48:21 PM CEST
+ven 03 jun 2022 01:23:59 CEST
 $> gcc --version
-gcc (Ubuntu 10.3.0-1ubuntu1~20.04) 10.3.0
-Copyright (C) 2020 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+gcc (GCC) 10.2.0
+Copyright © 2020 Free Software Foundation, Inc.
+Ce logiciel est un logiciel libre; voir les sources pour les conditions de copie.  Il n'y a
+AUCUNE GARANTIE, pas même pour la COMMERCIALISATION ni L'ADÉQUATION À UNE TÂCHE PARTICULIÈRE.
 
 $> clang --version
-Ubuntu clang version 12.0.0-3ubuntu1~20.04.5
+clang version 11.1.0
 Target: x86_64-pc-linux-gnu
 Thread model: posix
 InstalledDir: /usr/bin
 
 = libft.h=======================================================================
 $> norminette libft.h | grep -E '(Error|Warning)'
-/mnt/nfs/homes/ggosse/zsave/42/cursus/libft/libft-war-machine/dirlibft/libft.h: Error!
+/home/gael/documents/42/cursus/libft/libft-war-machine/dirlibft/libft.h: Error!
 Error: HEADER_PROT_NAME     (line:  13, col:   1):	Wrong header protection name
 Error: PREPROC_BAD_INDENT   (line:  13, col:   1):	Bad preprocessor indentation
 Error: HEADER_PROT_ALL_2    (line:  14, col:   1):	ERROR NOT FOUND
@@ -134,34 +134,131 @@ gcc -Wall -Wextra -Werror -c ft_strtrim.c
 gcc -Wall -Wextra -Werror -c ft_substr.c
 gcc -Wall -Wextra -Werror -c ft_tolower.c
 gcc -Wall -Wextra -Werror -c ft_toupper.c
-make: *** No rule to make target 'ft_lstnew.o', needed by 'bonus'.  Stop.
+make: ***  Aucune règle pour fabriquer la cible « ft_lstnew.o », nécessaire pour « bonus ». Arrêt.
 
 $> ls -la libft.a
--rw-r--r-- 1 ggosse 2022_paris 59410 Jun  1 22:48 /mnt/nfs/homes/ggosse/zsave/42/cursus/libft/libft-war-machine/dirlibft/libft.a
+-rw-r--r-- 1 gael gael 54186  3 jun 01:24 /home/gael/documents/42/cursus/libft/libft-war-machine/dirlibft/libft.a
 
 = Part2_functions ==============================================================
 
 = ft_split.c ===================================================================
 $> norminette ft_split.c | grep -E '(Error|Warning)'
 ..//ft_split.c: Error!
+Error: SPACE_REPLACE_TAB    (line:  17, col:  11):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  18, col:  11):	Found space when expecting tab
+Error: SPC_BEFORE_NL        (line:  18, col:  18):	Space before newline
+Error: SPACE_REPLACE_TAB    (line:  20, col:   5):	Found space when expecting tab
 Error: SPACE_REPLACE_TAB    (line:  21, col:   5):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  22, col:   5):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  39, col:  11):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  41, col:   5):	Found space when expecting tab
-Error: SPACE_BEFORE_FUNC    (line:  61, col:   5):	space before function name
-Error: TOO_FEW_TAB          (line:  63, col:   1):	Missing tabs for indent level
-Error: SPACE_REPLACE_TAB    (line:  63, col:   5):	Found space when expecting tab
-Error: TOO_FEW_TAB          (line:  64, col:   1):	Missing tabs for indent level
-Error: SPACE_REPLACE_TAB    (line:  64, col:   5):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  68, col:   5):	Found space when expecting tab
-Error: SPACE_REPLACE_TAB    (line:  69, col:   5):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  38, col:  11):	Found space when expecting tab
+Error: SPC_BEFORE_NL        (line:  38, col:  16):	Space before newline
+Error: SPACE_REPLACE_TAB    (line:  40, col:   5):	Found space when expecting tab
+Error: TAB_INSTEAD_SPC      (line:  41, col:  40):	Found tab when expecting space
+Error: SPC_BEFORE_NL        (line:  63, col:  17):	Space before newline
+Error: SPC_BEFORE_NL        (line:  64, col:  18):	Space before newline
+Error: CONSECUTIVE_SPC      (line:  66, col:   9):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  66, col:   9):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  72, col:   5):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  73, col:   5):	Found space when expecting tab
 Error: TOO_MANY_LINES       (line:  89, col:   1):	Function has more than 25 lines
-Error: LINE_TOO_LONG        (line:  91, col:   1):	line too long
+Error: LINE_TOO_LONG        (line: 167, col:   1):	line too long
+Error: CONSECUTIVE_NEWLINES (line: 189, col:   1):	Consecutive newlines
+Error: LINE_TOO_LONG        (line: 190, col:   1):	line too long
 Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_split.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
 $> ./user_exe 01
-Command './user_exe 01' got killed by a Timeout
+$> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
 = Test 2 ===================================================
 $> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+--- /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/user_output_test02	2022-06-03 01:24:02.568150924 +0200$
++++ /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/test02.output	2022-06-03 00:46:50.714661919 +0200$
+@@ -0,0 +1,12 @@$
++lorem$
++ipsum$
++dolor$
++sit$
++amet,$
++consectetur$
++adipiscing$
++elit.$
++Sed$
++non$
++risus.$
++Suspendisse$
+
+Diff KO :(
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+--- /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/user_output_test03	2022-06-03 01:24:02.614817733 +0200$
++++ /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/test03.output	2022-06-02 12:35:11.745362990 +0200$
+@@ -0,0 +1,12 @@$
++lorem$
++ipsum$
++dolor$
++sit$
++amet,$
++consectetur$
++adipiscing$
++elit.$
++Sed$
++non$
++risus.$
++Suspendisse$
+
+Diff KO :(
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+--- /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/user_output_test04	2022-06-03 01:24:02.638151137 +0200$
++++ /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/test04.output	2022-06-02 12:35:11.745362990 +0200$
+@@ -0,0 +1,25 @@$
++lorem $
++psum dolor s$
++t amet, consectetur ad$
++p$
++sc$
++ng el$
++t. Sed non r$
++sus. Suspend$
++sse lectus tortor, d$
++gn$
++ss$
++m s$
++t amet, ad$
++p$
++sc$
++ng nec, ultr$
++c$
++es sed, dolor. Cras elementum ultr$
++c$
++es d$
++am. Maecenas l$
++gula massa, var$
++us a, semper congue, eu$
++smod non, m$
++.$
+
+Diff KO :(
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+--- /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/user_output_test05	2022-06-03 01:24:02.661484542 +0200$
++++ /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/test05.output	2022-06-02 12:35:11.745362990 +0200$
+@@ -0,0 +1 @@$
++lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.$
+
+Diff KO :(
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+--- /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/user_output_test06	2022-06-03 01:24:02.688151290 +0200$
++++ /home/gael/documents/42/cursus/libft/libft-war-machine/tests/Part2_functions/ft_split/test06.output	2022-06-02 12:35:11.745362990 +0200$
+@@ -0,0 +1 @@$
++ok$
+
+Diff KO :(

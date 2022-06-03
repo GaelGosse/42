@@ -57,11 +57,12 @@ int	main()
 function isHidden(el) {
     return (el.offsetParent === null)
 }
+let err = document.querySelector('#frontendErrorOutput')
 let interval = setInterval(()=>{
     let x = document.querySelector('#executeBtn')
     if (x && isHidden(x) == false)
     {
-        if (x.textContent == "Visualize Execution")
+        if (x.textContent == "Visualize Execution" && err.textContent.indexOf('traffic') != -1)
             x.click()
     }
     else {
