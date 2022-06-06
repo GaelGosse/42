@@ -34,7 +34,7 @@ mandatory_start:  message
 	make -C $(LIBFT_PATH)
 	@tput setaf 4 && echo [Mandatory]
 
-bonus_start: update message
+bonus_start:  message
 	@tput setaf 6
 	make bonus -C $(LIBFT_PATH)
 	@tput setaf 5 && echo [Bonus]

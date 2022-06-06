@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/30 17:40:16 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/03 16:23:57 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef LIBFT
-# define LIBFT
+#ifndef LIBFT_H
+# define LIBFT_H
 
 # include <unistd.h>
 # include <stddef.h>
@@ -19,6 +19,12 @@
 # include <stdio.h>
 # include <ctype.h>
 # include <string.h>
+
+typedef struct  s_list
+{
+    void			*content;
+    struct s_list	*next;
+}					t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *str, size_t n);
@@ -54,5 +60,9 @@ char	*ft_strtrim(const char *str, const char *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int chr);
 int		ft_toupper(int chr);
+
+t_list *ft_lstnew(void *content);
+void ft_lstadd_front(t_list **lst, t_list *new);
+int ft_lstsize(t_list *lst);
 
 #endif

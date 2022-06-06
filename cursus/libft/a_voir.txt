@@ -90,3 +90,5 @@ void    print_array(char    **arr)
 }
 
  norm | grep -v -i space | grep -v -i empty | grep -v -i brace | grep -v -i include | grep -v -i few | grep -v -i misaligned | grep -v -i consecutive | grep -v -i wrong | grep -v -i ok | grep -i -v vars | grep -v -i decl | grep -v -i long 
+
+ bashrc quit with push kill chrome && code

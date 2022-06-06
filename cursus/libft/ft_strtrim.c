@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 08:22:28 by gael              #+#    #+#             */
-/*   Updated: 2022/06/01 14:54:45 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/03 13:36:03 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ int	ft_isset(const char c, const char	*set)
 	{
 		if (set[i] == c)
 		{
-			// printf("%i is set\n", c);
 			return (1);
 		}	
 		i++;
 	}
-	// printf("%i is NOT set\n", c);
 	return (0);
 }
 
@@ -50,12 +48,12 @@ char	*ft_strtrim(const char *str, const char *set)
 		start++;
 	if (start == ft_strlen(str))
 	{
-		if (!(res = ft_strdup("")))
+		res = ft_strdup("");
+		if (!(res))
 			return (NULL);
 		else
 			return (res);
 	}
-	
 	while (ft_isset(str[end], set) && end > 0)
 		end--;
 	res = ft_substr(str, start, (end + 1) - start);

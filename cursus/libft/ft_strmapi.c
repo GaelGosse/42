@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 13:11:07 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/03 00:39:52 by gael             ###   ########.fr       */
+/*   Updated: 2022/06/03 13:36:43 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 	int		i;
 
 	i = 0;
-	// res = NULL;
+	res = NULL;
 	res = ft_strdupli(str);
-	// ft_memcpy(res, str, ft_strlen(str));
+	ft_memcpy(res, str, ft_strlen(str));
 	while (res[i])
 	{
 		res[i] = (*f)(i, res[i]);

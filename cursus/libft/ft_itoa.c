@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:20:36 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/31 17:33:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/03 13:39:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,23 @@ char	*ft_itoa(int nbr)
 		sign = 1;
 	}
 	str[len] = '\0';
-	len--;
-	while (len >= sign)
+	while (--len >= sign)
 	{
-		if (len > 20)
-			break;
 		str[len] = nb % 10 + '0';
 		nb /= 10;
-		len--;
 	}
 	return (str);
 }
 
-
-// int	main(void)
-// {
-// 	printf(" --- res: %s \n\n", ft_itoa(-2147483648));
-// 	printf(" --- res: %s \n\n", ft_itoa(0));
-// 	printf(" --- res: %s \n\n", ft_itoa(12597));
-// 	printf(" --- res: %s \n\n", ft_itoa(-12597));
-// 	printf(" --- res: %s \n\n", ft_itoa(1));
-// 	printf(" --- res: %s \n\n", ft_itoa(-1));
-// 	return (0);
-// }
+/*
+int	main(void)
+{
+	printf(" --- res: %s \n\n", ft_itoa(-2147483648));
+	printf(" --- res: %s \n\n", ft_itoa(0));
+	printf(" --- res: %s \n\n", ft_itoa(12597));
+	printf(" --- res: %s \n\n", ft_itoa(-12597));
+	printf(" --- res: %s \n\n", ft_itoa(1));
+	printf(" --- res: %s \n\n", ft_itoa(-1));
+	return (0);
+}
+*/
