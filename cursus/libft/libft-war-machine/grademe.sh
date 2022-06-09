@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    grademe.sh                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
+#    By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:26:01 by jtoty             #+#    #+#              #
-#    Updated: 2021/02/04 07:07:10 by lmartin          ###   ########.fr        #
+#    Updated: 2022/06/09 14:40:39 by ggosse           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,10 +116,6 @@ source "${PATH_TEST}"/srcs/check_update.sh
 
 cd "${PATH_TEST}"
 
-if [ ${OPT_NO_UPDATE} -eq 0 ]
-then
-	func_check_update
-fi
 
 if [ ! -e "${PATH_TEST}"/my_config.sh ]
 then

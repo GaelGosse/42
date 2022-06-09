@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    check_update.sh                                    :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
+#    By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:26:27 by jtoty             #+#    #+#              #
-#    Updated: 2017/01/23 18:26:28 by jtoty            ###   ########.fr        #
+#    Updated: 2022/06/09 14:39:59 by ggosse           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,16 +24,7 @@ func_check_update()
 			REMOTE=`git ls-remote 2>/dev/null | grep refs/heads/${LOCAL_BRANCH} | cut -f 1`
 			LOCAL_VERSION=$(git log --oneline 2>/dev/null | awk 'END {print NR}')
 			REMOTE_VERSION=$(git log --oneline "refs/remotes/origin/${LOCAL_BRANCH}" | awk 'END {print NR}')
-			if [ "${REMOTE}" != "${LOCAL}" -a "${REMOTE}" != "" -a "${LOCAL_VERSION}" -lt "${REMOTE_VERSION}" ]
-			then
-				printf "${RED}A new version is available.\n"
-				printf "${DEFAULT}Do you want to update ? [y/n]\n"
-				CHANGELOG=1
-			else
-				printf "${RED}Changes are made locally.\n"
-				printf "${DEFAULT}Do you want to restore the original version ? [y/n]\n"
-				CHANGELOG=0
-			fi
+
 			read line
 			if [ "$line" == Y -o "$line" == y ]
 				then
