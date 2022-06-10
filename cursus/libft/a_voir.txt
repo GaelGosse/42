@@ -98,3 +98,46 @@ void    print_array(char    **arr)
 # define INT_MIN (-(INT_MAX + 1))
 
 # define NULL (void *)0;
+
+org_date = document.querySelector('#bh-date').textContent.split('/')
+org_date = new Date(org_date[2], parseInt(org_date[1]) - 1, org_date[0], 23, 59, 0, 0)
+time = document.createElement('p')
+document.querySelector('#bh-date').innerHTML = '';
+document.querySelector('#bh-date').append(time)
+interval = setInterval(()=>{
+	now = new Date()
+	diff = org_date.getTime() - now.getTime()
+
+	diff /= 1000
+	sec = Math.floor(diff) % 60
+	sec < 10 ? sec = `0${sec}` : sec
+
+	diff /= 60
+	min = Math.floor(diff) % 60
+	min < 10 ? min = `0${min}` : min
+
+	diff /= 60
+	hrs = Math.floor(diff) % 60
+	hrs < 10 ? hrs = `0${hrs}` : hrs
+
+	diff /= 24
+	days = Math.floor(diff)
+	time.innerHTML = `${days} days ${hrs} h ${min} min <span id="changing">${sec}</span> sec`
+}, 1000)
+cssAnimation = document.createElement('style');
+cssAnimation.type = 'text/css';
+rules = document.createTextNode(`
+@keyframes fadein {
+  from {
+		transform: scale(1.2);
+  }
+  to {
+		transform: scale(0.8);
+  }
+}
+#changing{
+	display: inline-block;
+	animation: 1s fadei infinite;
+}`);
+cssAnimation.appendChild(rules);
+document.getElementsByTagName("head")[0].appendChild(cssAnimation);

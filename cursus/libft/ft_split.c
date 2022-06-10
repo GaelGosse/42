@@ -3,114 +3,155 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/06/09 21:56:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/10 19:35:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include "libft.h"
-#include <stdio.h>
+size_t	word_count(const char *str, char sep)
+{
+	size_t    nbr_word; 
+	size_t    i_wc; 
+
+    i_wc = 0;
+    nbr_word = 0;
+	while (str[i_wc])
+	{
+		if (str[i_wc] == sep)
+			i_wc++;
+		if (str[i_wc] && str[i_wc] != sep)
+		{
+			nbr_word++;
+			while (str[i_wc] && str[i_wc])
+				i_wc++;
+		}
+	}
+	return (nbr_word);
+}
+
+char	**ft_split(const char *str, char sep)
+{
+	char	**tab;
+	size_t    i_tab; 
+
+	if (!str || !sep)
+		return (NULL);
+    i_tab = 0;
+	tab = (char **)malloc(sizeof(char *) * (1));
+	while (i_tab < 5)
+	{
+		i_tab++;	
+	}
+	return (tab);
+}
+
+int main(void)
+{
+	char str[] = "       tripouille  abc 42    def@  ";
+	char sep = ' ';
+
+	// ft_split(str, sep);
+	printf("word_count %li\n", word_count(str, sep));
+	// char **tab = ft_split(str, sep);
+	// int i = 0;
+	// while (tab[i])
+	// {
+	// 	printf("%s\n", tab[i]);
+	// 	i++;
+	// }
+	// return (0);
+}
+
+/*
 int    count_word(const char *str, char sep)
 {
-    int    ite;
-    int    count;
-    count = 0;
-    ite = 0;
-    while (str[ite] != '\0')
-    {
-        while (str[ite] == sep)
-            ite++;
-        while (str[ite] != sep && str[ite] != '\0')
-            ite++;
-        if (str[ite] != '\0')
-            count++;
-        ite++;
-    }
-    return (count);
+	int    ite;
+	int    count;
+	count = 0;
+	ite = 0;
+	while (str[ite] != '\0')
+	{
+		while (str[ite] == sep)
+			ite++;
+		while (str[ite] != sep && str[ite] != '\0')
+			ite++;
+		if (str[ite] != '\0')
+			count++;
+		ite++;
+	}
+	return (count);
 }
+
 void    allocm(const char *str, char sep, int ite, int j, int len_word, int nbr_word, char **result)
 {
-    while (str[j] == sep && str[j] != '\0')
-        j++;
-    while (ite < nbr_word + 1)
-    {
-        len_word = 0;
-        while (str[j] != sep && str[j] != '\0')
-        {
-            len_word++;
-            j++;
-        }
-        while (str[j] == sep)
-            j++;
-        if (len_word != 0)
-            result[ite] = (char *)malloc((len_word + 1) * sizeof(char));
-        ite++;
-    }
+	while (str[j] == sep && str[j] != '\0')
+		j++;
+	while (ite < nbr_word + 1)
+	{
+		len_word = 0;
+		while (str[j] != sep && str[j] != '\0')
+		{
+			len_word++;
+			j++;
+		}
+		while (str[j] == sep)
+			j++;
+		if (len_word != 0)
+			result[ite] = (char *)malloc((len_word + 1) * sizeof(char));
+		ite++;
+	}
 }
+
 void    wrte(const char *str, char sep, int ite, int j, int k, int nbr_word, char **result)
 {
-    ite = 0;
-    j = 0;
-    k = 0;
-    while (str[j] == sep)
-        j++;
-    while (ite < nbr_word)
-    {
-        k = 0;
-        while (str[j] == sep)
-            j++;
-        while (str[j] != sep && str[j] != '\0')
-        {
-            result[ite][k] = str[j];
-            k++;
-            j++;
-        }
-        result[ite][k] = '\0';
-        ite++;
-    }
-    result[ite] = 0;
+	ite = 0;
+	j = 0;
+	k = 0;
+	while (str[j] == sep)
+		j++;
+	while (ite < nbr_word)
+	{
+		k = 0;
+		while (str[j] == sep)
+			j++;
+		while (str[j] != sep && str[j] != '\0')
+		{
+			result[ite][k] = str[j];
+			k++;
+			j++;
+		}
+		result[ite][k] = '\0';
+		ite++;
+	}
+	result[ite] = 0;
 }
+
 char **ft_split(const char *str, char sep)
 {
-    char    **result;
-    int        len_word;
-    int        ite;
-    int        j;
-    int        k;
-    int        nbr_word;
-    nbr_word = count_word(str, sep);
-    ite = 0;
-    j = 0;
-    k = 0;
-    len_word = 0;
-    result = (char **)malloc((nbr_word + 1) * sizeof(char *));
-    if (!result)
-        return (NULL);
-    allocm(str, sep, ite, j, len_word, nbr_word, result);
-    wrte(str, sep, ite, j, k, nbr_word, result);
-    return (result);
+	char    **result;
+	int        len_word;
+	int        ite;
+	int        j;
+	int        k;
+	int        nbr_word;
+	nbr_word = count_word(str, sep);
+	ite = 0;
+	j = 0;
+	k = 0;
+	len_word = 0;
+	result = (char **)malloc((nbr_word + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	allocm(str, sep, ite, j, len_word, nbr_word, result);
+	wrte(str, sep, ite, j, k, nbr_word, result);
+	return (result);
 }
 
-// int    main(void)
-// {
-//     char    str[] = "\0";
-//     char    charset =  '\0';
-
-//     // result = ft_split(str, charset);    
-//    char **tab =  ft_split(str, charset);
-// 	int i = 0;
-// 	while (tab[i])
-// 	{
-// 		printf("%s\n", tab[i]);
-// 		i++;
-// 	}
-
-//     return (0);
-// }
+*/
 
 /*
 static size_t	word_count(char const *str, char sep)
@@ -188,4 +229,3 @@ char	**ft_split(char const *str, char sep)
 }
 
 */
-
