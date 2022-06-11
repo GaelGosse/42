@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/06/10 19:35:22 by gael             ###   ########.fr       */
+/*   Updated: 2022/06/11 18:53:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 size_t	word_count(const char *str, char sep)
 {
-	size_t    nbr_word; 
-	size_t    i_wc; 
+	size_t	nbr_word;
+	size_t	i_wc;
 
-    i_wc = 0;
-    nbr_word = 0;
+	i_wc = 0;
+	nbr_word = 0;
 	while (str[i_wc])
 	{
 		if (str[i_wc] == sep)
@@ -26,45 +26,75 @@ size_t	word_count(const char *str, char sep)
 		if (str[i_wc] && str[i_wc] != sep)
 		{
 			nbr_word++;
-			while (str[i_wc] && str[i_wc])
+			while (str[i_wc] && str[i_wc] != sep)
 				i_wc++;
 		}
 	}
 	return (nbr_word);
 }
 
+size_t	word_len(const char *str, char sep, size_t i_wl)
+{
+	size_t	nbr_char;
+
+	nbr_char = 0;
+	while (str[i_wl] && str[i_wl] != sep)
+	{
+		i_wl++;
+		nbr_char++;
+	}
+	return (nbr_char);
+}
+
 char	**ft_split(const char *str, char sep)
 {
 	char	**tab;
-	size_t    i_tab; 
+	size_t	tabi;
+	size_t	stri;
+	size_t	i_ins;
 
-	if (!str || !sep)
+	if (!tab)
 		return (NULL);
-    i_tab = 0;
-	tab = (char **)malloc(sizeof(char *) * (1));
-	while (i_tab < 5)
+	stri = 0;
+	tabi = 0;
+	tab = (char **)malloc(sizeof(char *) * (word_count(str, sep) + 1));
+	while (tabi < word_count(str, sep))
 	{
-		i_tab++;	
+		i_ins = 0;
+		while (str[stri] && str[stri] == sep)
+			stri++;
+		if (str[stri] && str[stri] != sep)
+		{
+			tab[tabi] = (char *)malloc((word_len(str, sep, stri) + 1) * sizeof(char));
+			if (!tab[tabi])
+				return (NULL);
+			while (str[stri] && str[stri] != sep)
+				tab[tabi][i_ins++] = str[stri++];
+			tab[tabi][i_ins] = '\0';
+		}
+		tabi++;
 	}
+	tab[tabi] = 0;
 	return (tab);
 }
 
-int main(void)
+/*
+int main()
 {
-	char str[] = "       tripouille  abc 42    def@  ";
-	char sep = ' ';
+	// char	**tabstr;
+	// size_t    i; 
 
-	// ft_split(str, sep);
-	printf("word_count %li\n", word_count(str, sep));
-	// char **tab = ft_split(str, sep);
-	// int i = 0;
-	// while (tab[i])
+    // i = 0;	
+	// tabstr = 
+	ft_split("Suspendisse", 0);
+	// while (tabstr[i])
 	// {
-	// 	printf("%s\n", tab[i]);
+	// 	printf("tabstr[i] %s\n", tabstr[i]);
 	// 	i++;
 	// }
-	// return (0);
+    return (0);
 }
+*/
 
 /*
 int    count_word(const char *str, char sep)
