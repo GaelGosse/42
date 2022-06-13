@@ -8,4 +8,5 @@
 	},
 	"editor.tabSize": 4,
 	"editor.detectIndentation": true,
+	"vscode_custom_css.imports": ["file:///home/gael/css_vscode.css"],
 }
