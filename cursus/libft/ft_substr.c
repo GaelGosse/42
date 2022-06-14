@@ -6,11 +6,10 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:28:53 by gael              #+#    #+#             */
-/*   Updated: 2022/05/30 19:31:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/14 19:21:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -39,12 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	result[j] = '\0';
 	return (result);
 }
-
-/*
-int	main()
-{
-	char s[] = "Salut ca va mon ami";
-	printf("%p\n", ft_substr(NULL, 5, 10));
-	return (0);
-}
-*/

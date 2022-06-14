@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:54 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/30 17:15:03 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/14 19:19:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,3 @@ char	*ft_strchr(const char *str, int search)
 	}
 	return (NULL);
 }
-
-// int main()
-// {
-// 	printf("%i\n", tolower('a'));
-// 	printf("%i\n", ft_tolower('a'));
-// }

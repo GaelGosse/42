@@ -1,12 +1,5 @@
 {
-	"C_Cpp.errorSquiggles": "Disabled",
 	"files.associations": {
-		"ctype.h": "c",
-		"sstream": "c",
-		"stdio.h": "c",
-		"libft.h": "c"
-	},
-	"editor.tabSize": 4,
-	"editor.detectIndentation": true,
-	"vscode_custom_css.imports": ["file:///home/gael/css_vscode.css"],
+		"stddef.h": "c"
+	}
 }

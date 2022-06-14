@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:05:21 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/30 16:55:48 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/14 19:20:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,3 @@ char	*ft_strrchr(const char *str, int search)
 	}
 	return (NULL);
 }
-
-/*
-int main()
-{
-	char s[] = "tripouille";
-	// char s2[] = "ltripouiel";
-
-	ft_strrchr(s, 't');
-	// printf("%s \n", ft_strrchr(s, 't'));
-	// printf("%s \n", strrchr(s, 't'));
-
-	return (0);
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/29 21:51:26 by gael             ###   ########.fr       */
+/*   Updated: 2022/06/14 19:16:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-int	ft_isspace(int chr)
+static int	ft_isspace(int chr)
 {
 	if ((8 < chr && chr < 14) || chr == 32)
 	{
@@ -24,7 +24,7 @@ int	ft_isspace(int chr)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+static int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
@@ -48,5 +48,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-
-// int	main(void)`

@@ -6,11 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 11:23:37 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/08 15:43:20 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/14 19:18:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -21,11 +21,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	write(fd, s, i);
 }
-
-/*
-int	main(void)
-{
-	char	str[] = "abc";
-	ft_putstr_fd(str, 1);
-}
-*/

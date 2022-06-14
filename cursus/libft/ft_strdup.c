@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:55:59 by ggosse            #+#    #+#             */
-/*   Updated: 2022/05/30 16:58:00 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/14 19:19:15 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,3 @@ char	*ft_strdup(const char *src)
 	result[i] = '\0';
 	return (result);
 }
-
-/*
-int main()
-{
-	char * s = ft_strdup((char*)"coucou");
-	printf("%li \n", ft_strlen(s)); 
-	printf("%li \n", ft_strlen("coucou"));
-	// mcheck(s, strlen("coucou") + 1); 
-	free(s);
-}
-*/

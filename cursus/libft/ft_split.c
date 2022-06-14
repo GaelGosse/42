@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 10:27:16 by gael              #+#    #+#             */
-/*   Updated: 2022/06/13 22:49:17 by gael             ###   ########.fr       */
+/*   Updated: 2022/06/14 19:18:47 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	word_count(const char *str, char sep)
+static size_t	word_count(const char *str, char sep)
 {
 	size_t	nbr_word;
 	size_t	i_wc;
@@ -33,7 +33,7 @@ size_t	word_count(const char *str, char sep)
 	return (nbr_word);
 }
 
-size_t	word_len(const char *str, char sep, size_t	i_wl)
+static size_t	word_len(const char *str, char sep, size_t	i_wl)
 {
 	size_t	nbr_char;
 
@@ -46,13 +46,13 @@ size_t	word_len(const char *str, char sep, size_t	i_wl)
 	return (nbr_char);
 }
 
-void	declaration(size_t *i, size_t *t)
+static void	declaration(size_t *i, size_t *t)
 {
 	*i = 0;
 	*t = -1;
 }
 
-void	jump_sep(size_t *i_ins, size_t *i, const char *str, char sep)
+static void	jump_sep(size_t *i_ins, size_t *i, const char *str, char sep)
 {
 	*i_ins = 0;
 	while (str[*i] && str[*i] == sep)

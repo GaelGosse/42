@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:34 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/13 23:10:17 by gael             ###   ########.fr       */
+/*   Updated: 2022/06/14 19:20:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,3 @@ int	ft_strncmp(const char *first, const char *second, size_t length)
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	printf("%i\n", ft_strncmp("abc", "abd", 3));
-// 	printf("%i\n", ft_strncmp("abd", "abc", 3));
-// 	printf("%i\n", ft_strncmp("abc", "abc", 3));
-// }
