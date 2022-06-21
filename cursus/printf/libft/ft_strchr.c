@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:05:30 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:50:25 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/09 19:06:54 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:19:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strchr(const char *str, int search)
 {
-	size_t	b;
-	size_t	l;
-	char	*conv_big;
+	size_t	i;
 
-	b = 0;
-	l = 0;
-	conv_big = (char *)big;
-	if (ft_strlen(little) == 0)
-		return ((char *)conv_big);
-	if (little[0] == '\0')
-		return (conv_big);
-	while (big[b] && b < len)
+	i = 0;
+	while (i <= ft_strlen((const char *)(str)))
 	{
-		l = 0;
-		if (big[b] == little[l])
+		if (str[i] == (unsigned char)(search))
 		{
-			if (!ft_strncmp(big + b, little + l, ft_strlen(little))
-				&& ((b + ft_strlen(little)) <= len))
-				return (conv_big + b);
-			l++;
+			return ((char *)(&str[i]));
 		}
-		b++;
+		i++;
 	}
 	return (NULL);
 }

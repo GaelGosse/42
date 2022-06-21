@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 13:11:07 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:42:00 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/08 16:12:48 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 18:55:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*res;
-	int		i;
+	t_list	*last;
 
-	i = 0;
-	res = NULL;
-	res = ft_strdup(str);
-	while (res[i])
+	if (!lst)
+		return (0);
+	last = lst;
+	while (last->next)
 	{
-		res[i] = (*f)(i, res[i]);
-		i++;
+		if (last->next != NULL)
+			last = last->next;
 	}
-	res[i] = '\0';
-	return (res);
+	return (last);
 }

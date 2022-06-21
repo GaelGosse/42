@@ -1,59 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strchr_join.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 15:20:36 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:29:07 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/12 16:19:59 by gael              #+#    #+#             */
+/*   Updated: 2022/06/20 17:48:46 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	num_len(long int nbr)
+char	*ft_strchr_join(char *s1, char chr)
 {
-	long int	len;
+	char			*str;
+	int	i;
 
-	len = 1;
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		len++;
-	}
-	while (nbr > 9)
-	{
-		nbr = nbr / 10;
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int nbr)
-{
-	char		*str;
-	long int	len;
-	long int	sign;
-	long int	nb;
-
-	sign = 0;
-	len = num_len(nbr);
-	nb = nbr;
-	str = malloc((len + 1) * sizeof(char));
+    i = 0;
+	str = (char *)malloc((ft_strlen(s1) + 2) * sizeof(char));
 	if (!str)
 		return (NULL);
-	if (nb < 0)
+	while (s1[i] != '\0')
 	{
-		nb *= -1;
-		str[0] = '-';
-		sign = 1;
+		str[i] = s1[i];
+		i++;
 	}
-	str[len] = '\0';
-	while (--len >= sign)
-	{
-		str[len] = nb % 10 + '0';
-		nb /= 10;
-	}
+	str[ft_strlen(s1)] = chr;
+	str[ft_strlen(s1) + 1] = '\0';
 	return (str);
 }
+
+// int main(){
+// 	char	*str = "abcd";
+// 	char	chr = 'e';
+
+// 	printf("\033[0;46;30m%s \n", ft_strchr_join(str, chr));
+// }

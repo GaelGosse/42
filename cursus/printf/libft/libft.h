@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:56:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/21 16:48:30 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(const char *str, char sep);
 char	*ft_strchr(const char *s, int c);
+// char	*ft_strchr_join(char *s1, char chr);
 char	*ft_strdup(const char *src);
 void	ft_striteri(char *str, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -69,5 +70,6 @@ char	*ft_strtrim(const char *str, const char *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int chr);
 int		ft_toupper(int chr);
+char	*ft_putnbr_base_low(int nbr);
 
 #endif

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 13:11:07 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:42:00 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/14 16:46:53 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 18:55:13 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*res;
-	int		i;
+	t_list	*tmp;
+	t_list	*res;
 
-	i = 0;
-	res = NULL;
-	res = ft_strdup(str);
-	while (res[i])
+	tmp = NULL;
+	while (lst)
 	{
-		res[i] = (*f)(i, res[i]);
-		i++;
+		res = ft_lstnew(f(lst->content));
+		if (!res)
+		{
+			ft_lstclear(&tmp, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&tmp, res);
+		lst = lst->next;
 	}
-	res[i] = '\0';
-	return (res);
+	return (tmp);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 15:20:36 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:29:07 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/13 14:48:06 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/21 19:19:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,29 @@ static int	num_len(long int nbr)
 	return (len);
 }
 
-char	*ft_itoa(int nbr)
+void	ft_putnbr_fd(int nbr, int fd)
 {
-	char		*str;
-	long int	len;
-	long int	sign;
-	long int	nb;
+	int len;
 
-	sign = 0;
-	len = num_len(nbr);
-	nb = nbr;
-	str = malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	if (nb < 0)
+    len = num_len(nbr);
+	if (nbr == -2147483648)
 	{
-		nb *= -1;
-		str[0] = '-';
-		sign = 1;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	str[len] = '\0';
-	while (--len >= sign)
+	if (nbr < 0 && nbr != -2147483648)
 	{
-		str[len] = nb % 10 + '0';
-		nb /= 10;
+		ft_putchar_fd('-', fd);
+		nbr *= -1;
 	}
-	return (str);
+	if (nbr < 10)
+	{
+		ft_putchar_fd(nbr + '0', fd);
+	}
+	else
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
+	}
+	return (len);
 }
