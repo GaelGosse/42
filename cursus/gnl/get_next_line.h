@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 16:19:59 by gael              #+#    #+#             */
-/*   Updated: 2022/06/14 19:19:32 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/23 15:01:22 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/23 15:09:05 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GNL_H
+# define GNL_H
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
+#define BUF_SIZE 4096
+# include <unistd.h>
+# include <stdio.h>
 
-	i = 0;
-	j = 0;
-	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char) + 1);
-	if (!str)
-		return (NULL);
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = '\0';
-	return (str);
-}
+char	*get_next_line(int fd);
+
+#endif

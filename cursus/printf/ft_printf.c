@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/23 01:18:12 by gael             ###   ########.fr       */
+/*   Updated: 2022/06/24 18:22:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "libftprintf.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -66,7 +67,7 @@ int	ft_printf(const char *str, ...)
 			else if (str[i + 1] == 'p') 
 			{
 				// printf("\n\n---[p]");
-				ft_putstr_fd(va_arg(ptr, char *), 1);
+				ft_putptr(va_arg(ptr, long long int));
 			}
 			else if (str[i + 1] == 'd') 
 			{
@@ -113,7 +114,7 @@ int	ft_printf(const char *str, ...)
 int main(){
 	char	*str = "def";
 
-	ft_printf("abc %s xyz\n", str);
+	// ft_printf("abc %s xyz\n", str);
 	printf("%p\n", &str);
 	ft_printf("%p\n", &str);
 	// ft_printf("abc %c %s %p %d %i %u %x %X %% www\n", ite, dx);

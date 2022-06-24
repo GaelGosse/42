@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 17:02:09 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/14 19:17:25 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/23 15:08:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "get_next_line.h"
 
-void	*ft_memset(void	*str, int value, size_t len)
+char	*get_next_line(int fd)
 {
-	unsigned char	*p;
-	int				i;
+	int ret;
+	int buf;
 
-	p = str;
-	i = 0;
-	while (len--)
+    buf = 0;
+    ret = read(fd, buf, BUF_SIZE);
+}
+
+int main(){
+	int dico_auth;
+
+    dico_auth = open("numbers.dict", O_RDONLY);
+	if (dico_auth == -1)
 	{
-		*(p + i) = (unsigned char)value;
-		i++;
+		return (0);
 	}
-	return (p);
+	get_next_line(dico_auth);
+	if (close(dico_auth) == -1)
+	{
+		return (0);
+	}
 }
