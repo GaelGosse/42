@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/21 19:04:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/23 01:18:12 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	ft_printf(const char *str, ...)
 			}
 			else if (str[i + 1] == '%')
 			{
-				// print  f("\n\n---[%%]");
+				// printf("\n\n---[%%]");
 				ft_putchar_fd(va_arg(ptr, int), 1);
 			}
 			i++;
@@ -114,7 +114,8 @@ int main(){
 	char	*str = "def";
 
 	ft_printf("abc %s xyz\n", str);
-	printf("%p", &str);
+	printf("%p\n", &str);
+	ft_printf("%p\n", &str);
 	// ft_printf("abc %c %s %p %d %i %u %x %X %% www\n", ite, dx);
 	// printf("abc %i %i www\n", ite, dx);
 }

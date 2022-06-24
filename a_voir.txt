@@ -140,3 +140,5 @@ rules = document.createTextNode(`
 }`);
 cssAnimation.appendChild(rules);
 document.getElementsByTagName("head")[0].appendChild(cssAnimation);
+
+https://levelup.gitconnected.com/building-your-own-adblocker-in-literally-10-minutes-1eec093b04cd

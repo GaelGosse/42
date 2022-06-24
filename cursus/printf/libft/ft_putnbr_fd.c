@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:48:06 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/21 19:19:34 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/22 11:50:29 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	num_len(long int nbr)
 	return (len);
 }
 
-void	ft_putnbr_fd(int nbr, int fd)
+int	ft_putnbr_fd(int nbr, int fd)
 {
 	int len;
 
@@ -38,7 +38,7 @@ void	ft_putnbr_fd(int nbr, int fd)
 	if (nbr == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
-		return ;
+		return (11);
 	}
 	if (nbr < 0 && nbr != -2147483648)
 	{

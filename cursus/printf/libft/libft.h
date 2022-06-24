@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/21 16:48:30 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/22 11:51:12 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *destination, const void *source, size_t size);
 void	*ft_memmove(void *destination, const void *source, size_t n);
 void	*ft_memset(void	*str, int value, size_t len);
-void	ft_putchar_fd(char c, int fd);
+int	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int	ft_putnbr_fd(int n, int fd);
+int	ft_putstr_fd(char *s, int fd);
 char	**ft_split(const char *str, char sep);
 char	*ft_strchr(const char *s, int c);
 // char	*ft_strchr_join(char *s1, char chr);
@@ -70,6 +70,6 @@ char	*ft_strtrim(const char *str, const char *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int chr);
 int		ft_toupper(int chr);
-char	*ft_putnbr_base_low(int nbr);
+int		ft_putnbr_base_low(int nbr);
 
 #endif
