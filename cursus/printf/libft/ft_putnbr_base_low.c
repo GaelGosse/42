@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:27:29 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/24 16:16:11 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/25 14:01:12 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ static int	num_hexa_len(long int nbr)
 {
 	long int	len;
 
-	len = 0;
+	len = 1;
 	if (nbr < 0)
 	{
 		nbr *= -1;
 		len++;
 	}
-	while (nbr > 0)
+	while (nbr > 16)
 	{
 		nbr = nbr / 16;
 		len++;

@@ -1,14 +1,15 @@
-NAME = libft.a
+NAME = libftprintf.a
 
 CC = gcc -Wall -Wextra -Werror
 
-SRC = libft/ft_putchar_fd.c \
-    libft/ft_putnbr_fd.c \
-    libft/ft_putstr_fd.c \
+SRC = ft_printf.c \
+	ft_tools.c \
+	libft/ft_putchar_fd.c \
 	libft/ft_putnbr_base_low.c \
 	libft/ft_putnbr_base_up.c \
-	ft_tools.c
-	ft_printf.c
+	libft/ft_putnbr_fd.c \
+	libft/ft_putstr_fd.c \
+	libft/ft_putunbr.c
 
 OBJ = $(SRC:.c=.o)
 

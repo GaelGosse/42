@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/25 17:03:38 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/25 18:10:50 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/25 19:26:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <ctype.h>
-# include <stddef.h>
+static int	num_len(long int nbr)
+{
+	long int	len;
 
-int		ft_putnbr_base_low(unsigned int nbr);
-int		ft_putnbr_base_up(unsigned int nbr);
-int		ft_putchar_fd(char c, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putunbr(unsigned int nbr);
-int		ft_putnbr_fd(int n, int fd);
+	len = 1;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		len++;
+	}
+	while (nbr > 9)
+	{
+		nbr = nbr / 10;
+		len++;
+	}
+	return (len);
+}
 
-#endif
+int	ft_putunbr(unsigned int nbr)
+{
+	int len;
+
+    len = num_len(nbr);
+	if (nbr < 10)
+	{
+		ft_putchar_fd(nbr + '0', 1);
+	}
+	else
+	{
+		ft_putunbr(nbr / 10);
+		ft_putunbr(nbr % 10);
+	}
+	return (len);
+}

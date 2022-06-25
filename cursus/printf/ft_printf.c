@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/24 18:22:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/25 19:32:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,47 +56,47 @@ int	ft_printf(const char *str, ...)
 		{
 			if (str[i + 1] == 'c')
 			{
-				// printf("\n\n---[c]");
+				// pr\n\nintf("---[\nc]");
 				ft_putchar_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 's') 
 			{
-				// printf("\n\n---[s]");
+				// pr\n\nintf("---[\ns]");
 				ft_putstr_fd(va_arg(ptr, char *), 1);
 			}
 			else if (str[i + 1] == 'p') 
 			{
-				// printf("\n\n---[p]");
+				// pr\n\nintf("---[\np]");
 				ft_putptr(va_arg(ptr, long long int));
 			}
 			else if (str[i + 1] == 'd') 
 			{
-				// printf("\n\n---[d]");
+				// pr\n\nintf("---[\nd]");
 				ft_putnbr_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 'i') 
 			{
-				// printf("\n\n---[i]");
+				// pr\n\nintf("---[\ni]");
 				ft_putnbr_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 'u') 
 			{
-				// printf("\n\n---[u]");
-				ft_putnbr_fd(va_arg(ptr, unsigned int), 1);
+				// pr\n\nintf("---[\nu]");
+				ft_putunbr(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == 'x') 
 			{
-				// printf("\n\n---[x]");
+				// pr\n\nintf("---[\nx]");
 				ft_putnbr_base_low(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == 'X') 
 			{
-				// printf("\n\n---[X]");
-				ft_putnbr_base_low(va_arg(ptr, unsigned int));
+				// pr\n\nintf("---[\nX]");
+				ft_putnbr_base_up(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == '%')
 			{
-				// printf("\n\n---[%%]");
+				// pr\n\nintf("---[\n%%]");
 				ft_putchar_fd(va_arg(ptr, int), 1);
 			}
 			i++;
@@ -110,13 +110,73 @@ int	ft_printf(const char *str, ...)
 	return (1);
 }
 
-
+/*
 int main(){
 	char	*str = "def";
 
-	// ft_printf("abc %s xyz\n", str);
-	printf("%p\n", &str);
-	ft_printf("%p\n", &str);
-	// ft_printf("abc %c %s %p %d %i %u %x %X %% www\n", ite, dx);
-	// printf("abc %i %i www\n", ite, dx);
+	
+	// c 
+	printf("\n\n---c\n");
+	printf("le vrai: %c\n", 'c');
+	ft_printf("le mien: %c\n\n", 'c');
+	
+	// s 
+	printf("\n\n---s\n");
+	printf("le vrai: %s\n", str);
+	ft_printf("le mien: %s\n\n", str);
+	
+	// p 
+	printf("\n\n---p\n");
+	printf("le vrai: %p\n", &str);
+	ft_printf("le mien: %p\n\n", &str);
+	
+	// d 
+	printf("\n\n---d\n");
+	printf("le vrai: %d\n", 4);
+	ft_printf("le mien: %d\n\n", 4);
+	
+	// i 
+	printf("\n\n---i\n");
+	printf("le vrai: %d\n", 8);
+	ft_printf("le mien: %d\n\n", 8);
+	
+	// u 
+	printf("\n\n---u\n");
+	printf("le vrai: %u\n", 8);
+	ft_printf("le mien: %u\n\n", 8);
+	printf("le vrai: %u\n", -8);
+	ft_printf("le mien: %u\n\n", -8);
+	
+	// x 
+	printf("\n\n---x\n");
+	printf("le vrai: %x\n", 1);
+	ft_printf("le mien: %x\n\n", 1);
+	printf("le vrai: %x\n", 15);
+	ft_printf("le mien: %x\n\n", 15);
+	printf("le vrai: %x\n", 16);
+	ft_printf("le mien: %x\n\n", 16);
+	printf("le vrai: %x\n", 20);
+	ft_printf("le mien: %x\n\n", 20);
+	printf("le vrai: %x\n", 911199);
+	ft_printf("le mien: %x\n\n", 911199);
+		
+	// X 
+	printf("\n\n---X\n");
+	printf("le vrai: %X\n", 1);
+	ft_printf("le mien: %X\n\n", 1);
+	printf("le vrai: %X\n", 15);
+	ft_printf("le mien: %X\n\n", 15);
+	printf("le vrai: %X\n", 16);
+	ft_printf("le mien: %X\n\n", 16);
+	printf("le vrai: %X\n", 20);
+	ft_printf("le mien: %X\n\n", 20);
+	printf("le vrai: %X\n", 911199);
+	ft_printf("le mien: %X\n\n", 911199);
+	
+	// %
+	printf("\n\n---%%\n");
+	printf("le vrai: %%\n");
+	ft_printf("le mien: %%\n\n");
+
 }
+*/
