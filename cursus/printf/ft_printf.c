@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/25 19:32:56 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/06/28 09:51:55 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	ft_printf(const char *str, ...)
 	return (1);
 }
 
-/*
+// /*
 int main(){
 	char	*str = "def";
 
@@ -127,8 +127,8 @@ int main(){
 	
 	// p 
 	printf("\n\n---p\n");
-	printf("le vrai: %p\n", &str);
-	ft_printf("le mien: %p\n\n", &str);
+	printf("%d\n",printf("le vrai: %p\n", &str));
+	printf("%d\n\n",ft_printf("le mien: %p\n", &str));
 	
 	// d 
 	printf("\n\n---d\n");
@@ -179,4 +179,4 @@ int main(){
 	ft_printf("le mien: %%\n\n");
 
 }
-*/
+// */

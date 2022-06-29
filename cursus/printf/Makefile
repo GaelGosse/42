@@ -4,28 +4,32 @@ CC = gcc -Wall -Wextra -Werror
 
 SRC = ft_printf.c \
 	ft_tools.c \
-	libft/ft_putchar_fd.c \
+	
+LIBFT = libft/ft_putchar_fd.c \
 	libft/ft_putnbr_base_low.c \
 	libft/ft_putnbr_base_up.c \
 	libft/ft_putnbr_fd.c \
 	libft/ft_putstr_fd.c \
 	libft/ft_putunbr.c
 
-OBJ = $(SRC:.c=.o)
+OBJDIR = libft/
+
+SRC_OBJ = $(SRC:.c=.o)
+LIBFT_OBJ = $(LIBFT:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(SRC_OBJ) ${LIBFT_OBJ}
 	ar rc $(NAME) $^
 
-%.o : %.c
+$(OBJDIR)%.o : %.c
 	$(CC) -c $^
 
-bonus : $(OBJ)
+bonus : $(SRC_OBJ) ${LIBFT_OBJ}
 	ar rc $(NAME) $^
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(SRC_OBJ) ${LIBFT_OBJ}
 
 fclean : clean
 	rm -f $(NAME)
