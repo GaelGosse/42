@@ -6,23 +6,18 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:14:19 by gael              #+#    #+#             */
-/*   Updated: 2022/07/02 17:23:05 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/02 18:11:10 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static int	num_hexa_len(long int nbr)
+static int	num_hexa_len(unsigned long long int nbr)
 {
 	long int	len;
 
 	len = 0;
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		len++;
-	}
 	while (nbr > 0)
 	{
 		nbr = nbr / 16;
@@ -31,9 +26,8 @@ static int	num_hexa_len(long int nbr)
 	return (len);
 }
 
-void	ft_putptr_hexa(long long int ptr)
+void	ft_putptr_hexa(unsigned long long int ptr)
 {
-
 	if (ptr >= 16)
 	{
 		ft_putptr_hexa(ptr / 16);
@@ -50,11 +44,16 @@ void	ft_putptr_hexa(long long int ptr)
 	}
 }
 
-int	ft_putptr(long long int ptr)
+int	ft_putptr(unsigned long long int ptr)
 {
+	if (ptr == 0)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	ft_putstr_fd("0x", 1);
 	ft_putptr_hexa(ptr);
-	printf("\nnum_hexa_len(ptr): %d\n", num_hexa_len(ptr));
-	return (num_hexa_len(ptr));
+	// printf("\nnum_hexa_len(ptr): %d\n", num_hexa_len(ptr));
+	return (num_hexa_len(ptr) + 2);
 }
 

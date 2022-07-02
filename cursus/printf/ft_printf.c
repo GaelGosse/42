@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/02 17:35:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/02 17:43:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ int	ft_printf(const char *str, ...)
 {
 	va_list ptr;
 	int	i;
+	int	len;
 	va_start (ptr, str);
 	
 	i = 0;
+	len = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
@@ -57,56 +59,58 @@ int	ft_printf(const char *str, ...)
 			if (str[i + 1] == 'c')
 			{
 				// pr\n\nintf("---[\nc]");
-				i += ft_putchar_fd(va_arg(ptr, int), 1);
+				len += ft_putchar_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 's') 
 			{
 				// pr\n\nintf("---[\ns]");
-				i += ft_putstr_fd(va_arg(ptr, char *), 1);
+				len += ft_putstr_fd(va_arg(ptr, char *), 1);
 			}
 			else if (str[i + 1] == 'p') 
 			{
 				// pr\n\nintf("---[\np]");
-				i += ft_putptr(va_arg(ptr, long long int));
+				len += ft_putptr(va_arg(ptr, long long int));
 			}
 			else if (str[i + 1] == 'd') 
 			{
 				// pr\n\nintf("---[\nd]");
-				i += ft_putnbr_fd(va_arg(ptr, int), 1);
+				len += ft_putnbr_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 'i') 
 			{
 				// pr\n\nintf("---[\ni]");
-				i += ft_putnbr_fd(va_arg(ptr, int), 1);
+				len += ft_putnbr_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 'u') 
 			{
 				// pr\n\nintf("---[\nu]");
-				i += ft_putunbr(va_arg(ptr, unsigned int));
+				len += ft_putunbr(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == 'x') 
 			{
 				// pr\n\nintf("---[\nx]");
-				i += ft_putnbr_base_low(va_arg(ptr, unsigned int));
+				len += ft_putnbr_base_low(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == 'X') 
 			{
 				// pr\n\nintf("---[\nX]");
-				i += ft_putnbr_base_up(va_arg(ptr, unsigned int));
+				len += ft_putnbr_base_up(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == '%')
 			{
 				// pr\n\nintf("---[\n%%]");
-				i += ft_putchar_fd(va_arg(ptr, int), 1);
+				len += ft_putchar_fd('%', 1);
 			}
+			i++;
 		}
 		else {
 			ft_putchar_fd(str[i],1);
-			i++;
+			len++;
 		}
+		i++;
 	}
 	va_end(ptr);
-	return (i);
+	return (len);
 }
 
 /*

@@ -19,14 +19,10 @@ $(OBJ): $(SRC)
 	$(CC) $(CFLAGS) $(OPTIONS) $(SRC)
 
 clean:
-	@echo "Removing objects files of $(NAME)"
 	rm -f $(OBJ)
-	@echo "Files object removed successfully from $(NAME)"
 
 fclean: clean
-	@echo "Removing $(NAME)"
 	rm -f $(NAME)
-	@echo "$(NAME) removed, goodbye!"
 
 re: fclean all
 

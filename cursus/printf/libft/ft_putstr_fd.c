@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 11:23:37 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/21 19:19:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/02 17:50:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@ int	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+	{
+		write(fd, "(null)", 6);
+		return (6);
+	}
 	while (s[i])
 		i++;
-	write(fd, s, i);
+	if (i != 0)
+		write(fd, s, i);
 	return (i);
 }
