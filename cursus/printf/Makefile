@@ -1,39 +1,33 @@
-NAME = libftprintf.a
+CC            = gcc
 
-CC = gcc -Wall -Wextra -Werror
+NAME          = libftprintf.a
 
-SRC = ft_printf.c \
-	ft_tools.c \
-	
-LIBFT = libft/ft_putchar_fd.c \
-	libft/ft_putnbr_base_low.c \
-	libft/ft_putnbr_base_up.c \
-	libft/ft_putnbr_fd.c \
-	libft/ft_putstr_fd.c \
-	libft/ft_putunbr.c
+CFLAGS        = -Wall -Wextra -Werror
 
-OBJDIR = libft/
+OPTIONS        = -c -I.
 
-SRC_OBJ = $(SRC:.c=.o)
-LIBFT_OBJ = $(LIBFT:.c=.o)
+SRC            = ft_printf.c ft_tools.c libft/*.c
 
-all : $(NAME)
+OBJ            = *.o
 
-$(NAME) : $(SRC_OBJ) ${LIBFT_OBJ}
-	ar rc $(NAME) $^
+all: $(NAME)
 
-$(OBJDIR)%.o : %.c
-	$(CC) -c $^
+$(NAME): $(OBJ)
+	ar -crs $(NAME) $(OBJ)
 
-bonus : $(SRC_OBJ) ${LIBFT_OBJ}
-	ar rc $(NAME) $^
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) $(OPTIONS) $(SRC)
 
-clean :
-	rm -f $(SRC_OBJ) ${LIBFT_OBJ}
+clean:
+	@echo "Removing objects files of $(NAME)"
+	rm -f $(OBJ)
+	@echo "Files object removed successfully from $(NAME)"
 
-fclean : clean
+fclean: clean
+	@echo "Removing $(NAME)"
 	rm -f $(NAME)
+	@echo "$(NAME) removed, goodbye!"
 
-re : fclean all
+re: fclean all
 
-.PHONY : all bonus clean fclean re
+.PHONY: clean fclean all re

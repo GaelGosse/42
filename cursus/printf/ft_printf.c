@@ -6,12 +6,12 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/28 09:51:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/02 17:35:08 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -57,60 +57,59 @@ int	ft_printf(const char *str, ...)
 			if (str[i + 1] == 'c')
 			{
 				// pr\n\nintf("---[\nc]");
-				ft_putchar_fd(va_arg(ptr, int), 1);
+				i += ft_putchar_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 's') 
 			{
 				// pr\n\nintf("---[\ns]");
-				ft_putstr_fd(va_arg(ptr, char *), 1);
+				i += ft_putstr_fd(va_arg(ptr, char *), 1);
 			}
 			else if (str[i + 1] == 'p') 
 			{
 				// pr\n\nintf("---[\np]");
-				ft_putptr(va_arg(ptr, long long int));
+				i += ft_putptr(va_arg(ptr, long long int));
 			}
 			else if (str[i + 1] == 'd') 
 			{
 				// pr\n\nintf("---[\nd]");
-				ft_putnbr_fd(va_arg(ptr, int), 1);
+				i += ft_putnbr_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 'i') 
 			{
 				// pr\n\nintf("---[\ni]");
-				ft_putnbr_fd(va_arg(ptr, int), 1);
+				i += ft_putnbr_fd(va_arg(ptr, int), 1);
 			}
 			else if (str[i + 1] == 'u') 
 			{
 				// pr\n\nintf("---[\nu]");
-				ft_putunbr(va_arg(ptr, unsigned int));
+				i += ft_putunbr(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == 'x') 
 			{
 				// pr\n\nintf("---[\nx]");
-				ft_putnbr_base_low(va_arg(ptr, unsigned int));
+				i += ft_putnbr_base_low(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == 'X') 
 			{
 				// pr\n\nintf("---[\nX]");
-				ft_putnbr_base_up(va_arg(ptr, unsigned int));
+				i += ft_putnbr_base_up(va_arg(ptr, unsigned int));
 			}
 			else if (str[i + 1] == '%')
 			{
 				// pr\n\nintf("---[\n%%]");
-				ft_putchar_fd(va_arg(ptr, int), 1);
+				i += ft_putchar_fd(va_arg(ptr, int), 1);
 			}
-			i++;
 		}
 		else {
 			ft_putchar_fd(str[i],1);
+			i++;
 		}
-		i++;
 	}
 	va_end(ptr);
-	return (1);
+	return (i);
 }
 
-// /*
+/*
 int main(){
 	char	*str = "def";
 
@@ -179,4 +178,4 @@ int main(){
 	ft_printf("le mien: %%\n\n");
 
 }
-// */
+*/

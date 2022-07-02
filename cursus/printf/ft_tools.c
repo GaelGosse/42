@@ -6,10 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:14:19 by gael              #+#    #+#             */
-/*   Updated: 2022/06/26 21:13:20 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/02 17:23:05 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft/libft.h"
 
 static int	num_hexa_len(long int nbr)
