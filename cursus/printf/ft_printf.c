@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/02 17:43:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/03 20:37:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,74 +43,70 @@ int	count_var(const char *str)
 	return (nbr_var);
 }
 
+int ft_int(int i)
+{
+	
+}
+int ft_char(char *c)
+{
+	
+}
+int ft_long(long long int i)
+{
+	
+}
+int ft_uns(unsigned int i)
+{
+	
+}
+
+int	main_printf(char chr, int len)
+{
+	if (chr == 'c')
+		len += ft_putchar_fd(va_arg(ptr, int), 1);
+	else if (chr == 's')
+		len += ft_putstr_fd(va_arg(ptr, char *), 1);
+	else if (chr == 'p')
+		len += ft_putptr(va_arg(ptr, long long int));
+	else if (chr == 'd')
+		len += ft_putnbr_fd(va_arg(ptr, int), 1);
+	else if (chr == 'i')
+		len += ft_putnbr_fd(va_arg(ptr, int), 1);
+	else if (chr == 'u')
+		len += ft_putunbr(va_arg(ptr, unsigned int));
+	else if (chr == 'x')
+		len += ft_putnbr_base_low(va_arg(ptr, unsigned int));
+	else if (chr == 'X')
+		len += ft_putnbr_base_up(va_arg(ptr, unsigned int));
+	else if (chr == '%')
+		len += ft_putchar_fd('%', 1);
+	return (len);
+}
+
 int	ft_printf(const char *str, ...)
 {
-	va_list ptr;
-	int	i;
-	int	len;
+	int		i;
+	int		len;
+	va_list	ptr;
+
 	va_start (ptr, str);
-	
 	i = 0;
 	len = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
-			if (str[i + 1] == 'c')
-			{
-				// pr\n\nintf("---[\nc]");
-				len += ft_putchar_fd(va_arg(ptr, int), 1);
-			}
-			else if (str[i + 1] == 's') 
-			{
-				// pr\n\nintf("---[\ns]");
-				len += ft_putstr_fd(va_arg(ptr, char *), 1);
-			}
-			else if (str[i + 1] == 'p') 
-			{
-				// pr\n\nintf("---[\np]");
-				len += ft_putptr(va_arg(ptr, long long int));
-			}
-			else if (str[i + 1] == 'd') 
-			{
-				// pr\n\nintf("---[\nd]");
-				len += ft_putnbr_fd(va_arg(ptr, int), 1);
-			}
-			else if (str[i + 1] == 'i') 
-			{
-				// pr\n\nintf("---[\ni]");
-				len += ft_putnbr_fd(va_arg(ptr, int), 1);
-			}
-			else if (str[i + 1] == 'u') 
-			{
-				// pr\n\nintf("---[\nu]");
-				len += ft_putunbr(va_arg(ptr, unsigned int));
-			}
-			else if (str[i + 1] == 'x') 
-			{
-				// pr\n\nintf("---[\nx]");
-				len += ft_putnbr_base_low(va_arg(ptr, unsigned int));
-			}
-			else if (str[i + 1] == 'X') 
-			{
-				// pr\n\nintf("---[\nX]");
-				len += ft_putnbr_base_up(va_arg(ptr, unsigned int));
-			}
-			else if (str[i + 1] == '%')
-			{
-				// pr\n\nintf("---[\n%%]");
-				len += ft_putchar_fd('%', 1);
-			}
+			len += main_printf(str[i + 1], len);
 			i++;
 		}
-		else {
-			ft_putchar_fd(str[i],1);
+		else
+		{
+			ft_putchar_fd(str[i], 1);
 			len++;
 		}
 		i++;
 	}
-	va_end(ptr);
-	return (len);
+	return (va_end(ptr), len);
 }
 
 /*

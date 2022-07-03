@@ -1,58 +1,6 @@
-ft str trim : 
+# A voir
 
-
-ft_atoi.c			: OK
-ft_itoa.c			: OK
-ft_bzero.c			: OK 
-ft_isalpha.c		: OK
-ft_isprint.c		: OK
-ft_isascii.c		: OK
-ft_isalnum.c		: OK
-ft_isdigit.c		: OK 
-ft_memset.c			: OK
-ft_putchar_fd.c		: OK
-ft_putstr_fd.c		: OK
-ft_tolower.c		: OK
-ft_toupper.c		: OK
-ft_strchr.c			: OK
-ft_strlen.c			: OK 
-ft_strrchr.c		: OK
-ft_strjoin.c		: OK
-ft_putendl_fd.c		: OK
-ft_putnbr_fd.c		: OK
-ft_substr.c			: OK 
-ft_strdup.c			: OK
-ft_strncmp.c		: OK
-ft_strlcat.c		: OK
-ft_strlcpy.c		: OK
-ft_strmapi.c		: OK 
-ft_striteri.c		: OK
-ft_calloc.c			: OK
-ft_memcpy.c			: OK
-ft_memchr.c			: OK
-ft_memcmp.c			: OK
-ft_memmove.c		: OK
-ft_strnstr.c		: 
-
-ft_split.c			: 
-ft_strtrim.c		: 
-
-
-
-int	main()
-{
-    char    a[] = "abc def gh ijkl mnop";
-    char    b[] = "abc def gh ijkl mnop";
-    char    c[200];
-    int     d = 0;
-    int     e = 10;
-
-	printf("xxx %i", xxx);
-	printf("xxy %s", xxy);
-
-	return (0);
-}
-
+## JS
 function isHidden(el) {
     return (el.offsetParent === null)
 }
@@ -70,7 +18,7 @@ let interval = setInterval(()=>{
     }
 }, 1000)
 
-
+## kill task that use too much  Memory/CPU
 shell task
 ps -aux | sort -nk +4 | tail -n 10
 ps aux --sort -rss | head
@@ -88,16 +36,18 @@ void    print_array(char    **arr)
     }
 }
 
+## Aim error(s) in the norm
  norm | grep -v -i space | grep -v -i empty | grep -v -i brace | grep -v -i include | grep -v -i few | grep -v -i misaligned | grep -v -i consecutive | grep -v -i wrong | grep -v -i ok | grep -i -v vars | grep -v -i decl | grep -v -i long 
 
  bashrc quit with push kill chrome && code
 
+## Define specific variable (MACRO - Pre Processing)
+\# define INT_MAX 0x7fffffff
+\# define INT_MIN (-(INT_MAX + 1))
 
-# define INT_MAX 0x7fffffff
-# define INT_MIN (-(INT_MAX + 1))
+\# define NULL (void *)0;
 
-# define NULL (void *)0;
-
+## get hours in intra
 org_date = document.querySelector('#bh-date').textContent.split('/')
 org_date = new Date(org_date[2], parseInt(org_date[1]) - 1, org_date[0], 23, 59, 0, 0)
 time = document.createElement('p')
@@ -141,4 +91,5 @@ rules = document.createTextNode(`
 cssAnimation.appendChild(rules);
 document.getElementsByTagName("head")[0].appendChild(cssAnimation);
 
+## JS block ad / prevent open new tab "beforeunload"
 https://levelup.gitconnected.com/building-your-own-adblocker-in-literally-10-minutes-1eec093b04cd

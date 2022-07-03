@@ -113,13 +113,87 @@ function poush()
 	git push
 }
 
+function cfg()
+{
+	a=$(pwd)
+	cd && code .zshrc
+	cd $a
+}
+
+function get_rc()
+{
+	# retrieve rc
+}
+
+function send_rc()
+{
+	# send rc
+}
+
+function short_clear()
+{
+	rm -f */*.swp
+	rm -f */*.gch
+	rm -f *.swp
+	rm -f *.gch
+}
+
 # examples of use:
 # > cpl ft_split.c
 # > cpl ft_strtrim.c ft_strlen.c libft.h
 function cpl()
 {
-	rm -f *.gch
-	gcc -Wall -Wextra -Werror $@ && ./a.out
+	if [[ $1 == "-m" ]]; then
+		rm -f */*.swp
+		rm -f */*.gch
+		rm -f *.swp
+		rm -f *.gch
+		make
+		gcc -Wall -Wextra -Werror ${@:2} && ./a.out
+	elif [[ "$#" == 0 ]]; then 
+		rm -f */*.swp
+		rm -f */*.gch
+		rm -f *.swp
+		rm -f *.gch	
+		gcc -Wall -Wextra -Werror $@ && ./a.out
+	elif [[ "$#" > 1 ]]; then
+		echo "something wrong with args"
+	fi
+}
+
+function cpla()
+{
+	if [[ $1 == "-m" ]]; then
+		rm -f */*.swp
+		rm -f */*.gch
+		rm -f *.swp
+		rm -f *.gch
+		make
+		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+	elif [[ "$#" == 0 ]]; then
+		rm -f */*.swp
+		rm -f */*.gch
+		rm -f *.swp
+		rm -f *.gch
+		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+	elif [[ "$#" > 1 ]]; then
+		echo "something wrong with args"
+	fi
+}
+
+function clr()
+{
+	echo "Are you sure to clean all temporary files here and also in all subfolders ?"
+	read -r b
+	if [[ $b == "yes" || $b == "y" ]]; then
+		rm -f */*.swp
+		rm -f */*.gch
+		rm -f *.swp
+		rm -f *.gch
+		clear
+	else
+		echo "nothing happens"
+	fi
 }
 
 # examples of use:
@@ -143,19 +217,6 @@ function work()
 	code .
 }
 
-function clr()
-{
-	echo "Are you sure to clean all temporary files here and also in all subfolders ?"
-	read -r b
-	if [[ $b == "yes" ]]; then
-		rm -f */*.swp
-		rm -f */*.gch
-		clear
-	else
-		echo "no"
-	fi
-}
-
 function crt()
 {
 	mkdir -p $1 && cd $1 && code . 
@@ -171,17 +232,37 @@ function libt()
 
 
 # part test
-function wil()
+function t1()
 {
+	# see all the args
 	for var in "$@"
 	do
 		echo "$var"
 	done
 }
 
-function test2()
+function t2()
 {
 	a="some long string"
     b="ri"
+	# return the rest of the occurence
 	echo $a | grep -o "$b.*"
+}
+
+function t3()
+{
+	# get nbr of args the second
+	echo "${@:2}"
+}
+
+function t4()
+{
+	# get args after the third
+	echo "${@:3}"
+}
+
+function t5()
+{
+	# get nbr of args
+	echo "$#"
 }

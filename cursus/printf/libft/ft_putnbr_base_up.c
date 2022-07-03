@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:14:28 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/02 18:04:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/03 15:44:46 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ static void	ft_print_base(unsigned int nbr)
 	char	*base;
 
 	base = "0123456789ABCDEF";
-	// if (nbr == -2147483648)
-	// {
-	// 	ft_putstr_fd("-2147483648", 1);
-	// 	return ;
-	// }
 	if (nbr < 16)
 		ft_putchar_fd(base[nbr], 1);
 	else

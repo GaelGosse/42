@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:48:06 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/25 16:08:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/03 15:44:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	num_len(long int nbr)
 
 int	ft_putnbr_fd(int nbr, int fd)
 {
-	int len;
+	int	len;
 
-    len = num_len(nbr);
+	len = num_len(nbr);
 	if (nbr == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);

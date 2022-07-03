@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:14:19 by gael              #+#    #+#             */
-/*   Updated: 2022/07/02 18:11:10 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/03 15:47:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	ft_putptr_hexa(unsigned long long int ptr)
 
 int	ft_putptr(unsigned long long int ptr)
 {
+	int	res;
+
+	res = 0;
 	if (ptr == 0)
 	{
 		write(1, "(nil)", 5);
@@ -53,7 +56,6 @@ int	ft_putptr(unsigned long long int ptr)
 	}
 	ft_putstr_fd("0x", 1);
 	ft_putptr_hexa(ptr);
-	// printf("\nnum_hexa_len(ptr): %d\n", num_hexa_len(ptr));
-	return (num_hexa_len(ptr) + 2);
+	res = num_hexa_len(ptr) + 2;
+	return (res);
 }
-
