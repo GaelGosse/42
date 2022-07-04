@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base_up.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:14:28 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/03 15:44:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/05 00:13:43 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	num_hexa_len(long int nbr)
+static int	num_hexa_len(long long int nbr)
 {
 	long int	len;
 
@@ -30,7 +30,7 @@ static int	num_hexa_len(long int nbr)
 	return (len);
 }
 
-static void	ft_print_base(unsigned int nbr)
+static void	ft_print_base(unsigned long long int nbr)
 {
 	char	*base;
 
@@ -44,7 +44,7 @@ static void	ft_print_base(unsigned int nbr)
 	}
 }
 
-int	ft_putnbr_base_up(unsigned int nbr)
+int	ft_putnbr_base_up(unsigned long long int nbr)
 {
 	ft_print_base(nbr);
 	return (num_hexa_len(nbr));

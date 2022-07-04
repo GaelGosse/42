@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:10:50 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/03 15:37:48 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/04 23:59:27 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	num_len(long int nbr)
 	return (len);
 }
 
-int	ft_putunbr(unsigned int nbr)
+int	ft_putunbr(unsigned long long int nbr)
 {
 	int	len;
 

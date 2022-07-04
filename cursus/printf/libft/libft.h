@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/25 17:03:38 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/05 00:04:07 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <ctype.h>
 # include <stddef.h>
 
-int		ft_putnbr_base_low(unsigned int nbr);
-int		ft_putnbr_base_up(unsigned int nbr);
+int		ft_putnbr_base_low(unsigned long long int nbr);
+int		ft_putnbr_base_up(unsigned long long int nbr);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
-int		ft_putunbr(unsigned int nbr);
+int		ft_putunbr(unsigned long long int nbr);
 int		ft_putnbr_fd(int n, int fd);
 
 #endif

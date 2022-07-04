@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/04 13:15:00 by gael             ###   ########.fr       */
+/*   Updated: 2022/07/05 00:50:03 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_int(char chr, int var)
 	return (i);
 }
 
-int	ft_uns(char chr, int var)
+int	ft_uns(char chr, unsigned long long int var)
 {
 	int	i;
 
@@ -47,31 +47,44 @@ int	ft_uns(char chr, int var)
 		i += ft_putnbr_base_low(var);
 	else if (chr == 'X')
 		i += ft_putnbr_base_up(var);
+	else if (chr == 'p')
+		i += ft_putptr(var);
 	return (i);
+}
+
+int	ft_conv(const char *str, int i, va_list args)
+{
+	int		len;
+
+	len = 0;
+	if (str[i] == 's')
+		len += ft_putstr_fd(va_arg(args, char *), 1);
+	else if (str[i] == 'c' || str[i] == 'd' || str[i] == 'i')
+		len += ft_int(str[i], va_arg(args, int));
+	else if (str[i] == '%')
+		len += ft_putchar_fd('%', 1);
+	else if (str[i] == 'p')
+		len += ft_putptr(va_arg(args, unsigned long long int));
+	else if (str[i] == 'u' || str[i] == 'x' || str[i] == 'X')
+		len += ft_uns(str[i], va_arg(args, unsigned int));
+	return (len);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
-	int		len;
-	va_list	ptr;
+	int			i;
+	int			len;
+	va_list		ptr;
 
 	va_start (ptr, str);
 	i = -1;
 	len = 0;
 	while (str[++i] != '\0')
 	{
-		if (str[++i] == '%')
+		if (str[i] == '%')
 		{
-			if (str[i + 1] == 'c' || str[i + 1] == 'd' || str[i + 1] == 'i')
-				ft_int(i + 1, va_arg(ptr, int));
-			else if (str[i + 1] == 'p')
-				len += ft_putptr(va_arg(ptr, long long int));
-			else if (str[i + 1] == 's')
-				len += ft_putstr_fd(va_arg(ptr, char *), 1);
-			else if (str[i + 1] == 'u'
-				|| str[i + 1] == 'x' || str[i + 1] == 'X')
-				len += ft_uns(str[i + 1], va_arg(ptr, unsigned int));
+			i++;
+			len += ft_conv(str, i, ptr);
 		}
 		else
 			len += ft_putchar_fd(str[i], 1);
@@ -80,6 +93,85 @@ int	ft_printf(const char *str, ...)
 }
 
 /*
+
+v4
+			if (str[i] == 's')
+				len += ft_putstr_fd(va_arg(ptr, char *), 1);
+			else if (str[i] == 'c' || str[i] == 'd' || str[i] == 'i')
+				len += ft_int(str[i], va_arg(ptr, int));
+			else if (str[i] == '%')
+				len += ft_putchar_fd('%', 1);
+			else if (str[i] == 'p') 
+				len += ft_putptr(va_arg(ptr, unsigned long long int));
+			else if (str[i] == 'u' || str[i] == 'x' || str[i] == 'X')
+				len += ft_uns(str[i], va_arg(ptr, unsigned int));
+
+v3
+			if (str[++i] == 's')
+				len += ft_putstr_fd(va_arg(ptr, char *), 1);
+			else if (str[i] == 'c' || str[i] == 'd' || str[i] == 'i')
+				len += ft_int(str[i], va_arg(ptr, int));
+			else if (str[i] == '%')
+				len += ft_putchar_fd('%', 1);
+			else if (str[i] == 'p')
+				len += ft_putptr(va_arg(ptr, unsigned long long int));
+			else if (str[i] == 'u' || str[i] == 'x' || str[i] == 'X')
+				len += ft_uns(str[i], va_arg(ptr, unsigned int));
+
+v2
+			if (str[++i] == 's')
+				len += ft_putstr_fd(va_arg(ptr, char *), 1);
+			else if (str[i] == 'c' || str[i] == 'd'
+				|| str[i] == 'i' || str[i] == '%')
+				len += ft_int(str[i], va_arg(ptr, int));
+			else if (str[i] == 'p')
+				len += ft_putptr(va_arg(ptr, unsigned long long int));
+			else if (str[i] == 'u' || str[i] == 'x' || str[i] == 'X')
+				len += ft_uns(str[i], va_arg(ptr, unsigned int));
+
+
+int	ft_printf(const char *str, ...)
+{
+	va_list ptr;
+	int	i;
+	int	len;
+	va_start (ptr, str);
+	
+	i = -1;
+	len = 0;
+	while (str[++i] != '\0')
+	{
+		if (str[i] == '%')
+		{
+			if (str[++i] == 's') 
+				len += ft_putstr_fd(va_arg(ptr, char *), 1);
+			else if (str[i] == 'c')
+				len += ft_putchar_fd(va_arg(ptr, int), 1);
+			else if (str[i] == 'd') 
+				len += ft_putnbr_fd(va_arg(ptr, int), 1);
+			else if (str[i] == 'i') 
+				len += ft_putnbr_fd(va_arg(ptr, int), 1);
+			else if (str[i] == '%')
+				len += ft_putchar_fd('%', 1);
+			else if (str[i] == 'p') 
+				len += ft_putptr(va_arg(ptr, unsigned long long int));
+			else if (str[i] == 'u') 
+				len += ft_putunbr(va_arg(ptr, unsigned int));
+			else if (str[i] == 'x') 
+				len += ft_putnbr_base_low(va_arg(ptr, unsigned int));
+			else if (str[i] == 'X') 
+				len += ft_putnbr_base_up(va_arg(ptr, unsigned int));
+		}
+		else {
+			ft_putchar_fd(str[i],1);
+			len++;
+		}
+	}
+	va_end(ptr);
+	return (len);
+}
+
+
 int main(){
 	char	*str = "def";
 
