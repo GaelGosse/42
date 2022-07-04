@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 17:56:33 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/03 20:37:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/04 13:15:00 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,67 +20,34 @@
 #include <stddef.h>
 #include <stdarg.h>
 
-int	count_var(const char *str)
+int	ft_int(char chr, int var)
 {
-	int	nbr_var;
 	int	i;
 
 	i = 0;
-	nbr_var = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '%')
-		{
-			if (str[i + 1] == 'c' || str[i + 1] == 's' || str[i + 1] == 'p'
-				|| str[i + 1] == 'd' || str[i + 1] == 'i' || str[i + 1] == 'u'
-				|| str[i + 1] == 'x' || str[i + 1] == 'X' || str[i + 1] == '%')
-			{
-				nbr_var++;
-			}
-		}
-		i++;
-	}
-	return (nbr_var);
-}
-
-int ft_int(int i)
-{
-	
-}
-int ft_char(char *c)
-{
-	
-}
-int ft_long(long long int i)
-{
-	
-}
-int ft_uns(unsigned int i)
-{
-	
-}
-
-int	main_printf(char chr, int len)
-{
 	if (chr == 'c')
-		len += ft_putchar_fd(va_arg(ptr, int), 1);
-	else if (chr == 's')
-		len += ft_putstr_fd(va_arg(ptr, char *), 1);
-	else if (chr == 'p')
-		len += ft_putptr(va_arg(ptr, long long int));
+		i += ft_putchar_fd(var, 1);
 	else if (chr == 'd')
-		len += ft_putnbr_fd(va_arg(ptr, int), 1);
+		i += ft_putnbr_fd(var, 1);
 	else if (chr == 'i')
-		len += ft_putnbr_fd(va_arg(ptr, int), 1);
-	else if (chr == 'u')
-		len += ft_putunbr(va_arg(ptr, unsigned int));
-	else if (chr == 'x')
-		len += ft_putnbr_base_low(va_arg(ptr, unsigned int));
-	else if (chr == 'X')
-		len += ft_putnbr_base_up(va_arg(ptr, unsigned int));
+		i += ft_putnbr_fd(var, 1);
 	else if (chr == '%')
-		len += ft_putchar_fd('%', 1);
-	return (len);
+		i += ft_putchar_fd('%', 1);
+	return (i);
+}
+
+int	ft_uns(char chr, int var)
+{
+	int	i;
+
+	i = 0;
+	if (chr == 'u')
+		i += ft_putunbr(var);
+	else if (chr == 'x')
+		i += ft_putnbr_base_low(var);
+	else if (chr == 'X')
+		i += ft_putnbr_base_up(var);
+	return (i);
 }
 
 int	ft_printf(const char *str, ...)
@@ -90,21 +57,24 @@ int	ft_printf(const char *str, ...)
 	va_list	ptr;
 
 	va_start (ptr, str);
-	i = 0;
+	i = -1;
 	len = 0;
-	while (str[i] != '\0')
+	while (str[++i] != '\0')
 	{
-		if (str[i] == '%')
+		if (str[++i] == '%')
 		{
-			len += main_printf(str[i + 1], len);
-			i++;
+			if (str[i + 1] == 'c' || str[i + 1] == 'd' || str[i + 1] == 'i')
+				ft_int(i + 1, va_arg(ptr, int));
+			else if (str[i + 1] == 'p')
+				len += ft_putptr(va_arg(ptr, long long int));
+			else if (str[i + 1] == 's')
+				len += ft_putstr_fd(va_arg(ptr, char *), 1);
+			else if (str[i + 1] == 'u'
+				|| str[i + 1] == 'x' || str[i + 1] == 'X')
+				len += ft_uns(str[i + 1], va_arg(ptr, unsigned int));
 		}
 		else
-		{
-			ft_putchar_fd(str[i], 1);
-			len++;
-		}
-		i++;
+			len += ft_putchar_fd(str[i], 1);
 	}
 	return (va_end(ptr), len);
 }
