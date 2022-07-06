@@ -1,28 +1,28 @@
-CC            = gcc
+CC		= gcc
 
-NAME          = libftprintf.a
+NAME	= libftprintf.a
 
-CFLAGS        = -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
-OPTIONS        = -c -I.
+OPTIONS	= -c -I.
 
-SRC            = ft_printf.c ft_tools.c libft/*.c
+SRC		= ft_printf.c ft_tools.c libft/*.c
 
-OBJ            = *.o
+OBJ		= *.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -crs $(NAME) $(OBJ)
+	@ar -crs $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CC) $(CFLAGS) $(OPTIONS) $(SRC)
+	@$(CC) $(CFLAGS) $(OPTIONS) $(SRC)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
