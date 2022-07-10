@@ -67,7 +67,7 @@ function refresh()
 		while true; do
 			gcc -Wall -Wextra -Werror $@ && ./a.out
 			rm -f *.gch
-			sleep 1.5
+			sleep 1
 		done
 	else
 		echo "no args"
@@ -80,7 +80,7 @@ function refresha()
 	while true; do
 		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
 		rm -f *.gch
-		sleep 1.5
+		sleep 1
 	done
 }
 
@@ -90,7 +90,7 @@ function refresh_all()
 	while true; do
 		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
 		rm -f *.gch && rm -f */*.gch
-		sleep 1.5
+		sleep 1
 	done
 }
 

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/10 18:20:00 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/10 20:38:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,31 @@ char	*get_next_line(int fd)
 	line = NULL;
 	ret = read(fd, buf, BUF_SIZE);
 	buf[ret] = '\0';
-	
-	// printf(yellow"%s"reset, buf);
+
+	line = buf;
+		
+	if (ft_is_endline(buf) == 1)
+	{
+		printf(yellow"%s"reset, buf);
+		printf(cyan"\nret: %i\n"reset, ret);
+		return (line);
+	}
 
 	while (ft_is_endline(buf) == 0 && ret > 0)
 	{
 		// printf(yellow"in while\n"reset);
+		printf(red"%s"reset, buf);
 
 		ret = read(fd, buf, BUF_SIZE);
 		buf[ret] = '\0';
-			printf(red"%s"reset, buf);
 	
 		i++;
 		// if(i > 5)
 		// 	break;
 	}
 	// if (ret > 0)  do keep line
-	printf(cyan"%i\n"reset, ret);
-
-	line = buf;
+	printf(blue"%s"reset, buf);
+	printf(cyan"\nret: %i\n"reset, ret);
 
 	printf("\n\n");
 	return (line);
