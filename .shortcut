@@ -12,7 +12,7 @@ function poush()
 {
 	date
 	# take .shortcut at ~/.
-	cp -f ~/.shortcut documents/42/.
+	cp -f ~/.shortcut .
 	git add .
 	git commit -m $1
 	git push
@@ -21,7 +21,7 @@ function poush()
 function pull()
 {
 	date*
-	cp -f documents/42/.shortcut ~/.
+	cp -f 42/.shortcut ~/.
 	git pull
 }
 
