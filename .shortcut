@@ -1,11 +1,17 @@
 #!/bin/sh
 
 alias gcw='gcc -Wall -Wextra -Werror -g'
-alias gcl='git clone'
-alias projet='cd && cd Documents/coding'
-alias norm='norminette -R CheckForbiddenSourceHeader'
 alias out='./a.out'
+
+alias gcl='git clone'
+alias norm='norminette -R CheckForbiddenSourceHeader'
 alias c='clear'
+
+alias z='source ~/.zshrc'
+alias b='source ~/.bashrc'
+
+alias set_rc='cp -f ~/42/.shortcut ~/.'
+alias get_rc='cp -f ~/.shortcut ~/42/.'
 
 # shortcut
 function poush()
@@ -31,6 +37,7 @@ function cfg()
 	cd && code .shortcut
 	cd $a
 }
+
 function cpl()
 {
 	rm -f *.gch
@@ -57,19 +64,34 @@ function cpla()
 function refresh()
 {
 	if [[ "$#" > 0 ]]; then
-		while true; do rm -f *.gch && gcc -Wall -Wextra -Werror $@ && ./a.out && rm -f *.gch sleep 1; done
+		while true; do
+			gcc -Wall -Wextra -Werror $@ && ./a.out
+			rm -f *.gch
+			sleep 1.5
+		done
 	else
 		echo "no args"
 	fi
 }
 
+# all
+function refresha()
+{
+	while true; do
+		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+		rm -f *.gch
+		sleep 1.5
+	done
+}
+
+# all sub
 function refresh_all()
 {
-	if [[ "${1/-*s}" != $1 ]]; then
-		while true; do rm -f *.gch && gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out && rm -f *.gch sleep 1; done
-	else
-		while true; do rm -f *.gch && gcc -Wall -Wextra -Werror *.c *.h && ./a.out && rm -f *.gch sleep 1; done
-	fi
+	while true; do
+		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+		rm -f *.gch && rm -f */*.gch
+		sleep 1.5
+	done
 }
 
 function clr()

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/10 00:14:24 by gael             ###   ########.fr       */
+/*   Updated: 2022/07/10 18:20:00 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*get_next_line(int fd)
 	ret = read(fd, buf, BUF_SIZE);
 	buf[ret] = '\0';
 	
-	printf(orange"%s"reset, buf);
+	// printf(yellow"%s"reset, buf);
 
 	while (ft_is_endline(buf) == 0 && ret > 0)
 	{
@@ -61,9 +61,8 @@ char	*get_next_line(int fd)
 		// if(i > 5)
 		// 	break;
 	}
-	// if (ret == 0) dont do keep line
+	// if (ret > 0)  do keep line
 	printf(cyan"%i\n"reset, ret);
-	printf("nbr of calls: %i", i);
 
 	line = buf;
 

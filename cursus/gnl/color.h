@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:47:32 by gael              #+#    #+#             */
-/*   Updated: 2022/07/09 15:25:47 by gael             ###   ########.fr       */
+/*   Updated: 2022/07/10 18:02:44 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define red "\033[0;31m"
 #define green "\033[0;32m"
 #define yellow "\033[0;33m"
-#define orange "\033[0;34m"
+#define blue "\033[0;34m"
 #define purple "\033[0;35m"
 #define cyan "\033[0;36m"
 #define white "\033[0;37m"
