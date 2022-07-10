@@ -1,0 +1,171 @@
+#!/bin/sh
+
+alias gcw='gcc -Wall -Wextra -Werror -g'
+alias gcl='git clone'
+alias projet='cd && cd Documents/coding'
+alias norm='norminette -R CheckForbiddenSourceHeader'
+alias out='./a.out'
+alias c='clear'
+
+# shortcut
+function poush()
+{
+	date
+	# take .shortcut at ~/.
+	cp -f ~/.shortcut documents/42/.
+	git add .
+	git commit -m $1
+	git push
+}
+
+function pull()
+{
+	date*
+	cp -f documents/42/.shortcut ~/.
+	git pull
+}
+
+function cfg()
+{
+	a=$(pwd)
+	cd && code .shortcut
+	cd $a
+}
+function cpl()
+{
+	rm -f *.gch
+	rm -f */*.gch
+	gcc -Wall -Wextra -Werror $@ && ./a.out
+}
+
+function cpla()
+{
+	if [[ "$#" > 1 ]]; then
+		echo "something wrong with args"
+	fi
+	rm -f *.gch
+	if [ "${1/-*s}" != $1 ]; then
+		rm -f */*.gch
+	fi
+	if [ "${1/-*m}" != $1 ]; then
+		make
+	fi
+	gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+}
+
+# with args
+function refresh()
+{
+	if [[ "$#" > 0 ]]; then
+		while true; do rm -f *.gch && gcc -Wall -Wextra -Werror $@ && ./a.out && rm -f *.gch sleep 1; done
+	else
+		echo "no args"
+	fi
+}
+
+function refresh_all()
+{
+	if [[ "${1/-*s}" != $1 ]]; then
+		while true; do rm -f *.gch && gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out && rm -f *.gch sleep 1; done
+	else
+		while true; do rm -f *.gch && gcc -Wall -Wextra -Werror *.c *.h && ./a.out && rm -f *.gch sleep 1; done
+	fi
+}
+
+function clr()
+{
+	if [[ "${1/-f}" != $1 ]]; then
+		find . -name '*.gch' -exec rm {}
+		clear
+	fi
+	echo "Are you sure to clean all temporary files here and also in all subfolders ?"
+	read -r b
+	if [[ $b == "yes" || $b == "y" ]]; then
+		find . -name '*.gch' -exec rm {}
+		rm -f a.out
+		clear
+	else
+		echo "nothing happens"
+	fi
+}
+
+function crt()
+{
+	if [[ ! -d "$1" ]]; then
+		mkdir $1 && cd $1 && code . 
+	else
+		echo "$1 already exist"
+	fi
+}
+
+
+
+
+
+# part test
+function t1()
+{
+	# see all the args
+	for var in "$@"
+	do
+		echo "$var"
+	done
+}
+
+function t2()
+{
+	a="some long string"
+    b="ri"
+	# return the rest of the occurence
+	echo $a | grep -o "$b.*"
+}
+
+function t3()
+{
+	# get args after the second
+	echo "${@:2}"
+	# get args after the third
+	echo "${@:3}"
+}
+
+function t4()
+{
+	# get nbr of args
+	echo "$#"
+}
+
+function t5()
+{
+	# check if there is something like "- * s"
+	str="-ms"
+	a1="${str/e}"
+	a2="${str/m}"
+	if [ "${str/e}" == $str ]; then
+		echo "nothing"
+	else
+		echo "something here"
+	fi
+	if [ "${str/-*s}" == $str ]; then
+		echo "nothing"
+	else
+		echo "something here"
+	fi
+}
+
+function t6()
+{
+	# check if there is something like "- * m" in the 1st arg
+	if [[ "${1/-*m}" != $1 ]]; then
+		echo "there is m"
+	else
+		echo "nothing"
+	fi
+}
+
+function t7()
+{
+	echo "${BASH_SOURCE}"
+	echo "${BASH_SOURCE}"
+}
+
+# google-chrome-stable https://pythontutor.com/c.html#mode=edit

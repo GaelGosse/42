@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/06 16:46:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/10 00:14:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,70 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "color.h"
+
+int readfile(char *name)
+{
+	int    fd; 
+
+	fd = open(name, O_RDONLY);
+	if (fd == -1)
+	{
+		printf("open err\n");
+		return (0);
+	}
+	get_next_line(fd);	
+	if (close(fd) == -1)
+	{
+		printf("open err\n");
+		return (0);
+	}
+	return (1);
+}
 
 char	*get_next_line(int fd)
 {
-	int			ret;
-	char		*line;
 	static char	buf[BUF_SIZE + 1];
-	int i;
+	char		*line;
+	int			ret;
+	int 		i;
 
-    i = 0;
+	i = 0;
 	line = NULL;
 	ret = read(fd, buf, BUF_SIZE);
 	buf[ret] = '\0';
+	
+	printf(orange"%s"reset, buf);
 
-	printf("start\n");
-	printf("ft_is_endline(buf): %i\n", ft_is_endline(buf));
-	while (ft_is_endline(buf) == 0)
+	while (ft_is_endline(buf) == 0 && ret > 0)
 	{
-		printf("in while\n");
+		// printf(yellow"in while\n"reset);
+
 		ret = read(fd, buf, BUF_SIZE);
-		buf[ret] = '\0';		
-		printf("\e[1;34mbuf: %s\n", buf);
-		if (i > 5)
-			break;
+		buf[ret] = '\0';
+			printf(red"%s"reset, buf);
+	
 		i++;
+		// if(i > 5)
+		// 	break;
 	}
+	// if (ret == 0) dont do keep line
+	printf(cyan"%i\n"reset, ret);
+	printf("nbr of calls: %i", i);
 
 	line = buf;
+
+	printf("\n\n");
 	return (line);
 }
 
-int main(){
-	int dico_auth;
-
-	dico_auth = open("a.txt", O_RDONLY);
-	if (dico_auth == -1)
-	{
-		printf("open err\n");
-		return (0);
-	}
-
-
-	get_next_line(dico_auth);
-
+int main()
+{
+	printf(bold_green"\n----- ----- START ----- -----\n\n"reset);
 	
-	if (close(dico_auth) == -1)
-	{
-		printf("open err\n");
-		return (0);
-	}
+	readfile("a1.txt");
+	printf("\n");
+	readfile("a2.txt");
+	printf("\n");
+	readfile("a3.txt");
 }
