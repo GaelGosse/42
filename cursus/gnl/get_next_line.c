@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/10 20:38:35 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/11 16:15:29 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int readfile(char *name)
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUF_SIZE + 1];
-	char		*line;
+	static char	*line;
+	char		buf[BUF_SIZE + 1];
 	int			ret;
-	int 		i;
+	int			i;
 
 	i = 0;
 	line = NULL;
@@ -49,28 +49,31 @@ char	*get_next_line(int fd)
 
 	line = buf;
 		
-	if (ft_is_endline(buf) == 1)
+	if (ft_is_endline(buf) > 0)
 	{
-		printf(yellow"%s"reset, buf);
-		printf(cyan"\nret: %i\n"reset, ret);
+		printf(yellow"\n%s"reset, buf);
+		// printf(cyan"\nret: %i\n"reset, ret);
 		return (line);
 	}
 
-	while (ft_is_endline(buf) == 0 && ret > 0)
+	while (ft_is_endline(buf) == 0)
 	{
 		// printf(yellow"in while\n"reset);
 		printf(red"%s"reset, buf);
 
 		ret = read(fd, buf, BUF_SIZE);
+		// printf(cyan"\nret: %i\n"reset, ret);
 		buf[ret] = '\0';
-	
+		if (ret == 0)
+			return (line);
 		i++;
 		// if(i > 5)
 		// 	break;
 	}
 	// if (ret > 0)  do keep line
-	printf(blue"%s"reset, buf);
-	printf(cyan"\nret: %i\n"reset, ret);
+	// printf(purple"%s"reset, buf);
+	line = ft_strjoin(buf, ft_printf_save(buf));
+	
 
 	printf("\n\n");
 	return (line);

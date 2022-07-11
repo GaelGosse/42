@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:47:32 by gael              #+#    #+#             */
-/*   Updated: 2022/07/10 18:02:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/11 14:29:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 #define bold_red "\033[1;31m"
 #define bold_green "\033[1;32m"
 #define bold_yellow "\033[1;33m"
-#define bold_orange "\033[1;34m"
+#define bold_blue "\033[1;34m"
 #define bold_purple "\033[1;35m"
 #define bold_cyan "\033[1;36m"
 #define bold_white "\033[1;37m"

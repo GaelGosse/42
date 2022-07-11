@@ -65,8 +65,8 @@ function refresh()
 {
 	if [[ "$#" > 0 ]]; then
 		while true; do
-			gcc -Wall -Wextra -Werror $@ && ./a.out
 			rm -f *.gch
+			gcc -Wall -Wextra -Werror $@ && ./a.out
 			sleep 1
 		done
 	else
@@ -78,8 +78,8 @@ function refresh()
 function refresha()
 {
 	while true; do
-		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
 		rm -f *.gch
+		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
 		sleep 1
 	done
 }
@@ -88,8 +88,8 @@ function refresha()
 function refresh_all()
 {
 	while true; do
-		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
 		rm -f *.gch && rm -f */*.gch
+		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
 		sleep 1
 	done
 }
@@ -97,13 +97,13 @@ function refresh_all()
 function clr()
 {
 	if [[ "${1/-f}" != $1 ]]; then
-		find . -name '*.gch' -exec rm {}
+		rm -f *.gch
 		clear
 	fi
 	echo "Are you sure to clean all temporary files here and also in all subfolders ?"
 	read -r b
 	if [[ $b == "yes" || $b == "y" ]]; then
-		find . -name '*.gch' -exec rm {}
+		rm -f *.gch
 		rm -f a.out
 		clear
 	else
