@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:47:32 by gael              #+#    #+#             */
-/*   Updated: 2022/07/11 14:29:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/12 19:23:44 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@
 
 // background
 #define back_black "\033[0;40m"
-#define back_red "\033[0;41m"
-#define back_green "\033[0;42m"
-#define back_orange "\033[0;43m"
-#define back_blue "\033[0;44m"
-#define back_purple "\033[0;45m"
-#define back_cyan "\033[0;46m"
-#define back_white "\033[0;47m"
+#define back_red "\033[0;41;30m"
+#define back_green "\033[0;42;30m"
+#define back_orange "\033[0;43;30m"
+#define back_blue "\033[0;44;30m"
+#define back_purple "\033[0;45;30m"
+#define back_cyan "\033[0;46;30m"
+#define back_white "\033[0;47;30m"
 
 #define reset "\033[0m"
 

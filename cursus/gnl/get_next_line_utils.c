@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/11 16:02:31 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:17:56 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ char	*ft_printf_save(char *str)
 	{
 		result[j++] = str[++i];
 	}
-	printf(bold_red"\nx: %s", result);
+	printf("\n\n"bold_blue"save:"blue" %s\n"reset, result);
 	return (result);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/11 16:15:29 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:23:21 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,11 @@ char	*get_next_line(int fd)
 
 	i = 0;
 	line = NULL;
-	ret = read(fd, buf, BUF_SIZE);
-	buf[ret] = '\0';
+	// ret = read(fd, buf, BUF_SIZE);
+	// buf[ret] = '\0';
 
-	line = buf;
+	if (ft_strlen(buf) != 0)
+		line = buf;
 		
 	if (ft_is_endline(buf) > 0)
 	{
@@ -59,33 +60,39 @@ char	*get_next_line(int fd)
 	while (ft_is_endline(buf) == 0)
 	{
 		// printf(yellow"in while\n"reset);
-		printf(red"%s"reset, buf);
+		printf(red"%s"reset, line);
 
 		ret = read(fd, buf, BUF_SIZE);
-		// printf(cyan"\nret: %i\n"reset, ret);
 		buf[ret] = '\0';
 		if (ret == 0)
-			return (line);
+		{
+			return (line); // a2 a4
+		}
 		i++;
-		// if(i > 5)
-		// 	break;
 	}
 	// if (ret > 0)  do keep line
 	// printf(purple"%s"reset, buf);
 	line = ft_strjoin(buf, ft_printf_save(buf));
-	
 
-	printf("\n\n");
 	return (line);
 }
 
 int main()
 {
-	printf(bold_green"\n----- ----- START ----- -----\n\n"reset);
+	printf(bold_green"\n----- ----- START ----- -----\n"reset);
 	
+	printf("\n\n"back_green" --- a1.txt --- "reset"\n");
 	readfile("a1.txt");
+	readfile("a1.txt");
+	
+	// printf("\n\n"back_green" --- a2.txt --- "reset"\n");
+	// readfile("a2.txt");
+	
+	// printf("\n\n"back_green" --- a3.txt --- "reset"\n");
+	// readfile("a3.txt");
+	
+	// printf("\n\n"back_green" --- a4.txt --- "reset"\n");
+	// readfile("a4.txt");
+	
 	printf("\n");
-	readfile("a2.txt");
-	printf("\n");
-	readfile("a3.txt");
 }
