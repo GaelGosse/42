@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/13 21:17:56 by gael             ###   ########.fr       */
+/*   Updated: 2022/07/14 15:11:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
 
 unsigned int	ft_strlen(const char *str)
 {
@@ -63,29 +62,20 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char	*ft_printf_save(char *str)
+char	*ft_strdup(const char *src)
 {
 	char	*result;
 	int		i;
-	int		j;
 
-	j = 0;
-	i = -1;
-	while (str[++i] != '\n')
-		printf("%c", str[i]);
-	while (str[i++] != '\0')
-		j++;
-	result = malloc(sizeof(char) * (j + 1));
-	if (!result)
-		return (NULL);
-	j = 0;
 	i = 0;
-	while (str[i] != '\n')
-		i++;
-	while (str[i] != '\0')
+	result = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
+	if (!result)
+			return (NULL);
+	while (src[i])
 	{
-		result[j++] = str[++i];
+			result[i] = src[i];
+			i++;
 	}
-	printf("\n\n"bold_blue"save:"blue" %s\n"reset, result);
+	result[i] = '\0';
 	return (result);
 }

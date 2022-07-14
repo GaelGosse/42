@@ -18,7 +18,8 @@ function poush()
 {
 	date
 	# take .shortcut at ~/.
-	cp -f ~/.shortcut .
+	cp ~/.config/Code/User/snippets/c.json ~/42/.
+	cp -f ~/.shortcut ~/42/.
 	git add .
 	git commit -m $1
 	git push
@@ -27,8 +28,7 @@ function poush()
 function pull()
 {
 	date*
-	cp -f ~/42/.shortcut ~/.
-	git pull
+	git pull && cp ~/.config/Code/User/snippets/c.json ~/42/. && cp -f ~/42/.shortcut ~/.
 }
 
 function cfg()
@@ -80,7 +80,7 @@ function refresha()
 	while true; do
 		rm -f *.gch
 		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
-		sleep 1
+		sleep 3
 	done
 }
 
@@ -188,6 +188,11 @@ function t7()
 {
 	echo "${BASH_SOURCE}"
 	echo "${BASH_SOURCE}"
+}
+
+function t8()
+{
+	echo $(if [[ $(free | wc -l) > 1 ]]; then echo on; else echo off; fi)
 }
 
 # google-chrome-stable https://pythontutor.com/c.html#mode=edit
