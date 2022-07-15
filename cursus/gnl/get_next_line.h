@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:22 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/14 18:14:27 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/14 22:11:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "color.h"
-
 
 char			*ft_strdup(const char *src);
 char			*ft_strjoin(char *s1, char *s2);
