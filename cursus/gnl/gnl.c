@@ -3,27 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:10:39 by gael              #+#    #+#             */
-/*   Updated: 2022/07/14 23:56:47 by gael             ###   ########.fr       */
+/*   Updated: 2022/07/15 14:34:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 
-
 char	*get_next_line(int fd)
 {
-	static char *save;
-	char        *line;
-	char        buf[BUF_SIZE + 1];
-	int         ret;
+	printf(bold_green"\n\n --- Call: Get Next Line --- "reset"\n");
 
-	
-	
-	return (); 
+	static char	*save;
+	char		*line;
+	char		buf[BUF_SIZE + 1];
+	int			ret;
+
+	line = NULL;
+	line = ft_strdup(buf);
+	if (fd < 0 || fd > 1024 || BUF_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (NULL);
+
+	while (ft_is_endline(buf) == 0)
+	{
+		ret = read(fd, buf, BUF_SIZE);
+		if (ret < 0)	
+			return (NULL);
+		line = ft_strjoin(line, buf);
+	}
+	save = NULL;
+	(void)save;
+
+	return (line); 
 }
 
 int main()

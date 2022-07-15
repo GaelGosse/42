@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/14 15:11:59 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/15 14:53:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,25 @@ char	*ft_strdup(const char *src)
 	}
 	result[i] = '\0';
 	return (result);
+}
+
+void	ft_save(char *line, char *buf)
+{
+	size_t ite_l;
+	size_t ite_b;
+
+	ite_l = 0;
+	while ((line[ite_l] != '\n') && (line[ite_l] != '\0'))
+		ite_l++;
+	if (line[ite_l] == '\n')
+		ite_l++;
+	ite_b = 0;
+	while (line[ite_l] != '\0')
+	{
+		buf[ite_b] = line[ite_l];
+		line[ite_l] = '\0';
+		ite_l++;
+		ite_b++;
+	}
+	buf[ite_b] = '\0';
 }
