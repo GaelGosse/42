@@ -32,6 +32,7 @@ BACK_WHITE="\033[0;47;30m"
 
 reset="\033[0m"
 
+
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
 
@@ -50,8 +51,7 @@ function poush()
 {
 	date
 	# take .shortcut at ~/.
-	cp ~/.config/Code/User/snippets/c.json ~/42/
-	cp -f ~/.shortcut ~/42/
+	cp ~/.config/Code/User/snippets/c.json ~/42/. && cp -f ~/.shortcut ~/42/.
 	git add .
 	git commit -m $1
 	git push
@@ -60,7 +60,8 @@ function poush()
 function pull()
 {
 	date
-	git pull && cp -f ~/42c.json ~/.config/Code/User/snippets/ && cp -f ~/42/.shortcut ~/
+	git pull 
+	#&& cp -f ~/42/. ~/.config/Code/User/snippets/c.json && cp -f ~/42/.shortcut ~/.
 }
 
 function cfg()
@@ -81,17 +82,25 @@ function cpla()
 {
 	if [[ "$#" > 1 ]]; then
 		echo "something wrong with args"
-	else
-		rm -f *.gch
-		if [[ "${1/-*s}" != $1 ]]; then
-			rm -f */*.gch
-			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+	elif [[ "$#" == 1 ]]; then
+		if [ "${1/-*t}" != $1 ]; then
+			rm -f *.gch
 		fi
-		if [[ "${1/-*m}" != $1 ]]; then
+		if [ "${1/-*T}" != $1 ]; then
+			rm -f */*.gch
+		fi
+		if [ "${1/-*m}" != $1 ]; then
 			make
 		fi
-		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+		if [ "${1/-*s}" != $1 ]; then
+			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+		else
+			gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+		fi
+	elif [[ "$#" == 0 ]]; then
+		gcc -Wall -Wextra -Werror -g *.c *.h && ./a.out
 	fi
+
 }
 
 # with args
@@ -114,7 +123,7 @@ function refresha()
 	while true; do
 		rm -f *.gch
 		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
-		sleep 3
+		sleep 1
 	done
 }
 
@@ -154,6 +163,7 @@ function crt()
 		echo "$1 already exist"
 	fi
 }
+
 
 
 
@@ -227,6 +237,39 @@ function t7()
 function t8()
 {
 	echo $(if [[ $(free | wc -l) > 1 ]]; then echo on; else echo off; fi)
+}
+
+function t9()
+{
+	tmp='%n@%m'
+	tmp='%u'
+	echo ${(%)tmp}
+	
+	# bash
+	# tmp=$(set +x; (PS4='+.\u@\h'; set -x; :) 2>&1); tmp=${tmp#*.}; echo ${tmp%:}
+}
+
+function t10()
+{
+	# SPLIT
+
+	#Define the string value
+	text="Welcome to LinuxHint"
+
+	# Set space as the delimiter
+	IFS=' '
+
+	#Read the split words into an array based on space delimiter
+	read -a strarr <<< "$text"
+
+	#Count the total words
+	echo "There are ${#strarr[*]} words in the text."
+
+	# Print each value of the array by using the loop
+	for val in "${strarr[@]}";
+	do
+	printf "$val\n"
+	done
 }
 
 # google-chrome-stable https://pythontutor.com/c.html#mode=edit

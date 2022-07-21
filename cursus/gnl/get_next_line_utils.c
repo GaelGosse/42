@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/20 14:50:23 by gael             ###   ########.fr       */
+/*   Updated: 2022/07/21 15:54:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ unsigned int	ft_strlen(const char *str)
 {
 	unsigned int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 			i++;
@@ -26,6 +28,8 @@ int	ft_is_endline(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -36,31 +40,42 @@ int	ft_is_endline(char *str)
 	return (0);
 }
 
-char	*ft_strjoin(char *strun, char *strdeux)
+char	*ft_strchr(const char *str, int search)
+{
+	size_t	i;
+
+	i = 0;
+	while (i <= ft_strlen((const char *)(str)))
+	{
+		if (str[i] == (unsigned char)(search))
+			return ((char *)(&str[i]));
+		i++;
+	}
+	return (NULL);
+}
+
+char	*ft_strjoin(char *un, char *deux)
 {
 	char			*str;
 	unsigned int	i;
 	unsigned int	j;
 
+	if (!un || !deux)
+		return (NULL);
 	i = 0;
 	j = 0;
-	if (!strun && strdeux)
-		return (strdeux);
-	if (strun && !strdeux)
-		return (strun);
-	if (!strun && !strdeux)
-		return (NULL);
-	str = (char *)malloc((ft_strlen(strun) + ft_strlen(strdeux)) * sizeof(char) + 1);
+	str = (char *)malloc((ft_strlen(un) + ft_strlen(deux) + 1) * sizeof(char));
 	if (!str)
-		return (NULL);
-	while (strun[i])
+		return (free(str), NULL);
+	while (un[i])
 	{
-		str[i] = strun[i];
+		str[i] = un[i];
 		i++;
 	}
-	while (strdeux[j])
+	free(un);
+	while (deux[j])
 	{
-		str[i] = strdeux[j];
+		str[i] = deux[j];
 		i++;
 		j++;
 	}
@@ -71,16 +86,18 @@ char	*ft_strjoin(char *strun, char *strdeux)
 char	*ft_strdup(const char *src)
 {
 	char	*result;
-	int		i;
+	size_t	i;
 
+	if (!src)
+		return (0);
 	i = 0;
 	result = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
 	if (!result)
-			return (NULL);
+		return (NULL);
 	while (src[i])
 	{
-			result[i] = src[i];
-			i++;
+		result[i] = src[i];
+		i++;
 	}
 	result[i] = '\0';
 	return (result);
