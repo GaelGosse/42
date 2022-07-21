@@ -1,5 +1,37 @@
 #!/bin/sh
 
+# lite
+BLACK="\033[0;30m"
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+BLUE="\033[0;34m"
+PURPLE="\033[0;35m"
+CYAN="\033[0;36m"
+WHITE="\033[0;37m"
+
+# bold color
+BOLD_BLACK="\033[1;30m"
+BOLD_RED="\033[1;31m"
+BOLD_GREEN="\033[1;32m"
+BOLD_YELLOW="\033[1;33m"
+BOLD_BLUE="\033[1;34m"
+BOLD_PURPLE="\033[1;35m"
+BOLD_CYAN="\033[1;36m"
+BOLD_WHITE="\033[1;37m"
+
+# background
+BACK_BLACK="\033[0;40m"
+BACK_RED="\033[0;41;30m"
+BACK_GREEN="\033[0;42;30m"
+BACK_YELLOW="\033[0;43;30m"
+BACK_BLUE="\033[0;44;30m"
+BACK_PURPLE="\033[0;45;30m"
+BACK_CYAN="\033[0;46;30m"
+BACK_WHITE="\033[0;47;30m"
+
+reset="\033[0m"
+
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
 
@@ -18,8 +50,8 @@ function poush()
 {
 	date
 	# take .shortcut at ~/.
-	cp ~/.config/Code/User/snippets/c.json ~/42/.
-	cp -f ~/.shortcut ~/42/.
+	cp ~/.config/Code/User/snippets/c.json ~/42/
+	cp -f ~/.shortcut ~/42/
 	git add .
 	git commit -m $1
 	git push
@@ -28,7 +60,7 @@ function poush()
 function pull()
 {
 	date
-	git pull && cp -f ~/42/. ~/.config/Code/User/snippets/c.json && cp -f ~/42/.shortcut ~/.
+	git pull && cp -f ~/42c.json ~/.config/Code/User/snippets/ && cp -f ~/42/.shortcut ~/
 }
 
 function cfg()
@@ -49,25 +81,17 @@ function cpla()
 {
 	if [[ "$#" > 1 ]]; then
 		echo "something wrong with args"
-	elif [[ "$#" == 1 ]]; then
-		if [ "${1/-*t}" != $1 ]; then
-			rm -f *.gch
-		fi
-		if [ "${1/-*T}" != $1 ]; then
+	else
+		rm -f *.gch
+		if [[ "${1/-*s}" != $1 ]]; then
 			rm -f */*.gch
+			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
 		fi
-		if [ "${1/-*m}" != $1 ]; then
+		if [[ "${1/-*m}" != $1 ]]; then
 			make
 		fi
-		if [ "${1/-*s}" != $1 ]; then
-			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
-		else
-			gcc -Wall -Wextra -Werror *.c *.h && ./a.out
-		fi
-	elif [[ "$#" == 0 ]]; then
 		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
 	fi
-
 }
 
 # with args
@@ -90,7 +114,7 @@ function refresha()
 	while true; do
 		rm -f *.gch
 		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
-		sleep 1
+		sleep 3
 	done
 }
 
@@ -130,7 +154,6 @@ function crt()
 		echo "$1 already exist"
 	fi
 }
-
 
 
 
@@ -206,37 +229,46 @@ function t8()
 	echo $(if [[ $(free | wc -l) > 1 ]]; then echo on; else echo off; fi)
 }
 
-function t9()
+# google-chrome-stable https://pythontutor.com/c.html#mode=edit
+
+function t11()
 {
-	tmp='%n@%m'
-	tmp='%u'
-	echo ${(%)tmp}
-	
-	# bash
-	# tmp=$(set +x; (PS4='+.\u@\h'; set -x; :) 2>&1); tmp=${tmp#*.}; echo ${tmp%:}
+	if test -f "*.c"; then
+		echo "ok"
+	else
+		echo "nothing"
+	fi
 }
 
-function t10()
+function t12()
 {
-	# SPLIT
-
-	#Define the string value
-	text="Welcome to LinuxHint"
-
-	# Set space as the delimiter
-	IFS=' '
-
-	#Read the split words into an array based on space delimiter
-	read -a strarr <<< "$text"
-
-	#Count the total words
-	echo "There are ${#strarr[*]} words in the text."
-
-	# Print each value of the array by using the loop
-	for val in "${strarr[@]}";
+	FILES="/home/gael/*"
+	for file in $FILES
 	do
-	printf "$val\n"
+		dir="$(dirname "${file}")"
+		filename="$(basename "${file}")"
+		if [[ -f $file ]]; then
+			echo -e "$GREEN $dir / $filename"
+		elif [[ -d $file ]]; then
+			echo -e "$CYAN $dir / $filename"
+		else
+			echo -e "$YELLOW $dir / $filename"
+		fi
 	done
 }
 
-# google-chrome-stable https://pythontutor.com/c.html#mode=edit
+# function t13()
+# {
+# 	each file
+# 	for file in "$/."; do
+# 		if [ -d $file ]
+# 		then
+# 				# do something directory-ish
+# 		else
+# 				if [ "$file" == "*.txt" ]       #  this is the snag
+# 				then
+# 						# do something txt-ish
+# 				fi
+# 		fi
+# 	done;
+# }

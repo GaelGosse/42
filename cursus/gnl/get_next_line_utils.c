@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/15 14:53:35 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/20 14:50:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_is_endline(char *str)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *strun, char *strdeux)
 {
 	char			*str;
 	unsigned int	i;
@@ -44,17 +44,23 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char) + 1);
+	if (!strun && strdeux)
+		return (strdeux);
+	if (strun && !strdeux)
+		return (strun);
+	if (!strun && !strdeux)
+		return (NULL);
+	str = (char *)malloc((ft_strlen(strun) + ft_strlen(strdeux)) * sizeof(char) + 1);
 	if (!str)
 		return (NULL);
-	while (s1[i])
+	while (strun[i])
 	{
-		str[i] = s1[i];
+		str[i] = strun[i];
 		i++;
 	}
-	while (s2[j])
+	while (strdeux[j])
 	{
-		str[i] = s2[j];
+		str[i] = strdeux[j];
 		i++;
 		j++;
 	}
