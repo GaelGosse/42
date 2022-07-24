@@ -30,7 +30,7 @@ BACK_PURPLE="\033[0;45;30m"
 BACK_CYAN="\033[0;46;30m"
 BACK_WHITE="\033[0;47;30m"
 
-reset="\033[0m"
+RESET="\033[0m"
 
 
 alias gcw='gcc -Wall -Wextra -Werror -g'
@@ -122,7 +122,7 @@ function refresha()
 {
 	while true; do
 		rm -f *.gch
-		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+		gcc -Wall -Wextra -Werror -DTEST *.c *.h && ./a.out
 		sleep 1
 	done
 }
@@ -137,17 +137,30 @@ function refresh_all()
 	done
 }
 
+# norm refresh
+function refreshn()
+{
+	while true; do
+		echo -e "$BACK_GREEN\n	----- ----- NORMINETTE ----- ----- $RESET" 
+		norminette -R CheckForbiddenSourceHeader
+		sleep 5
+	done
+}
+
 function clr()
 {
 	if [[ "${1/-f}" != $1 ]]; then
 		rm -f *.gch
+		rm -f a.out
+		rm -rf .vscode
 		clear
 	else
-		echo "Are you sure to clean all temporary files here and also in all subfolders ?"
-		read -r b
-		if [[ $b == "yes" || $b == "y" ]]; then
+		echo "are you sure to clear :\n_ file.gch\n_ a.out\n_ .vscode\n?\n"
+		read -r answer
+		if [[ $answer == "yes" || $answer == "y" ]]; then
 			rm -f *.gch
 			rm -f a.out
+			rm -rf .vscode
 			clear
 		else
 			echo "nothing happens"
@@ -315,3 +328,10 @@ function t12()
 # 		fi
 # 	done;
 # }
+
+#define malloc(...) NULL
+
+#define prinT(str, __VA_ARG__)\
+	#ifdef TEST\
+		# printf(str, ##VA_ARG);\
+	#endif\

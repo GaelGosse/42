@@ -1,4 +1,0 @@
-abcdefghijklmnopqrstuvwxyz
-london paris berlin hong kong tokyo new york
-javascript nodejs php symfony cpp tensorflow
-nord sud est ouest
