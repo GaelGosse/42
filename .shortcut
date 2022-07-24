@@ -60,8 +60,7 @@ function poush()
 function pull()
 {
 	date
-	git pull 
-	#&& cp -f ~/42/. ~/.config/Code/User/snippets/c.json && cp -f ~/42/.shortcut ~/.
+	git pull && cp -f ~/42/. ~/.config/Code/User/snippets/c.json && cp -f ~/42/.shortcut ~/.
 }
 
 function cfg()
