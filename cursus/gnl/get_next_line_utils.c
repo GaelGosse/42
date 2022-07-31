@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/24 18:23:16 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/26 15:17:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ char	*ft_strdup(const char *src)
 
 void	ft_save(char *line, char *buf)
 {
-	size_t ite_l;
-	size_t ite_b;
+	size_t	ite_l;
+	size_t	ite_b;
 
 	ite_l = 0;
 	while ((line[ite_l] != '\n') && (line[ite_l] != '\0'))

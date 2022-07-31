@@ -6,12 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:10:39 by gael              #+#    #+#             */
-/*   Updated: 2022/07/24 18:14:14 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/26 17:41:12 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 char	*get_next_line(int fd)
 {
@@ -37,7 +36,35 @@ char	*get_next_line(int fd)
 		else
 			line = ft_strjoin(line, buf);
 	}
-	if(!line[0])
+	if (!line[0])
 		return (free(line), NULL);
-	return (ft_save(line, buf), line); 
+	return (ft_save(line, buf), line);
+}
+
+int main()
+{
+        // printf(back_green"\n----- ----- START ----- -----\n"reset);
+
+
+
+
+        // printf("\n\n"back_green" --- a1.txt --- "reset"\n");
+        int     fd = open("a1.txt", O_RDONLY);
+        if (fd == -1)
+                return (printf("open err\n"), 0);
+        char *res = get_next_line(fd);
+        printf(bold_cyan"%s"reset"",res);
+        free(res);
+        res = get_next_line(fd);
+        printf(bold_cyan"%s"reset"",res);
+        free(res);
+        res = get_next_line(fd);
+        printf(bold_cyan"%s"reset"",res);
+        free(res);
+        res = get_next_line(fd);
+        printf(bold_cyan"%s"reset"",res);
+        free(res);
+        // printf(back_red"\n END "reset);
+        if (fd == -1)
+                return (printf("open err\n"), 0);
 }
