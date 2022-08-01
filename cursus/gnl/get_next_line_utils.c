@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:19 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/21 15:54:56 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/07/26 15:17:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,6 @@ unsigned int	ft_strlen(const char *str)
 	while (str[i] != '\0')
 			i++;
 	return (i);
-}
-
-int	ft_is_endline(char *str)
-{
-	int	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '\n')
-			return (i);
-		i++;
-	}
-	return (0);
 }
 
 char	*ft_strchr(const char *str, int search)
@@ -105,8 +89,8 @@ char	*ft_strdup(const char *src)
 
 void	ft_save(char *line, char *buf)
 {
-	size_t ite_l;
-	size_t ite_b;
+	size_t	ite_l;
+	size_t	ite_b;
 
 	ite_l = 0;
 	while ((line[ite_l] != '\n') && (line[ite_l] != '\0'))
