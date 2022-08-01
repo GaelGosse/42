@@ -30,7 +30,7 @@ BACK_PURPLE="\033[0;45;30m"
 BACK_CYAN="\033[0;46;30m"
 BACK_WHITE="\033[0;47;30m"
 
-reset="\033[0m"
+RST="\033[0m"
 
 
 alias gcw='gcc -Wall -Wextra -Werror -g'
@@ -47,11 +47,23 @@ alias set_rc='cp -f ~/42/.shortcut ~/.'
 alias get_rc='cp -f ~/.shortcut ~/42/.'
 
 # shortcut
+function poush_out()
+{
+	if [[ $# == 1 ]]
+	then
+		git add .
+		git commit -m $1
+		git push
+	else
+		echo "an argument is missing"
+	fi
+}
+
 function poush()
 {
 	date
 	# take .shortcut at ~/.
-	cp ~/.config/Code/User/snippets/c.json ~/42/. && cp -f ~/.shortcut ~/42/.
+	cp ~/.config/Code/User/snippets/c.json ~/42/ && cp -f ~/.shortcut ~/42/
 	git add .
 	git commit -m $1
 	git push
@@ -60,15 +72,15 @@ function poush()
 function pull()
 {
 	date
-	git pull 
-	#&& cp -f ~/42/. ~/.config/Code/User/snippets/c.json && cp -f ~/42/.shortcut ~/.
+	git pull && cp -f ~/42/ ~/.config/Code/User/snippets/c.json && cp -f ~/42/.shortcut ~/
 }
 
 function cfg()
 {
-	a=$(pwd)
-	cd && code .shortcut
-	cd $a
+	code ~/.shortcut
+	# a=$(pwd)
+	# cd && code .shortcut
+	# cd $a
 }
 
 function cpl()
@@ -164,6 +176,14 @@ function crt()
 	fi
 }
 
+function crtf()
+{
+	if [[ ! -f "$1" ]]; then
+		touch $1 && code $1 
+	else
+		echo "$1 already exist"
+	fi
+}
 
 
 
@@ -315,3 +335,91 @@ function t12()
 # 		fi
 # 	done;
 # }
+
+function t14()
+{
+	echo ${EUID}
+}
+
+
+function t15()
+{
+	# SPLIT
+
+	#Define the string value
+	text="Welcome to LinuxHint"
+
+	# Set space as the delimiter
+	# IFS=' '
+
+	#Read the split words into an array based on space delimiter
+	read -a strarr <<< "$1"
+
+	#Count the total words
+	echo -e "$CYAN${#strarr[*]}$RST"
+	echo -e "$RED${strarr[*]}$RST"
+
+	# Print each value of the array by using the loop
+	for val in "${strarr[@]}";
+	do
+		printf "$val\n"
+	done
+}
+
+function refresht()
+{
+	interrupt="false"
+	trap '$interrupt="true"' INT
+	if [[ $# == 1 ]]; then
+		source ~/.bashrc && $1
+		echo -e "$BACK_CYAN ----- START ----- $RST"
+		export TEST_FUNCTION=$1
+		sleep 2
+		refresht
+	elif [[ $TEST_FUNCTION && $interrupt == "false" ]]; then
+		source ~/.bashrc && $TEST_FUNCTION
+		echo -e "$BACK_GREEN ----- IN TEST ----- $RST"
+		sleep 2
+		refresht
+	fi
+}
+
+function t16()
+{
+	trap 'echo "hey"' INT
+	for ((n=20; n; n--))
+	do
+		sleep 1
+	done
+}
+
+function t17()
+{
+	# r recursive ins subfolder
+	# i insensitive case
+	# n at number line xxx
+	# o word exact match 
+	if [[ $# == 1 ]]; then
+		result=`grep -rinl $1 --exclude-dir=node_modules`
+		# echo $result
+		read -a arr <<< "$result"
+		echo $arr | '{gsup($1,'')}'
+		# code $arr 
+		# echo -e "$RED${arr[*]}$RST"
+		# echo -e "$CYAN${#arr[*]}$RST"
+		# for val in "${arr[@]}";
+		# do
+		# 	printf "$val\n"
+		# done
+	else
+		printf "something wrong"
+	fi
+}
+
+# upgrade colors
+# norminette display lines and numbers of cols
+# code grep file:line
+
+# m4 precompile header
+
+

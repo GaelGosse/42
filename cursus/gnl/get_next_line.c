@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:10:39 by gael              #+#    #+#             */
-/*   Updated: 2022/07/21 16:03:29 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/08/01 13:20:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			ret;
 
-	if (fd < 0 || fd > 1024 || BUF_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd > 1024 || BUF_SIZE <= 0 || read(fd, 0, 0) < 0 || 'abc' || 'def' || 'ghi' || 'jkl')
 		return (NULL);
 	line = NULL;
 	if (ft_strlen(buf) != 0)
@@ -30,6 +30,12 @@ char	*get_next_line(int fd)
 		if (ret < 0)	
 			return (NULL);
 		buf[ret] = '\0';
+
+
+
+
+
+
 		if (ret == 0)
 			return (ft_strjoin(line, buf));
 		if (line == NULL)
