@@ -26,7 +26,7 @@ BACK_RED="\033[0;41;30m"
 BACK_GREEN="\033[0;42;30m"
 BACK_YELLOW="\033[0;43;30m"
 BACK_BLUE="\033[0;44;30m"
-BACK_PURPLE="\033[0;45;30m"
+BACK_PURPLE="\033[0;45;37m"
 BACK_CYAN="\033[0;46;30m"
 BACK_WHITE="\033[0;47;30m"
 
@@ -39,6 +39,7 @@ alias out='./a.out'
 alias gcl='git clone'
 alias norm='norminette -R CheckForbiddenSourceHeader'
 alias c='clear'
+alias lt='ls -pFhal '
 
 alias z='source ~/.zshrc'
 alias b='source ~/.bashrc'
@@ -105,9 +106,15 @@ function cpla()
 			make
 		fi
 		if [ "${1/-*s}" != $1 ]; then
-			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h */*.c */*.h && ./a.out
 		else
-			gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h && ./a.out
+		fi
+		if [ "${1/-*t}" != $1 ]; then
+			rm -f *.gch
+		fi
+		if [ "${1/-*T}" != $1 ]; then
+			rm -f */*.gch
 		fi
 	elif [[ "$#" == 0 ]]; then
 		gcc -Wall -Wextra -Werror -g *.c *.h && ./a.out
@@ -134,7 +141,7 @@ function refresha()
 {
 	while true; do
 		rm -f *.gch
-		gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+		gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h && ./a.out
 		sleep 1
 	done
 }
@@ -149,17 +156,30 @@ function refresh_all()
 	done
 }
 
+# norm refresh
+function refreshn()
+{
+	while true; do
+		echo -e "$BACK_GREEN\n	----- ----- NORMINETTE ----- ----- $RESET" 
+		norminette -R CheckForbiddenSourceHeader
+		sleep 1
+	done
+}
+
 function clr()
 {
 	if [[ "${1/-f}" != $1 ]]; then
 		rm -f *.gch
+		rm -f a.out
+		rm -rf .vscode
 		clear
 	else
-		echo "Are you sure to clean all temporary files here and also in all subfolders ?"
-		read -r b
-		if [[ $b == "yes" || $b == "y" ]]; then
+		echo "are you sure to clear :\n_ file.gch\n_ a.out\n_ .vscode\n?\n"
+		read -r answer
+		if [[ $answer == "yes" || $answer == "y" ]]; then
 			rm -f *.gch
 			rm -f a.out
+			rm -rf .vscode
 			clear
 		else
 			echo "nothing happens"
@@ -305,20 +325,92 @@ function t11()
 
 function t12()
 {
-	FILES="/home/gael/*"
-	for file in $FILES
+	FILES="/bin/*"
+	for file in /mnt/nfs/homes/ggosse/42/cursus/gnl/*
 	do
 		dir="$(dirname "${file}")"
 		filename="$(basename "${file}")"
 		if [[ -f $file ]]; then
-			echo -e "$GREEN $dir / $filename"
+			echo -e "$GREEN /$filename"
 		elif [[ -d $file ]]; then
-			echo -e "$CYAN $dir / $filename"
+			echo -e "$CYAN /$filename"
 		else
-			echo -e "$YELLOW $dir / $filename"
+			echo -e "$YELLOW /$filename"
 		fi
 	done
 }
+
+function t14()
+{
+	FILES="/mnt/nfs/homes/ggosse/42/cursus/gnl/*"
+	for filename in /mnt/nfs/homes/ggosse/42/cursus/gnl/*; do
+		echo -e "$CYAN here $filename";
+	done
+}
+
+function t15()
+{
+	a=1
+	while true; do
+		google-chrome-stable https://cdn.intra.42.fr/pdf/pdf/$a/fr.subject.pdf
+		let "a+=1"
+		if [[ $a > 10 ]]; then
+			break;
+		fi
+	done
+}
+
+function t16()
+{
+		# google-chrome-stable https://cdn.intra.42.fr/pdf/pdf/1/fr.subject.pdf
+		# google-chrome-stable https://cdn.intra.42.fr/pdf/pdf/2/fr.subject.pdf
+		# google-chrome-stable https://cdn.intra.42.fr/pdf/pdf/3/fr.subject.pdf
+		# google-chrome-stable https://cdn.intra.42.fr/pdf/pdf/4/fr.subject.pdf
+	start=57300
+	step=20
+
+	let "end=$start+$step-1"
+	for i in {$start..$end}
+	do
+		google-chrome-stable https://cdn.intra.42.fr/pdf/pdf/$i/fr.subject.pdf
+		let "i+=1"
+	done
+}
+
+# course
+function display_js()
+{
+	echo -e "$BACK_YELLOW   document   $RESET" "$BACK_WHITE""       .querySelector( $RESET" "$BACK_PURPLE    '#menu'     $RESET" "$BACK_WHITE) $RESET\n"
+	echo -e "$RESET explained :"
+	echo -e "$BACK_YELLOW the web page $RESET" "$BACK_WHITE"" .the search function( $RESET" "$BACK_PURPLE 'tag selector' $RESET" "$BACK_WHITE) $RESET"
+	# event example and list
+}
+
+function display_port()
+{
+	echo -e "$BOLD_GREEN""IP address (format: $BOLD_YELLOW""x.x.x.x$BOLD_GREEN, x between $BOLD_YELLOW""0 and 255$BOLD_GREEN)"
+	echo -e "$BOLD_CYAN        network id ─┴─┘$BOLD_PURPLE"" └─┴─ host id"
+	echo -e "$GREEN""is a sequence of number that is connected to a computer network, used for communications."
+	echo -e "2 main functions of am IP address: "
+	echo -e "_ $BOLD_YELLOW""identification of a computer in a network$GREEN"
+	echo -e "_ $BOLD_YELLOW""localisation of the computer$RESET"
+
+	echo -e ""
+	echo -e "$WHITE""CMD display port: $BOLD_WHITE""netstat -lntup"
+	echo -e ""
+	echo -e "$YELLOW""22    : $BOLD_GREEN""SSH$GREEN (Secure Shell)                           : $RESET"
+	echo -e "$YELLOW""25    : $BOLD_GREEN""SMTP$GREEN (Simple Mail Transfer)                  : $RESET"
+	echo -e "$YELLOW""143   : $BOLD_GREEN""IMAP$GREEN (Internet Message Access Protocol)      : $RESET"
+	echo -e "$YELLOW""53    : $BOLD_GREEN""DNS$GREEN (Domain Name System)                     : use to identify computers through internet and associate Domain Name with other information$RESET"
+	echo -e "$YELLOW""5353  : $BOLD_GREEN""mDNS$GREEN (multicast Domain Name System)          : $RESET"
+	echo -e "$YELLOW""111   : $BOLD_GREEN""Portmapper$GREEN                                   : provides other ports where services are running$RESET"
+	echo -e "$YELLOW""123   : $BOLD_GREEN""NTP$GREEN (Network Time Protocol)                  : use to $BOLD_YELLOW""synchronise clock$GREEN  between computer systems $RESET"
+	echo -e "$YELLOW""80    : $BOLD_GREEN""HTTP$GREEN (HyperText Transfert Protocol)          : use to transfert hypermedia document (ex: HTML for $BOLD_YELLOW""website$GREEN)$RESET"
+	echo -e "$YELLOW""443   : $BOLD_GREEN""HTTPS$GREEN (HyperText Transfert Protocol Secure)  : the same but it's $BOLD_YELLOW""encrypted with SSL$GREEN (so it use the HTTP)$RESET"
+	echo -e "$YELLOW""631   : $BOLD_GREEN""IPP$GREEN (Internet Printing Protocol)             : use between clients devices and $BOLD_YELLOW""printers$RESET"
+	echo -e ""
+}
+
 
 # function t13()
 # {
@@ -423,3 +515,9 @@ function t17()
 # m4 precompile header
 
 
+#define malloc(...) NULL
+
+#define prinT(str, __VA_ARG__)\
+	#ifdef TEST\
+		# printf(str, ##VA_ARG);\
+	#endif\
