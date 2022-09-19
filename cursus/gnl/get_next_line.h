@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:22 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/26 16:42:56 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/08/24 01:26:12 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+#define BUFFER_SIZE 42
 
 char			*get_next_line(int fd);
 char			*ft_strdup(const char *src);

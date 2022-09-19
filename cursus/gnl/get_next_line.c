@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:10:39 by gael              #+#    #+#             */
-/*   Updated: 2022/08/01 14:52:49 by gael             ###   ########.fr       */
+/*   Updated: 2022/08/23 16:46:55 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,16 @@ int main()
         if (fd == -1)
                 return (printf("open err\n"), 0);
         char *res = get_next_line(fd);
-        printf(bold_cyan"%s"reset"",res);
+        // printf(bold_cyan"%s"reset"",res);
         free(res);
         res = get_next_line(fd);
-        printf(bold_cyan"%s"reset"",res);
+        // printf(bold_cyan"%s"reset"",res);
         free(res);
         res = get_next_line(fd);
-        printf(bold_cyan"%s"reset"",res);
+        // printf(bold_cyan"%s"reset"",res);
         free(res);
         res = get_next_line(fd);
-        printf(bold_cyan"%s"reset"",res);
+        // printf(bold_cyan"%s"reset"",res);
         free(res);
         // printf(back_red"\n END "reset);
         if (fd == -1)
