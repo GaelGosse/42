@@ -82,6 +82,7 @@ change shortcuts settings
 | code --enable-extensions .		| Enable extensions |
 
 ### Mainly used 
+
 |shortcuts|mainly used|
 |:---:                       | :---: |
 | Ctrl + **tab**						| Change on the last tab used|
@@ -94,6 +95,9 @@ change shortcuts settings
 | Ctrl + **h**						| Replace something on a page by another|
 | Ctrl + shift + **f**				| Search something in all files (and files in subfolder) of your project|
 | Ctrl + shift + **h**				| Replace something in all files (and files in subfolder) of your project by another|
+|---                       | --- |
+| Ctrl + **k** + Ctrl + **0**		| Fold All (functions, loop, comments)
+| Ctrl + **k** + Ctrl + **j**		| Unfold All (functions, loop, comments)
 
 ### Main commands
 

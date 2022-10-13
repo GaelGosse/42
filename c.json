@@ -62,14 +62,4 @@
 		"body": "printf(\"${1:var}: %X\\\\n\", ${1:var});",
 		"description": "Snippet for printf %X variable"
 	},
-	"structure if": {
-		"prefix": "if",
-		"body": [
-			"if ($1)",
-			"{",
-			"\t$2",
-			"}",
-		],
-		"description": "Snippet for printf %X variable"
-	},
 }

@@ -76,7 +76,7 @@
 			"arg",
 		],
 		"body": [
-			"if [ -z \"$ $1 1\" ]",
+			"if [ -z \"$1\" ]",
 			"then",
 			"    echo \"first arg missing\"",
 			"else",
