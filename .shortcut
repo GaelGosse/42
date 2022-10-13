@@ -35,7 +35,7 @@ export RST="\033[0m"
 export NOTHING="$BOLD_YELLOW""nothing happened 👒$RST"
 export W_ARGS="$RED""wrong numbers of args$RST"
 
-bind -s 'set completion-ignore-case on'
+# bind -s 'set completion-ignore-case on'
 
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
@@ -44,12 +44,48 @@ alias gcl='git clone'
 alias norm='norminette -R CheckForbiddenSourceHeader'
 alias c='clear'
 
-alias z='source ~/.zshrc'
-alias b='source ~/.bashrc'
-# change to function "~/.$0rc" 
-
 alias set_rc='cp -f ~/42/.shortcut ~/.'
 alias get_rc='cp -f ~/.shortcut ~/42/.'
+
+# change to function "~/.$0rc" 
+shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
+
+function cfga()
+{
+	FILE=/mnt/nfs/homes/ggosse
+	if [[ $shell_name == "zsh" ]];
+	then
+		if [ -f "$FILE/.zshrc" ]; then
+			code ~/.zshrc
+		fi
+	fi
+	if [[ $shell_name == "bash" ]];
+	then
+		if [ -f "$FILE/.bashrc" ]; then
+			code ~/.bashrc
+		fi
+	fi
+	code ~/.shortcut
+}
+
+function start()
+{
+	FILE=/mnt/nfs/homes/ggosse
+	if [[ $0 == "zsh" ]]
+	then
+		if [ -f "$FILE/.zshrc" ]; then
+			source ~/.zshrc
+			echo -e $BOLD_GREEN"zsh is restarted"$RST
+		fi
+	fi
+	if [[ $0 == "bash" ]]
+	then
+		if [ -f "$FILE/.bashrc" ]; then
+			source ~/.bashrc
+			echo -e $BOLD_GREEN"bash is restarted"$RST
+		fi
+	fi
+}
 
 # shortcut
 function poush_out()
@@ -66,13 +102,19 @@ function poush_out()
 
 function poush()
 {
-	date
-	# take .shortcut at ~/.
-	cp ~/.config/Code/User/snippets/c.json ~/42/ && cp ~/.config/Code/User/snippets/shellscript.json ~/42/ && cp -f ~/.shortcut ~/42/
-	cd ~/42
-	git add .
-	git commit -m $1
-	git push
+	if [[ $# == 1 ]]
+	then
+		date
+		cd ~/42
+		cp ~/.config/Code/User/snippets/c.json .
+		cp ~/.config/Code/User/snippets/shellscript.json . 
+		cp -f ~/.shortcut .
+		git add .
+		git commit -m $1
+		git push
+	else
+		echo "missing arg"
+	fi
 }
 
 function pull()
@@ -110,11 +152,6 @@ function cpla()
 		if [ "${1/-*m}" != $1 ]; then
 			make
 		fi
-		if [ "${1/-*s}" != $1 ]; then
-			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h */*.c */*.h && ./a.out
-		else
-			gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h && ./a.out
-		fi
 		if [ "${1/-*t}" != $1 ]; then
 			rm -f *.gch
 		fi
@@ -126,6 +163,11 @@ function cpla()
 	fi
 
 }
+# if [ "${1/-*s}" != $1 ]; then
+# 	gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h */*.c */*.h && ./a.out
+# else
+# 	gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h && ./a.out
+# fi
 
 # with args
 function refresh()
@@ -144,21 +186,39 @@ function refresh()
 # all
 function refresha()
 {
-	while true; do
-		rm -f *.gch
-		gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h && ./a.out
-		sleep 1
-	done
+	if [[ $# == 0 ]];
+	then
+		while true; do
+			rm -f *.gch
+			gcc -Wall -Wextra -Werror *.c *.h && ./a.out
+			sleep 1
+		done
+	else
+		while true; do
+			rm -f *.gch
+			gcc -Wall -Wextra -Werror *.c *.h && ./a.out $@
+			sleep 1
+		done
+	fi
 }
 
 # all sub
 function refresh_all()
 {
-	while true; do
-		rm -f *.gch && rm -f */*.gch
-		gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
-		sleep 1
-	done
+	if [[ $# == 0 ]];
+	then
+		while true; do
+			rm -f *.gch && rm -f */*.gch
+			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+			sleep 1
+		done
+	else
+		while true; do
+			rm -f *.gch && rm -f */*.gch
+			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out $@
+			sleep 1
+		done
+	fi
 }
 
 # norm refresh
@@ -181,6 +241,7 @@ function clr()
 	if [[ "${1/-f}" != $1 ]]; then
 		rm -f *.gch
 		rm -f a.out
+		rm -rf */.vscode
 		rm -rf .vscode
 		clear
 	else
@@ -592,7 +653,7 @@ function t11()
 function t12()
 {
 	FILES="/bin/*"
-	for file in /mnt/nfs/homes/ggosse/42/cursus/gnl/
+	for file in /mnt/nfs/homes/ggosse/42/*
 	do
 		dir="$(dirname "${file}")"
 		filename="$(basename "${file}")"
