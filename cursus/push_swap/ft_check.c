@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/15 18:55:55 by ggosse           ###   ########.fr       */
+/*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
+/*   Updated: 2022/10/15 19:09:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void ft_error(void)
+void ft_check_args(int argc, char **argv)
 {
-	// free list 
-	ft_putstr_fd(bold_red"Error\n"reset, 2);
-	exit(1);
-}
-
-int main(int argc, char **argv){
-	char	*str;
-
 	(void)argc;
-	(void)str;
+	int ite_args;
+	int ite_arg;
 
-	ft_check_args(argc, argv);
-	printf("\n");
+	ite_arg = 0;
+	ite_args = 1;
+
+	while (argv[ite_args])
+	{
+		ite_arg = 0;
+		while(argv[ite_args][ite_arg])
+		{
+			if (ft_isdigit(argv[ite_args][ite_arg]) == 0 &&
+			(argv[ite_args][ite_arg] != '+' || argv[ite_arg][ite_arg] != '-')) 
+				ft_error();
+			ite_arg++;
+		}
+		ite_args++;
+	}
+	ite_args = 1;
+	while (argv[ite_args])
+	{	
+		printf("argv[i]: %s\n", argv[ite_args]);
+		ite_args++;
+	}
 }
 
 /*
-std input   stdin   0 
-std output  stdout  1
-std error   stderr  2
 
-exit
-0     successful
-1     minor error
-2     major error
-127   command not found
 */

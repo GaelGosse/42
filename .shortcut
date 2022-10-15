@@ -59,8 +59,8 @@ alias set_rc='cp -f ~/42/.shortcut ~/.'
 alias get_rc='cp -f ~/.shortcut ~/42/.'
 
 # change to function "~/.$0rc" 
-# shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
-shell_name=$(ps -p $$ | tail -n 1 | awk '{print $4}')
+shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
+# shell_name=$(ps -p $$ | tail -n 1 | awk '{print $4}')
 
 function cfga()
 {
@@ -83,14 +83,14 @@ function start()
 {
 	if [[ $shell_name == "zsh" ]];
 	then
-		if [ -f "/home/gael/.zshrc" ]; then
+		if [ -f "/mnt/nfs/homes/ggosse/.zshrc" ]; then
 			source ~/.zshrc
 			echo -e $BACK_GREEN" ZSH is restarted "$RST
 		fi
 	fi
 	if [[ $shell_name == "bash" ]];
 	then
-		if [ -f "/home/gael/.bashrc" ]; then
+		if [ -f "/mnt/nfs/homes/ggosse/.bashrc" ]; then
 			source ~/.bashrc
 			echo -e $BACK_GREEN" BASH is restarted "$RST
 		fi
@@ -130,7 +130,10 @@ function poush()
 function pull()
 {
 	date
-	git pull && cp -f ~/42/c.json ~/.config/Code/User/snippets/ && cp -f ~/42/shellscript.json ~/.config/Code/User/snippets/ && cp -f ~/42/.shortcut ~/
+	git pull 
+	cp -f ~/42/c.json ~/.config/Code/User/snippets/ 
+	cp -f ~/42/shellscript.json ~/.config/Code/User/snippets/ 
+	cp -f ~/42/.shortcut ~/
 }
 
 function cfg()
@@ -150,26 +153,40 @@ function cpl()
 
 function cpla()
 {
-	if [[ $# != 1 ]]; then
-		echo -e $W_ARGS
-	elif [[ "$#" == 1 ]]; then
-		if [ "${1/-*t}" != $1 ]; then
-			rm -f *.gch
-		fi
-		if [ "${1/-*T}" != $1 ]; then
-			rm -f */*.gch
-		fi
-		if [ "${1/-*m}" != $1 ]; then
-			make
-		fi
-		if [ "${1/-*t}" != $1 ]; then
-			rm -f *.gch
-		fi
-		if [ "${1/-*T}" != $1 ]; then
-			rm -f */*.gch
-		fi
-	elif [[ "$#" == 0 ]]; then
+	echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+	if [[ $# == 0 ]]
+	then
+		rm -f *.gch
+		rm -f */*.gch
 		gcc -Wall -Wextra -Werror -g *.c *.h && ./a.out
+		rm -f *.gch
+		rm -f */*.gch
+	else
+		rm -f *.gch
+		rm -f */*.gch
+		gcc -Wall -Wextra -Werror -g *.c *.h && ./a.out $@
+		rm -f *.gch
+		rm -f */*.gch
+	fi
+
+}
+
+function cpl_all()
+{
+	echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+	if [[ $# == 0 ]]
+	then
+		rm -f *.gch
+		rm -f */*.gch
+		gcc -Wall -Wextra -Werror -g *.c *.h */*.c */*.h && ./a.out
+		rm -f *.gch
+		rm -f */*.gch
+	else
+		rm -f *.gch
+		rm -f */*.gch
+		gcc -Wall -Wextra -Werror -g *.c *.h */*.c */*.h && ./a.out $@
+		rm -f *.gch
+		rm -f */*.gch
 	fi
 
 }
@@ -184,6 +201,7 @@ function refresh()
 {
 	if [[ "$#" > 0 ]]; then
 		while true; do
+			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch
 			gcc -Wall -Wextra -Werror $@ && ./a.out
 			sleep 1
@@ -199,12 +217,14 @@ function refresha()
 	if [[ $# == 0 ]];
 	then
 		while true; do
+			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch
 			gcc -Wall -Wextra -Werror *.c *.h && ./a.out
 			sleep 1
 		done
 	else
 		while true; do
+			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch
 			gcc -Wall -Wextra -Werror *.c *.h && ./a.out $@
 			sleep 1
@@ -218,14 +238,18 @@ function refresh_all()
 	if [[ $# == 0 ]];
 	then
 		while true; do
+			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch && rm -f */*.gch
 			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+			rm -f *.gch && rm -f */*.gch
 			sleep 1
 		done
 	else
 		while true; do
+			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch && rm -f */*.gch
 			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out $@
+			rm -f *.gch && rm -f */*.gch
 			sleep 1
 		done
 	fi
@@ -1091,8 +1115,8 @@ function t28()
 			tput sgr0
 		fi
 
-		let "perc+=2"
-		sleep 0.15
+		let "perc+=1"
+		sleep 0.05
 	done
 }
 

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/11 16:17:20 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/15 19:03:30 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static int	ft_isspace(int chr)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	long int	sign;
+	long int	res;
+	long int	i;
 
 	i = 0;
 	res = 0;
