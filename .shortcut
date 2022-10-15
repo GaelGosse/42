@@ -53,16 +53,17 @@ alias out='./a.out'
 alias gcl='git clone'
 alias norm='norminette -R CheckForbiddenSourceHeader'
 alias c='clear'
+alias l='ls'
 
 alias set_rc='cp -f ~/42/.shortcut ~/.'
 alias get_rc='cp -f ~/.shortcut ~/42/.'
 
 # change to function "~/.$0rc" 
-shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
+# shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
+shell_name=$(ps -p $$ | tail -n 1 | awk '{print $4}')
 
 function cfga()
 {
-	FILE=/mnt/nfs/homes/ggosse
 	if [[ $shell_name == "zsh" ]];
 	then
 		if [ -f "$FILE/.zshrc" ]; then
@@ -80,19 +81,18 @@ function cfga()
 
 function start()
 {
-	FILE=/mnt/nfs/homes/ggosse
-	if [[ $0 == "zsh" ]]
+	if [[ $shell_name == "zsh" ]];
 	then
-		if [ -f "$FILE/.zshrc" ]; then
+		if [ -f "/home/gael/.zshrc" ]; then
 			source ~/.zshrc
-			echo -e $BOLD_GREEN"zsh is restarted"$RST
+			echo -e $BACK_GREEN" ZSH is restarted "$RST
 		fi
 	fi
-	if [[ $0 == "bash" ]]
+	if [[ $shell_name == "bash" ]];
 	then
-		if [ -f "$FILE/.bashrc" ]; then
+		if [ -f "/home/gael/.bashrc" ]; then
 			source ~/.bashrc
-			echo -e $BOLD_GREEN"bash is restarted"$RST
+			echo -e $BACK_GREEN" BASH is restarted "$RST
 		fi
 	fi
 }
@@ -947,10 +947,163 @@ function t25()
 	fi
 }
 
+function split()
+{
+	if [[ $# == 0 ]]
+	then
+		echo "Missing args, the first must be the string and the second will be the delimiter"
+	elif [[ $# == 1 ]]
+	then
+		text=$1
+		IFS=' '
+		read -a strarr <<< "$text"
+		echo -e "length: ${#strarr[*]} \n"
+		for val in "${strarr[@]}";
+		do
+			printf "$val\n"
+		done
+	elif [[ $# == 2 ]]
+	then
+		text=$1
+		IFS=$2
+		read -a strarr <<< "$text"
+		echo -e "length: ${#strarr[*]} \n"
+		for val in "${strarr[@]}";
+		do
+			printf "$val\n"
+		done
+	fi
+}
 
-# upgrade colors
-# norminette display lines and numbers of cols
-# code grep file:line
+function t26()
+{
+	# - Position the Cursor:
+	# \033[<L>;<C>H
+	# 	Or
+	# \033[<L>;<C>f
+	# puts the cursor at line L and column C.
+	# - Move the cursor up N lines:
+	# \033[<N>A
+	# - Move the cursor down N lines:
+	# \033[<N>B
+	# - Move the cursor forward N columns:
+	# \033[<N>C
+	# - Move the cursor backward N columns:
+	# \033[<N>D
+
+	# - Clear the screen, move to (0,0):
+	# \033[2J
+	# - Erase to end of line:
+	# \033[K
+
+	# - Save cursor position:
+	# \033[s
+	# - Restore cursor position:
+	# \033[u
+
+	# echo -e "\033[<5>B X"
+	# echo -en "\033[s\033[7B\033[1;34m 7 lines down violet \033[u\033[0m"
+	# echo -en "\033[s\033[7A\033[1;32m 7 lines up green \033[u\033[0m"	
+
+	tput clear      # clear the screen
+
+	tput cup 3 15   # Move cursor to screen location X,Y (top left is 0,0)
+
+	tput setaf 3    # Set a foreground colour using ANSI escape
+	echo "XYX Corp LTD."
+	tput sgr0
+
+	tput cup 5 17
+	tput rev        # Set reverse video mode (background)
+	echo " M A I N - M E N U "
+	tput sgr0       # stop background color
+
+	tput cup 7 15; echo "1. User Management"
+	tput cup 8 15; echo "2. Service Management"
+	tput cup 9 15; echo "3. Process Management"
+	tput cup 10 15; echo "4. Backup"
+
+	tput bold       # Set bold mode (red)
+	tput cup 12 15
+	read -p "Enter your choice [1-4] " choice
+
+	tput clear
+	tput sgr0
+	tput rc
+}
+
+function t27()
+{
+	# get position of the cursor
+	exec < /dev/tty
+	oldstty=$(stty -g)
+	stty raw -echo min 0
+	# on my system, the following line can be replaced by the line below it
+	echo -en "\033[6n" > /dev/tty
+	# tput u7 > /dev/tty    # when TERM=xterm (and relatives)
+	IFS=';' read -r -d R -a pos
+	stty $oldstty
+	# change from one-based to zero based so they work with: tput cup $row $col
+	row=$((${pos[0]:2} - 1))    # strip off the esc-[
+	col=$((${pos[1]} - 1))
+	echo $row
+	echo $col
+}
+
+function t28()
+{
+	perc=0
+	
+	sleep 1
+	tput clear
+
+	tput cup 0 0; echo "-"
+	tput cup 0 8; echo "-"
+
+	tput cup 0 10; echo "["
+
+	tput setaf 1
+	tput rev
+	tput cup 0 11; echo "          "
+	tput sgr0
+	
+	# tput setaf 1
+	tput cup 0 21; echo "]"
+
+	tput sgr0
+	sleep 1
+	while [[ $perc -lt 101 ]]
+	do
+		if [[ $perc -ge 0 && $perc -lt 10 ]]
+		then
+			tput cup 0 4; echo "$perc %"
+		elif [[ $perc -ge 10 && $perc -lt 100 ]]
+		then
+			tput cup 0 3; echo "$perc %"
+		else [[ $perc -ge 100 && $perc -lt 1000 ]]
+			tput cup 0 2; echo "$perc %"
+		fi
+		if [[ $perc -lt 100 ]]
+		then
+			tput setaf 2
+			tput rev
+			tput cup 0 $((($perc/10)+11)); echo " "
+			tput sgr0
+		fi
+
+		let "perc+=2"
+		sleep 0.15
+	done
+}
+
+
+
+#	 - 100% - [1234567890]
+#	0123456789012345678901
+#	0000000000111111111122
+#	upgrade colors
+#	norminette display lines and numbers of cols
+#	code grep file:line
 
 # m4 precompile header
 
