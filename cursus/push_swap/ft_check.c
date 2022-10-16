@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/15 19:09:57 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/16 17:56:19 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,28 @@ void ft_check_args(int argc, char **argv)
 	while (argv[ite_args])
 	{
 		ite_arg = 0;
+		if (ft_isdigit(argv[ite_args][ite_arg]) == 0 &&
+			(argv[ite_args][ite_arg] != '+' && argv[ite_args][ite_arg] != '-')) 
+			ft_error();
+		ite_arg++;
+		if ((argv[ite_args][ite_arg] == '+' || argv[ite_args][ite_arg] == '-') 
+			&& (argv[ite_args][ite_arg] == '\0')) 
+			ft_error();
 		while(argv[ite_args][ite_arg])
 		{
-			if (ft_isdigit(argv[ite_args][ite_arg]) == 0 &&
-			(argv[ite_args][ite_arg] != '+' || argv[ite_arg][ite_arg] != '-')) 
+			if (ft_isdigit(argv[ite_args][ite_arg]) == 0 ||
+			(argv[ite_args][ite_arg] == '+' || argv[ite_args][ite_arg] == '-')) 
 				ft_error();
 			ite_arg++;
 		}
 		ite_args++;
 	}
+}
+/*
 	ite_args = 1;
 	while (argv[ite_args])
 	{	
 		printf("argv[i]: %s\n", argv[ite_args]);
 		ite_args++;
 	}
-}
-
-/*
-
 */

@@ -1,6 +1,20 @@
 # A voir
 
-## JS
+_ separate shortcut and test in shell script
+_ bashrc quit with push kill chrome && code
+_ sort error in norm (by file/folder, by type)
+
+<!-- _ kill task that use too much  Memory/CPU -->
+## Aim error(s) in the norm
+ norm | grep -v -i space | grep -v -i empty | grep -v -i brace | grep -v -i include | grep -v -i few | grep -v -i misaligned | grep -v -i consecutive | grep -v -i wrong | grep -v -i ok | grep -i -v vars | grep -v -i decl | grep -v -i long 
+
+## Define specific variable (MACRO - Pre Processing)
+\# define INT_MAX 0x7fffffff
+\# define INT_MIN (-(INT_MAX + 1))
+
+\# define NULL (void *)0;
+
+## get hours in intra
 function isHidden(el) {
     return (el.offsetParent === null)
 }
@@ -18,36 +32,6 @@ let interval = setInterval(()=>{
     }
 }, 1000)
 
-## kill task that use too much  Memory/CPU
-shell task
-ps -aux | sort -nk +4 | tail -n 10
-ps aux --sort -rss | head
-
-
-void    print_array(char    **arr)
-{
-    int    i;
-
-    i = 0;
-    while (arr[i])
-    {
-        printf("arr[%i]: %s \n", i, arr[i]);
-        i++;
-    }
-}
-
-## Aim error(s) in the norm
- norm | grep -v -i space | grep -v -i empty | grep -v -i brace | grep -v -i include | grep -v -i few | grep -v -i misaligned | grep -v -i consecutive | grep -v -i wrong | grep -v -i ok | grep -i -v vars | grep -v -i decl | grep -v -i long 
-
- bashrc quit with push kill chrome && code
-
-## Define specific variable (MACRO - Pre Processing)
-\# define INT_MAX 0x7fffffff
-\# define INT_MIN (-(INT_MAX + 1))
-
-\# define NULL (void *)0;
-
-## get hours in intra
 org_date = document.querySelector('#bh-date').textContent.split('/')
 org_date = new Date(org_date[2], parseInt(org_date[1]) - 1, org_date[0], 23, 59, 0, 0)
 time = document.createElement('p')
@@ -118,3 +102,5 @@ https://levelup.gitconnected.com/building-your-own-adblocker-in-literally-10-min
   \033[s
 - Restore cursor position:
   \033[u
+
+

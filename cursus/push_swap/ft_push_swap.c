@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/15 18:55:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/16 14:00:27 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ft_error(void)
 {
 	// free list 
-	ft_putstr_fd(bold_red"Error\n"reset, 2);
+	ft_putstr_fd(bold_red"Error\n"reset, 1);
 	exit(1);
 }
 

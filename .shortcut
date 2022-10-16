@@ -47,36 +47,48 @@ export W_ARGS="$RED""wrong numbers of args$RST"
 
 # bind -s 'set completion-ignore-case on'
 
+alias norm='norminette -R CheckForbiddenSourceHeader'
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
 
 alias gcl='git clone'
-alias norm='norminette -R CheckForbiddenSourceHeader'
+
+alias ..='cd ..'
 alias c='clear'
 alias l='ls'
+alias grep='grep --color=always'
 
-alias set_rc='cp -f ~/42/.shortcut ~/.'
-alias get_rc='cp -f ~/.shortcut ~/42/.'
+# alias set_rc='cp -f ~/42/.shortcut ~/.'
+# alias get_rc='cp -f ~/.shortcut ~/42/.'
 
-# change to function "~/.$0rc" 
-shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
 # shell_name=$(ps -p $$ | tail -n 1 | awk '{print $4}')
+shell_name=$(ps -ef | grep $$ | grep -v grep | head -1 | awk '{print $8}')
+CC="gcc -Wall -Wextra -Werror -o push_swap"
+input_file="./push_swap"
+
+function cfg()
+{
+	code ~/42/.shortcut
+	# a=$(pwd)
+	# cd ~/42 && code 42/.shortcut
+	# cd $a
+}
 
 function cfga()
 {
 	if [[ $shell_name == "zsh" ]];
 	then
-		if [ -f "$FILE/.zshrc" ]; then
+		if [ -f "/mnt/nfs/homes/ggosse/.zshrc" ]; then
 			code ~/.zshrc
 		fi
 	fi
 	if [[ $shell_name == "bash" ]];
 	then
-		if [ -f "$FILE/.bashrc" ]; then
+		if [ -f "/mnt/nfs/homes/ggosse/.bashrc" ]; then
 			code ~/.bashrc
 		fi
 	fi
-	code ~/.shortcut
+	code ~/42/.shortcut
 }
 
 function start()
@@ -118,7 +130,7 @@ function poush()
 		cd ~/42
 		cp ~/.config/Code/User/snippets/c.json .
 		cp ~/.config/Code/User/snippets/shellscript.json . 
-		cp -f ~/.shortcut .
+		# cp -f ~/.shortcut .
 		git add .
 		git commit -m $1
 		git push
@@ -133,22 +145,14 @@ function pull()
 	git pull 
 	cp -f ~/42/c.json ~/.config/Code/User/snippets/ 
 	cp -f ~/42/shellscript.json ~/.config/Code/User/snippets/ 
-	cp -f ~/42/.shortcut ~/
-}
-
-function cfg()
-{
-	code ~/.shortcut
-	# a=$(pwd)
-	# cd && code .shortcut
-	# cd $a
+	# cp -f ~/42/.shortcut ~/
 }
 
 function cpl()
 {
 	rm -f *.gch
 	rm -f */*.gch
-	gcc -Wall -Wextra -Werror $@ && ./a.out
+	$CC $@ && $input_file
 }
 
 function cpla()
@@ -158,13 +162,13 @@ function cpla()
 	then
 		rm -f *.gch
 		rm -f */*.gch
-		gcc -Wall -Wextra -Werror -g *.c *.h && ./a.out
+		$CC -g *.c *.h && $input_file
 		rm -f *.gch
 		rm -f */*.gch
 	else
 		rm -f *.gch
 		rm -f */*.gch
-		gcc -Wall -Wextra -Werror -g *.c *.h && ./a.out $@
+		$CC -g *.c *.h && $input_file $@
 		rm -f *.gch
 		rm -f */*.gch
 	fi
@@ -178,22 +182,65 @@ function cpl_all()
 	then
 		rm -f *.gch
 		rm -f */*.gch
-		gcc -Wall -Wextra -Werror -g *.c *.h */*.c */*.h && ./a.out
+		$CC -g *.c *.h */*.c */*.h && $input_file
 		rm -f *.gch
 		rm -f */*.gch
 	else
 		rm -f *.gch
 		rm -f */*.gch
-		gcc -Wall -Wextra -Werror -g *.c *.h */*.c */*.h && ./a.out $@
+		$CC -g *.c *.h */*.c */*.h && $input_file $@
 		rm -f *.gch
 		rm -f */*.gch
 	fi
 
 }
+
+
+function cplc()
+{
+	clear
+	echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+	if [[ $# == 0 ]]
+	then
+		rm -f *.gch
+		rm -f */*.gch
+		$CC -g *.c *.h && $input_file
+		rm -f *.gch
+		rm -f */*.gch
+	else
+		rm -f *.gch
+		rm -f */*.gch
+		$CC -g *.c *.h && $input_file $@
+		rm -f *.gch
+		rm -f */*.gch
+	fi
+
+}
+
+function cplc_all()
+{
+	clear
+	echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+	if [[ $# == 0 ]]
+	then
+		rm -f *.gch
+		rm -f */*.gch
+		$CC -g *.c *.h */*.c */*.h && $input_file
+		rm -f *.gch
+		rm -f */*.gch
+	else
+		rm -f *.gch
+		rm -f */*.gch
+		$CC -g *.c *.h */*.c */*.h && $input_file $@
+		rm -f *.gch
+		rm -f */*.gch
+	fi
+}
+
 # if [ "${1/-*s}" != $1 ]; then
-# 	gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h */*.c */*.h && ./a.out
+# 	$CC -D BUFFER_SIZE=42 *.c *.h */*.c */*.h && $input_file
 # else
-# 	gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 *.c *.h && ./a.out
+# 	$CC -D BUFFER_SIZE=42 *.c *.h && $input_file
 # fi
 
 # with args
