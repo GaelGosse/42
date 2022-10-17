@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/16 14:00:27 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/17 18:30:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int argc, char **argv){
 	(void)str;
 
 	ft_check_args(argc, argv);
+	ft_init_list(argc, argv);
 	printf("\n");
 }
 

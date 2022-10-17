@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/15 18:26:47 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/17 18:33:04 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef struct p_list
 	struct	p_list	*next;
 }					r_list;
 
-void ft_check_args(int argc, char **argv);
-void ft_error(void);
+void	ft_init_list(int argc, char **argv);
+void	ft_check_args(int argc, char **argv);
+void	ft_error(void);
 
 #endif

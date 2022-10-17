@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:09:27 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/15 18:32:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/17 18:21:58 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_init_list(int argc, char **argv)
 	ite_cv = 1;
 	while (argv[ite_cv])
 	{
-		printf("ft_atoi(argv[ite_cv]): %li\n", ft_atoi(argv[ite_cv]));
+		ft_atoi(argv[ite_cv]);
+		// printf("ft_atoi(argv[ite_cv]): %li\n", ft_atoi(argv[ite_cv]));
 		ite_cv++;
 	}
 }

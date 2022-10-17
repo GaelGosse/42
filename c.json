@@ -62,4 +62,71 @@
 		"body": "printf(\"${1:var}: %X\\\\n\", ${1:var});",
 		"description": "Snippet for printf %X variable"
 	},
+	"structure if": {
+		"prefix": [
+			"if",
+		],
+		"body": [
+			"if ($1 == $2)",
+			"{",
+			"\t$3",
+			"}",
+		],
+	},
+	"structure if elif": {
+		"prefix": [
+			"elif",
+		],
+		"body": [
+			"if ($1 == $2)",
+			"{",
+			"\t$3",
+			"}",
+			"elif ($4 == $5)",
+			"{",
+			"\t$6",
+			"}",
+			"else",
+			"{",
+			"\t$7",
+			"}",
+		],
+	},
+	"structure if else": {
+		"prefix": [
+			"ife",
+		],
+		"body": [
+			"if ($1 == $2)",
+			"{",
+			"\t$3",
+			"}",
+			"else",
+			"{",
+			"\t$4",
+			"}",
+		],
+	},
+	"structure if else short": {
+		"prefix": [
+			"ifs",
+		],
+		"body": [
+			"if ($1 == $2)",
+			"\t$3",
+			"else",
+			"\t$4",
+		],
+	},
+	"structure while": {
+		"prefix": [
+			"while",
+		],
+		"body": [
+			"if ($1 == $2)",
+			"{",
+			"\t$3",
+			"}",
+		],
+	},
 }
