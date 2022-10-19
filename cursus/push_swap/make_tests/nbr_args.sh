@@ -6,7 +6,7 @@
 
 #! /bin/sh
 
-echo -e $BACK_CYAN"\n ----- NBR OF ARGS ----- "$RST
+echo -e "\n"$BACK_CYAN" ----- NBR OF ARGS ----- "$RST
 
 ARG="4"
 output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo -e $good); expect=$(echo -e $good);

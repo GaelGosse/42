@@ -47,6 +47,8 @@ export W_ARGS="$RED""wrong numbers of args$RST"
 
 # bind -s 'set completion-ignore-case on'
 
+SLEEP=2.5
+
 alias norm='norminette -R CheckForbiddenSourceHeader'
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
@@ -248,10 +250,13 @@ function refresh()
 {
 	if [[ "$#" > 0 ]]; then
 		while true; do
-			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+			tput clear
+			tput cup 0 0
+			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch
 			gcc -Wall -Wextra -Werror $@ && ./a.out
-			sleep 1
+			echo -e "\n"
+			sleep $SLEEP
 		done
 	else
 		echo "$RED""no args $RST"
@@ -264,17 +269,23 @@ function refresha()
 	if [[ $# == 0 ]];
 	then
 		while true; do
-			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+			tput clear
+			tput cup 0 0
+			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch
 			gcc -Wall -Wextra -Werror *.c *.h && ./a.out
-			sleep 1
+			echo -e "\n"
+			sleep $SLEEP
 		done
 	else
 		while true; do
-			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+			tput clear
+			tput cup 0 0
+			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch
 			gcc -Wall -Wextra -Werror *.c *.h && ./a.out $@
-			sleep 1
+			echo -e "\n"
+			sleep $SLEEP
 		done
 	fi
 }
@@ -285,19 +296,25 @@ function refresh_all()
 	if [[ $# == 0 ]];
 	then
 		while true; do
-			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+			tput clear
+			tput cup 0 0
+			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch && rm -f */*.gch
-			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out
+			gcc -Wall -Wextra -Werror *.c */*.c && ./a.out
 			rm -f *.gch && rm -f */*.gch
-			sleep 1
+			echo -e "\n"
+			sleep $SLEEP
 		done
 	else
 		while true; do
-			echo -e "\n"$BACK_CYAN" ----- START ----- "$RST"\n"
+			tput clear
+			tput cup 0 0
+			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
 			rm -f *.gch && rm -f */*.gch
-			gcc -Wall -Wextra -Werror *.c *.h */*.c */*.h && ./a.out $@
+			gcc -Wall -Wextra -Werror *.c */*.c && ./a.out $@
 			rm -f *.gch && rm -f */*.gch
-			sleep 1
+			echo -e "\n"
+			sleep $SLEEP
 		done
 	fi
 }
@@ -308,12 +325,20 @@ function refreshn()
 	if [[ $# == 0 ]]
 	then
 		while true; do
-			echo -e "$BACK_GREEN\n	----- ----- NORMINETTE ----- ----- $RESET" 
+			tput clear
+			tput cup 0 0
+			echo -e "$BACK_GREEN	----- ----- NORMINETTE ----- ----- $RST" 
 			norminette -R CheckForbiddenSourceHeader
-			sleep 1
+			sleep $SLEEP
 		done
 	else
-		echo -e $W_ARGS
+		while true; do
+			tput clear
+			tput cup 0 0
+			echo -e "$BACK_GREEN	----- ----- NORMINETTE ----- ----- $RST" 
+			norminette -R CheckForbiddenSourceHeader $1
+			sleep $SLEEP
+		done
 	fi
 }
 
@@ -352,7 +377,6 @@ function crt()
 		echo -e $W_ARGS
 	fi
 }
-
 function crtf()
 {
 	if [[ $# == 1 ]]
@@ -561,19 +585,41 @@ function search()
 	then
 		echo "first arg missing"
 	else
-		grep -riIon $1
+		grep -riIn -B 4 $1
 		if [[ $(grep -riIon $1 | wc -l) == 1 ]]
 		then
 			a="$(grep -riIon $1 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" | awk -F ":" '{print $1":"$2}')"
 			code -g $a
 		else
 			echo -e $BACK_RED" $(grep -riIon $1 | wc -l) results, expected : 1 "$RST
+			echo -e "\nsearch again for 1 result"
+			echo -n "$> "
+			read answer 
+			echo ""
+			search $answer
 			# b="$(tr -d \\033 $a :$1)"
 			# echo -e $b
 		fi
 	fi
 }
 
+function norm()
+{
+	norm | grep -vi OK 
+
+	echo "" 
+	nbr_error=$(norminette -R CheckForbiddenSourceHeader | grep Error! | wc -l)
+	nbr_ok=$(norminette -R CheckForbiddenSourceHeader | grep OK! | wc -l)
+	nbr_total=0
+	let "nbr_total=$nbr_error+$nbr_ok"
+	res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
+	
+	echo -ne "$BOLD_RED""Error: $nbr_error \t"$RST
+	echo -ne "$BOLD_GREEN""OK: $nbr_ok  \t"$RST
+	echo -ne "number of files: $BOLD_WHITE$nbr_total    \t\t"$RST
+	echo -ne "perc: $BOLD_WHITE$res"
+	echo " %"
+}
 
 # courses
 function display_js()
@@ -856,12 +902,12 @@ function refresht()
 		source ~/.bashrc && $1
 		echo -e "$BACK_CYAN ----- START ----- $RST"
 		export TEST_FUNCTION=$1
-		sleep 2
+		sleep $SLEEP
 		refresht
 	elif [[ $TEST_FUNCTION && $interrupt == "false" ]]; then
 		source ~/.bashrc && $TEST_FUNCTION
 		echo -e "$BACK_GREEN ----- IN TEST ----- $RST"
-		sleep 2
+		sleep $SLEEP
 		refresht
 	fi
 }
@@ -872,7 +918,7 @@ function t16()
 	trap 'echo -e "\nhey"' INT
 	# for ((n=20; n; n--))
 	# do
-	# 	sleep 1
+	# 	sleep $SLEEP
 	# done
 }
 
@@ -1125,7 +1171,7 @@ function t28()
 {
 	perc=0
 	
-	sleep 1
+	sleep $SLEEP
 	tput clear
 
 	tput cup 0 0; echo "-"
@@ -1142,7 +1188,7 @@ function t28()
 	tput cup 0 21; echo "]"
 
 	tput sgr0
-	sleep 1
+	sleep $SLEEP
 	while [[ $perc -lt 101 ]]
 	do
 		if [[ $perc -ge 0 && $perc -lt 10 ]]
@@ -1167,6 +1213,10 @@ function t28()
 	done
 }
 
+function t32()
+{
+	grep -A 4 "$1"| grep -v "$1" | grep -v '^\d*$'
+}
 
 
 #	 - 100% - [1234567890]

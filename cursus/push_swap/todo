@@ -1,9 +1,9 @@
 ----- Parsing -----
-0 change atoi (sign)
+1 handle error (is digit)
+1 change atoi (sign)
 0 handle error double 
 0 handle error INT_MAX MIN
 0 check with string and digits => convert string tab (split)
-1 handle error (is digit)
 
 
 ----- Linked List -----
@@ -14,3 +14,129 @@
 
 ----- Makefile -----
 0 compile all (libft, printf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+move_Z : si aucun max/min sur les bords on shift
+A = 7 4 9 2 8 1 6 3 5
+B = 
+
+move_Z : si aucun max/min sur les bords on shift
+A = 4 9 2 8 1 6 3 5 7
+B = 
+
+move_Y : si max sur un bord on push sur B cote gauche
+A = 9 2 8 1 6 3 5 7 4
+B = 
+
+move_Z : si aucun max/min sur les bords on shift
+A = 2 8 1 6 3 5 7 4
+B = 9
+
+move_Z : si aucun max/min sur les bords on shift
+A = 2 8 1 6 3 5 7 4
+B = 9
+
+move_Y : si max sur un bord on push sur B cote gauche
+A = 8 1 6 3 5 7 4 2
+B = 9
+
+move_Y : si MIN sur un bord on push sur B cote droit
+A = 1 6 3 5 7 4 2
+B = 8 9
+
+move_Y : si MIN sur un bord on push sur B cote droit
+A = 6 3 5 7 4 2
+B = 8 9 1
+
+A = 6 3 5 7 4
+B = 8 9 1 2
+
+A = 6 3 5 7 4
+B = 8 9 1 2
+
+A = 3 5 7 4 6
+B = 8 9 1 2
+
+A = 5 7 4 6
+B = 8 9 1 2 3
+
+A = 6 5 7 4
+B = 8 9 1 2 3
+
+A = 6 5 7 
+B = 8 9 1 2 3 4
+
+A = 5 6 7 
+B = 8 9 1 2 3 4
+
+A = 4 5 6 7 
+B = 8 9 1 2 3
+
+A = 3 4 5 6 7 
+B = 8 9 1 2 
+
+A = 2 3 4 5 6 7 
+B = 8 9 1
+
+A = 1 2 3 4 5 6 7 
+B = 8 9
+
+A = 1 2 3 4 5 6 7 8
+B = 9
+
+A = 1 2 3 4 5 6 7 8 9
+B = 
+
+
+
+*/
