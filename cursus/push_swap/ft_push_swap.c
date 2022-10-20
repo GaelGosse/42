@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/19 19:57:28 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/20 18:17:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,17 @@ void ft_error(void)
 }
 
 int main(int argc, char **argv){
-	ft_check_args(argv);
-	ft_init_list(argc, argv);
-
+	t_list	*stack_a;
+	t_list	*stack_b;
+	
+	stack_a = NULL;
+	stack_b = NULL;
+	
+	(void)stack_b;
+	ft_check(argc, argv);
+	ft_init_list(&stack_a, argv);
+	ft_print_list(&stack_a);
+	
 	printf("\n");
 }
 

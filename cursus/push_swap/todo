@@ -1,13 +1,13 @@
 ----- Parsing -----
 1 handle error (is digit)
 1 change atoi (sign)
-0 handle error double 
-0 handle error INT_MAX MIN
+1 handle error double
+1 handle error INT_MAX MIN
 0 check with string and digits => convert string tab (split)
 
 
 ----- Linked List -----
-0 Place args in A Linked List
+1 Place args in A Linked List
 
 ----- Indexation -----
 0 insertion sort to set index

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/19 20:03:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/20 16:15:15 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,57 @@ void	ft_check_args(char **argv)
 
 void	ft_check_dup(char **argv)
 {
-	int ite_dup;
+	int ite_big;
+	int ite_lil;
 
-	ite_dup = 0;
-	while (argv[ite_dup])
+	ite_lil = 1;
+	ite_big = 1;
+	while (argv[ite_big])
 	{
-		
+		ite_lil = 1;
+		while (argv[ite_lil])
+		{
+			if (ite_lil != ite_big)
+			{
+				if (ft_atoi(argv[ite_lil]) == ft_atoi(argv[ite_big]))
+					ft_error();
+			}
+			ite_lil++;
+		}
+		ite_big++;
 	}
+}
+
+int	ft_is_sorted(char **argv)
+{
+	int ite_sort;
+	int not_sorted;
+
+	ite_sort = 1;
+	not_sorted = 0;
+	while (argv[ite_sort])
+	{
+		if (ft_atoi(argv[ite_sort - 1]) > ft_atoi(argv[ite_sort]))
+			not_sorted = 1;
+		ite_sort++;
+	}
+	if (not_sorted == 1)
+		return (0);
+	else
+		return (1);
+}
+
+void	ft_check(int argc, char **argv)
+{
+	// if no arg => return nothing OR if already sorted => return nothing
+	// if (argc == 1)
+	// 	printf("NO ARG\n");
+	
+	// if (ft_is_sorted(argv) == 1)
+	// 	printf("ALREADY SORTED\n");
+	(void)argc;
+	ft_check_args(argv);
+	ft_check_dup(argv);
 }
 
 /*
@@ -59,9 +103,3 @@ void	ft_check_dup(char **argv)
 		ite_args++;
 	}
 */
-
-// TODO if no arg or already sorted => return nothing
-// TODO duplicate numbers
-// void	ft_is_sorted(int argc, char **argv)
-// {
-// }

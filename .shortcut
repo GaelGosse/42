@@ -47,9 +47,9 @@ export W_ARGS="$RED""wrong numbers of args$RST"
 
 # bind -s 'set completion-ignore-case on'
 
-SLEEP=2.5
+SLEEP=3
 
-alias norm='norminette -R CheckForbiddenSourceHeader'
+alias normi='norminette -R CheckForbiddenSourceHeader'
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
 
@@ -109,6 +109,24 @@ function start()
 			echo -e $BACK_GREEN" BASH is restarted "$RST
 		fi
 	fi
+}
+
+function norm+()
+{
+	norm | grep -vi OK 
+
+	echo "" 
+	nbr_error=$(norminette -R CheckForbiddenSourceHeader | grep Error! | wc -l)
+	nbr_ok=$(norminette -R CheckForbiddenSourceHeader | grep OK! | wc -l)
+	nbr_total=0
+	let "nbr_total=$nbr_error+$nbr_ok"
+	res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
+	
+	echo -ne "$BOLD_RED""Error: $nbr_error \t"$RST
+	echo -ne "$BOLD_GREEN""OK: $nbr_ok  \t"$RST
+	echo -ne "number of files: $BOLD_WHITE$nbr_total    \t\t"$RST
+	echo -ne "perc: $BOLD_WHITE$res"
+	echo " %"
 }
 
 # shortcut
@@ -322,21 +340,24 @@ function refresh_all()
 # norm refresh
 function refreshn()
 {
+	tput clear
 	if [[ $# == 0 ]]
 	then
+		nbr_lines=$(tput lines)
+		nbr_norm=$(norm+ | wc -l)
 		while true; do
-			tput clear
 			tput cup 0 0
 			echo -e "$BACK_GREEN	----- ----- NORMINETTE ----- ----- $RST" 
-			norminette -R CheckForbiddenSourceHeader
+			norm+
 			sleep $SLEEP
 		done
 	else
+		nbr_lines=$(tput lines)
+		nbr_norm=$(norm+ | wc -l)
 		while true; do
-			tput clear
 			tput cup 0 0
 			echo -e "$BACK_GREEN	----- ----- NORMINETTE ----- ----- $RST" 
-			norminette -R CheckForbiddenSourceHeader $1
+			norm+ $1
 			sleep $SLEEP
 		done
 	fi
@@ -603,23 +624,6 @@ function search()
 	fi
 }
 
-function norm()
-{
-	norm | grep -vi OK 
-
-	echo "" 
-	nbr_error=$(norminette -R CheckForbiddenSourceHeader | grep Error! | wc -l)
-	nbr_ok=$(norminette -R CheckForbiddenSourceHeader | grep OK! | wc -l)
-	nbr_total=0
-	let "nbr_total=$nbr_error+$nbr_ok"
-	res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
-	
-	echo -ne "$BOLD_RED""Error: $nbr_error \t"$RST
-	echo -ne "$BOLD_GREEN""OK: $nbr_ok  \t"$RST
-	echo -ne "number of files: $BOLD_WHITE$nbr_total    \t\t"$RST
-	echo -ne "perc: $BOLD_WHITE$res"
-	echo " %"
-}
 
 # courses
 function display_js()

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/18 11:57:00 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/20 18:04:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ long int	ft_atoi(const char *str)
 		res = res * 10 + str[i] - '0';
 		i++;
 	}
-	if ((res * sign) == 2147483648 || (res * sign) == -2147483647)
+	if ((res * sign) >= 2147483647 || (res * sign) <= -2147483648)
 		ft_error();
 	return (res * sign);
 }
