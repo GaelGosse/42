@@ -6,22 +6,22 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:06:34 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/14 19:20:21 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/21 14:39:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *first, const char *second, size_t length)
+int	ft_strncmp(const char *one, const char *two, size_t length)
 {
 	size_t	i;
 
 	i = 0;
-	while ((first[i] || second[i]) && i < length)
+	while ((one[i] || two[i]) && i < length)
 	{
-		if (first[i] != second[i])
+		if (one[i] != two[i])
 		{
-			return ((unsigned char)(first[i]) - (unsigned char)(second[i]));
+			return ((unsigned char)(one[i]) - (unsigned char)(two[i]));
 		}
 		i++;
 	}

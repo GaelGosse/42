@@ -40,6 +40,16 @@ export BOLD_BACK_PURPLE="\033[1;45;37m"
 export BOLD_BACK_CYAN="\033[1;46;30m"
 export BOLD_BACK_WHITE="\033[1;47;30m"
 
+# underline color
+export UNDERLINE_BLACK="\033[4;30m"
+export UNDERLINE_RED="\033[4;31m"
+export UNDERLINE_GREEN="\033[4;32m"
+export UNDERLINE_YELLOW="\033[4;33m"
+export UNDERLINE_BLUE="\033[4;34m"
+export UNDERLINE_PURPLE="\033[4;35m"
+export UNDERLINE_CYAN="\033[4;36m"
+export UNDERLINE_WHITE="\033[4;37m"
+
 export RST="\033[0m"
 
 export NOTHING="$BOLD_YELLOW""nothing happened 👒$RST"
@@ -47,9 +57,10 @@ export W_ARGS="$RED""wrong numbers of args$RST"
 
 # bind -s 'set completion-ignore-case on'
 
-SLEEP=3
+SLEEP=6
 
-alias normi='norminette -R CheckForbiddenSourceHeader'
+alias norminette='norminette -R CheckForbiddenSourceHeader'
+# alias norminette='norminette | awk '\''{gsub(/OK/,"\033[1;32mOK\033[0m");}1'\'' | awk '\''{gsub(/Error!/,"\033[1;31mError!\033[0m");}1'\'
 alias gcw='gcc -Wall -Wextra -Werror -g'
 alias out='./a.out'
 
@@ -113,11 +124,11 @@ function start()
 
 function norm+()
 {
-	norm | grep -vi OK 
+	norminette | grep -vi OK 
 
 	echo "" 
-	nbr_error=$(norminette -R CheckForbiddenSourceHeader | grep Error! | wc -l)
-	nbr_ok=$(norminette -R CheckForbiddenSourceHeader | grep OK! | wc -l)
+	nbr_error=$(norminette | grep Error! | wc -l)
+	nbr_ok=$(norminette | grep OK! | wc -l)
 	nbr_total=0
 	let "nbr_total=$nbr_error+$nbr_ok"
 	res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
@@ -340,27 +351,46 @@ function refresh_all()
 # norm refresh
 function refreshn()
 {
-	tput clear
-	if [[ $# == 0 ]]
-	then
+	# let "SLEEP+=2"
+	SECONDS=$SLEEP
+	while true; do
 		nbr_lines=$(tput lines)
+		nbr_lines=$(($nbr_lines-8))
 		nbr_norm=$(norm+ | wc -l)
-		while true; do
-			tput cup 0 0
-			echo -e "$BACK_GREEN	----- ----- NORMINETTE ----- ----- $RST" 
-			norm+
-			sleep $SLEEP
+		
+		tput clear
+		tput cup 0 0
+		
+		echo -e "\t""$BACK_GREEN ----- ----- NORMINETTE ----- ----- $RST"
+		
+		norminette | grep -vi OK | head -21
+
+		echo "" 
+		nbr_error=$(norminette | grep -i Error! | wc -l)
+		nbr_ok=$(norminette | grep -i OK! | wc -l)
+		nbr_total=0
+		let "nbr_total=$nbr_error+$nbr_ok"
+		res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
+		
+		echo -ne "$BOLD_RED""Error: $nbr_error \t"$RST
+		echo -ne "$BOLD_GREEN""OK: $nbr_ok  \t"$RST
+		echo -ne "number of files: $BOLD_WHITE$nbr_total    \t\t"$RST
+		echo -ne "perc: $BOLD_WHITE$res"
+		echo " %"
+		SECONDS=$SLEEP
+		while [[ $SECONDS -ge 0 ]]; do
+			tput cup 0 46; echo -e "$BACK_WHITE $SECONDS sec $RST"
+			tput cup 0 45
+			sleep 0.5
+			let "SECONDS-=1"
 		done
-	else
-		nbr_lines=$(tput lines)
-		nbr_norm=$(norm+ | wc -l)
-		while true; do
-			tput cup 0 0
-			echo -e "$BACK_GREEN	----- ----- NORMINETTE ----- ----- $RST" 
-			norm+ $1
-			sleep $SLEEP
-		done
-	fi
+		# if [[ $# == 0 ]]
+		# then
+		# 	norm+ | head -$nbr_lines
+		# else
+		# 	norm+ $@ | head -$nbr_lines
+		# fi
+	done
 }
 
 function clr()

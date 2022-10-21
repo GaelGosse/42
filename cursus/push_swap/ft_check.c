@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/20 16:15:15 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/21 13:50:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_check_args(char **argv)
 
 void	ft_check_dup(char **argv)
 {
-	int ite_big;
-	int ite_lil;
+	int	ite_big;
+	int	ite_lil;
 
 	ite_lil = 1;
 	ite_big = 1;
@@ -65,8 +65,8 @@ void	ft_check_dup(char **argv)
 
 int	ft_is_sorted(char **argv)
 {
-	int ite_sort;
-	int not_sorted;
+	int	ite_sort;
+	int	not_sorted;
 
 	ite_sort = 1;
 	not_sorted = 0;
@@ -87,7 +87,7 @@ void	ft_check(int argc, char **argv)
 	// if no arg => return nothing OR if already sorted => return nothing
 	// if (argc == 1)
 	// 	printf("NO ARG\n");
-	
+
 	// if (ft_is_sorted(argv) == 1)
 	// 	printf("ALREADY SORTED\n");
 	(void)argc;

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/20 18:45:54 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/21 14:39:04 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlcpy(char *dst, const	char *src, size_t dstsize);
 size_t			ft_strlen(const char *str);
 char			*ft_strmapi(const char *str, char (*f)(unsigned int, char));
-int				ft_strncmp(const char *first, const char *second, size_t length);
+int				ft_strncmp(const char *one, const char *two, size_t length);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strrchr(const char *str, int search);
 char			*ft_strtrim(const char *str, const char *set);

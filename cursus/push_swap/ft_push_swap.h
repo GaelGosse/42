@@ -6,12 +6,12 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/20 18:05:15 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/21 13:48:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PUSH_SWAP_H
+# define FT_PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
