@@ -24,6 +24,7 @@ typedef struct s_list
 {
 	int				nbr;
 	int				index;
+	int				pos_initial;
 	struct s_list	*next;
 }					t_list;
 

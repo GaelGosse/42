@@ -14,9 +14,15 @@
 
 void	ft_print_list(t_list **lst)
 {
-	while (*lst)
+	t_list *prt;
+
+	prt = (*lst);
+	printf("\n");
+	while (prt)
 	{
-		printf("(*lst)->nbr: %i\n", (*lst)->nbr);
-		(*lst) = (*lst)->next;
+		printf(PURPLE"(prt)->nbr: %i\n"RESET, (prt)->nbr);
+		printf(BOLD_PURPLE"(prt)->index: %i\n"RESET, (prt)->index);
+		printf("\n");
+		(prt) = (prt)->next;
 	}
 }

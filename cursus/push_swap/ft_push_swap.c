@@ -26,14 +26,25 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	(void)stack_b;
-	ft_check(argc, argv); 
-	   
-	ft_init_list(&stack_a, argv); 
-	   
-	ft_print_list(&stack_a); 
-	   
+	if (argc == 1)
+		return (0);
+	ft_check(argv); 
+	ft_init_list(&stack_a, argv);
+
+	printf("before stack_a->nbr: %i\n", stack_a->nbr);
+	
+	ft_init_pos_initial(&stack_a);
+	ft_index(&stack_a); 
+	ft_print_list(&stack_a);
+	
+	printf("after  stack_a->nbr: %i\n", stack_a->nbr);
+	
 	printf("\n");
 }
+
+
+
+
 
 /*
 std input   stdin   0 
@@ -45,4 +56,18 @@ exit
 1     minor error
 2     major error
 127   command not found
+
+
+
+1 2 3 = nothing
+
+1 3 2 = rra sa
+
+2 1 3 = sa
+2 3 1 = rra
+
+3 1 2 = ra
+3 2 1 = ra
+
+
 */

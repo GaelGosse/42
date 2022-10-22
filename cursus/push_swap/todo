@@ -3,19 +3,17 @@
 1 change atoi (sign)
 1 handle error double
 1 handle error INT_MAX MIN
-0 check with string and digits => convert string tab (split)
-
+1 check with string and digits => convert string tab (split)
 
 ----- Linked List -----
 1 Place args in A Linked List
+0 Create B Linked list (prepare before send it)
 
 ----- Indexation -----
-0 insertion sort to set index
+1 insertion sort to set index
 
 ----- Makefile -----
 0 compile all (libft, printf)
-
-
 
 
 

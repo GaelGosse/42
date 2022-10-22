@@ -82,15 +82,10 @@ int	ft_is_sorted(char **argv)
 		return (1);
 }
 
-void	ft_check(int argc, char **argv)
+void	ft_check(char **argv)
 {
-	// if no arg => return nothing OR if already sorted => return nothing
-	// if (argc == 1)
-	// 	printf("NO ARG\n");
-
 	// if (ft_is_sorted(argv) == 1)
 	// 	printf("ALREADY SORTED\n");
-	(void)argc;
 	ft_check_args(argv);
 	ft_check_dup(argv);
 }

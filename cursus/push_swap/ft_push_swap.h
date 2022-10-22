@@ -32,9 +32,12 @@ void	ft_error(void);
 
 void	ft_check_args(char **argv);
 void	ft_check_dup(char **argv);
-void	ft_check(int argc, char **argv);
+void	ft_check(char **argv);
 
+void	ft_init_pos_initial(t_list **lst);
 void	ft_init_list(t_list	**stack_a, char **argv);
+void	ft_index(t_list **lst);
+
 void	ft_print_list(t_list **lst);
 
 #endif

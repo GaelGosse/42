@@ -15,8 +15,8 @@ bad=$BOLD_RED"Error "$RST
 big_bad=$BACK_RED" Error "$RST
 
 
-source make_tests/minus_sign.sh 
-source make_tests/plus_sign.sh 
-source make_tests/letter.sh 
-source make_tests/nbr_args.sh 
+source make_tests/args/minus_sign.sh 
+source make_tests/args/plus_sign.sh 
+source make_tests/args/letter.sh 
+source make_tests/args/nbr_args.sh 
  

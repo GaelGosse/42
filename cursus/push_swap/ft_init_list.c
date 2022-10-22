@@ -26,3 +26,19 @@ void	ft_init_list(t_list	**stack_a, char **argv)
 	}
 }
 
+void	ft_init_pos_initial(t_list **lst)
+{
+	int		ite_ini;
+	t_list	*tmp;
+
+	ite_ini = 0;
+	tmp = (*lst);
+	while (tmp)
+	{
+		(tmp)->pos_initial=ite_ini;
+		ite_ini++;
+		(tmp) = (tmp)->next;
+	}
+}
+
+
