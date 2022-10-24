@@ -337,30 +337,33 @@ function refresha()
 # all sub
 function refresh_all()
 {
-	if [[ $# == 0 ]];
-	then
-		while true; do
-			tput clear
-			tput cup 0 0
-			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
-			rm -f *.gch && rm -f */*.gch
-			gcc -Wall -Wextra -Werror *.c */*.c && ./a.out
-			rm -f *.gch && rm -f */*.gch
-			echo -e "\n"
-			sleep $SLEEP
+	gcc -Wall -Wextra -Werror *.c */*.c
+	while true; do
+		tput clear
+		tput cup 0 0
+		echo -e $BACK_CYAN" ----- START ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $RST\n"
+		rm -f *.gch && rm -f */*.gch
+		if [[ -f "$(pwd)/a.out" ]]; then
+			if [[ $# > 0 ]]
+			then
+				./a.out $@ && gcc -Wall -Wextra -Werror *.c */*.c
+			else
+				./a.out && gcc -Wall -Wextra -Werror *.c */*.c
+			fi
+		else
+			gcc -Wall -Wextra -Werror *.c */*.c
+		fi
+		SECONDS=$SLEEP
+		while [[ $SECONDS -ge 0 ]]; do
+			tput cup 0 31; echo -e "$BACK_WHITE $SECONDS sec $RST"
+			tput cup 0 31
+			sleep 0.5
+			let "SECONDS-=1"
 		done
-	else
-		while true; do
-			tput clear
-			tput cup 0 0
-			echo -e $BACK_CYAN" ----- START ----- "$RST"\n"
-			rm -f *.gch && rm -f */*.gch
-			gcc -Wall -Wextra -Werror *.c */*.c && ./a.out $@
-			rm -f *.gch && rm -f */*.gch
-			echo -e "\n"
-			sleep $SLEEP
-		done
-	fi
+		rm -f *.gch && rm -f */*.gch
+		echo -e "\n"
+		sleep $SLEEP
+	done
 }
 
 # norm refresh
@@ -371,7 +374,7 @@ function refreshn()
 	while true; do
 		nbr_lines=$(tput lines)
 		nbr_lines=$(($nbr_lines-8))
-		nbr_norm=$(norm+ | wc -l)
+		nbr_norm=$(normi | wc -l)
 		
 		tput clear
 		tput cup 0 0
@@ -387,9 +390,52 @@ function refreshn()
 		let "nbr_total=$nbr_error+$nbr_ok"
 		res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
 		
-		echo -ne "$BOLD_RED""Error: $nbr_error \t"$RST
-		echo -ne "$BOLD_GREEN""OK: $nbr_ok  \t"$RST
-		echo -ne "number of files: $BOLD_WHITE$nbr_total    \t\t"$RST
+		echo -ne "$BOLD_RED""Error in $nbr_error files \t"$RST
+		echo -ne "$BOLD_GREEN""OK in $nbr_ok files \t\t"$RST
+		echo -ne "number of files: $BOLD_WHITE$nbr_total    \t"$RST
+		echo -ne "perc: $BOLD_WHITE$res"
+		echo " %"
+		SECONDS=$SLEEP
+		while [[ $SECONDS -ge 0 ]]; do
+			tput cup 0 46; echo -e "$BACK_WHITE $SECONDS sec $RST"
+			tput cup 0 45
+			sleep 0.5
+			let "SECONDS-=1"
+		done
+		# if [[ $# == 0 ]]
+		# then
+		# 	norm+ | head -$nbr_lines
+		# else
+		# 	norm+ $@ | head -$nbr_lines
+		# fi
+	done
+}
+function refreshn_test()
+{
+	# let "SLEEP+=2"
+	SECONDS=$SLEEP
+	while true; do
+		nbr_lines=$(tput lines)
+		nbr_lines=$(($nbr_lines-8))
+		nbr_norm=$(normi | wc -l)
+		
+		tput clear
+		tput cup 0 0
+		
+		echo -e "\t""$BACK_GREEN ----- ----- NORMINETTE ----- ----- $RST"
+		
+		norminette | grep -vi OK | head -14
+
+		echo "" 
+		nbr_error=$(norminette | grep -i Error! | grep -vi  | wc -l)
+		nbr_ok=$(norminette | grep -i OK! | grep -vi  | wc -l)
+		nbr_total=0
+		let "nbr_total=$nbr_error+$nbr_ok"
+		res=$(echo "scale=2; $nbr_ok / $nbr_total *100" | bc )
+		
+		echo -ne "$BOLD_RED""Error in $nbr_error files \t"$RST
+		echo -ne "$BOLD_GREEN""OK in $nbr_ok files \t\t"$RST
+		echo -ne "number of files: $BOLD_WHITE$nbr_total    \t"$RST
 		echo -ne "perc: $BOLD_WHITE$res"
 		echo " %"
 		SECONDS=$SLEEP

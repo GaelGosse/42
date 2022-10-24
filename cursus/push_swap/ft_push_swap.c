@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/21 14:40:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:07:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,24 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	(void)stack_b;
 	if (argc == 1)
 		return (0);
-	ft_check(argv); 
+	ft_check(argv);
 	ft_init_list(&stack_a, argv);
 
 	printf("before stack_a->nbr: %i\n", stack_a->nbr);
 	
 	ft_init_pos_initial(&stack_a);
 	ft_index(&stack_a); 
+	
+	ft_print_list(&stack_a);
+	printf("-----\n\n");
+	ft_swap_a(&stack_a);
+	printf("\n-----\n");
 	ft_print_list(&stack_a);
 	
 	printf("after  stack_a->nbr: %i\n", stack_a->nbr);

@@ -6,17 +6,17 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/21 14:40:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/24 19:17:54 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_push_swap.h"
+#include "ft_push_swap.h"
 
 void	ft_index(t_list **lst)
 {
 	t_list	*big;
 	t_list	*lil;
-	int		index; 
+	int		index;
 
 	index = 0;
 	lil = (*lst);
@@ -24,7 +24,7 @@ void	ft_index(t_list **lst)
 	while (big)
 	{
 		lil = (*lst);
-		index=0;
+		index = 0;
 		while (lil)
 		{
 			if (lil->nbr != big->nbr)

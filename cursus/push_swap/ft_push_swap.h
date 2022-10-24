@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/21 13:48:50 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/24 16:48:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_check(char **argv);
 
 void	ft_init_pos_initial(t_list **lst);
 void	ft_init_list(t_list	**stack_a, char **argv);
+void	ft_swap_a(t_list **stack_a);
 void	ft_index(t_list **lst);
 
 void	ft_print_list(t_list **lst);
