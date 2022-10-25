@@ -45,6 +45,16 @@
 # define BACK_CYAN "\033[0;46;30m"
 # define BACK_WHITE "\033[0;47;30m"
 
+# define BACK_BOLD_BLACK "\033[1;40m"
+# define BACK_BOLD_RED "\033[1;41;30m"
+# define BACK_BOLD_GREEN "\033[1;42;30m"
+# define BACK_BOLD_YELLOW "\033[1;43;30m"
+# define BACK_BOLD_BLUE "\033[1;44;30m"
+# define BACK_BOLD_PURPLE "\033[1;45;30m"
+# define BACK_BOLD_CYAN "\033[1;46;30m"
+# define BACK_BOLD_WHITE "\033[1;47;30m"
+
 # define RESET "\033[0m"
+# define RST "\033[0m"
 
 #endif

@@ -18,6 +18,7 @@ void	ft_init_list(t_list	**stack_a, char **argv)
 
 	ite_cv = 1;
 	(*stack_a) = ft_lstnew(ft_atoi(argv[ite_cv]));
+	printf(" INIT LIST \n");
 	printf(BACK_WHITE" %li "RESET" --> ", ft_atoi(argv[ite_cv]));
 	ite_cv++;
 	while (argv[ite_cv])

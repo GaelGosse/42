@@ -31,18 +31,18 @@ int	main(int argc, char **argv)
 	ft_check(argv);
 	ft_init_list(&stack_a, argv);
 
-	printf("before stack_a->nbr: %i\n", stack_a->nbr);
+	printf("\nbefore stack_a->nbr: %i\n", stack_a->nbr);
 	
 	ft_init_pos_initial(&stack_a);
 	ft_index(&stack_a); 
 	
 	ft_print_list(&stack_a);
-	printf("-----\n\n");
+	// printf("-----\n\n");
 	ft_swap_a(&stack_a);
-	printf("\n-----\n");
+	// printf("\n-----\n");
 	ft_print_list(&stack_a);
 	
-	printf("after  stack_a->nbr: %i\n", stack_a->nbr);
+	printf("\nafter  stack_a->nbr: %i\n", stack_a->nbr);
 	
 	printf("\n");
 }
