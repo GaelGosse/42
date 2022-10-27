@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/24 17:07:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/27 19:50:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,38 @@ int	main(int argc, char **argv)
 	ft_check(argv);
 	ft_init_list(&stack_a, argv);
 
-	printf("\nbefore stack_a->nbr: %i\n", stack_a->nbr);
 	
-	ft_init_pos_initial(&stack_a);
+	
+ft_init_pos_initial(&stack_a);
 	ft_index(&stack_a); 
 	
-	ft_print_list(&stack_a);
-	// printf("-----\n\n");
-	ft_swap_a(&stack_a);
-	// printf("\n-----\n");
-	ft_print_list(&stack_a);
-	
-	printf("\nafter  stack_a->nbr: %i\n", stack_a->nbr);
-	
+	printf(BOLD_WHITE"\nstack A"RESET);
+	ft_print_a(&stack_a);
+	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
+	ft_print_b(&stack_b);
+
+ft_push_b(&stack_a, &stack_b);	
+
+	printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
+	ft_print_a(&stack_a);
+	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
+	ft_print_b(&stack_b);
+
+ft_push_b(&stack_a, &stack_b);
+
+	printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
+	ft_print_a(&stack_a);
+	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
+	ft_print_b(&stack_b);
+
+ft_push_b(&stack_a, &stack_b);
+
+	printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
+	ft_print_a(&stack_a);
+	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
+	ft_print_b(&stack_b);
+
+
 	printf("\n");
 }
 

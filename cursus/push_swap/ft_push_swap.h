@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/24 16:48:02 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/27 19:37:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,18 @@ void	ft_check_args(char **argv);
 void	ft_check_dup(char **argv);
 void	ft_check(char **argv);
 
+void	ft_index(t_list **lst);
 void	ft_init_pos_initial(t_list **lst);
 void	ft_init_list(t_list	**stack_a, char **argv);
+
+// moves
 void	ft_swap_a(t_list **stack_a);
-void	ft_index(t_list **lst);
+void	ft_swap_b(t_list **stack_b);
+void	ft_push_b(t_list **stack_a, t_list **stack_b);
+void	ft_push_a(t_list **stack_a, t_list **stack_b);
 
 void	ft_print_list(t_list **lst);
+void	ft_print_a(t_list **lst);
+void	ft_print_b(t_list **lst);
 
 #endif
