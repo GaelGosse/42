@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/27 19:37:23 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/28 16:57:18 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,33 @@
 // 	struct s_list	*next;
 // }					t_list;
 
+// ----- check -----
 void	ft_error(void);
 
 void	ft_check_args(char **argv);
 void	ft_check_dup(char **argv);
 void	ft_check(char **argv);
 
+// ----- init -----
 void	ft_index(t_list **lst);
 void	ft_init_pos_initial(t_list **lst);
 void	ft_init_list(t_list	**stack_a, char **argv);
 
-// moves
+// ----- moves -----
 void	ft_swap_a(t_list **stack_a);
 void	ft_swap_b(t_list **stack_b);
+
 void	ft_push_b(t_list **stack_a, t_list **stack_b);
 void	ft_push_a(t_list **stack_a, t_list **stack_b);
+
+void	ft_rotate_a(t_list **stack_a);
+void	ft_rotate_b(t_list **stack_b);
+void	ft_rotate_all(t_list **stack_a, t_list **stack_b);
+
+void	ft_reverse_rotate_a(t_list **stack_a);
+void	ft_reverse_rotate_b(t_list **stack_b);
+void	ft_reverse_rotate_all(t_list **stack_a, t_list **stack_b);
+
 
 void	ft_print_list(t_list **lst);
 void	ft_print_a(t_list **lst);
