@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/28 18:24:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/28 23:00:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	ft_error(void)
 {
 	ft_putstr_fd(BOLD_RED"Error\n"RESET, 1);
 	exit(1);
+}
+
+void	ft_sort(t_list **stack_a, t_list **stack_b)
+{
+	(void)stack_a;
+	(void)stack_b;
 }
 
 int	main(int argc, char **argv)
@@ -32,42 +38,25 @@ int	main(int argc, char **argv)
 	ft_init_list(&stack_a, argv);
 
 	
-	
+// ------------- INIT --------------
 ft_init_pos_initial(&stack_a);
 	ft_index(&stack_a); 
 	
-	printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
-	ft_print_a(&stack_a);
-	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
-	ft_print_b(&stack_b);
+	ft_print_lists(&stack_a, &stack_b);
 
-ft_push_b(&stack_a, &stack_b);	
+// ------------- MOVES -------------
+ft_pb(&stack_a, &stack_b);
 
-	// printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
-	// ft_print_a(&stack_a);
-	// printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
-	// ft_print_b(&stack_b);
+ft_pb(&stack_a, &stack_b);
 
-ft_push_b(&stack_a, &stack_b);
+ft_pb(&stack_a, &stack_b);
 
-	// printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
-	// ft_print_a(&stack_a);
-	// printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
-	// ft_print_b(&stack_b);
+	ft_print_lists(&stack_a, &stack_b);
 
-ft_push_b(&stack_a, &stack_b);
+ft_rr(&stack_a, &stack_b);
 
-	printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
-	ft_print_a(&stack_a);
-	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
-	ft_print_b(&stack_b);
+	ft_print_lists(&stack_a, &stack_b);
 
-ft_reverse_rotate_all(&stack_a, &stack_b);
-
-	printf(BOLD_WHITE"\nstack A"RESET);// printf("\n-----\n");
-	ft_print_a(&stack_a);
-	printf(BOLD_WHITE"\nstack B"RESET);// printf("\n-----\n");
-	ft_print_b(&stack_b);
 
 
 

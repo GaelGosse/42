@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:13:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/28 17:54:19 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/28 22:58:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,72 @@
 
 void	ft_reverse_rotate_a(t_list **stack_a)
 {
-	printf("\n ----- ----- rra ----- ----- \n");
 	t_list	*loop;
-	t_list	*tmp;
+	t_list	*tmp_a;
+	t_list	*tmp_size;
 
-
-	loop = (*stack_a);
-	while (loop->next->next)
+	tmp_size = (*stack_a);
+	if (ft_lstsize(tmp_size) >= 2)
 	{
-		if (loop->next->next != NULL)
-			loop = loop->next;
+		loop = (*stack_a);
+		while (loop->next->next)
+		{
+			if (loop->next->next != NULL)
+				loop = loop->next;
+		}
+		tmp_a = loop->next;
+		loop->next = NULL;
+		tmp_a->next = (*stack_a);
+		(*stack_a) = tmp_a;
 	}
-	tmp = loop->next;
-	loop->next = NULL;
-	tmp->next = (*stack_a);
-	(*stack_a) = tmp;
 	(void)stack_a;
-	(void)tmp;
+	(void)tmp_a;
+	(void)tmp_size;
 }
 
 void	ft_reverse_rotate_b(t_list **stack_b)
 {
-	printf("\n ----- ----- rrb ----- ----- \n");
 	t_list	*loop;
-	t_list	*tmp;
+	t_list	*tmp_b;
+	t_list	*tmp_size;
 
-
-	loop = (*stack_b);
-	while (loop->next->next)
+	tmp_size = (*stack_b);
+	if (ft_lstsize(tmp_size) >= 2)
 	{
-		if (loop->next->next != NULL)
-			loop = loop->next;
+		loop = (*stack_b);
+		while (loop->next->next)
+		{
+			if (loop->next->next != NULL)
+				loop = loop->next;
+		}
+		tmp_b = loop->next;
+		loop->next = NULL;
+		tmp_b->next = (*stack_b);
+		(*stack_b) = tmp_b;
 	}
-	tmp = loop->next;
-	loop->next = NULL;
-	tmp->next = (*stack_b);
-	(*stack_b) = tmp;
 	(void)stack_b;
-	(void)tmp;
+	(void)tmp_b;
+	(void)tmp_size;
 }
 
-void	ft_reverse_rotate_all(t_list **stack_a, t_list **stack_b)
+void	ft_rra(t_list **stack_a)
 {
-	printf("\n ----- ----- rrr ----- ----- \n");
+	// write(1, "rra\n", 4);
+	printf(BACK_WHITE" rra \n"RESET); // print moves
+	ft_reverse_rotate_a(stack_a);
+}
+
+void	ft_rrb(t_list **stack_b)
+{
+	// write(1, "rrb\n", 4);
+	printf(BACK_WHITE" rrb \n"RESET); // print moves
+	ft_reverse_rotate_b(stack_b);
+}
+
+void	ft_rrr(t_list **stack_a, t_list **stack_b)
+{
+	// write(1, "rrr\n", 4);
+	printf(BACK_WHITE" rrr \n"RESET); // print moves
 	ft_reverse_rotate_a(stack_a);
 	ft_reverse_rotate_b(stack_b);
 }

@@ -7,18 +7,28 @@
 
 ----- Linked List -----
 1 Place args in A Linked List
-0 Create B Linked list (prepare before send it)
+1 Create B Linked list (prepare before send it)
 
 ----- Indexation -----
 1 insertion sort to set index
 
+
+----- Moves -----
+1 sa
+1 sb
+1 pa
+1 pb
+1 ra
+1 rb
+1 rr
+1 rra
+1 rrb
+1 rrr
+
+correct print (display + write)
+
 ----- Makefile -----
 0 compile all (libft, printf)
-
-
-
-
-
 
 
 
