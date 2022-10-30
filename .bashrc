@@ -77,6 +77,9 @@ alias ..='cd ..'
 alias c='clear'
 alias l='ls'
 alias grep='grep --color=always'
+alias low=' xrandr --output HDMI-2 --brightness 0.5'
+alias mid=' xrandr --output HDMI-2 --brightness 0.7'
+alias high=' xrandr --output HDMI-2 --brightness 0.9'
 
 # alias set_rc='cp -f ~/42/.shortcut ~/.'
 # alias get_rc='cp -f ~/.shortcut ~/42/.'
@@ -93,6 +96,32 @@ input_file="./push_swap"
 # 	# cd ~/42 && code 42/.shortcut
 # 	# cd $a
 # }
+
+function brgt()
+{
+	LEVEL=$1
+	if [[ $LEVEL -gt 100 ]]; then
+		echo -e $SYNTAX;
+		exit 1;
+	fi
+
+	if [[ $LEVEL -lt 0 ]]; then
+		echo -e $SYNTAX;
+		exit 1;
+	fi
+	brightness_level="$(( LEVEL / 100 )).$(( LEVEL % 100 ))"
+	screenname=$(xrandr | grep " connected" | cut -f1 -d" ")
+	echo "$(xrandr --output $screenname --brightness $brightness_level)"
+	# echo -e "[info]: Screen Brightness level set to" $LEVEL"%"
+	# xrandr --output HDMI-2 --brightness 0.7
+}
+function brightn()
+{
+	while true;
+	do
+		low
+	done
+}
 
 function cfg()
 {
@@ -176,7 +205,7 @@ function poush_out()
 	if [[ $# == 1 ]]
 	then
 		git add .
-		git commit -m $1
+		git commit -m $@
 		git push
 	else
 		echo -e W_ARGS
@@ -185,22 +214,24 @@ function poush_out()
 
 function poush()
 {
-	if [[ $# == 1 ]]
+	if [[ $# == 0 ]]
 	then
+		echo "missing arg(s)"
+	else
+		message="$@"
 		date
 		cd ~/42
 		# cp ~/.config/Code/User/snippets/c.json .
 		# cp ~/.config/Code/User/snippets/shellscript.json . 
 		# cp -f ~/.shortcut .
 		git status
-		echo -e $GREEN"poush $1"$RESET
+		echo -e $BOLD_BLACK$BACK_GREEN" Poush $RESET$BOLD_WHITE $1"$RESET
+		sleep 2
 		git add .
-		git commit -m $1
+		git commit -m $message
 		git push
-		echo -e $GREEN"end poush $1"$RESET
+		echo -e $BOLD_BLACK$BACK_GREEN" End poush $RESET$BOLD_WHITE $1"$RESET
 		git status
-	else
-		echo "missing arg"
 	fi
 }
 
