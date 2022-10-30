@@ -73,7 +73,6 @@ cplc_all 75 941 0 -12 486 2
 
 
 
-
 /*
 
 move_Z : si aucun max/min sur les bords on shift

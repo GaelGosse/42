@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/30 21:12:17 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/30 21:24:09 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_print_a(t_list **lst)
 		// printf("\n");
 		(prt_nbr) = (prt_nbr)->next;
 	}
-	printf(BACK_RED" NULL \n"RESET);
+	printf(BACK_RED" NULL "RESET"\n");
 
 
 	// printf("index: ");
@@ -97,7 +97,7 @@ void	ft_print_b(t_list **lst)
 		// printf("\n");
 		(prt_nbr) = (prt_nbr)->next;
 	}
-	printf(BACK_CYAN" NULL \n"RESET);
+	printf(BACK_CYAN" NULL "RESET"\n");
 
 
 	// printf("index: ");
