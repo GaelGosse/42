@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/21 14:39:04 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/30 21:10:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct s_list
 {
 	int				nbr;
 	int				index;
-	int				pos_initial;
+	int				initial_pos;
+	int				actual_pos;
 	struct s_list	*next;
 }					t_list;
 

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/28 22:54:59 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/30 21:12:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	ft_print_a(t_list **lst)
 	prt_nbr = (*lst);
 	prt_index = (*lst);
 	printf(BOLD_WHITE"\nstack A"RESET);
-	printf("\nnbr:   ");
+	printf("\nnbr \tindex\tpos\n");
 	while (prt_nbr)
 	{
-		printf(BACK_RED" %i "RESET"\t", (prt_nbr)->nbr);
+		printf(BACK_RED" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->initial_pos);
 		// printf(PURPLE"(prt_nbr)->nbr: %i"RESET, (prt_nbr)->nbr);
 		// printf(BOLD_PURPLE"(prt_nbr)->index: %i\n"RESET, (prt_nbr)->index);
 		// printf("\n");
@@ -66,15 +66,15 @@ void	ft_print_a(t_list **lst)
 	printf(BACK_RED" NULL \n"RESET);
 
 
-	printf("index: ");
-	while (prt_index)
-	{
-		printf(BOLD_RED" %i "RESET"\t", (prt_index)->index);
-		// printf(PURPLE"(prt_index)->nbr: %i"RESET, (prt_index)->nbr);
-		// printf(BOLD_PURPLE"(prt_index)->index: %i\n"RESET, (prt_index)->index);
-		// printf("\n");
-		(prt_index) = (prt_index)->next;
-	}
+	// printf("index: ");
+	// while (prt_index)
+	// {
+	// 	printf(BOLD_RED" %i "RESET"\t", (prt_index)->index);
+	// 	// printf(PURPLE"(prt_index)->nbr: %i"RESET, (prt_index)->nbr);
+	// 	// printf(BOLD_PURPLE"(prt_index)->index: %i\n"RESET, (prt_index)->index);
+	// 	// printf("\n");
+	// 	(prt_index) = (prt_index)->next;
+	// }
 	// printf(BOLD_RED" NULL \n"RESET);
 	(void)prt_nbr;
 	(void)prt_index;
@@ -88,10 +88,10 @@ void	ft_print_b(t_list **lst)
 	prt_nbr = (*lst);
 	prt_index = (*lst);
 	printf(BOLD_WHITE"\nstack B"RESET);
-	printf("\nnbr:   ");
+	printf("\nnbr \tindex\tpos\n");
 	while (prt_nbr)
 	{
-		printf(BACK_CYAN" %i "RESET"\t", (prt_nbr)->nbr);
+		printf(BACK_CYAN" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->initial_pos);
 		// printf(PURPLE"(prt_nbr)->nbr: %i"RESET, (prt_nbr)->nbr);
 		// printf(BOLD_PURPLE"(prt_nbr)->index: %i\n"RESET, (prt_nbr)->index);
 		// printf("\n");
@@ -100,15 +100,15 @@ void	ft_print_b(t_list **lst)
 	printf(BACK_CYAN" NULL \n"RESET);
 
 
-	printf("index: ");
-	while (prt_index)
-	{
-		printf(BOLD_CYAN" %i "RESET"\t", (prt_index)->index);
-		// printf(PURPLE"(prt_index)->nbr: %i"RESET, (prt_index)->nbr);
-		// printf(BOLD_PURPLE"(prt_index)->index: %i\n"RESET, (prt_index)->index);
-		// printf("\n");
-		(prt_index) = (prt_index)->next;
-	}
+	// printf("index: ");
+	// while (prt_index)
+	// {
+	// 	printf(BOLD_CYAN" %i "RESET"\t", (prt_index)->index);
+	// 	// printf(PURPLE"(prt_index)->nbr: %i"RESET, (prt_index)->nbr);
+	// 	// printf(BOLD_PURPLE"(prt_index)->index: %i\n"RESET, (prt_index)->index);
+	// 	// printf("\n");
+	// 	(prt_index) = (prt_index)->next;
+	// }
 	// printf(BOLD_CYAN" NULL \n"RESET);
 	(void)prt_nbr;
 	(void)prt_index;

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/28 23:00:53 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/30 21:10:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,12 @@ int	main(int argc, char **argv)
 
 	
 // ------------- INIT --------------
-ft_init_pos_initial(&stack_a);
+ft_init_initial_pos(&stack_a);
 	ft_index(&stack_a); 
 	
 	ft_print_lists(&stack_a, &stack_b);
 
-// ------------- MOVES -------------
-ft_pb(&stack_a, &stack_b);
-
-ft_pb(&stack_a, &stack_b);
-
-ft_pb(&stack_a, &stack_b);
-
-	ft_print_lists(&stack_a, &stack_b);
-
-ft_rr(&stack_a, &stack_b);
-
-	ft_print_lists(&stack_a, &stack_b);
+// ------------- SORT -------------
 
 
 

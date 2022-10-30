@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:09:27 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/28 23:01:54 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/30 21:10:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_init_list(t_list	**stack_a, char **argv)
 	// printf(BACK_WHITE" NULL "RESET"\n");
 }
 
-void	ft_init_pos_initial(t_list **lst)
+void	ft_init_initial_pos(t_list **lst)
 {
 	int		ite_ini;
 	t_list	*tmp;
@@ -39,7 +39,7 @@ void	ft_init_pos_initial(t_list **lst)
 	tmp = (*lst);
 	while (tmp)
 	{
-		(tmp)->pos_initial=ite_ini;
+		(tmp)->initial_pos=ite_ini;
 		ite_ini++;
 		(tmp) = (tmp)->next;
 	}
