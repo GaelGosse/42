@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/30 21:24:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:32:24 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_print_a(t_list **lst)
 	printf("\nnbr \tindex\tpos\n");
 	while (prt_nbr)
 	{
-		printf(BACK_RED" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->initial_pos);
+		printf(BACK_RED" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->act_pos);
 		// printf(PURPLE"(prt_nbr)->nbr: %i"RESET, (prt_nbr)->nbr);
 		// printf(BOLD_PURPLE"(prt_nbr)->index: %i\n"RESET, (prt_nbr)->index);
 		// printf("\n");
@@ -91,7 +91,7 @@ void	ft_print_b(t_list **lst)
 	printf("\nnbr \tindex\tpos\n");
 	while (prt_nbr)
 	{
-		printf(BACK_CYAN" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->initial_pos);
+		printf(BACK_CYAN" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->act_pos);
 		// printf(PURPLE"(prt_nbr)->nbr: %i"RESET, (prt_nbr)->nbr);
 		// printf(BOLD_PURPLE"(prt_nbr)->index: %i\n"RESET, (prt_nbr)->index);
 		// printf("\n");

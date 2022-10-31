@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/30 21:39:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/31 19:22:01 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	ft_error(void)
 
 void	ft_sort(t_list **stack_a, t_list **stack_b)
 {
+	if (argc == 3)
+	{
+		ft_sort_three(stack_a, stack_b);
+	}
 	(void)stack_a;
 	(void)stack_b;
 }
@@ -35,30 +39,16 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ft_check(argv);
+
+	(void)stack_a;
+	// ------------- INIT -------------
 	ft_init_list(&stack_a, argv);
-
-	
-// ------------- INIT --------------
-ft_init_initial_pos(&stack_a);
-	ft_index(&stack_a); 
-	
+	ft_init_act_pos(&stack_a);
+	ft_index(&stack_a);
 	ft_print_lists(&stack_a, &stack_b);
-
-// ------------- SORT -------------
-ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	ft_pb(&stack_a, &stack_b);
-	// ft_print_lists(&stack_a, &stack_b);
-
-
-
+	// ------------- SORT -------------
+	ft_sort(argc, &stack_a, &stack_b);
+	// ft_sort_three(&stack_a, &stack_b);
 	printf("\n");
 }
 

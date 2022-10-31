@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/24 19:17:54 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:36:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_index(t_list **lst)
 	t_list	*lil;
 	int		index;
 
-	index = 0;
+	index = 1;
 	lil = (*lst);
 	big = (*lst);
 	while (big)
 	{
 		lil = (*lst);
-		index = 0;
+		index = 1;
 		while (lil)
 		{
 			if (lil->nbr != big->nbr)
