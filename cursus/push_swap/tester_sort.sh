@@ -9,7 +9,6 @@ rm -f *.gch
 rm -f */*.gch
 
 
-SPACE='      '
 good=$BOLD_GREEN"OK"$RST
 big_good=$BACK_GREEN"  OK   "$RST
 bad=$BOLD_RED"Error "$RST

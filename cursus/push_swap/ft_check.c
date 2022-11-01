@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/27 18:44:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:42:00 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,18 @@ void	ft_check_dup(char **argv)
 	}
 }
 
-int	ft_is_sorted(char **argv)
+int	ft_is_sorted(t_list	**lst)
 {
-	int	ite_sort;
-	int	not_sorted;
+	int		not_sorted;
+	t_list	*tmp;
 
-	ite_sort = 1;
+	tmp = (*lst);
 	not_sorted = 0;
-	while (argv[ite_sort])
+	while (tmp->next)
 	{
-		if (ft_atoi(argv[ite_sort - 1]) > ft_atoi(argv[ite_sort]))
+		if (tmp->nbr > tmp->next->nbr)
 			not_sorted = 1;
-		ite_sort++;
+		tmp = tmp->next;
 	}
 	if (not_sorted == 1)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/31 19:22:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:55:32 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_error(void)
 	exit(1);
 }
 
-void	ft_sort(t_list **stack_a, t_list **stack_b)
+void	ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 {
-	if (argc == 3)
-	{
+	if (argc == 4)
 		ft_sort_three(stack_a, stack_b);
-	}
+	else
+		printf("coming soon\n");
 	(void)stack_a;
 	(void)stack_b;
 }
@@ -41,14 +41,29 @@ int	main(int argc, char **argv)
 	ft_check(argv);
 
 	(void)stack_a;
+
+
+
 	// ------------- INIT -------------
 	ft_init_list(&stack_a, argv);
 	ft_init_act_pos(&stack_a);
 	ft_index(&stack_a);
-	ft_print_lists(&stack_a, &stack_b);
+	ft_print_a(&stack_a);
+
+	// ft_ra(&stack_a);
+	// ft_ra(&stack_a);
+	// ft_print_lists(&stack_a, &stack_b);
+
+	// ft_print_lists(&stack_a, &stack_b);
+
+
+
 	// ------------- SORT -------------
 	ft_sort(argc, &stack_a, &stack_b);
-	// ft_sort_three(&stack_a, &stack_b);
+
+
+
+	printf("\n ------------------------------------------------------------------ \n");
 	printf("\n");
 }
 

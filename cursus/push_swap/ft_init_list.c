@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:09:27 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/31 19:09:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:07:20 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ void	ft_init_list(t_list	**stack_a, char **argv)
 
 	ite_cv = 1;
 	(*stack_a) = ft_lstnew(ft_atoi(argv[ite_cv]));
-	printf(" INIT LIST \n");
-	// printf(BACK_WHITE" %li "RESET" --> ", ft_atoi(argv[ite_cv]));
+	printf(BOLD_GREEN" INIT LIST ");
+	printf(BACK_GREEN" %li ", ft_atoi(argv[ite_cv]));
 	ite_cv++;
 	while (argv[ite_cv])
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[ite_cv])));
-		// printf(BACK_WHITE" %li "RESET" --> ", ft_atoi(argv[ite_cv]));
+		printf("%li ", ft_atoi(argv[ite_cv]));
 		ite_cv++;
 	}
-	// printf(BACK_WHITE" NULL "RESET"\n");
+	printf(RESET"\n");
+	// printf("NULL "RESET"\n");
 }
 
 void	ft_init_act_pos(t_list **lst)

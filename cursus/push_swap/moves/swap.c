@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:59:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/28 22:58:11 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:54:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_sa(t_list **stack_a)
 	if (ft_lstsize(tmp_size) >= 2)
 	{
 		// write(1, "sa\n", 3);
-		printf(BACK_WHITE" sa \n"RESET); // print moves
+		printf(BACK_WHITE" sa "RESET"\n"); // print moves
 		tmp_old_first = (*stack_a);
 		tmp_old_second = (*stack_a)->next;
 		
@@ -45,7 +45,7 @@ void	ft_sb(t_list **stack_b)
 	if (ft_lstsize(tmp_size) >= 2)
 	{
 		// write(1, "sb\n", 3);
-		printf(BACK_WHITE" sb \n"RESET); // print moves
+		printf(BACK_WHITE" sb "RESET"\n"); // print moves
 		tmp_old_first = (*stack_b);
 		tmp_old_second = (*stack_b)->next;
 		

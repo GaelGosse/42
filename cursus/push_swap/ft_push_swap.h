@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/31 17:54:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:36:52 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,20 @@
 
 
 
-// ----- check -----
+// ANCHOR ----- CHECK -----
 void	ft_error(void);
 
 void	ft_check_args(char **argv);
 void	ft_check_dup(char **argv);
 void	ft_check(char **argv);
 
+int		ft_is_sorted(t_list	**lst);
 
 
 
-// ----- init -----
+
+
+// ANCHOR ------ INIT -------
 void	ft_index(t_list **lst);
 void	ft_init_act_pos(t_list **lst);
 void	ft_init_list(t_list	**stack_a, char **argv);
@@ -49,7 +52,8 @@ void	ft_init_list(t_list	**stack_a, char **argv);
 
 
 
-// ----- moves -----
+
+// ANCHOR ----- MOVES -----
 void	ft_sa(t_list **stack_a);
 void	ft_sb(t_list **stack_b);
 void	ft_pb(t_list **stack_a, t_list **stack_b);
@@ -72,10 +76,20 @@ void	ft_rrr(t_list **stack_a, t_list**stack_b);
 
 
 
-// ----- print ----- 
+
+// ANCHOR ------ SORT ------
+void	ft_sort(int argc, t_list **stack_a, t_list **stack_b);
+void	ft_sort_three(t_list **stack_a, t_list **stack_b);
+
+
+
+
+
+// ANCHOR ----- PRINT ------ 
 void	ft_print_a(t_list **lst);
 void	ft_print_b(t_list **lst);
 void	ft_print_list(t_list **lst);
 void	ft_print_lists(t_list **stack_a, t_list **stack_b);
+
 
 #endif

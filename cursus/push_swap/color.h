@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:47:32 by gael              #+#    #+#             */
-/*   Updated: 2022/10/21 13:47:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:08:11 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@
 # define BACK_BOLD_PURPLE "\033[1;45;30m"
 # define BACK_BOLD_CYAN "\033[1;46;30m"
 # define BACK_BOLD_WHITE "\033[1;47;30m"
+
+// underline color
+# define UNDERLINE_BLACK "\033[4;30m"
+# define UNDERLINE_RED "\033[4;31m"
+# define UNDERLINE_GREEN "\033[4;32m"
+# define UNDERLINE_YELLOW "\033[4;33m"
+# define UNDERLINE_BLUE "\033[4;34m"
+# define UNDERLINE_PURPLE "\033[4;35m"
+# define UNDERLINE_CYAN "\033[4;36m"
+# define UNDERLINE_WHITE "\033[4;37m"
+
 
 # define RESET "\033[0m"
 # define RST "\033[0m"

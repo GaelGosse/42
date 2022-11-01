@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/31 16:32:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/01 20:23:33 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_print_a(t_list **lst)
 
 	prt_nbr = (*lst);
 	prt_index = (*lst);
-	printf(BOLD_WHITE"\nstack A"RESET);
+	printf(BOLD_WHITE"stack A"RESET);
 	printf("\nnbr \tindex\tpos\n");
 	while (prt_nbr)
 	{
@@ -87,7 +87,7 @@ void	ft_print_b(t_list **lst)
 
 	prt_nbr = (*lst);
 	prt_index = (*lst);
-	printf(BOLD_WHITE"\nstack B"RESET);
+	printf(BOLD_WHITE"stack B"RESET);
 	printf("\nnbr \tindex\tpos\n");
 	while (prt_nbr)
 	{
@@ -117,10 +117,13 @@ void	ft_print_b(t_list **lst)
 
 void	ft_print_lists(t_list **stack_a, t_list **stack_b)
 {
+	printf("\n"UNDERLINE_WHITE" Print A & B "RST"\n");
+	printf("\n");
 	ft_print_a(stack_a);
 	printf("\n");
 	ft_print_b(stack_b);
-	printf("\n ------------------------------------------------------------------ \n");
+	// printf("\n ------------------------------------------------------------------ \n");
+	printf("\n");
 	(void)stack_a;
 	(void)stack_b;
 }
