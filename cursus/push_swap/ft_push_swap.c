@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/01 20:55:32 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/02 18:57:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@ void	ft_error(void)
 {
 	ft_putstr_fd(BOLD_RED"Error\n"RESET, 1);
 	exit(1);
-}
-
-void	ft_sort(int argc, t_list **stack_a, t_list **stack_b)
-{
-	if (argc == 4)
-		ft_sort_three(stack_a, stack_b);
-	else
-		printf("coming soon\n");
-	(void)stack_a;
-	(void)stack_b;
 }
 
 int	main(int argc, char **argv)
@@ -48,18 +38,17 @@ int	main(int argc, char **argv)
 	ft_init_list(&stack_a, argv);
 	ft_init_act_pos(&stack_a);
 	ft_index(&stack_a);
-	ft_print_a(&stack_a);
+	// ft_print_a(&stack_a);
 
-	// ft_ra(&stack_a);
-	// ft_ra(&stack_a);
-	// ft_print_lists(&stack_a, &stack_b);
-
-	// ft_print_lists(&stack_a, &stack_b);
 
 
 
 	// ------------- SORT -------------
+	ft_print_lists(&stack_a, &stack_b);
 	ft_sort(argc, &stack_a, &stack_b);
+	ft_print_lists(&stack_a, &stack_b);
+
+
 
 
 

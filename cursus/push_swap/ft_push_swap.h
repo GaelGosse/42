@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/01 20:36:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/02 18:49:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	ft_rrr(t_list **stack_a, t_list**stack_b);
 // ANCHOR ------ SORT ------
 void	ft_sort(int argc, t_list **stack_a, t_list **stack_b);
 void	ft_sort_three(t_list **stack_a, t_list **stack_b);
+void	ft_sort_five(t_list **stack_a, t_list **stack_b);
 
 
 
