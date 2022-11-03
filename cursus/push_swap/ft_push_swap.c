@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 15:00:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/03 22:08:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,15 @@ int	main(int argc, char **argv)
 
 
 	// ------------- SORT -------------
+	ft_print_lists(&stack_a, &stack_b);
 	ft_sort(argc, &stack_a, &stack_b);
-	// ft_print_lists(&stack_a, &stack_b);
+	ft_print_lists(&stack_a, &stack_b);
 
 
 
 
 
-	printf("\n ------------------------------------------------------------------ \n");
+	// printf("\n ------------------------------------------------------------------ \n");
 	printf("\n");
 }
 

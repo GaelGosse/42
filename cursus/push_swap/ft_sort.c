@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 16:17:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/03 23:03:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 {
 	if (argc == 4)
 		ft_sort_three(stack_a, stack_b);
-	else if (argc == 6)
-		ft_sort_five(stack_a, stack_b);
-	else 
-		printf("coming soon\n");
+	else
+		ft_sort_all(stack_a, stack_b);
 	(void)stack_a;
 	(void)stack_b;
 }
@@ -36,8 +34,6 @@ void	ft_sort_three(t_list **stack_a, t_list **stack_b)
 		else if ((*stack_a)->next->index > (*stack_a)->index )
 			ft_rra(stack_a);
 	}
-	ft_print_a(stack_a);
-	printf("\n");
 	if (ft_is_sorted(stack_a) == 0)
 		printf("\n"BACK_RED" ERR "RESET"\n");
 	else
@@ -46,25 +42,44 @@ void	ft_sort_three(t_list **stack_a, t_list **stack_b)
 	(void)stack_b;
 }
 
-void	ft_sort_five(t_list **stack_a, t_list **stack_b)
-{
-	t_list	tmp;
-
-	tmp = (*stack_a);
-	while (tmp->next)
-	{
-		
-	}
-
-	(void)stack_a;
-	(void)stack_b;
-}
-
 void	ft_sort_all(t_list **stack_a, t_list **stack_b)
 {
-	ft_pb(stack_a, stack_b);
-	ft_pb(stack_a, stack_b);
-	
+	t_list	*tmp;
+	int		median;
+
+	tmp = (*stack_a);
+	median = (ft_lstsize(tmp) / 2);
+	while (ft_lstsize(*stack_a) > 3)
+	{
+		if ((*stack_b) == NULL || (ft_lstsize(*stack_b) == 1))
+			ft_pb(stack_a, stack_b);
+		else
+		{
+			
+			ft_pb(stack_a, stack_b);
+		}
+	}
+	// printf("f(t_lstsize(tmp) / 2): %i\n", ();
+	(void)tmp;
+	(void)median;
 	(void)stack_a;
 	(void)stack_b;
 }
+
+/*
+
+
+nbr			: OK
+
+index		: OK
+
+act_pos		: OK
+
+target_pos	: __
+
+cost_a		: __
+
+cost_b		: __
+
+
+*/

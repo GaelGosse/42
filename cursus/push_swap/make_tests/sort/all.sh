@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 ite_big=0
 while [[ $ite_big -lt 5 ]]

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:09:27 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 14:50:45 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/03 19:52:31 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,14 @@ void	ft_init_act_pos(t_list **lst)
 	}
 }
 
+void	ft_init_cost_a(t_list **stack_a)
+{
+	t_list	*tmp;
 
+	tmp = (*stack_a);
+	while (tmp->next)
+	{
+		
+		tmp = tmp->next;
+	}
+}

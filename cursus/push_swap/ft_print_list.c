@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 15:21:48 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/03 22:08:07 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	ft_print_a(t_list **lst)
 
 	prt_nbr = (*lst);
 	prt_index = (*lst);
-	printf("\n"BOLD_WHITE"\tstack A "RESET"");
-	printf("\nnbr \tindex\tact_pos\n");
+	printf(""BOLD_WHITE"\tstack A "RESET"\n");
+	printf("nbr \tindex\tact_pos\n");
 	while (prt_nbr)
 	{
 		printf(BACK_BLUE" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->act_pos);
@@ -63,7 +63,7 @@ void	ft_print_a(t_list **lst)
 		// printf("\n");
 		(prt_nbr) = (prt_nbr)->next;
 	}
-	printf(BACK_BLUE" NULL "RESET);
+	printf(BACK_BLUE" NULL "RESET"\n");
 
 
 	// printf("index: ");
@@ -87,8 +87,8 @@ void	ft_print_b(t_list **lst)
 
 	prt_nbr = (*lst);
 	prt_index = (*lst);
-	printf("\n"BOLD_WHITE"\tstack B "RESET"");
-	printf("\nnbr \tindex\tact_pos\n");
+	printf(""BOLD_WHITE"\tstack B\n"RESET"");
+	printf("nbr \tindex\tact_pos\n");
 	while (prt_nbr)
 	{
 		printf(BACK_CYAN" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->act_pos);
@@ -97,7 +97,7 @@ void	ft_print_b(t_list **lst)
 		// printf("\n");
 		(prt_nbr) = (prt_nbr)->next;
 	}
-	printf(BACK_CYAN" NULL "RESET);
+	printf(BACK_CYAN" NULL "RESET"\n");
 
 
 	// printf("index: ");
@@ -117,13 +117,13 @@ void	ft_print_b(t_list **lst)
 
 void	ft_print_lists(t_list **stack_a, t_list **stack_b)
 {
-	printf("\n"UNDERLINE_WHITE" Print A & B "RST);
+	printf("\n"UNDERLINE_WHITE" Print A & B "RST"\n");
 	printf("\n");
 	ft_print_a(stack_a);
 	printf("\n");
 	ft_print_b(stack_b);
-	// printf("\n ------------------------------------------------------------------ \n");
-	printf("\n");
+	printf("\n ------------------------------------------------------------------ \n");
+	// printf("\n");
 	(void)stack_a;
 	(void)stack_b;
 }
