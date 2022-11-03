@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:59:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/01 20:54:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:50:11 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,15 @@ void	ft_sb(t_list **stack_b)
 	(void)tmp_old_first;
 	(void)tmp_old_second;
 }
+
+void	ft_ss(t_list **stack_a, t_list **stack_b)
+{
+	// write(1, "rr\n", 3);
+	printf(BACK_WHITE" ss "RESET"\n"); // print moves
+	ft_sa(stack_a);
+	ft_sb(stack_b);
+}
+
 
 
 /*

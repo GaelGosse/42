@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/02 18:40:32 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:21:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_print_a(t_list **lst)
 	prt_nbr = (*lst);
 	prt_index = (*lst);
 	printf("\n"BOLD_WHITE"\tstack A "RESET"");
-	printf("\nnbr \tindex\tpos\n");
+	printf("\nnbr \tindex\tact_pos\n");
 	while (prt_nbr)
 	{
 		printf(BACK_BLUE" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->act_pos);
@@ -88,7 +88,7 @@ void	ft_print_b(t_list **lst)
 	prt_nbr = (*lst);
 	prt_index = (*lst);
 	printf("\n"BOLD_WHITE"\tstack B "RESET"");
-	printf("\nnbr \tindex\tpos\n");
+	printf("\nnbr \tindex\tact_pos\n");
 	while (prt_nbr)
 	{
 		printf(BACK_CYAN" %i "RESET"\t(%i)\t(%i)\n", (prt_nbr)->nbr, (prt_nbr)->index, (prt_nbr)->act_pos);
