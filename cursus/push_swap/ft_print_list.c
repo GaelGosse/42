@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 13:49:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 22:08:07 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/12 16:21:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,11 @@ void	ft_print_list(t_list **lst)
 	while (prt_nbr)
 	{
 		printf(BACK_WHITE" %i "RESET"\t", (prt_nbr)->nbr);
-		// printf(PURPLE"(prt_nbr)->nbr: %i"RESET, (prt_nbr)->nbr);
-		// printf(BOLD_PURPLE"(prt_nbr)->index: %i\n"RESET, (prt_nbr)->index);
-		// printf("\n");
 		(prt_nbr) = (prt_nbr)->next;
 	}
 	printf(BACK_WHITE" NULL \n"RESET);
 
 
-	// printf("index: ");
-	// while (prt_index)
-	// {
-	// 	printf(BACK_BLUE" %i "RESET"\t", (prt_index)->index);
-	// 	// printf(PURPLE"(prt_index)->nbr: %i"RESET, (prt_index)->nbr);
-	// 	// printf(BOLD_PURPLE"(prt_index)->index: %i\n"RESET, (prt_index)->index);
-	// 	// printf("\n");
-	// 	(prt_index) = (prt_index)->next;
-	// }
-	// printf(BACK_BLUE" NULL \n"RESET);
 	(void)prt_nbr;
 	(void)prt_index;
 }

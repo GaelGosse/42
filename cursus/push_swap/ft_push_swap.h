@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 15:46:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/12 18:15:55 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,13 @@ int		ft_is_sorted(t_list	**lst);
 
 
 
+
 // ANCHOR ------ INIT -------
 void	ft_index(t_list **lst);
 void	ft_init_act_pos(t_list **lst);
+void	ft_init_act_pos_both(t_list **stack_a, t_list **stack_b);
 void	ft_init_list(t_list	**stack_a, char **argv);
+
 
 
 
@@ -73,6 +76,11 @@ void	ft_rra(t_list **stack_a);
 void	ft_rrb(t_list **stack_b);
 void	ft_rrr(t_list **stack_a, t_list**stack_b);
 
+// option
+void	ft_exchange_a(t_list **stack_a);
+void	ft_exchange_b(t_list **stack_b);
+
+
 
 
 
@@ -81,7 +89,9 @@ void	ft_rrr(t_list **stack_a, t_list**stack_b);
 void	ft_sort(int argc, t_list **stack_a, t_list **stack_b);
 void	ft_sort_three(t_list **stack_a, t_list **stack_b);
 void	ft_sort_five(t_list **stack_a, t_list **stack_b);
-void	ft_sort_all(t_list **stack_a, t_list **stack_b);
+void	ft_pre_sort(t_list **stack_a, t_list **stack_b, int size_a);
+void	ft_sort_all(t_list **stack_a, t_list **stack_b, int size_a);
+
 
 
 
@@ -92,6 +102,10 @@ void	ft_print_a(t_list **lst);
 void	ft_print_b(t_list **lst);
 void	ft_print_list(t_list **lst);
 void	ft_print_lists(t_list **stack_a, t_list **stack_b);
+
+
+
+
 
 
 #endif

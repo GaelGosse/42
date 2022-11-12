@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:09:27 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 19:52:31 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/12 16:28:22 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_init_act_pos(t_list **lst)
 	int		ite_ini;
 	t_list	*tmp;
 
-	ite_ini = 1;
+	ite_ini = 0;
 	tmp = (*lst);
 	while (tmp)
 	{
@@ -45,6 +45,12 @@ void	ft_init_act_pos(t_list **lst)
 		ite_ini++;
 		(tmp) = (tmp)->next;
 	}
+}
+
+void	ft_init_act_pos_both(t_list **stack_a, t_list **stack_b)
+{
+	ft_init_act_pos(stack_a);
+	ft_init_act_pos(stack_b);
 }
 
 void	ft_init_cost_a(t_list **stack_a)
