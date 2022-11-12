@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/03 23:03:50 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/12 13:24:11 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,26 @@ void	ft_sort_all(t_list **stack_a, t_list **stack_b)
 
 	tmp = (*stack_a);
 	median = (ft_lstsize(tmp) / 2);
-	while (ft_lstsize(*stack_a) > 3)
+	while (ft_lstsize(*stack_a) > 10)
 	{
-		if ((*stack_b) == NULL || (ft_lstsize(*stack_b) == 1))
+		// || (ft_lstsize(*stack_b) == 1))
+		if ((*stack_b) == NULL)
+		{
 			ft_pb(stack_a, stack_b);
+			printf(BOLD_RED"(*stack_b)->nbr: %i\n\n"RESET, (*stack_b)->nbr);
+		}
 		else
 		{
-			
 			ft_pb(stack_a, stack_b);
+			if ((*stack_b)->index > median)
+			{
+				ft_rb(stack_b);
+			}
+			printf(BOLD_GREEN"(*stack_b)->nbr: %i\n\n"RESET, (*stack_b)->nbr);
 		}
 	}
+	ft_init_act_pos(stack_a);
+	ft_init_act_pos(stack_b);
 	// printf("f(t_lstsize(tmp) / 2): %i\n", ();
 	(void)tmp;
 	(void)median;
