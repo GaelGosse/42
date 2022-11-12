@@ -6,9 +6,11 @@ echo -e $BACK_CYAN" ----- START ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $R
 
 if [[ $# == 0 ]]
 then
-	ARGS=$(shuf -i 0-10)
+	ARGS=$(shuf -i 0-9)
 else
-	ARGS=$(shuf -i 0-$1)
+	nbr=$1
+	let "nbr-=1"
+	ARGS=$(shuf -i 0-$nbr)
 fi
 rm -f *.gch
 rm -f */*.gch

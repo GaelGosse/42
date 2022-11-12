@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/12 13:24:11 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/12 13:48:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,33 @@ void	ft_sort_all(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 	int		median;
+	int size_a;
 
 	tmp = (*stack_a);
-	median = (ft_lstsize(tmp) / 2);
-	while (ft_lstsize(*stack_a) > 10)
+	size_a = ft_lstsize(tmp) ;
+	median = (size_a / 2);
+	while (ft_lstsize(*stack_a) > 3)
 	{
 		// || (ft_lstsize(*stack_b) == 1))
 		if ((*stack_b) == NULL)
 		{
+			while (((*stack_a)->index == size_a) 
+				|| ((*stack_a)->index == (size_a - 1))
+				|| ((*stack_a)->index == (size_a - 2)))
+				ft_ra(stack_a);
 			ft_pb(stack_a, stack_b);
-			printf(BOLD_RED"(*stack_b)->nbr: %i\n\n"RESET, (*stack_b)->nbr);
+			// printf(BOLD_RED"(*stack_b)->nbr: %i\n\n"RESET, (*stack_b)->nbr);
 		}
 		else
 		{
+			while (((*stack_a)->index == size_a) 
+				|| ((*stack_a)->index == (size_a - 1))
+				|| ((*stack_a)->index == (size_a - 2)))
+				ft_ra(stack_a);
 			ft_pb(stack_a, stack_b);
 			if ((*stack_b)->index > median)
-			{
 				ft_rb(stack_b);
-			}
-			printf(BOLD_GREEN"(*stack_b)->nbr: %i\n\n"RESET, (*stack_b)->nbr);
+			// printf(BOLD_GREEN"(*stack_b)->nbr: %i\n\n"RESET, (*stack_b)->nbr);
 		}
 	}
 	ft_init_act_pos(stack_a);
