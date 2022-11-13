@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/13 22:54:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/13 22:57:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,55 +45,20 @@ void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size_all)
 {
 	int	act_idx_sorted;
 	int cpt;
-	int toggle;
-	int brk;
-
-	brk = 0;
 
 	cpt = 0;
-	toggle = 0;
 	act_idx_sorted = (size_all - 3);
 	while (ft_lstsize(*stack_b) > 1)
 	{
-		if (cpt >= (size_all / 4))
-		{
-			toggle = 1;
-			cpt = (size_all / 4);
-			// ft_print_lists(stack_a, stack_b);
-		}
-		else if (cpt <= 0)
-		{
-			toggle = 0;
-			cpt = 0;
-			// ft_print_lists(stack_a, stack_b);
-		}
-		if (((*stack_b)->index) < ((*stack_b)->next->index) && toggle == 0)
+		if (((*stack_b)->index) < ((*stack_b)->next->index))
 			ft_sb(stack_b);
 		while (((*stack_b) != NULL) && (act_idx_sorted == (*stack_b)->index))
 		{
 			ft_pa(stack_a, stack_b);
 			act_idx_sorted--;
-			if (toggle == 0)
-				cpt++;
-			else
-				cpt--;
 		}
-		if (toggle == 0)
-		{
-			ft_rb(stack_b);
-			cpt++;
-		}
-		else
-		{
-			ft_rrb(stack_b);
-			cpt--;
-		}
-		// ft_print_b(stack_b);
-		// sleep(1);
-		// if (brk > 50)
-		// 	break;
-		brk++;
-		// printf(BACK_RED"cpt: %i"RESET"\n", cpt);
+		ft_rb(stack_b);
+		cpt++;
 	}
 	if ((*stack_b) != NULL)
 		ft_pa(stack_a, stack_b);
@@ -102,7 +67,6 @@ void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size_all)
 void	ft_sort_all(t_list **stack_a, t_list **stack_b, int size_all)
 {
 	ft_pre_sort(stack_a, stack_b, size_all);
-	ft_pb(stack_a, stack_b);
 	ft_main_sort(stack_a, stack_b, size_all);
 }
 
