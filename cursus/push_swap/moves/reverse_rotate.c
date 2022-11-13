@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:13:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/02 17:59:21 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/13 20:26:46 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,22 @@ void	ft_reverse_rotate_b(t_list **stack_b)
 
 void	ft_rra(t_list **stack_a)
 {
-	// write(1, "rra\n", 4);
-	printf(BACK_WHITE" rra "RESET"\n"); // print moves
+	write(1, "rra\n", 4);
+	// printf(BACK_WHITE" rra "RESET"\n"); // print moves
 	ft_reverse_rotate_a(stack_a);
 }
 
 void	ft_rrb(t_list **stack_b)
 {
-	// write(1, "rrb\n", 4);
-	printf(BACK_WHITE" rrb "RESET"\n"); // print moves
+	write(1, "rrb\n", 4);
+	// printf(BACK_WHITE" rrb "RESET"\n"); // print moves
 	ft_reverse_rotate_b(stack_b);
 }
 
 void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
-	// write(1, "rrr\n", 4);
-	printf(BACK_WHITE" rrr "RESET"\n"); // print moves
+	write(1, "rrr\n", 4);
+	// printf(BACK_WHITE" rrr "RESET"\n"); // print moves
 	ft_reverse_rotate_a(stack_a);
 	ft_reverse_rotate_b(stack_b);
 }

@@ -68,7 +68,42 @@ cplc_all 75 941 0 -12 486 2
 
 
 
+void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size_all)
+{
+	int	act_idx_sorted;
+	int cpt;
+	int toggle;
 
+	toggle = 0;
+	cpt = (size_all / 4);
+	act_idx_sorted = (size_all - 3);
+	while (ft_lstsize(*stack_b) > 1)
+	{
+		if (((*stack_b)->index) < ((*stack_b)->next->index))
+			ft_sb(stack_b);
+		while (((*stack_b) != NULL) && (act_idx_sorted == (*stack_b)->index))
+		{
+			ft_pa(stack_a, stack_b);
+			act_idx_sorted--;
+			if (toggle == 1)
+				toggle = 0;
+			else
+				toggle = 1;
+		}
+		while (toggle == 1 && cpt > 0)
+		{
+			ft_rb(stack_b);
+			cpt--;
+		}
+		while (toggle == 0 && cpt < size_all / 4)
+		{
+			ft_rrb(stack_b);
+			cpt++;
+		}
+	}
+	if ((*stack_b) != NULL)
+		ft_pa(stack_a, stack_b);
+}
 
 
 

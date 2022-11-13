@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/31 16:36:35 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/13 19:06:33 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,10 @@ void	ft_index(t_list **lst)
 			{
 				if (big->nbr > lil->nbr)
 					index++;
-				// printf(PURPLE"(lil)->nbr: %i\n"RESET, (lil)->nbr);
-				// printf(BOLD_PURPLE"(big)->nbr: %i\n\n"RESET, (big)->nbr);
 			}
 			(lil) = (lil)->next;
 		}
 		big->index = index;
-		// printf(BACK_GREEN" ----- "RESET"\n\n");
 		(big) = (big)->next;
 	}
 }

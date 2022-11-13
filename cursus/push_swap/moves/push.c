@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:55:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/10/30 21:40:16 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/13 20:26:46 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	printf(BACK_WHITE" pb "RESET"\n"); // print moves
-	// write(1, "pb\n", 3);
+	// printf(BACK_WHITE" pb "RESET"\n"); // print moves
+	write(1, "pb\n", 3);
 	if (stack_a != NULL)
 	{
 		tmp = (*stack_a)->next;
@@ -35,8 +35,8 @@ void	ft_pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	printf(BACK_WHITE" pa "RESET"\n"); // print moves
-	// write(1, "pa\n", 3);
+	// printf(BACK_WHITE" pa "RESET"\n"); // print moves
+	write(1, "pa\n", 3);
 	if (stack_b != NULL)
 	{
 		tmp = (*stack_b)->next;
