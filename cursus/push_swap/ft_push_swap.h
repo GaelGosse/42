@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/12 18:15:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/29 18:13:04 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <ctype.h>
 # include <string.h>
 # include <stddef.h>
+# include <limits.h>
 # include "libft/libft.h"
 # include "color.h"
 
@@ -51,6 +52,11 @@ void	ft_init_act_pos(t_list **lst);
 void	ft_init_act_pos_both(t_list **stack_a, t_list **stack_b);
 void	ft_init_list(t_list	**stack_a, char **argv);
 
+//ANCHOR ----- COST -----
+void	ft_update_cost(t_list **stack_a, t_list **stack_b);
+void	ft_cost_a_b(t_list **stack_a, t_list **stack_b);
+void	ft_final_cost(t_list **stack_a, t_list **stack_b);
+int		ft_abs(int nbr);
 
 
 
@@ -91,6 +97,7 @@ void	ft_sort_three(t_list **stack_a, t_list **stack_b);
 void	ft_sort_five(t_list **stack_a, t_list **stack_b);
 void	ft_pre_sort(t_list **stack_a, t_list **stack_b, int size_a);
 void	ft_sort_all(t_list **stack_a, t_list **stack_b, int size_a);
+int		ft_is_index_lt_median(t_list **lst, int quarter, int size_all);
 
 
 

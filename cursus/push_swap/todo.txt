@@ -183,4 +183,252 @@ B =
 
 
 
+/* FT COST */
+// void	ft_cost_a_b(t_list **stack_a, t_list **stack_b, int size_all)
+// {
+// 	int		cost;
+// 	int		median;
+// 	t_list	*tmp;
+
+// 	median = (ft_lstsize(*stack_b) / 2);
+// 	cost = 0;
+// 	tmp = (*stack_b);
+// 	while (cost <= median)
+// 	{
+// 		tmp->cost_b = cost;
+// 		tmp = tmp->next;
+// 		cost++;
+// 	}
+// 	while (tmp)
+// 	{
+// 		tmp->cost_b = (tmp->act_pos - (size_all - 3));
+// 		tmp = tmp->next;
+// 		cost++;
+// 	}
+// 	(void)stack_a;
+// 	(void)stack_b;
+// 	(void)size_all;
+// }
+
+// t_list	*ft_target_pos(t_list *stack_a, t_list *stack_b, int size_all)
+// {
+// 	int		save_target_pos;
+// 	t_list	*start_b;
+// 	t_list	*start_a;
+// 	int		i = 0;
+
+// 	start_b = stack_b;
+// 	start_a = stack_a;
+// 	while (stack_b)
+// 	{
+// 		stack_a = start_a;
+// 		save_target_pos = 424242;
+// 		while (stack_a)
+// 		{
+// 			if (stack_b->index < stack_a->index)
+// 			{
+// 				if (stack_a->act_pos < save_target_pos)
+// 				{
+// 					save_target_pos = stack_a->act_pos;
+// 					stack_b->target_pos = stack_a->act_pos;
+// 				}
+// 			}
+// 			stack_a = stack_a->next;
+// 		}
+// 		i++;
+// 		stack_b = stack_b->next;
+// 	}
+// 	stack_a = start_a;
+// 	stack_b = start_b;
+// 	(void)size_all;
+// 	return (stack_b);
+// }
+
+// void	ft_target_pos(t_list **stack_a, t_list **stack_b, int size_all)
+// {
+// 	t_list	*tmp_a;
+// 	t_list	*tmp_b;
+// 	int max;
+
+// 	max = 0;
+// 	tmp_a = (*stack_a);
+// 	tmp_b = (*stack_b);
+// 	while (tmp_b)
+// 	{
+// 		max = INT_MAX;
+// 		tmp_a = (*stack_a);
+// 		while (tmp_a)
+// 		{
+// 			if ((tmp_a->index >= tmp_b->index) && (tmp_a->index <= max))
+// 			{
+// 				max = tmp_a->index;
+// 				tmp_b->target_pos = tmp_a->act_pos;
+// 			}
+// 			tmp_a = tmp_a->next;
+// 		}
+// 		tmp_b = tmp_b->next;
+// 	}
+// 	(void)size_all;
+// }
+
+cost n target
+	// (*stack_b) = ft_target_pos((*stack_a), (*stack_b), size_all);
+
+// void	ft_update_cost(t_list **lst, int size_all)
+// {
+// 	int		cost;
+// 	int		median;
+// 	t_list	*tmp;
+
+// 	median = (ft_lstsize(*lst) / 2);
+// 	cost = 0;
+// 	tmp = (*lst);
+// 	// printf(BACK_RED"median: %i"RESET"\n", median);
+// 	if ((ft_lstsize(*lst) / 2) % 2 == 0)
+// 	{
+// 		median += 1;
+// 	}
+// 	while (cost <= (ft_lstsize(*lst) / 2))
+// 	{
+// 		(tmp)->cost_a = cost;
+// 		tmp = tmp->next;
+// 		cost++;
+// 	}
+// 	printf(BACK_RED"before first cost: %i"RESET"\n", cost);
+// 	cost--;
+// 	if ((ft_lstsize(*lst) / 2) % 2 == 1)
+// 	{
+// 		printf(BACK_RED"before second cost: %i"RESET"\n", cost);
+// 		cost--;
+// 	}
+// 	while (tmp->next != NULL)
+// 	{
+// 		(tmp)->cost_a = (cost * -1);
+// 		tmp = tmp->next;
+// 		cost--;
+// 	}
+// 	(tmp)->cost_a = (cost * -1);
+// 	(void)lst;
+// 	(void)size_all;
+// }
+
+
+
+
+
+
+
+/*
+sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
+Ne fait rien s’il n’y en a qu’un ou aucun.**
+
+sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
+Ne fait rien s’il n’y en a qu’un ou aucun.
+ss : sa et sb en même temps.
+
+
+
+pa (push a) : Prend le premier élément au sommet de b et le met sur a.
+Ne fait rien si b est vide.
+
+pb (push b) : Prend le premier élément au sommet de a et le met sur b.
+Ne fait rien si a est vide.
+
+
+ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
+Le premier élément devient le dernier.
+
+rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
+Le premier élément devient le dernier.
+
+rr : ra et rb en même temps.
+
+
+
+rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
+la pile a. Le dernier élément devient le premier.
+
+rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
+la pile b. Le dernier élément devient le premier.
+
+rrr : rra et rrb en même temps.
+
+std input   stdin   0 
+std output  stdout  1
+std error   stderr  2
+
+exit
+0     successful
+1     minor error
+2     major error
+127   command not found
+
+
+
+1 2 3 = nothing
+
+1 3 2 = rra sa
+
+2 1 3 = sa
+2 3 1 = rra
+
+3 1 2 = ra
+3 2 1 = ra
+
+
+FT SORT
+
+void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size_all)
+{
+	int	act_idx_sorted;
+	int cpt;
+
+	cpt = 0;
+	act_idx_sorted = (size_all - 3);
+	while (ft_lstsize(*stack_b) > 1)
+	{
+		if (((*stack_b)->index) < ((*stack_b)->next->index))
+			ft_sb(stack_b);
+		while (((*stack_b) != NULL) && (act_idx_sorted == (*stack_b)->index))
+		{
+			ft_pa(stack_a, stack_b);
+			act_idx_sorted--;
+		}
+		ft_rb(stack_b);
+		cpt++;
+	}
+	if ((*stack_b) != NULL)
+		ft_pa(stack_a, stack_b);
+}
+
+void	ft_pre_sort(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+	int		median;
+	int		size_a;
+
+	tmp = (*stack_a);
+	size_a = ft_lstsize(tmp) ;
+	median = (size_a / 2);
+	while (ft_lstsize(*stack_a) > 3)
+	{
+		while (((*stack_a)->index == (size_a)) 
+			|| ((*stack_a)->index == (size_a - 1))
+			|| ((*stack_a)->index == (size_a - 2)))
+			ft_ra(stack_a);
+		ft_pb(stack_a, stack_b);
+		if ((*stack_b)->index < median)
+			ft_rb(stack_b);
+	}
+	ft_sort_three(stack_a, stack_b);
+	ft_init_act_pos_both(stack_a, stack_b);
+}
+
+
+
+A: 2 0 5 6 7 9 10 1 3 4 8
+B: 
+
+
+
 */

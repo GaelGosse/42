@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:25:53 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/13 20:00:19 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/29 21:06:39 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_is_index_lt_median(t_list **lst, int quarter, int size_all)
 			return (1);
 		tmp = tmp->next;
 	}
+	(void)median;
 	return (0);
 }
 
@@ -37,7 +38,7 @@ void	ft_pre_sort_first_half(t_list **stack_a, t_list **stack_b, int size_all)
 	median = (size_all / 2);
 	while (ft_is_index_lt_median(stack_a, 0, size_all) == 1)
 	{
-		if ((*stack_a)->index < median)
+		if ((*stack_a)->index <= median)
 		{
 			ft_pb(stack_a, stack_b);
 			if ((*stack_b)->index <= (median / 2))
@@ -57,7 +58,7 @@ void	ft_pre_sort_sec_half(t_list **stack_a, t_list **stack_b, int size_all)
 	median = (size_all / 2);
 	while (ft_is_index_lt_median(stack_a, 1, size_all) == 1)
 	{
-		if ((*stack_a)->index < ((median / 2) * 3))
+		if ((*stack_a)->index <= ((median / 2) * 3))
 			ft_pb(stack_a, stack_b);
 		else
 			ft_ra(stack_a);

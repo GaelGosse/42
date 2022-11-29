@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/01 20:42:00 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/29 15:49:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_is_sorted(t_list	**lst)
 	not_sorted = 0;
 	while (tmp->next)
 	{
-		if (tmp->nbr > tmp->next->nbr)
+		if (tmp->index > tmp->next->index)
 			not_sorted = 1;
 		tmp = tmp->next;
 	}
@@ -84,8 +84,6 @@ int	ft_is_sorted(t_list	**lst)
 
 void	ft_check(char **argv)
 {
-	// if (ft_is_sorted(argv) == 1)
-	// 	printf("ALREADY SORTED\n");
 	ft_check_args(argv);
 	ft_check_dup(argv);
 }

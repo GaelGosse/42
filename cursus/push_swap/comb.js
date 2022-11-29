@@ -2,9 +2,21 @@
 
 const fs = require('fs')
 
-let all_tab = []
+let all_tab = [];
+let choose = 5;
+let ite = 0;
+let max = "";
+let min = "";
 
-for (let ite = 11111; ite < 55555; ite++) {
+while (ite++ < choose)
+	min += "1"
+ite = 0
+while (ite++ < choose)
+	max += `${choose}`
+min = parseInt(min);
+max = parseInt(max);
+
+for (let ite = min; ite < max; ite++) {
 	let result = ite + ''
 	let not_push = 0;
 
@@ -12,7 +24,7 @@ for (let ite = 11111; ite < 55555; ite++) {
 	
 	// ONLY 1 2 3 4 5
 	result.forEach(nbr_only => {
-		if (nbr_only == 0 || nbr_only > 5)
+		if (nbr_only == 0 || nbr_only > choose)
 			not_push++
 	});
 

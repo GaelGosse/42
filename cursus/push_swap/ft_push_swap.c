@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/13 20:26:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/29 21:21:07 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,29 @@ void	ft_error(void)
 {
 	ft_putstr_fd(BOLD_RED"Error\n"RESET, 1);
 	exit(1);
+}
+
+int	ft_abs(int nbr)
+{
+	if (nbr < 0)
+		nbr *= -1;
+	return (nbr);
+}
+
+void	ft_free(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp_a;
+
+	tmp_a = (*stack_a);
+	while ((*stack_a) && ft_lstsize(*stack_a) != 1)
+	{
+		(*stack_a) = tmp_a;
+		while ((*stack_a)->next)
+			(*stack_a) = (*stack_a)->next;
+		printf(BACK_PURPLE"(*stack_a)->index: %i"RESET"\n", (*stack_a)->index);
+	}
+	// free(stack_a);
+	free(stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -41,117 +64,20 @@ int	main(int argc, char **argv)
 	// ft_print_a(&stack_a);
 
 
-
+	
 
 	// ------------- SORT -------------
 	// ft_print_lists(&stack_a, &stack_b);
+	
 	ft_sort(argc, &stack_a, &stack_b);
-	// ft_print_lists(&stack_a, &stack_b);
+	// printf(BACK_RED"end"RESET"\n");
 
+	ft_print_lists(&stack_a, &stack_b);
+	ft_free(&stack_a, &stack_b);
+	// printf(BACK_RED"ft_is_sorted(&stack_a): %i"RESET"\n", ft_is_sorted(&stack_a));
 
-
-
+	
 
 	// printf("\n ------------------------------------------------------------------ \n");
 	// printf("\n");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
-Ne fait rien s’il n’y en a qu’un ou aucun.**
-
-sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
-Ne fait rien s’il n’y en a qu’un ou aucun.
-ss : sa et sb en même temps.
-
-
-
-pa (push a) : Prend le premier élément au sommet de b et le met sur a.
-Ne fait rien si b est vide.
-
-pb (push b) : Prend le premier élément au sommet de a et le met sur b.
-Ne fait rien si a est vide.
-
-
-ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
-Le premier élément devient le dernier.
-
-rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
-Le premier élément devient le dernier.
-
-rr : ra et rb en même temps.
-
-
-
-rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
-la pile a. Le dernier élément devient le premier.
-
-rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
-la pile b. Le dernier élément devient le premier.
-
-rrr : rra et rrb en même temps.
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-std input   stdin   0 
-std output  stdout  1
-std error   stderr  2
-
-exit
-0     successful
-1     minor error
-2     major error
-127   command not found
-
-
-
-1 2 3 = nothing
-
-1 3 2 = rra sa
-
-2 1 3 = sa
-2 3 1 = rra
-
-3 1 2 = ra
-3 2 1 = ra
-
-
-*/
