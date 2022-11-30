@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 19:08:43 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 19:23:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,6 @@ void	ft_check_args(char **argv)
 		ite_args++;
 	}
 }
-
-// void	ft_check_args(char **argv)
-// {
-// 	int	ite_args;
-// 	int	ite_arg;
-
-// 	ite_arg = 0;
-// 	ite_args = 1;
-// 	while (argv[ite_args])
-// 	{
-// 		ite_arg = 0;
-// 		if (ft_isdigit(argv[ite_args][ite_arg]) == 0 &&
-// 			(argv[ite_args][ite_arg] != '+' || argv[ite_args][ite_arg] != '-'))
-// 			ft_error();
-// 		ite_arg++;
-// 		if ((argv[ite_args][ite_arg] == '+' || argv[ite_args][ite_arg] == '-')
-// 			&& (argv[ite_args][ite_arg] == '\0'))
-// 			ft_error();
-// 		while (argv[ite_args][ite_arg])
-// 		{
-// 			if (ft_isdigit(argv[ite_args][ite_arg]) == 0 ||
-// 			(argv[ite_args][ite_arg] == '+' || argv[ite_args][ite_arg] == '-'))
-// 				ft_error();
-// 			ite_arg++;
-// 		}
-// 		ite_args++;
-// 	}
-// }
 
 void	ft_check_dup(char **argv)
 {
@@ -132,11 +104,3 @@ int	ft_check(char **argv)
 	(void)already_sorted;
 	return (1);
 }
-/*
-	ite_args = 1;
-	while (argv[ite_args])
-	{	
-		printf("argv[i]: %s\n", argv[ite_args]);
-		ite_args++;
-	}
-*/

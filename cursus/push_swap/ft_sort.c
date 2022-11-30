@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 17:35:06 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 19:27:58 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 {
-	int size_all;
+	int	size_all;
 
 	size_all = ft_lstsize(*stack_a);
 	if (argc == 4)
-		ft_sort_three(stack_a, stack_b);
+		ft_sort_three(stack_a);
 	else if (argc <= 8)
 	{
 		ft_pre_sort(stack_a, stack_b, size_all);
@@ -35,7 +35,7 @@ void ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 		ft_sort_all(stack_a, stack_b, size_all);
 }
 
-void ft_sort_three(t_list **stack_a, t_list **stack_b)
+void ft_sort_three(t_list **stack_a)
 {
 	while (ft_is_sorted(stack_a) == 0)
 	{
@@ -47,11 +47,11 @@ void ft_sort_three(t_list **stack_a, t_list **stack_b)
 	(void)stack_b;
 }
 
-int ft_find_lowest_cost(t_list **stack_b)
+int	ft_find_lowest_cost(t_list **stack_b)
 {
-	t_list *tmp_b;
-	int lowest;
-	int pos_lowest;
+	t_list	*tmp_b;
+	int		lowest;
+	int		pos_lowest;
 
 	tmp_b = (*stack_b);
 	lowest = INT_MAX;
@@ -68,15 +68,11 @@ int ft_find_lowest_cost(t_list **stack_b)
 	return (pos_lowest);
 }
 
-void ft_exec_cost(t_list **stack_a, t_list **stack_b, t_list *tmp_b)
+void	ft_exec_cost(t_list **stack_a, t_list **stack_b, t_list *tmp_b)
 {
 	int	exec;
-	int	save_cost_a;
 
 	exec = 0;
-	save_cost_a = tmp_b->cost_a;
-
-
 	ft_update_cost(stack_a, stack_b);
 	while ((tmp_b->cost_b != 0) && (exec <= ft_abs(tmp_b->cost_b)))
 	{
@@ -87,9 +83,7 @@ void ft_exec_cost(t_list **stack_a, t_list **stack_b, t_list *tmp_b)
 		ft_update_cost(stack_a, stack_b);
 		exec++;
 	}
-
 	ft_update_cost(stack_a, stack_b);
-	
 	exec = 0;
 	while ((tmp_b->cost_a != 0) && (exec < ft_abs(tmp_b->cost_a)))
 	{
@@ -99,56 +93,17 @@ void ft_exec_cost(t_list **stack_a, t_list **stack_b, t_list *tmp_b)
 			ft_ra(stack_a);
 		exec++;
 	}
-
 	ft_update_cost(stack_a, stack_b);
-	
 	if (ft_abs(tmp_b->cost_b) == 0)
 		ft_pa(stack_a, stack_b);
 	ft_update_cost(stack_a, stack_b);
-
-
-
-
-
-	
-	// while (ft_is_sorted(stack_a) == 0)
-	// {
-	// 	ft_rra(stack_a);
-	// 	ft_print_a(stack_a);
-	// 	{
-	// 		// printf(BACK_RED"break"RESET"\n");
-	// 		break;
-	// 	}
-	// }
-
-
-	
-	// if (exec > 0)
-	// {
-	// 	printf(BACK_GREEN"exec: %i"RESET"\n", exec);
-	// 	// if (exec > 1)
-	// 	// 	exec--;
-	// 	printf(BACK_GREEN"exec: %i"RESET"\n", exec);
-	// 	while (exec > 0 && ft_is_sorted(stack_a) == 0)
-	// 	{
-	// 		printf(BACK_PURPLE"exec: %i"RESET"\n", exec);
-	// 		if (save_cost_a < 0)
-	// 			ft_ra(stack_a);
-	// 		else if (save_cost_a > 0)
-	// 			ft_rra(stack_a);
-	// 		exec--;
-	// 	}
-	// }
-	// ft_update_cost(stack_a, stack_b);
-	(void)save_cost_a;
 }
 
-void ft_main_sort(t_list **stack_a, t_list **stack_b, int size_all)
+void	ft_main_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_b;
 
 	tmp_b = (*stack_b);
-
 	while (ft_lstsize(*stack_b) > 0)
 	{
 		tmp_b = (*stack_b);
@@ -157,10 +112,8 @@ void ft_main_sort(t_list **stack_a, t_list **stack_b, int size_all)
 		ft_exec_cost(stack_a, stack_b, tmp_b);
 		ft_update_cost(stack_a, stack_b);
 	}
-
 	(void)stack_a;
 	(void)stack_b;
-	(void)size_all;
 }
 
 void	ft_re_organize(t_list **stack_a, int size_all)
@@ -192,6 +145,6 @@ void	ft_sort_all(t_list **stack_a, t_list **stack_b, int size_all)
 {
 	ft_pre_sort(stack_a, stack_b, size_all);
 	ft_update_cost(stack_a, stack_b);
-	ft_main_sort(stack_a, stack_b, size_all);
+	ft_main_sort(stack_a, stack_b);
 	ft_re_organize(stack_a, size_all);
 }

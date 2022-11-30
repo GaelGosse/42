@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:25:53 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/29 21:06:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 19:21:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	ft_pre_sort(t_list **stack_a, t_list **stack_b, int size_all)
 {
 	ft_pre_sort_first_half(stack_a, stack_b, size_all);
 	ft_pre_sort_sec_half(stack_a, stack_b, size_all);
-	ft_sort_three(stack_a, stack_b);
+	ft_sort_three(stack_a);
 }
 
