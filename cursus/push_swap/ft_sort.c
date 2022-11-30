@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/29 20:59:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 17:35:06 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,12 +172,12 @@ void	ft_re_organize(t_list **stack_a, int size_all)
 	after_median = 0;
 	if (ft_is_sorted(stack_a) == 0)
 	{
-		while (tmp_a->next)
+		while (tmp_a->next && tmp_a->index != 1)
 		{
-			if (tmp_a->index > tmp_a->next->index && tmp_a->index > (size_all / 2))
-				after_median = 1;
 			tmp_a = tmp_a->next;
 		}
+		if (tmp_a->act_pos > (size_all / 2))
+			after_median = 1;
 	}
 	while (ft_is_sorted(stack_a) == 0)
 	{

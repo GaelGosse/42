@@ -152,8 +152,8 @@ else
 fi
 
 ARG="2147483647"
-output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo OK); expect=$(echo Error);
-echo -ne $BACK_WHITE" 14 $RST\t $ARG \tExpect: $expect\tReel: $result\t"
+output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo OK); expect=$(echo OK);
+echo -ne $BACK_WHITE" 15 $RST\t $ARG \tExpect: $expect\tReel: $result\t"
 if [[ "$result" == "$expect" ]]
 then
 	echo -e "$big_good"
@@ -162,8 +162,8 @@ else
 fi
 
 ARG="-2147483648"
-output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo OK); expect=$(echo Error);
-echo -ne $BACK_WHITE" 14 $RST\t $ARG \tExpect: $expect\tReel: $result\t"
+output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo OK); expect=$(echo OK);
+echo -ne $BACK_WHITE" 16 $RST\t $ARG \tExpect: $expect\tReel: $result\t"
 if [[ "$result" == "$expect" ]]
 then
 	echo -e "$big_good"
@@ -171,4 +171,22 @@ else
 	echo -e $big_bad
 fi
 
+ARG="2147483648"
+output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo OK); expect=$(echo Error);
+echo -ne $BACK_WHITE" 15 $RST\t $ARG \tExpect: $expect\tReel: $result\t"
+if [[ "$result" == "$expect" ]]
+then
+	echo -e "$big_good"
+else
+	echo -e $big_bad
+fi
 
+ARG="-2147483649"
+output=$(./push_swap $ARG); result=$(echo -e $output | grep Error || echo OK); expect=$(echo Error);
+echo -ne $BACK_WHITE" 16 $RST\t $ARG \tExpect: $expect\tReel: $result\t"
+if [[ "$result" == "$expect" ]]
+then
+	echo -e "$big_good"
+else
+	echo -e $big_bad
+fi

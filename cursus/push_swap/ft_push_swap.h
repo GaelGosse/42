@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 11:14:10 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 16:09:27 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stddef.h>
 # include <limits.h>
 # include "libft/libft.h"
-// # include "color.h"
+# include "color.h"
 
 // typedef struct s_list
 // {
@@ -37,7 +37,7 @@ void	ft_error(void);
 
 void	ft_check_args(char **argv);
 void	ft_check_dup(char **argv);
-void	ft_check(char **argv);
+int		ft_check(char **argv);
 
 int		ft_is_sorted(t_list	**lst);
 

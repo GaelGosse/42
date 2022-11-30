@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 11:45:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 16:34:19 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,23 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	(void)stack_b;
+
+
 	if (argc == 1)
 		return (0);
-	ft_check(argv);
+	// ft_check(argv);
+	if (ft_check(argv) == 0)
+		exit(0);
 
-	(void)stack_a;
-
-
-
-	// ------------- INIT -------------
 	ft_init_list(&stack_a, argv);
 	ft_init_act_pos(&stack_a);
 	ft_index(&stack_a);
-	// ft_print_a(&stack_a);
-
-
 	
 
-	// ------------- SORT -------------
-	// ft_print_lists(&stack_a, &stack_b);
-	
 	ft_sort(argc, &stack_a, &stack_b);
-	// printf(BACK_RED"end"RESET"\n");
-
-	// ft_print_lists(&stack_a, &stack_b);
 	ft_free(&stack_a, &stack_b);
-	// printf(BACK_RED"ft_is_sorted(&stack_a): %i"RESET"\n", ft_is_sorted(&stack_a));
-
 	
 
-	// printf("\n ------------------------------------------------------------------ \n");
-	// printf("\n");
+	(void)stack_a;
+	(void)stack_b;
 }
