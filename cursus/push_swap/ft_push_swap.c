@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 16:34:19 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 19:31:30 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	// ft_check(argv);
 	if (ft_check(argv) == 0)
 		exit(0);
 
