@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/29 18:13:04 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 11:14:10 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stddef.h>
 # include <limits.h>
 # include "libft/libft.h"
-# include "color.h"
+// # include "color.h"
 
 // typedef struct s_list
 // {

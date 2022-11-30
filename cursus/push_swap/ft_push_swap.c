@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:53:47 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/29 21:21:07 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/11/30 11:45:26 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	ft_putstr_fd(BOLD_RED"Error\n"RESET, 1);
+	ft_putstr_fd("Error\n", 1);
 	exit(1);
 }
 
@@ -29,16 +29,13 @@ void	ft_free(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;
 
-	tmp_a = (*stack_a);
-	while ((*stack_a) && ft_lstsize(*stack_a) != 1)
+	while (*stack_a)
 	{
+		tmp_a = (*stack_a)->next;
+		free(*stack_a);
 		(*stack_a) = tmp_a;
-		while ((*stack_a)->next)
-			(*stack_a) = (*stack_a)->next;
-		printf(BACK_PURPLE"(*stack_a)->index: %i"RESET"\n", (*stack_a)->index);
 	}
-	// free(stack_a);
-	free(stack_b);
+	free(*stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -72,7 +69,7 @@ int	main(int argc, char **argv)
 	ft_sort(argc, &stack_a, &stack_b);
 	// printf(BACK_RED"end"RESET"\n");
 
-	ft_print_lists(&stack_a, &stack_b);
+	// ft_print_lists(&stack_a, &stack_b);
 	ft_free(&stack_a, &stack_b);
 	// printf(BACK_RED"ft_is_sorted(&stack_a): %i"RESET"\n", ft_is_sorted(&stack_a));
 
