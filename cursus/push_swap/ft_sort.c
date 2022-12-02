@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 19:27:58 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/02 16:18:12 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void ft_sort_three(t_list **stack_a)
 		else if ((*stack_a)->next->index > (*stack_a)->index)
 			ft_rra(stack_a);
 	}
-	(void)stack_b;
 }
 
 int	ft_find_lowest_cost(t_list **stack_b)
