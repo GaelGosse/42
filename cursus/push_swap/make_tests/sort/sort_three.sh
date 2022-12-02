@@ -6,7 +6,7 @@ echo -e $BACK_CYAN" ----- SORT THREE ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S
 
 rm -f *.gch
 rm -f */*.gch
-gcc -Wall -Wextra -Werror -o push_swap -g *.c */*.c */*.h *.h 
+gcc -Wall -Wextra -Werror -o push_swap -g *.c */*.c  *.h 
 rm -f *.gch
 rm -f */*.gch
 

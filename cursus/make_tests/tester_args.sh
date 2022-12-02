@@ -10,11 +10,11 @@ big_bad=$BACK_RED" Error "$RST
 
 
 source make_tests/args/minus_sign.sh 
-
+sleep 1
 source make_tests/args/plus_sign.sh 
-
+sleep 1
 source make_tests/args/letter.sh 
-
+sleep 1
 source make_tests/args/nbr_args.sh 
 
 sleep 2

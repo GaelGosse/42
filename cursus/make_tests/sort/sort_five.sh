@@ -255,7 +255,7 @@ else
 fi
 
 echo ""
-echo -e $BACK_WHITE" 3 X X X X "$RST
+echo -e $BACK_WHITE" 2 X X X X "$RST
 echo ""
 sleep 1
 

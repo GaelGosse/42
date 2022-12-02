@@ -6,7 +6,7 @@ echo -e $BACK_CYAN" ----- SORT FIVE ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S"
 
 rm -f *.gch
 rm -f */*.gch
-gcc -Wall -Wextra -Werror -o push_swap -g *.c */*.c */*.h *.h 
+gcc -Wall -Wextra -Werror -o push_swap -g *.c */*.c *.h 
 rm -f *.gch
 rm -f */*.gch
 
@@ -255,7 +255,7 @@ else
 fi
 
 echo ""
-echo -e $BACK_WHITE" 3 X X X X "$RST
+echo -e $BACK_WHITE" 2 X X X X "$RST
 echo ""
 sleep 1
 

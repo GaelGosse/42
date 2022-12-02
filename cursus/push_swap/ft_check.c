@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:05:55 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/30 19:23:57 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/02 19:39:32 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	ft_check_args(char **argv)
 {
-	int	ite_args;
-	int	ite_arg;
+	int		ite_args;
+	int		ite_arg;
+	char	chr;
 
 	ite_arg = 0;
 	ite_args = 1;
 	while (argv[ite_args])
 	{
 		ite_arg = 0;
-		if ((argv[ite_args][ite_arg + 1] == '\0') &&
-		(argv[ite_args][ite_arg] == '-' || argv[ite_args][ite_arg] == '+'))
+		chr = argv[ite_args][ite_arg];
+		if ((argv[ite_args][ite_arg + 1] == '\0') && (chr == '-' || chr == '+'))
 			ft_error();
-		if (ft_isdigit(argv[ite_args][ite_arg]) == 0 &&
-		(argv[ite_args][ite_arg] != '-' && argv[ite_args][ite_arg] != '+'))
+		if ((chr >= 48 && chr <= 57) == 0 && (chr != '-' && chr != '+'))
 			ft_error();
 		ite_arg++;
 		while (argv[ite_args][ite_arg])
 		{
-			if (ft_isdigit(argv[ite_args][ite_arg]) == 0 ||
-			(argv[ite_args][ite_arg] == '-' || argv[ite_args][ite_arg] == '+'))
+			chr = argv[ite_args][ite_arg];
+			if ((chr >= 48 && chr <= 57) == 0 || (chr == '-' || chr == '+'))
 				ft_error();
 			ite_arg++;
 		}
@@ -44,7 +44,7 @@ void	ft_check_dup(char **argv)
 {
 	int	ite_big;
 	int	ite_lil;
-	
+
 	ite_lil = 1;
 	ite_big = 1;
 	while (argv[ite_big])
@@ -103,4 +103,13 @@ int	ft_check(char **argv)
 	(void)ite_sorted;
 	(void)already_sorted;
 	return (1);
+}
+
+int	ft_isspace(int chr)
+{
+	if ((8 < chr && chr < 14) || chr == 32)
+	{
+		return (1);
+	}
+	return (0);
 }

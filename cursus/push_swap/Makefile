@@ -1,28 +1,25 @@
+SRC	= ft_check.c \
+	ft_cost.c \
+	ft_index.c \
+	ft_init_list.c \
+	ft_presort.c \
+	ft_push_swap.c \
+	ft_sort.c
+NAME	= push_swap
 CC		= gcc
-
-NAME	= push_swap.a
-
 CFLAGS	= -Wall -Wextra -Werror
-
-OPTIONS	= -c -I.
-
-SRC		= *.c libft/*.c
-
-OBJ		= *.o
+OBJ		= $(SRC:.c=.0)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar -crs $(NAME) $(OBJ)
+		$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
-$(OBJ): $(SRC)
-	@$(CC) $(CFLAGS) $(OPTIONS) $(SRC)
+%.o
 
-clean:
-	@rm -f $(OBJ)
+clean: 
 
 fclean: clean
-	@rm -f $(NAME)
 
 re: fclean all
 

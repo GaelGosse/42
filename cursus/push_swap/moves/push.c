@@ -6,17 +6,16 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 19:55:00 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/13 20:26:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/02 17:15:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../ft_push_swap.h"
+#include "../ft_push_swap.h"
 
 void	ft_pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	// printf(BACK_WHITE" pb "RESET"\n"); // print moves
 	write(1, "pb\n", 3);
 	if (stack_a != NULL)
 	{
@@ -24,10 +23,6 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 		(*stack_a)->next = (*stack_b);
 		(*stack_b) = (*stack_a);
 		(*stack_a) = tmp;
-
-		(void)tmp;
-		(void)stack_a;
-		(void)stack_b;
 	}
 }
 
@@ -35,7 +30,6 @@ void	ft_pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	// printf(BACK_WHITE" pa "RESET"\n"); // print moves
 	write(1, "pa\n", 3);
 	if (stack_b != NULL)
 	{
@@ -43,9 +37,5 @@ void	ft_pa(t_list **stack_a, t_list **stack_b)
 		(*stack_b)->next = (*stack_a);
 		(*stack_a) = (*stack_b);
 		(*stack_b) = tmp;
-
-		(void)tmp;
-		(void)stack_a;
-		(void)stack_b;
 	}
 }

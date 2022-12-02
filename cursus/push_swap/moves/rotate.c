@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:13:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/11/13 20:26:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/02 17:13:47 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,18 @@ void	ft_rotate_b(t_list **stack_b)
 void	ft_ra(t_list **stack_a)
 {
 	write(1, "ra\n", 3);
-	// printf(BACK_WHITE" ra "RESET"\n"); // print moves
 	ft_rotate_a(stack_a);
 }
 
 void	ft_rb(t_list **stack_b)
 {
 	write(1, "rb\n", 3);
-	// printf(BACK_WHITE" rb "RESET"\n"); // print moves
 	ft_rotate_b(stack_b);
 }
 
 void	ft_rr(t_list **stack_a, t_list **stack_b)
 {
 	write(1, "rr\n", 3);
-	// printf(BACK_WHITE" rr "RESET"\n"); // print moves
 	ft_rotate_a(stack_a);
 	ft_rotate_b(stack_b);
 }

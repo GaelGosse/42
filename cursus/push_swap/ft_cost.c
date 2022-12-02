@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:06:37 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/02 16:43:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/02 17:09:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,15 @@ void	ft_target_pos(t_list **stack_a, t_list **stack_b)
 
 void	ft_cost_a_b(t_list **stack_a, t_list **stack_b)
 {
-	int		cost;
 	t_list	*tmp_b;
 	t_list	*tmp_a;
 
-	cost = 0;
 	tmp_a = (*stack_a);
 	tmp_b = (*stack_b);
 	while (tmp_b)
 	{
-		if (cost <= ft_lstsize(*stack_b) / 2)
-			tmp_b->cost_b = cost;
+		if (tmp_b->act_pos <= ft_lstsize(*stack_b) / 2)
+			tmp_b->cost_b = tmp_b->act_pos;
 		else
 			tmp_b->cost_b = (tmp_b->act_pos - (ft_lstsize(*stack_b)));
 		tmp_a = (*stack_a);
@@ -65,7 +63,6 @@ void	ft_cost_a_b(t_list **stack_a, t_list **stack_b)
 			tmp_a = tmp_a->next;
 		}
 		tmp_b = tmp_b->next;
-		cost++;
 	}
 }
 
@@ -80,6 +77,27 @@ void	ft_final_cost(t_list **stack_a, t_list **stack_b)
 		tmp_b = tmp_b->next;
 	}
 	(void)stack_a;
+}
+
+int	ft_find_lowest_cost(t_list **stack_b)
+{
+	t_list	*tmp_b;
+	int		lowest;
+	int		pos_lowest;
+
+	tmp_b = (*stack_b);
+	lowest = INT_MAX;
+	pos_lowest = 0;
+	while (tmp_b)
+	{
+		if (tmp_b->final_cost < lowest)
+		{
+			lowest = tmp_b->final_cost;
+			pos_lowest = tmp_b->act_pos;
+		}
+		tmp_b = tmp_b->next;
+	}
+	return (pos_lowest);
 }
 
 void	ft_update_cost(t_list **stack_a, t_list **stack_b)
