@@ -1,15 +1,5 @@
-NAME	= push_swap
-SRC	= ft_check.c \
-	ft_cost.c \
-	ft_index.c \
-	ft_init_list.c \
-	ft_presort.c \
-	ft_push_swap.c \
-	ft_sort.c \
-	ft_push.c \
-	ft_reverse_rotate.c \
-	ft_rotate.c \
-	ft_swap.c 
+NAME	= pipex
+SRC		= *.c 
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror

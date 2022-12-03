@@ -9,12 +9,9 @@ bad=$BOLD_RED"Error "$RST
 big_bad=$BACK_RED" Error "$RST
 
 gcc -Wall -Wextra -Werror -g */*.c */*.h *.c *.h -o push_swap
-echo ""
-echo -ne "$BOLD_WHITE Compilation $RST"
-if [ $? -ne 0 ]
+if [ $? -eq 0 ]
 then
-	echo -e $bad
-else
+	echo -ne "$BOLD_WHITE Compilation $RST"
 	echo -e $good
 	sleep 1
 	rm -f *.gch
@@ -27,5 +24,8 @@ else
 	bash make_tests/tester_args.sh
 	echo -e "\n$BOLD_WHITE SORTING $RST\n"
 	bash make_tests/tester_sort.sh
+else
+	echo -ne "$BOLD_WHITE Compilation $RST"
+	echo -e $bad
 fi
 echo ""

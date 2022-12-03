@@ -1,76 +1,80 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:13:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/02 17:13:10 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/03 20:43:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap.h"
+#include "ft_push_swap.h"
 
-void	ft_reverse_rotate_a(t_list **stack_a)
+void	ft_rotate_a(t_list **stack_a)
 {
+	t_list	*tmp;
 	t_list	*loop;
-	t_list	*tmp_a;
 	t_list	*tmp_size;
 
 	tmp_size = (*stack_a);
 	if (ft_lstsize(tmp_size) >= 2)
 	{
+		tmp = (*stack_a);
 		loop = (*stack_a);
-		while (loop->next->next)
+		(*stack_a) = (*stack_a)->next;
+		while (loop->next)
 		{
-			if (loop->next->next != NULL)
+			if (loop->next != NULL)
 				loop = loop->next;
 		}
-		tmp_a = loop->next;
-		loop->next = NULL;
-		tmp_a->next = (*stack_a);
-		(*stack_a) = tmp_a;
+		loop->next = tmp;
+		loop->next->next = NULL;
 	}
+	(void)stack_a;
+	(void)tmp;
 }
 
-void	ft_reverse_rotate_b(t_list **stack_b)
+void	ft_rotate_b(t_list **stack_b)
 {
+	t_list	*tmp;
 	t_list	*loop;
-	t_list	*tmp_b;
 	t_list	*tmp_size;
 
 	tmp_size = (*stack_b);
 	if (ft_lstsize(tmp_size) >= 2)
 	{
+		tmp = (*stack_b);
 		loop = (*stack_b);
-		while (loop->next->next)
+		(*stack_b) = (*stack_b)->next;
+		while (loop->next)
 		{
-			if (loop->next->next != NULL)
+			if (loop->next != NULL)
 				loop = loop->next;
 		}
-		tmp_b = loop->next;
-		loop->next = NULL;
-		tmp_b->next = (*stack_b);
-		(*stack_b) = tmp_b;
+		loop->next = tmp;
+		loop->next->next = NULL;
 	}
+	(void)stack_b;
+	(void)tmp;
 }
 
-void	ft_rra(t_list **stack_a)
+void	ft_ra(t_list **stack_a)
 {
-	write(1, "rra\n", 4);
-	ft_reverse_rotate_a(stack_a);
+	write(1, "ra\n", 3);
+	ft_rotate_a(stack_a);
 }
 
-void	ft_rrb(t_list **stack_b)
+void	ft_rb(t_list **stack_b)
 {
-	write(1, "rrb\n", 4);
-	ft_reverse_rotate_b(stack_b);
+	write(1, "rb\n", 3);
+	ft_rotate_b(stack_b);
 }
 
-void	ft_rrr(t_list **stack_a, t_list **stack_b)
+void	ft_rr(t_list **stack_a, t_list **stack_b)
 {
-	write(1, "rrr\n", 4);
-	ft_reverse_rotate_a(stack_a);
-	ft_reverse_rotate_b(stack_b);
+	write(1, "rr\n", 3);
+	ft_rotate_a(stack_a);
+	ft_rotate_b(stack_b);
 }
