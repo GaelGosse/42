@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/04 16:52:03 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/04 18:34:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ void	ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 	int	size_all;
 
 	size_all = ft_lstsize(*stack_a);
-	if (argc == 4)
+	if (argc == 3)
+	{
+		if ((*stack_a)->index > (*stack_a)->next->index)
+			ft_sa(stack_a);
+	}
+	else if (argc == 4)
 		ft_sort_three(stack_a);
 	else if (argc <= 8)
 	{
@@ -31,13 +36,6 @@ void	ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 		// 	ft_pa(stack_a, stack_b);
 		// }
 		ft_sort_all(stack_a, stack_b, size_all);
-		// while (*stack_b)
-		// {
-		// 	if (((*stack_b)->next)
-		// 		&& (*stack_b)->index < (*stack_b)->next->index)
-		// 		ft_sb(stack_b);
-		// 	ft_pa(stack_a, stack_b);
-		// }
 	}
 	else
 		ft_sort_all(stack_a, stack_b, size_all);

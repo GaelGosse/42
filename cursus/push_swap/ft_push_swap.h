@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:55:04 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/04 16:48:48 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/04 18:55:39 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ int			ft_is_index_lt_median(t_list **lst, int quarter, int size_all);
 void		ft_presort_first(t_list **stack_a, t_list **stack_b, int size_all);
 void		ft_presort_sec(t_list **stack_a, t_list **stack_b, int size_all);
 void		ft_presort(t_list **stack_a, t_list **stack_b, int size_a);
+
+// ft_presort
+void		ft_presort_small_first(t_list **stack_a, t_list **stack_b, int sz);
+void		ft_presort_small_sec(t_list **stack_a, t_list **stack_b, int sz);
+
 
 // ft_sort.c
 void		ft_sort(int argc, t_list **stack_a, t_list **stack_b);

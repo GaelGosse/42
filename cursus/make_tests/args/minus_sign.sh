@@ -1,11 +1,6 @@
 #! /bin/bash
 
 
-#	-
-####################
-
-#! /bin/bash
-
 echo -e "\n"$BACK_CYAN" ----- MINUS ----- "$RST"\n"
 
 

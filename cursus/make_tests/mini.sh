@@ -18,10 +18,10 @@ echo -e "$BACK_WHITE $ARGS $RST" | tr '\n' ' '
 echo ""
 if [[ $2 == "g" || $2 == "-g" ]]
 then
-	gcc -Wall -Wextra -Werror -o push_swap -g3 *.c */*.c */*.h *.h 
-	gcc -Wall -Wextra -Werror -o push_swap -g3 *.c */*.c */*.h *.h && ./push_swap $ARGS
+	gcc -Wall -Wextra -Werror -o push_swap -g3 *.c *.h 
+	gcc -Wall -Wextra -Werror -o push_swap -g3 *.c *.h && valgrind ./push_swap $ARGS
 else
-	gcc -Wall -Wextra -Werror -o push_swap *.c */*.c */*.h *.h && ./push_swap $ARGS
+	gcc -Wall -Wextra -Werror -o push_swap *.c *.h && valgrind ./push_swap $ARGS 
 fi
 rm -f */*.gch
 rm -f *.gch
