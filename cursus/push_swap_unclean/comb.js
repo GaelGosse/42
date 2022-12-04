@@ -3,7 +3,7 @@
 const fs = require('fs')
 
 let all_tab = [];
-let choose = 5;
+let choose = 4;
 let ite = 0;
 let max = "";
 let min = "";

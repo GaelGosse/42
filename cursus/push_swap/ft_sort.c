@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:31:11 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/02 17:11:54 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/04 16:52:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,21 @@ void	ft_sort(int argc, t_list **stack_a, t_list **stack_b)
 	{
 		ft_presort(stack_a, stack_b, size_all);
 		ft_init_act_pos_both(stack_a, stack_b);
-		while (*stack_b)
-		{
-			if (((*stack_b)->next)
-				&& (*stack_b)->index < (*stack_b)->next->index)
-				ft_sb(stack_b);
-			ft_pa(stack_a, stack_b);
-		}
+		// while (*stack_b)
+		// {
+		// 	if (((*stack_b)->next)
+		// 		&& (*stack_b)->index < (*stack_b)->next->index)
+		// 		ft_sb(stack_b);
+		// 	ft_pa(stack_a, stack_b);
+		// }
+		ft_sort_all(stack_a, stack_b, size_all);
+		// while (*stack_b)
+		// {
+		// 	if (((*stack_b)->next)
+		// 		&& (*stack_b)->index < (*stack_b)->next->index)
+		// 		ft_sb(stack_b);
+		// 	ft_pa(stack_a, stack_b);
+		// }
 	}
 	else
 		ft_sort_all(stack_a, stack_b, size_all);
