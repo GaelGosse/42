@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 10:32:56 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/04 12:28:31 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/05 17:35:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 
 void	ft_error(void)
 {
-	
+	write(1, "Error\n", 6);
 }
 
 void	ft_check(char **argv)
@@ -50,11 +50,14 @@ void	ft_check(char **argv)
 	//		check ... args as command ...
 
 	// check last arg as file
+	(void)argv;
 }
 
-void	ft_pipex(void)
+void	ft_pipex(char **argv)
 {
+	ft_check(argv);
 	printf("ft_pipex\n");
+	(void)argv;
 }
 
 int main(int argc, char **argv){
@@ -62,10 +65,7 @@ int main(int argc, char **argv){
 	int		nbr;
 
 	if (argc < 5)
-	{
-		write(1, "Wrong args\n", 11);
-		return (1);
-	}
+		return (ft_error(), 1);
 	ft_pipex(argv);
 	(void)argc;
 	(void)argv;
