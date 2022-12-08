@@ -29,3 +29,6 @@ else
 	echo -e $bad
 fi
 echo ""
+
+# valgrind on error (args)
+# valgrind on 100 n 500
