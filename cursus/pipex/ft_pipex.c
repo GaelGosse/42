@@ -6,57 +6,50 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 10:32:56 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/05 17:35:34 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/09 16:04:14 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// free, perror,
-#include <stdio.h>
-#include <errno.h>
+#include "ft_pipex.h"
 
-// open, malloc
-#include <stdlib.h>
-
-// fork, wait, waitpid
-#include <sys/types.h>
-#include <sys/stat.h>
-
-// wait, waitpid
-#include <sys/wait.h>
-
-// access, read, close, write, access, dup(2), execve, exit, fork, pipe, unlink
-#include <unistd.h>
-
-// strerror
-#include <string.h>
-
-// pipe, unlink
-#include <fcntl.h>
 
 void	ft_error(void)
 {
 	write(1, "Error\n", 6);
 }
 
-void	ft_check(char **argv)
+void	ft_check(int argc, char **argv)
 {
-	printf("ft_check\n");
-	
-	// check first arg as file
+	printf(RED"ft_check\n"RST);
 
-	// while ()
-	//		check second arg as command (exist in path)
-	//		check third arg as command (exist in path)
-	//		check ... args as command ...
+	int	ite_nbr_cmd;
 
-	// check last arg as file
+	ite_nbr_cmd = 3;
+	if (access(argv[1], F_OK) == 0)
+	{
+		printf("exec first cmd argv[2]\n");
+	}
+	if (argc > 5)
+	{
+		while (ite_nbr_cmd != (argc - 2))
+		{
+			// printf(GREEN"argv[ite_nbr_cmd]: %s\n"RST, argv[ite_nbr_cmd]);
+			ite_nbr_cmd++;
+		}
+		
+	}
+	if (access(argv[argc - 1], F_OK) == 0)
+	{
+		printf("exec first cmd argv[%i]\n", (argc - 1));
+	}
 	(void)argv;
 }
 
-void	ft_pipex(char **argv)
+void	ft_pipex(int argc, char **argv)
 {
-	ft_check(argv);
-	printf("ft_pipex\n");
+	printf(RED"ft_pipex\n"RST);
+
+	ft_check(argc, argv);
 	(void)argv;
 }
 
@@ -66,7 +59,7 @@ int main(int argc, char **argv){
 
 	if (argc < 5)
 		return (ft_error(), 1);
-	ft_pipex(argv);
+	ft_pipex(argc, argv);
 	(void)argc;
 	(void)argv;
 	(void)str;
