@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:49:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/04 18:52:28 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/09 13:11:22 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ void	ft_presort_small_sec(t_list **stack_a, t_list **stack_b, int size_all)
 		if ((*stack_a)->index <= (((size_all / 2) / 2) * 3))
 			ft_pb(stack_a, stack_b);
 		else
-		{
-			printf("second\n");
 			ft_ra(stack_a);
-		}
 	}
 	while (ft_lstsize(*stack_a) > 3)
 	{

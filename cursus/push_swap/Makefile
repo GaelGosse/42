@@ -9,7 +9,9 @@ SRC	= ft_check.c \
 	ft_push.c \
 	ft_reverse_rotate.c \
 	ft_rotate.c \
-	ft_swap.c 
+	ft_swap.c \
+	ft_presort_small.c
+
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror

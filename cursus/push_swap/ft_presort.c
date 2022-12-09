@@ -57,10 +57,7 @@ void	ft_presort_sec(t_list **stack_a, t_list **stack_b, int size_all)
 		if ((*stack_a)->index <= (((size_all / 2) / 2) * 3))
 			ft_pb(stack_a, stack_b);
 		else
-		{
-			printf("second\n");
 			ft_ra(stack_a);
-		}
 	}
 	while (ft_lstsize(*stack_a) > 3)
 	{
