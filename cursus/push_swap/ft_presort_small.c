@@ -6,19 +6,19 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:49:02 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/09 13:11:22 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/13 12:07:28 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
 
 void	ft_presort_small_first(t_list **stack_a, t_list **stack_b, int size_all)
 {
 	int		median;
 
 	median = (size_all / 2);
-	while (ft_lstsize(*stack_a) != 3 || ft_is_index_lt_median(stack_a, 0, size_all) == 1)
+	while (ft_lstsize(*stack_a) != 3
+		|| ft_is_index_lt_median(stack_a, 0, size_all) == 1)
 	{
 		if ((*stack_a)->index <= median)
 		{
