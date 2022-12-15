@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exec.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 16:26:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/15 19:06:47 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/13 14:48:06 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:17:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pipex.h"
+#include "libft.h"
 
-int	ft_exec_cmd(char *cmd_with_flags, char **envp)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	ite_env;
-
-	ite_env = -1;
-	if (!envp)
-		return (0);
-	while (envp[++ite_env])
+	if (n == -2147483648)
 	{
-		if (ft_strncmp(envp[ite_env], "PATH=", 5) == 0)
-			printf(BACK_RED"envp[ite_env]: %s"RESET"\n", envp[ite_env]);
-		else
-			printf(BACK_GREEN"envp[ite_env]: %s"RESET"\n", envp[ite_env]);
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	return (1);
-	(void)envp;
-	(void)cmd_with_flags;
+	if (n < 0 && n != -2147483648)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
 }

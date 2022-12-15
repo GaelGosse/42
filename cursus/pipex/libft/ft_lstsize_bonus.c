@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exec.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 16:26:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/15 19:06:47 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/03 16:13:08 by gael              #+#    #+#             */
+/*   Updated: 2022/06/14 18:56:24 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pipex.h"
+#include "libft.h"
 
-int	ft_exec_cmd(char *cmd_with_flags, char **envp)
+int	ft_lstsize(t_list *lst)
 {
-	int	ite_env;
+	int		i;
+	t_list	*tmp;
 
-	ite_env = -1;
-	if (!envp)
-		return (0);
-	while (envp[++ite_env])
+	i = 0;
+	tmp = lst;
+	while (tmp != NULL)
 	{
-		if (ft_strncmp(envp[ite_env], "PATH=", 5) == 0)
-			printf(BACK_RED"envp[ite_env]: %s"RESET"\n", envp[ite_env]);
-		else
-			printf(BACK_GREEN"envp[ite_env]: %s"RESET"\n", envp[ite_env]);
+		tmp = tmp->next;
+		i++;
 	}
-	return (1);
-	(void)envp;
-	(void)cmd_with_flags;
+	return (i);
 }

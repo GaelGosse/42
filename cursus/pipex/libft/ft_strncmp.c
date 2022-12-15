@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exec.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 16:26:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/15 19:06:47 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/09 19:06:34 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:20:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pipex.h"
+#include "libft.h"
 
-int	ft_exec_cmd(char *cmd_with_flags, char **envp)
+int	ft_strncmp(const char *first, const char *second, size_t length)
 {
-	int	ite_env;
+	size_t	i;
 
-	ite_env = -1;
-	if (!envp)
-		return (0);
-	while (envp[++ite_env])
+	i = 0;
+	while ((first[i] || second[i]) && i < length)
 	{
-		if (ft_strncmp(envp[ite_env], "PATH=", 5) == 0)
-			printf(BACK_RED"envp[ite_env]: %s"RESET"\n", envp[ite_env]);
-		else
-			printf(BACK_GREEN"envp[ite_env]: %s"RESET"\n", envp[ite_env]);
+		if (first[i] != second[i])
+		{
+			return ((unsigned char)(first[i]) - (unsigned char)(second[i]));
+		}
+		i++;
 	}
-	return (1);
-	(void)envp;
-	(void)cmd_with_flags;
+	return (0);
 }

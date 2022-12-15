@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/13 16:28:11 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/15 19:08:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,17 @@
 #include <fcntl.h>
 
 #include "color.h"
+#include "libft/libft.h"
+
+typedef struct dt
+{
+	char	**path
+}			t_dt;
 
 // ft_pipex.c
-void	ft_error(void)
-void	ft_check(int argc, char **argv)
-void	ft_pipex(int argc, char **argv)
+void	ft_error(void);
+void	ft_check(int argc, char **argv, char **envp);
+void	ft_pipex(int argc, char **argv, char **envp);
 
 // ft_exec.c
-void	ft_exec_cmd(char *cmd_with_flags);
+int	ft_exec_cmd(char *cmd_with_flags, char **envp);
