@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 10:32:56 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/15 19:08:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/16 17:47:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_check(int argc, char **argv, char **envp)
 	(void)envp;
 }
 
-void	ft_pipex(int argc, char **argv, char **envp)
+void	ft_pipex(int argc, char **argv, char **envp, t_dt data_ppx)
 {
 	printf(RED"ft_pipex\n"RST);
 
