@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:26:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/19 15:23:35 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/19 15:42:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	ft_exec_cmd(char *simple_cmd, char **envp, t_dt data_ppx)
 		{
 			data_ppx.path = ft_split(envp[ite_env] + 5, ':');
 			while (data_ppx.path[++ite_data])
-				printf(GREEN"%s/ XXXX \n"RST, data_ppx.path[ite_data]);
+			{
+				printf(GREEN"%s/%s \n"RST, data_ppx.path[ite_data], simple_cmd);
+			}
 		}
 	}
 	return (1);
