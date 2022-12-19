@@ -58,7 +58,7 @@ then
 	./pipex infile "ls -l -a" "/usr/bin/grep c" outfile
 
 	echo -e $RED" ----- ----- ----- ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $RST\n"
-	echo -e BOLD_RED"./pipex infile \"ls -l -a\" \"/usr/bin/grep c\" outfile"RST
+	echo -e $BOLD_RED"./pipex infile \"ls -l -a\" \"/usr/bin/grep c\" outfile"$RST
 	./pipex infile "ls -l -a" "/usr/bin/grep c" outfile
 
 else

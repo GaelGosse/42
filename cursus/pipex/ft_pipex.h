@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/17 12:41:20 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/19 16:57:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ typedef struct dt
 
 // ft_pipex.c
 void	ft_error(void);
-void	ft_check(int argc, char **argv, char **envp, t_dt data_ppx);
-void	ft_pipex(int argc, char **argv, char **envp, t_dt data_ppx);
+void	ft_check(int argc, char **argv, char **envp, t_dt *data_ppx);
+void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx);
 
 // ft_exec.c
-int	ft_exec_cmd(char *simple_cmd, char **envp, t_dt data_ppx);
+int	ft_find_path(char *simple_cmd, char **envp, t_dt *data_ppx);
