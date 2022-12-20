@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/19 16:57:17 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/20 17:37:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 typedef struct dt
 {
-	char	*full_cmd;
+	char	**full_cmd;
 	char	**path;
 }			t_dt;
 

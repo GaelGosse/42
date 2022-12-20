@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:26:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/19 18:11:02 by ggosse           ###   ########.fr       */
+/*   Updated: 2022/12/20 17:56:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ int	ft_find_path(char *simple_cmd, char **envp, t_dt *data_ppx)
 	cmd_path_absolue = NULL;
 	ite_data = -1;
 	ite_env = -1;
-	if ()
+	if (access(simple_cmd, F_OK) == 0)
 	{
-		
+		printf(BACK_PURPLE"simple_cmd: %s"RESET"\n", simple_cmd);
+		return (0);
 	}
 	if (!envp)
 		return (1);
@@ -40,7 +41,7 @@ int	ft_find_path(char *simple_cmd, char **envp, t_dt *data_ppx)
 				printf(GREEN"cmd_path_absolue: %s\n"RST, cmd_path_absolue);
 				if (access(cmd_path_absolue, F_OK) == 0)
 				{
-					printf(BOLD_CYAN"cmd_path_absolue: %s\n"RST, cmd_path_absolue);
+					printf(BACK_PURPLE"cmd_path_absolue: %s\n"RST, cmd_path_absolue);
 					return (0);
 				}
 			}
