@@ -2982,12 +2982,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "simple_cmd = split( full_cmd )",
+      "text": "simple_cmd = split( all_cmd )",
       "baseline": 18,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "ylN2CTds0EvUeuO9I-8rY",
-      "originalText": "simple_cmd = split( full_cmd )"
+      "originalText": "simple_cmd = split( all_cmd )"
     },
     {
       "type": "rectangle",

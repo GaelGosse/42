@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:26:18 by ggosse            #+#    #+#             */
-/*   Updated: 2022/12/20 17:56:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/02 15:08:43 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,8 @@ int	ft_find_path(char *simple_cmd, char **envp, t_dt *data_ppx)
 	(void)envp;
 	(void)simple_cmd;
 }
+
+// void	ft_child(char)
+// {
+	
+// }
