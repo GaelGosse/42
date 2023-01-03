@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/03 16:27:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/03 20:57:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,6 @@ void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx);
 void	ft_build_data(int argc, char **argv, t_dt *data_ppx);
 
 // ft_exec.c
-void	ft_find_path(char **envp, t_dt *data_ppx);
+int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find_path, int ite_env);
+int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find_path);
+int	ft_find_env(char **envp, t_dt *data_ppx);

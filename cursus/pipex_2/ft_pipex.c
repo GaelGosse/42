@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/03 18:15:33 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/03 20:57:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx)
 
 	ft_build_data(argc, argv, data_ppx);
 	ft_print_three(data_ppx);
-	ft_find_path(envp, data_ppx);
+	ft_find_env(envp, data_ppx);
 	ft_print_three(data_ppx);
 	
 	(void)argc;
