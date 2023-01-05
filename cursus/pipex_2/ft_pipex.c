@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/03 20:57:25 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/05 13:08:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_print_three(t_dt *data_ppx)
 	(void)data_ppx;
 }
 
-void	ft_free_three(t_dt *data_ppx)
+void	ft_free_data_cmd(t_dt *data_ppx)
 {
 	int	ite_test;
 	int	ite_int;
@@ -58,6 +58,16 @@ void	ft_free_three(t_dt *data_ppx)
 	(void)ite_test;
 	(void)ite_int;
 	(void)data_ppx;
+}
+
+void	ft_free_tab_str(char **tab_str)
+{
+	int	ite_free_two;
+
+	ite_free_two = -1;
+	while (tab_str[++ite_free_two])
+		free(tab_str[ite_free_two]);
+	free(tab_str);
 }
 
 void	ft_error(void)
@@ -106,7 +116,7 @@ int main(int argc, char **argv, char **envp){
 			return (ft_error(), 1);
 	ft_pipex(argc, argv, envp, &data_ppx);
 
-	ft_free_three(&data_ppx);
+	ft_free_data_cmd(&data_ppx);
 	(void)argc;
 	(void)argv;
 	(void)envp;

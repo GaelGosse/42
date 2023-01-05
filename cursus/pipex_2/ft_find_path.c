@@ -12,34 +12,40 @@
 
 #include "ft_pipex.h"
 
-int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find_path, int ite_env)
+int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env)
 {
 	char	**path_cmd;
 	char	*cmd_path_absolue;
+	char	*path_absolue;
+	char	*cmd;
 	int		ite_data;
 
 	ite_data = 0;
-	path_cmd = ft_split(envp[ite_env] + 5, ':');
 	ite_data = -1;
+	path_cmd = ft_split(envp[ite_env] + 5, ':');
+	cmd = ft_strdup(data_ppx->all_cmd[ite_find][0]);
 	while (path_cmd[++ite_data])
 	{
-		cmd_path_absolue = NULL;
-		cmd_path_absolue = ft_strjoin(path_cmd[ite_data], "/");
-		cmd_path_absolue = ft_strjoin(cmd_path_absolue, data_ppx->all_cmd[ite_find_path][0]);
+		path_absolue = ft_strjoin(path_cmd[ite_data], "/");
+		cmd_path_absolue = ft_strjoin(path_absolue, cmd);
+		free(path_absolue);
 		if (access(cmd_path_absolue, X_OK) == 0)
 		{
-			free(data_ppx->all_cmd[ite_find_path][0]);
-			data_ppx->all_cmd[ite_find_path][0] = (char *)malloc(sizeof(char) * (ft_strlen(cmd_path_absolue) + 1));
-			data_ppx->all_cmd[ite_find_path][0] = cmd_path_absolue;
-			printf(BACK_GREEN"cmd_path_absolue: %s"RESET"\n", cmd_path_absolue);
+			free(data_ppx->all_cmd[ite_find][0]);
+			data_ppx->all_cmd[ite_find][0] = cmd_path_absolue;
+			data_ppx->all_cmd[ite_find][0][ft_strlen(cmd_path_absolue)] = '\0';
+			free(cmd);
+			ft_free_tab_str(path_cmd);
+			return (0);
 		}
+		else
+			free(cmd_path_absolue);
 	}
-	free(path_cmd);
-	free(cmd_path_absolue);
-	return (1);
+	free(cmd);
+	ft_free_tab_str(path_cmd);
 }
 
-int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find_path)
+int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
 {
 	int		ite_env;
 
@@ -48,33 +54,33 @@ int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find_path)
 	{
 		if (ft_strncmp(envp[ite_env], "PATH=", 5) == 0)
 		{
-			ft_find_cmd(envp, data_ppx, ite_find_path, ite_env);
+			ft_find_cmd(envp, data_ppx, ite_find, ite_env);
 		}
 	}
 	return (0);
-	(void)ite_find_path;
+	(void)ite_find;
 	(void)envp;
 	(void)data_ppx;
 }
 
 int	ft_find_env(char **envp, t_dt *data_ppx)
 {
-	int		ite_find_path;
+	int		ite_find;
 
-	ite_find_path = -1;
-	while (data_ppx->all_cmd[++ite_find_path])
+	ite_find = -1;
+	while (data_ppx->all_cmd[++ite_find])
 	{
-		if (access(data_ppx->all_cmd[ite_find_path][0], F_OK) == 0 
-		&& access(data_ppx->all_cmd[ite_find_path][0], X_OK) == 0)
-			printf(BACK_GREEN"data_ppx->all_cmd[ite_find_path][0]: %s"RESET"\n", data_ppx->all_cmd[ite_find_path][0]);
+		if (access(data_ppx->all_cmd[ite_find][0], F_OK) == 0
+		&& access(data_ppx->all_cmd[ite_find][0], X_OK) == 0)
+			printf(BACK_GREEN"data_ppx->all_cmd[ite_find][0]: %s"RESET"\n", data_ppx->all_cmd[ite_find][0]);
 		else
 		{
 			if (envp[0])
 			{
-				ft_find_path(envp, data_ppx, ite_find_path);
+				ft_find_path(envp, data_ppx, ite_find);
 			}
 		}
-		printf("\n");
+		// printf(BACK_BLUE" ----- "RESET"\n");
 	}
 	(void)envp;
 	return (0);
