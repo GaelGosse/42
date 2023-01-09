@@ -3,87 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/05 13:08:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/08 17:50:00 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pipex.h"
 
-void	ft_print_three(t_dt *data_ppx)
-{
-	int	ite_test;
-	int	ite_int;
-
-	ite_test = 0;
-	ite_int = 0;
-	printf(BACK_WHITE" --------- "RESET"\n");
-	while (data_ppx->all_cmd[ite_test])
-	{
-		ite_int = 0;
-		while (data_ppx->all_cmd[ite_test][ite_int])
-		{
-			printf("%s\n", data_ppx->all_cmd[ite_test][ite_int]);
-			ite_int++;
-		}
-		printf(BACK_WHITE" --------- "RESET"\n");
-		ite_test++;
-	}
-	(void)ite_test;
-	(void)ite_int;
-	(void)data_ppx;
-}
-
-void	ft_free_data_cmd(t_dt *data_ppx)
-{
-	int	ite_test;
-	int	ite_int;
-
-	ite_test = 0;
-	ite_int = 0;
-	while (data_ppx->all_cmd[ite_test])
-	{
-		ite_int = 0;
-		while (data_ppx->all_cmd[ite_test][ite_int])
-		{
-			free(data_ppx->all_cmd[ite_test][ite_int]);
-			ite_int++;
-		}
-		free(data_ppx->all_cmd[ite_test]);
-		ite_test++;
-	}
-	free(data_ppx->all_cmd);
-	(void)ite_test;
-	(void)ite_int;
-	(void)data_ppx;
-}
-
-void	ft_free_tab_str(char **tab_str)
-{
-	int	ite_free_two;
-
-	ite_free_two = -1;
-	while (tab_str[++ite_free_two])
-		free(tab_str[ite_free_two]);
-	free(tab_str);
-}
-
-void	ft_error(void)
-{
-	write(1, "Error\n", 6);
-}
-
 void	ft_build_data(int argc, char **argv, t_dt *data_ppx)
 {
 	printf(BACK_WHITE"ft_build_data\n"RST);
 	
-	int	ite_argv;
+	int		ite_argv;
 
 	ite_argv = 2;
 	data_ppx->all_cmd = (char ***)malloc(sizeof(char **) * (argc - 3 + 1));
 	data_ppx->all_cmd[argc - 3] = 0;
+	data_ppx->pids_process = (pid_t *)malloc(sizeof(pid_t) * (argc - 3 + 1));
 	while (argv[ite_argv + 1])
 	{
 		data_ppx->all_cmd[ite_argv - 2] = ft_split(argv[ite_argv], ' ');
@@ -102,7 +40,7 @@ void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx)
 	ft_print_three(data_ppx);
 	ft_find_env(envp, data_ppx);
 	ft_print_three(data_ppx);
-	
+
 	(void)argc;
 	(void)argv;
 	(void)envp;
@@ -113,7 +51,7 @@ int main(int argc, char **argv, char **envp){
 	t_dt	data_ppx;
 
 	if (argc < 5)
-			return (ft_error(), 1);
+		return (ft_error(), 1);
 	ft_pipex(argc, argv, envp, &data_ppx);
 
 	ft_free_data_cmd(&data_ppx);

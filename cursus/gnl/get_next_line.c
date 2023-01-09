@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:01:17 by ggosse            #+#    #+#             */
-/*   Updated: 2022/07/14 18:29:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/06 20:02:26 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ char	*get_next_line(int fd)
 		
 	while (ft_is_endline(buf) == 0)
 	{
-
 		ret = read(fd, buf, BUF_SIZE);
 		if (ret < 0)
 			return (NULL);

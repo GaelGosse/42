@@ -36,13 +36,15 @@ int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env)
 			data_ppx->all_cmd[ite_find][0][ft_strlen(cmd_path_absolue)] = '\0';
 			free(cmd);
 			ft_free_tab_str(path_cmd);
-			return (0);
+			return (1);
 		}
 		else
 			free(cmd_path_absolue);
 	}
+	printf("command not found: %s\n", cmd);
 	free(cmd);
 	ft_free_tab_str(path_cmd);
+	return (0);
 }
 
 int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
@@ -70,10 +72,7 @@ int	ft_find_env(char **envp, t_dt *data_ppx)
 	ite_find = -1;
 	while (data_ppx->all_cmd[++ite_find])
 	{
-		if (access(data_ppx->all_cmd[ite_find][0], F_OK) == 0
-		&& access(data_ppx->all_cmd[ite_find][0], X_OK) == 0)
-			printf(BACK_GREEN"data_ppx->all_cmd[ite_find][0]: %s"RESET"\n", data_ppx->all_cmd[ite_find][0]);
-		else
+		if (!access(data_ppx->all_cmd[ite_find][0], X_OK) == 0)
 		{
 			if (envp[0])
 			{

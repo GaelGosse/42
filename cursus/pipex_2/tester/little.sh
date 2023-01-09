@@ -11,7 +11,8 @@ big_bad=$BACK_RED" Error "$RST
 
 
 ##### TEST TO DO #####
-gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex
+gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex 
+rm *.gch */*.gch
 
 echo -e $BOLD_WHITE" ----- ----- ----- ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $RST"
 echo -e $RED"./pipex infile \"/usr/bin/wc -l -a\" \"wc -l\" outfile"$RST"\n"
