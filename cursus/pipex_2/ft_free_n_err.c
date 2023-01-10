@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_n_err.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:17:35 by gael              #+#    #+#             */
-/*   Updated: 2023/01/08 17:26:36 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/10 18:35:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,26 @@ void	ft_print_three(t_dt *data_ppx)
 
 void	ft_free_data_cmd(t_dt *data_ppx)
 {
-	int	ite_test;
-	int	ite_int;
+	int	ite_free_all_cmd;
+	int	ite_free_cmd;
 
-	ite_test = 0;
-	ite_int = 0;
-	while (data_ppx->all_cmd[ite_test])
+	ite_free_all_cmd = 0;
+	ite_free_cmd = 0;
+	while (data_ppx->all_cmd[ite_free_all_cmd])
 	{
-		ite_int = 0;
-		while (data_ppx->all_cmd[ite_test][ite_int])
+		ite_free_cmd = 0;
+		while (data_ppx->all_cmd[ite_free_all_cmd][ite_free_cmd])
 		{
-			free(data_ppx->all_cmd[ite_test][ite_int]);
-			ite_int++;
+			free(data_ppx->all_cmd[ite_free_all_cmd][ite_free_cmd]);
+			ite_free_cmd++;
 		}
-		free(data_ppx->all_cmd[ite_test]);
-		ite_test++;
+		free(data_ppx->all_cmd[ite_free_all_cmd]);
+		ite_free_all_cmd++;
 	}
+	free(data_ppx->pids_process);
 	free(data_ppx->all_cmd);
-	(void)ite_test;
-	(void)ite_int;
+	(void)ite_free_all_cmd;
+	(void)ite_free_cmd;
 	(void)data_ppx;
 }
 

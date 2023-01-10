@@ -12,12 +12,12 @@ big_bad=$BACK_RED" Error "$RST
 
 ##### TEST TO DO #####
 gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex
-rm *.gch */*.gch
+# rm *.gch
+# rm */*.gch
 
 echo -e $BOLD_WHITE" ----- ----- ----- ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $RST"
-echo -e $RED"./pipex infile \"/usr/bin/ls -l -a\" \"wc -l\" \"grep -v 1\" \"dslhkc\" outfile"$RST"\n"
-# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
-valgrind ./pipex infile "/usr/bin/ls -l -a" "wc -l" "grep -v 1" "dslhkc" outfile
+echo -e $RED"./pipex infile \"ls\" \"/usr/bin/wc -l\" \"grep -v 1\" \"dslhkc\" outfile"$RST"\n"
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./pipex infile "ls" "/usr/bin/wc -l" "grep -v 1" "dslhkc" outfile
 
 
 # mv little.sh little_env_i.sh
