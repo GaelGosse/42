@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:17:35 by gael              #+#    #+#             */
-/*   Updated: 2023/01/10 18:35:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/11 18:01:29 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_print_three(t_dt *data_ppx)
 
 	ite_test = 0;
 	ite_int = 0;
-	printf(BACK_WHITE" ----- START PRINT ----- "RESET"\n");
+	printf(BOLD_CYAN" ----- START PRINT ----- "RESET"\n");
 	while (data_ppx->all_cmd[ite_test])
 	{
 		ite_int = 0;
@@ -28,7 +28,7 @@ void	ft_print_three(t_dt *data_ppx)
 			printf("%s\n", data_ppx->all_cmd[ite_test][ite_int]);
 			ite_int++;
 		}
-		printf(BACK_WHITE" ----- "RESET"\n");
+		printf(BOLD_CYAN"\t---------- "RESET"\n");
 		ite_test++;
 	}
 	(void)ite_test;

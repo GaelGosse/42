@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipex.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/08 17:57:23 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/11 17:58:07 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@
 typedef struct dt
 {
 	char	***all_cmd;
+	char	***all_option;
 	pid_t	*pids_process;
 	int		fd_infile;
 	int		fd_outfile;
+	int		fd_std[2];
 }			t_dt;
 
 // ft_pipex.c
@@ -56,13 +58,12 @@ int		ft_find_path(char **envp, t_dt *data_ppx, int ite_find_path);
 int		ft_find_env(char **envp, t_dt *data_ppx);
 
 // ft_exec.c
-
+void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp);
 
 // ft_free_n_err.c
 void	ft_print_three(t_dt *data_ppx);
 void	ft_free_data_cmd(t_dt *data_ppx);
 void	ft_free_tab_str(char **tab_str);
 void	ft_error(void);
-
 
 void	ft_free_tab_str(char **tab_str);

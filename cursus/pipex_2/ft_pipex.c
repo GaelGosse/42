@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/08 17:50:00 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/11 18:22:05 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_build_data(int argc, char **argv, t_dt *data_ppx)
 {
-	printf(BACK_WHITE"ft_build_data\n"RST);
+	printf(UNDER_WHITE"ft_build_data\n"RST);
 	
 	int		ite_argv;
 
@@ -22,6 +22,7 @@ void	ft_build_data(int argc, char **argv, t_dt *data_ppx)
 	data_ppx->all_cmd = (char ***)malloc(sizeof(char **) * (argc - 3 + 1));
 	data_ppx->all_cmd[argc - 3] = 0;
 	data_ppx->pids_process = (pid_t *)malloc(sizeof(pid_t) * (argc - 3 + 1));
+	data_ppx->pids_process[argc - 3] = 0;
 	while (argv[ite_argv + 1])
 	{
 		data_ppx->all_cmd[ite_argv - 2] = ft_split(argv[ite_argv], ' ');
@@ -34,12 +35,13 @@ void	ft_build_data(int argc, char **argv, t_dt *data_ppx)
 
 void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx)
 {
-	printf(BACK_WHITE"ft_pipex\n"RST);
+	printf(UNDER_WHITE"ft_pipex\n"RST);
 
 	ft_build_data(argc, argv, data_ppx);
-	ft_print_three(data_ppx);
+	// ft_print_three(data_ppx);
 	ft_find_env(envp, data_ppx);
-	ft_print_three(data_ppx);
+	ft_exec(data_ppx, argc, argv, envp);
+	// ft_print_three(data_ppx);
 
 	(void)argc;
 	(void)argv;

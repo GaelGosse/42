@@ -6,45 +6,106 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:24:39 by gael              #+#    #+#             */
-/*   Updated: 2023/01/10 18:39:28 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/11 18:57:39 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// void	ft_pipex(t_dt *data_ppx, char **argv, char **envp, int argc)
+#include "ft_pipex.h"
+
+
+void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
+{
+	printf(UNDER_WHITE"ft_exec"RESET"\n");
+
+	int	ite_pids;
+
+	ite_pids = 0;
+	if(pipe(data_ppx->fd_std) == -1)
+	{
+		printf(RED"stop here"RESET"\n");
+		exit(1);
+	}
+	while (ite_pids < argc - 3)
+	{
+		if (data_ppx->pids_process[ite_pids] == 0)
+		{
+			data_ppx->pids_process[ite_pids] = fork();
+			// printf(BLUE"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
+		}
+		ite_pids++;
+	}
+	ite_pids = 0;
+	while (ite_pids < argc - 3)
+	{
+		if (data_ppx->pids_process[ite_pids] != 0)
+		{
+			printf(GREEN"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
+			// waitpid(data_ppx->pids_process[ite_pids], NULL, 0);
+		}
+		else
+			printf(RED"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
+		ite_pids++;
+	}
+	printf("\n");
+	
+	
+	data_ppx->fd_infile = open(argv[1], O_WRONLY, 0777);
+	data_ppx->fd_outfile = open(argv[argc - 1], O_WRONLY, 0777);
+	
+	
+	// execve(data_ppx->all_cmd[0][0], data_ppx->all_cmd[0], envp);
+	(void)argc;
+	(void)argv;
+	(void)envp;
+}
+
+
+// int main(int argc, char const *argv[], char **envp)
 // {
-// 	if(pipe(data_ppx->fd) == -1)
-// 		exit(1);
-// 	data_ppx->id1 = fork();
-// 	init_file(data_ppx, argv, argc);
-// 	if(data_ppx->id1 == 0)
+// 	char	*str = "/usr/bin/ls -l -a";
+// 	pid_t	id = fork();
+	
+// 	if (id == 0)
 // 	{
-// 		dup2(data_ppx->fd_infile, STDIN_FILENO);
-// 		dup2(data_ppx->fd[1], STDOUT_FILENO);
-// 		close(data_ppx->fd[0]);
-// 		close(data_ppx->fd[1]);
-// 		ft_build_path(data_ppx, ft_findpath(envp), data_ppx->option1[0]);
-// 		execve(data_ppx->cmd_path, data_ppx->option1, envp);
+// 		execve(ft_split(str, ' ')[0], ft_split(str, ' '), envp);
 // 	}
 // 	else
 // 	{
-// 		data_ppx->id2 = fork();
-// 		if (data_ppx->id2 == 0)
-// 		{
-// 			dup2(data_ppx->fd[0], STDIN_FILENO);
-// 			dup2(data_ppx->fd_outfile, STDOUT_FILENO);
-// 			close(data_ppx->fd[0]);
-// 			close(data_ppx->fd[1]);
-// 			ft_build_path(data_ppx, ft_findpath(envp), data_ppx->option2[0]);
-// 			execve(data_ppx->cmd_path, data_ppx->option2, envp);
-// 		}
-// 		else
-// 		{
-// 			ft_free(data_ppx->option1);
-// 			ft_free(data_ppx->option2);
-// 			close(data_ppx->fd[0]);
-// 			close(data_ppx->fd[1]);
-// 			waitpid(data_ppx->id1, NULL, 0);
-// 			waitpid(data_ppx->id2, NULL, 0);
-// 		}
+// 		waitpid(id, NULL, 0);
 // 	}
+
+// 	(void)argc;
+// 	(void)argv;
+// 	return 0;
 // }
+
+
+	// if(data_ppx->pids_process[0] == 0)
+	// {
+	// 	dup2(data_ppx->fd_infile, STDIN_FILENO);
+	// 	dup2(data_ppx->fd_std[1], STDOUT_FILENO);
+	// 	close(data_ppx->fd_std[0]);
+	// 	close(data_ppx->fd_std[1]);
+	// 	printf(GREEN"data_ppx->all_cmd[0][0]: %s\n"RESET, data_ppx->all_cmd[0][0]);
+	// 	execve(data_ppx->all_cmd[0][0], data_ppx->all_cmd[0], envp);
+	// }
+	// else
+	// {
+	// 	data_ppx->pids_process[1] = fork();
+	// 	if (data_ppx->pids_process[1] == 0)
+	// 	{
+	// 		dup2(data_ppx->fd_std[0], STDIN_FILENO);
+	// 		dup2(data_ppx->fd_outfile, STDOUT_FILENO);
+	// 		close(data_ppx->fd_std[0]);
+	// 		close(data_ppx->fd_std[1]);
+	// 		printf(GREEN"data_ppx->all_cmd[0][0]: %s\n"RESET, data_ppx->all_cmd[0][0]);
+	// 		execve(data_ppx->all_cmd[1][0], data_ppx->all_cmd[1], envp);
+	// 	}
+	// 	else
+	// 	{
+	// 		close(data_ppx->fd_std[0]);
+	// 		close(data_ppx->fd_std[1]);
+	// 		waitpid(data_ppx->pids_process[0], NULL, 0);
+	// 		waitpid(data_ppx->pids_process[1], NULL, 0);
+	// 	}
+	// }
