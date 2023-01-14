@@ -3,55 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/12 15:08:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/14 15:45:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// free, perror,
-#include <stdio.h>
-#include <errno.h>
+#ifndef FT_SO_LONG_H
+# define FT_SO_LONG_H
 
-// open, malloc
-#include <stdlib.h>
+# include <stdio.h>
+# include <errno.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <sys/wait.h>
+# include <unistd.h>
+# include <string.h>
+# include <fcntl.h>
+# include "color.h"
+# include "libft/libft.h"
 
-// fork, wait, waitpid
-#include <sys/types.h>
-#include <sys/stat.h>
+# define SUCCESS 1
+# define FAIL -1
 
-// wait, waitpid
-#include <sys/wait.h>
-
-// access, read, close, write, access, dup(2), execve, exit, fork, pipe, unlink
-#include <unistd.h>
-
-// strerror
-#include <string.h>
-
-// pipe, unlink
-#include <fcntl.h>
-
-#include "color.h"
-#include "libft/libft.h"
-
-#define SUCCESS 1
-#define FAIL 0
+typedef struct letters
+{
+	int	letter_c;
+	int	letter_p;
+	int	letter_e;
+}		t_letters;
 
 typedef struct map
 {
-	char	**map_original;
-	char	**map_check_path;
-	int		height;
-	int		width;
-	int		fd_map;
-}			t_map;
+	char		*map_to_build;
+	char		**map_org;
+	char		**map_check_path;
+	int			height;
+	int			width;
+	int			fd_map;
+	t_letters	check_letters;
+}				t_map;
+
+// ft_check_format.C
+int		ft_check_rectangular(t_map *map);
+int		ft_nbr_letters(t_map *map);
+int		ft_if_wall(t_map *map);
 
 // ft_check_filemap.c
-int	ft_read_file(int fd);
-int	ft_existing_file(char *file);
-int	ft_check_ext(char *filename);
+int		ft_read_file(t_map *map, char *filename);
+int		ft_check_ext(char *filename);
+void	ft_build_map(t_map *map);
 
 // ft_so_long.c
-int	parsing(int argc, char **argv, char **envp);
+int		parsing(t_map *map, int argc, char **argv, char **envp);
+void	ft_print_map_s(char **tab);
+void	ft_print_map_xl(char **tab);
+
+#endif
