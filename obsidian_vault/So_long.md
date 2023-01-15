@@ -3,17 +3,17 @@
 
 ### *Map file*
 
-- [ ] check if extension is .ber
-- [ ] check if file exist 
-- [ ] build map x2 in struct (original + check)
+- [x] check if extension is .ber ✅ 2023-01-12
+- [x] check if file exist ✅ 2023-01-12
+- [x] build map x2 in struct (original + check) ✅ 2023-01-13
 
 ### *Map caracteristics*
 
-- [ ] be rectangular
-- [ ] surrounded by wall
-- [ ] contain only one character
-- [ ] contain only one exit
-- [ ] contain at least one collectible
+- [x] be rectangular ✅ 2023-01-14
+- [x] surrounded by wall ✅ 2023-01-14
+- [x] contain only one character ✅ 2023-01-14
+- [x] contain only one exit ✅ 2023-01-14
+- [x] contain at least one collectible ✅ 2023-01-14
 it will be interpreted as :
 	0    : empty tile      (\*)
 	1     : wall                (\*)
@@ -21,11 +21,12 @@ it will be interpreted as :
 	E    : exit                (1)
 	P    : character      (1)
 
-- [ ] a valid path leading to all collectible and the exit
+- [x] a valid path leading to all collectible and the exit ✅ 2023-01-14
 
 ## MLX
 
 - [ ] display window 
+- [ ] get sprites
 - [ ] display sprites
 - [ ] key event to move the character
 		W    : up
@@ -35,4 +36,4 @@ it will be interpreted as :
 	- [ ] ESC : quit the program
 	- [ ] "x"   : quit the program (mouse click on cross)
 - [ ] display number of movements in the shell
-
+- [ ] destroy image when Exit or ESC or click on cross
