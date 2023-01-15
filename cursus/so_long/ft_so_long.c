@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/14 15:46:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/15 01:17:38 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ int	parsing(t_map *map, int argc, char **argv, char **envp)
 		return (FAIL);
 	if (ft_if_wall(map) == FAIL)
 		return (printf("there are some leaks on walls\n"), FAIL);
+	ft_valid_path(map);
 	return (SUCCESS);
 	(void)argc;
-	(void)argv;
 	(void)envp;
 }
 
@@ -97,7 +97,6 @@ int	main(int argc, char **argv, char **envp)
 
 	if (parsing(&map, argc, argv, envp) == FAIL)
 		return (1);
-	ft_print_map_xl(map.map_org);
 	(void)argc;
 	(void)argv;
 	(void)envp;

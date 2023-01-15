@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/14 15:45:41 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/15 00:44:45 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct map
 {
 	char		*map_to_build;
 	char		**map_org;
-	char		**map_check_path;
+	char		**map_chck;
 	int			height;
 	int			width;
 	int			fd_map;
@@ -60,5 +60,10 @@ void	ft_build_map(t_map *map);
 int		parsing(t_map *map, int argc, char **argv, char **envp);
 void	ft_print_map_s(char **tab);
 void	ft_print_map_xl(char **tab);
+
+// ft_valid_path.c
+int		ft_propagation(t_map *map);
+int		ft_replace_around(t_map *map, int ite_big, int ite_lil);
+int		ft_valid_path(t_map *map);
 
 #endif

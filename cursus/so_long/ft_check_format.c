@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:07:15 by gael              #+#    #+#             */
-/*   Updated: 2023/01/14 15:49:32 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/15 01:18:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_check_rectangular(t_map *map)
 	{
 		if (prev != (int)ft_strlen(map->map_org[ite_check1]))
 			return (printf("line too long\n"), FAIL);
-		
 		prev = ft_strlen(map->map_org[ite_check1]);
 	}
 	map->height = ite_check1;
@@ -73,10 +72,10 @@ int	ft_if_wall(t_map *map)
 		while (map->map_org[ite_wall1][++ite_wall2])
 		{
 			if ((ite_wall1 == 0 || ite_wall1 == map->height - 1)
-			&& map->map_org[ite_wall1][ite_wall2] != '1')
+				&& map->map_org[ite_wall1][ite_wall2] != '1')
 				return (FAIL);
 			if ((ite_wall2 == 0 || ite_wall2 == map->width - 1)
-			&& map->map_org[ite_wall1][ite_wall2] != '1')
+				&& map->map_org[ite_wall1][ite_wall2] != '1')
 				return (FAIL);
 		}
 	}
