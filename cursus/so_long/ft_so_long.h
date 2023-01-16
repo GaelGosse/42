@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/15 00:44:45 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/15 23:26:58 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct map
 	t_letters	check_letters;
 }				t_map;
 
+/********************************** PARSING ***********************************/
+
 // ft_check_format.C
 int		ft_check_rectangular(t_map *map);
 int		ft_nbr_letters(t_map *map);
@@ -65,5 +67,9 @@ void	ft_print_map_xl(char **tab);
 int		ft_propagation(t_map *map);
 int		ft_replace_around(t_map *map, int ite_big, int ite_lil);
 int		ft_valid_path(t_map *map);
+
+/************************************ MLX *************************************/
+
+
 
 #endif

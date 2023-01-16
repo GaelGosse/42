@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 22:37:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/15 01:18:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/15 23:23:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,25 @@ int	ft_replace_around(t_map *map, int ite_big, int ite_lil)
 	|| map->map_chck[ite_big][ite_lil + 1] == 'C')
 	{
 		map->map_chck[ite_big][ite_lil + 1] = 'P';
-		return ((SUCCESS));
+		return (SUCCESS);
 	}
 	else if (map->map_chck[ite_big][ite_lil - 1] == '0'
 	|| map->map_chck[ite_big][ite_lil - 1] == 'C')
 	{
 		map->map_chck[ite_big][ite_lil - 1] = 'P';
-		return ((SUCCESS));
+		return (SUCCESS);
 	}
 	else if (map->map_chck[ite_big + 1][ite_lil] == '0'
 	|| map->map_chck[ite_big + 1][ite_lil] == 'C')
 	{
 		map->map_chck[ite_big + 1][ite_lil] = 'P';
-		return ((SUCCESS));
+		return (SUCCESS);
 	}
 	else if (map->map_chck[ite_big - 1][ite_lil] == '0'
 	|| map->map_chck[ite_big - 1][ite_lil] == 'C')
 	{
 		map->map_chck[ite_big - 1][ite_lil] = 'P';
-		return ((SUCCESS));
+		return (SUCCESS);
 	}
 	return (FAIL);
 }
