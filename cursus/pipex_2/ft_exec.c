@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:24:39 by gael              #+#    #+#             */
-/*   Updated: 2023/01/11 18:57:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/16 18:35:51 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,31 @@ void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
 
 	int	ite_pids;
 
-	ite_pids = 0;
+	ite_pids = -1;
 	if(pipe(data_ppx->fd_std) == -1)
 	{
 		printf(RED"stop here"RESET"\n");
 		exit(1);
 	}
+	// while (++ite_pids < argc - 3)
+	// 	data_ppx->pids_process[ite_pids] = 0;
+	ite_pids = 0;
 	while (ite_pids < argc - 3)
 	{
+		data_ppx->pids_process[ite_pids] = fork();
 		if (data_ppx->pids_process[ite_pids] == 0)
 		{
-			data_ppx->pids_process[ite_pids] = fork();
-			// printf(BLUE"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
+			exit (0);
+			//VIE DE L'ENFANT
 		}
+		else
+		{
+			// waitpid(data_ppx->pids_process[ite_pids], NULL, 0);
+			// exit (0);
+		}
+		
+		// dup
+		// printf(BLUE"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
 		ite_pids++;
 	}
 	ite_pids = 0;
@@ -40,7 +52,7 @@ void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
 		if (data_ppx->pids_process[ite_pids] != 0)
 		{
 			printf(GREEN"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
-			// waitpid(data_ppx->pids_process[ite_pids], NULL, 0);
+			waitpid(data_ppx->pids_process[ite_pids], NULL, 0);
 		}
 		else
 			printf(RED"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
