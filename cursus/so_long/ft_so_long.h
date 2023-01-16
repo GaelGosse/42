@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/15 23:26:58 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/16 18:44:28 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct map
 
 // ft_check_format.C
 int		ft_check_rectangular(t_map *map);
+int		ft_wrong_letters(t_map *map);
 int		ft_nbr_letters(t_map *map);
 int		ft_if_wall(t_map *map);
 
@@ -69,7 +70,5 @@ int		ft_replace_around(t_map *map, int ite_big, int ite_lil);
 int		ft_valid_path(t_map *map);
 
 /************************************ MLX *************************************/
-
-
 
 #endif

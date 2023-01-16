@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:07:15 by gael              #+#    #+#             */
-/*   Updated: 2023/01/15 01:18:02 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/16 17:46:24 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,31 @@ int	ft_nbr_letters(t_map *map)
 	if (map->check_letters.letter_c == 0)
 		return (printf("your map must contain at least one C \n"), FAIL);
 	if (map->check_letters.letter_e != 1)
-		return (printf("letter E is lacking on your map\n"), FAIL);
+		return (printf("Your map must contain one E\n"), FAIL);
 	if (map->check_letters.letter_p != 1)
-		return (printf("letter P is lacking on your map\n"), FAIL);
+		return (printf("Your map must contain one P\n"), FAIL);
+	return (SUCCESS);
+}
+
+int	ft_wrong_letters(t_map *map)
+{
+	int	ite_wrg_letter1;
+	int	ite_wrg_letter2;
+
+	ite_wrg_letter1 = -1;
+	while (map->map_org[++ite_wrg_letter1])
+	{
+		ite_wrg_letter2 = -1;
+		while (map->map_org[ite_wrg_letter1][++ite_wrg_letter2])
+		{
+			if (map->map_org[ite_wrg_letter1][ite_wrg_letter2] != 'C' &&
+			map->map_org[ite_wrg_letter1][ite_wrg_letter2] != 'E' &&
+			map->map_org[ite_wrg_letter1][ite_wrg_letter2] != 'P' &&
+			map->map_org[ite_wrg_letter1][ite_wrg_letter2] != '0' &&
+			map->map_org[ite_wrg_letter1][ite_wrg_letter2] != '1')
+				return (FAIL);
+		}
+	}
 	return (SUCCESS);
 }
 

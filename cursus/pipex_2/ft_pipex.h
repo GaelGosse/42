@@ -6,9 +6,10 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/11 17:58:07 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/16 18:43:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 // free, perror,
 #include <stdio.h>
@@ -35,6 +36,8 @@
 
 #include "color.h"
 #include "libft/libft.h"
+
+#define COMMAND_NOT_FOUND 127
 
 typedef struct dt
 {

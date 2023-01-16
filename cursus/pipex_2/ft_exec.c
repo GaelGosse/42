@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:24:39 by gael              #+#    #+#             */
-/*   Updated: 2023/01/16 18:35:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/16 18:40:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
 		{
 			exit (0);
 			//VIE DE L'ENFANT
-		}
-		else
-		{
-			// waitpid(data_ppx->pids_process[ite_pids], NULL, 0);
-			// exit (0);
 		}
 		
 		// dup

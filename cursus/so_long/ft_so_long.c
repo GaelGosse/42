@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/15 01:17:38 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/16 17:52:27 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,18 @@ int	parsing(t_map *map, int argc, char **argv, char **envp)
 		return (FAIL);
 	if (ft_if_wall(map) == FAIL)
 		return (printf("there are some leaks on walls\n"), FAIL);
+	if (ft_wrong_letters(map) == FAIL)
+		return (printf("Letters allowed on your map : P, C, E, 0, 1\n"), FAIL);
 	ft_valid_path(map);
 	return (SUCCESS);
 	(void)argc;
 	(void)envp;
+}
+
+int	ft_create_game(t_map *map)
+{
+	return (1);
+	(void)map;
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -97,8 +105,26 @@ int	main(int argc, char **argv, char **envp)
 
 	if (parsing(&map, argc, argv, envp) == FAIL)
 		return (1);
+	printf(PURPLE"map.height: %i"RESET"\n", map.height);
+	printf(PURPLE"map.width: %i"RESET"\n", map.width);
 	(void)argc;
 	(void)argv;
 	(void)envp;
 	return (0);
 }
+
+
+// \n too much
+// 2 maps in one map
+
+
+
+
+/*
+
+EXT .ber
+read map
+is rectangular
+
+
+*/
