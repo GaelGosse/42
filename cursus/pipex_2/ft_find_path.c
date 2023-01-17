@@ -41,7 +41,7 @@ int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env)
 		else
 			free(cmd_path_absolue);
 	}
-	printf("command not found: %s\n", cmd);
+	// printf("command not found: %s\n", cmd);
 	free(cmd);
 	ft_free_tab_str(path_cmd);
 	return (0);
