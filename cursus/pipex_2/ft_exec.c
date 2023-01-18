@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:24:39 by gael              #+#    #+#             */
-/*   Updated: 2023/01/17 17:21:03 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:35:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
 	int	ite_pids;
 
 	ite_pids = -1;
-	// while (++ite_pids < argc - 3)
-	// 	data_ppx->pids_process[ite_pids] = 0;
 	ite_pids = 0;
 	while (ite_pids < argc - 3)
 	{
-		if (ite_pids < argc - 4 && pipe(data_ppx->fd_std) == -1)
-		{
-			printf(RED"pipe stop here"RESET"\n");
-			exit(1);
-		}
 		if (ite_pids < argc - 4)
 		{
+			if (pipe(data_ppx->fd_std) == -1)
+			{
+				printf(RED"pipe stop here"RESET"\n");
+				exit(1);
+			}
+			printf(PURPLE"data_ppx->all_cmd[ite_pids]: %s\n"RESET, data_ppx->all_cmd[ite_pids][0]);
 			printf("data_ppx->fd_std[0]: %i\n", data_ppx->fd_std[0]);
 			printf("data_ppx->fd_std[1]: %i\n", data_ppx->fd_std[1]);
+			printf(PURPLE"data_ppx->all_cmd[ite_pids + 1]: %s\n"RESET, data_ppx->all_cmd[ite_pids + 1][0]);
 			printf("\n");
 		}
 		data_ppx->pids_process[ite_pids] = fork();
@@ -43,7 +43,6 @@ void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
 			// dup2(fd);
 			exit (0); //execve
 		}
-		
 		// dup
 		// printf(BLUE"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
 		ite_pids++;
