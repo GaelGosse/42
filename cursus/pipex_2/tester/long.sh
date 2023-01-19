@@ -11,7 +11,7 @@ big_bad=$BACK_RED" Error "$RST
 
 
 ##### TEST TO DO #####
-gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex
+gcc -Wall -Wextra -Werror -g */*.c *.c */*.h *.h -o pipex
 # rm -f .gch
 # rm -f /*.gch
 

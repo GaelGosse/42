@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:24:39 by gael              #+#    #+#             */
-/*   Updated: 2023/01/18 17:35:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/19 18:04:14 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,36 +27,43 @@ void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp)
 		{
 			if (pipe(data_ppx->fd_std) == -1)
 			{
-				printf(RED"pipe stop here"RESET"\n");
+				// printf(RED"pipe stop here"RESET"\n");
 				exit(1);
 			}
-			printf(PURPLE"data_ppx->all_cmd[ite_pids]: %s\n"RESET, data_ppx->all_cmd[ite_pids][0]);
-			printf("data_ppx->fd_std[0]: %i\n", data_ppx->fd_std[0]);
-			printf("data_ppx->fd_std[1]: %i\n", data_ppx->fd_std[1]);
-			printf(PURPLE"data_ppx->all_cmd[ite_pids + 1]: %s\n"RESET, data_ppx->all_cmd[ite_pids + 1][0]);
-			printf("\n");
+			fprintf(stderr,UNDER_PURPLE"ite_pids: %i"RESET"\n", ite_pids);
+			fprintf(stderr,PURPLE"data_ppx->all_cmd[ite_pids]: %s\n"RESET, data_ppx->all_cmd[ite_pids][0]);
+			fprintf(stderr,"data_ppx->fd_std[0]: %i\n", data_ppx->fd_std[0]);
+			fprintf(stderr,"data_ppx->fd_std[1]: %i\n", data_ppx->fd_std[1]);
+			dup2(data_ppx->fd_infile, STDIN_FILENO);
+			dup2(data_ppx->fd_std[1], STDOUT_FILENO);
+			fprintf(stderr,PURPLE"data_ppx->all_cmd[ite_pids + 1]: %s\n"RESET, data_ppx->all_cmd[ite_pids + 1][0]);
+			fprintf(stderr,"\n");
 		}
 		data_ppx->pids_process[ite_pids] = fork();
 		if (data_ppx->pids_process[ite_pids] == 0)
 		{
 			//VIE DE L'ENFANT
 			// dup2(fd);
-			exit (0); //execve
+			// printf(CYAN"there"RESET"\n");
+			//execve
+			exit (0); 
 		}
 		// dup
 		// printf(BLUE"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
 		ite_pids++;
 	}
 	ite_pids = 0;
+	// printf(RED"here"RESET"\n");
 	while (ite_pids < argc - 3)
 	{
+		// printf(PURPLE"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
 		if (data_ppx->pids_process[ite_pids] != 0)
 		{
-			printf(GREEN"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
+			fprintf(stderr, GREEN"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
 			waitpid(data_ppx->pids_process[ite_pids], NULL, 0);
 		}
 		else
-			printf(RED"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
+			fprintf(stderr, RED"data_ppx->pids_process[%i]: %i"RESET"\n", ite_pids, data_ppx->pids_process[ite_pids]);
 		ite_pids++;
 	}
 	printf("\n");
