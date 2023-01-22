@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/20 18:45:47 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/22 19:34:44 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv, char **envp)
 	t_dt	data_ppx;
 
 	if (argc != 5)
-		return (ft_error(), 1);
+		return (ft_error("wrong args"), 1);
 	ft_pipex(argc, argv, envp, &data_ppx);
 	ft_free_data_cmd(&data_ppx);
 	(void)argc;

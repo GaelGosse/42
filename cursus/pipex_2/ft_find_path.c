@@ -31,7 +31,6 @@ int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env)
 	char	*cmd;
 	int		ite_data;
 
-	ite_data = 0;
 	ite_data = -1;
 	path_cmd = ft_split(envp[ite_env] + 5, ':');
 	cmd = ft_strdup(data_ppx->all_cmd[ite_find][0]);
@@ -47,14 +46,14 @@ int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env)
 			data_ppx->all_cmd[ite_find][0][ft_strlen(cmd_path_absolue)] = '\0';
 			free(cmd);
 			ft_free_tab_str(path_cmd);
-			return (1);
+			return (SUCCESS);
 		}
 		else
 			free(cmd_path_absolue);
 	}
 	free(cmd);
 	ft_free_tab_str(path_cmd);
-	return (0);
+	return (FAIL);
 }
 
 int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
@@ -66,10 +65,10 @@ int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
 	{
 		if (ft_strncmp(envp[ite_env], "PATH=", 5) == 0)
 		{
-			ft_find_cmd(envp, data_ppx, ite_find, ite_env);
+			return (ft_find_cmd(envp, data_ppx, ite_find, ite_env));
 		}
 	}
-	return (0);
+	return (FAIL);
 	(void)ite_find;
 	(void)envp;
 	(void)data_ppx;
@@ -86,10 +85,10 @@ int	ft_find_env(char **envp, t_dt *data_ppx)
 		{
 			if (envp[0])
 			{
-				ft_find_path(envp, data_ppx, ite_find);
+				return (ft_find_path(envp, data_ppx, ite_find));
 			}
 		}
 	}
+	return (FAIL);
 	(void)envp;
-	return (0);
 }
