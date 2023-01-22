@@ -12,6 +12,17 @@
 
 #include "ft_pipex.h"
 
+void	ft_free_all(char *str, char **tab)
+{
+	int	ite;
+
+	ite = -1;
+	while (tab[ite])
+		free(tab[ite]);
+	free(tab);
+	free(str);
+}
+
 int	ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env)
 {
 	char	**path_cmd;
@@ -78,7 +89,6 @@ int	ft_find_env(char **envp, t_dt *data_ppx)
 				ft_find_path(envp, data_ppx, ite_find);
 			}
 		}
-		// printf(BACK_BLUE" ----- "RESET"\n");
 	}
 	(void)envp;
 	return (0);

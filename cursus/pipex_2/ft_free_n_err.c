@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_n_err.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 17:17:35 by gael              #+#    #+#             */
-/*   Updated: 2023/01/11 18:01:29 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/20 19:02:30 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ void	ft_free_tab_str(char **tab_str)
 
 void	ft_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 }

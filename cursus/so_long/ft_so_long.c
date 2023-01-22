@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/16 17:52:27 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/22 09:30:56 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int	parsing(t_map *map, int argc, char **argv, char **envp)
 
 int	ft_create_game(t_map *map)
 {
+	ft_display_map(map);
 	return (1);
 	(void)map;
 }
@@ -105,6 +106,7 @@ int	main(int argc, char **argv, char **envp)
 
 	if (parsing(&map, argc, argv, envp) == FAIL)
 		return (1);
+	ft_create_game(&map);
 	printf(PURPLE"map.height: %i"RESET"\n", map.height);
 	printf(PURPLE"map.width: %i"RESET"\n", map.width);
 	(void)argc;

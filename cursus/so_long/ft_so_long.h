@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/16 18:44:28 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/22 09:29:05 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ int		ft_replace_around(t_map *map, int ite_big, int ite_lil);
 int		ft_valid_path(t_map *map);
 
 /************************************ MLX *************************************/
+
+// ft_create_game.c
+void	ft_display_map(t_map *map);
 
 #endif
