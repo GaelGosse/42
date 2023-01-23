@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:47:32 by gael              #+#    #+#             */
-/*   Updated: 2022/12/09 15:39:53 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/20 18:05:26 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,14 @@
 # define BACK_BOLD_WHITE "\033[1;47;30m"
 
 // underline color
-# define UNDERLINE_BLACK "\033[4;30m"
-# define UNDERLINE_RED "\033[4;31m"
-# define UNDERLINE_GREEN "\033[4;32m"
-# define UNDERLINE_YELLOW "\033[4;33m"
-# define UNDERLINE_BLUE "\033[4;34m"
-# define UNDERLINE_PURPLE "\033[4;35m"
-# define UNDERLINE_CYAN "\033[4;36m"
-# define UNDERLINE_WHITE "\033[4;37m"
-
+# define UNDER_BLACK "\033[4;30m"
+# define UNDER_RED "\033[4;31m"
+# define UNDER_GREEN "\033[4;32m"
+# define UNDER_YELLOW "\033[4;33m"
+# define UNDER_BLUE "\033[4;34m"
+# define UNDER_PURPLE "\033[4;35m"
+# define UNDER_CYAN "\033[4;36m"
+# define UNDER_WHITE "\033[4;37m"
 
 # define RESET "\033[0m"
 # define RST "\033[0m"

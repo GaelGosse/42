@@ -5,65 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 10:32:56 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/02 15:12:03 by ggosse           ###   ########.fr       */
+/*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
+/*   Updated: 2023/01/23 18:57:47 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pipex.h"
 
-void	ft_error(void)
+void	ft_build_data(int argc, char **argv, t_dt *data_ppx)
 {
-	write(1, "Error\n", 6);
-}
+	int		ite_argv;
 
-void	ft_check(int argc, char **argv, char **envp, t_dt *data_ppx)
-{
-	printf(BACK_WHITE"ft_check\n"RST);
-
-
-
-
-	if (access(argv[1], F_OK) == 0)
+	ite_argv = 2;
+	data_ppx->all_cmd = (char ***)malloc(sizeof(char **) * (argc - 3 + 1));
+	data_ppx->all_cmd[argc - 3] = 0;
+	data_ppx->pids_process = (pid_t *)malloc(sizeof(pid_t) * (argc - 3 + 1));
+	data_ppx->pids_process[argc - 3] = 0;
+	while (argv[ite_argv + 1])
 	{
-		// printf("\nexec first cmd argv[2]\t\t%s\n", argv[2]);
-		
-		data_ppx->all_cmd = ft_split(argv[2], ' ');
-		ft_find_path(data_ppx->all_cmd[0], envp, data_ppx);
+		data_ppx->all_cmd[ite_argv - 2] = ft_split(argv[ite_argv], ' ');
+		ite_argv++;
 	}
-
-	// printf(BACK_YELLOW"data_ppx->all_cmd: %s"RESET"\n", data_ppx->all_cmd[0]);
-
-
-	if (access(argv[argc - 1], F_OK) != 0)
-		// printf("create argv[argc - 1]: %s\n", argv[argc - 1]);
-	// printf("\nexec last cmd argv[%i]\t\t%s\n", (argc - 2), argv[argc - 2]);
-	
-	data_ppx->all_cmd = ft_split(argv[argc - 2], ' ');
-	ft_find_path(data_ppx->all_cmd[0], envp, data_ppx);
-
-	// printf(BACK_YELLOW"data_ppx->all_cmd: %s"RESET"\n", data_ppx->all_cmd[0]);
-
+	(void)argc;
 	(void)argv;
-	(void)envp;
+	(void)data_ppx;
 }
 
 void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx)
 {
-	printf(BACK_WHITE"ft_pipex\n"RST);
-
-	ft_check(argc, argv, envp, data_ppx);
-	(void)argv;
-	(void)envp;
-}
-
-int main(int argc, char **argv, char **envp){
-	t_dt	data_ppx;
-
-	if (argc < 5)
-		return (ft_error(), 1);
-	ft_pipex(argc, argv, envp, &data_ppx);
-	(void)envp;
+	ft_build_data(argc, argv, data_ppx);
+	ft_find_env(envp, data_ppx);
+	ft_exec(data_ppx, argc, argv, envp);
 	(void)argc;
 	(void)argv;
+	(void)envp;
+	(void)data_ppx;
 }
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_dt	data_ppx;
+
+	if (argc != 5)
+		return (ft_error("wrong args"), 1);
+	ft_pipex(argc, argv, envp, &data_ppx);
+	ft_free_data_cmd(&data_ppx);
+	(void)argc;
+	(void)argv;
+	(void)envp;
+}
+
+// 1 | 3 < 2 arg
+// 2 > 1 | 4 < 3 arg

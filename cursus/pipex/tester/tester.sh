@@ -40,6 +40,7 @@ else
 	echo -e $RED"no Makefile found"$RST
 	echo
 	gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex
+	rm -f .gch */*.gch
 fi
 
 ##### tester pipex #####
@@ -52,14 +53,14 @@ then
 
 	##### TEST TO DO #####
 	gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex
-
+	rm -f .gch */*.gch
 	echo -e $RED" ----- ----- ----- ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $RST\n"
 	echo -e BOLD_RED"./pipex infile \"ls -l -a\" \"/usr/bin/grep c\" outfile"RST
-	./pipex infile "ls -l -a" "/usr/bin/grep c" outfile
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./pipex infile "ls -l -a" "/usr/bin/grep c" outfile
 
 	echo -e $RED" ----- ----- ----- ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $RST\n"
-	echo -e $BOLD_RED"./pipex infile \"ls -l -a\" \"/usr/bin/grep c\" outfile"$RST
-	./pipex infile "ls -l -a" "/usr/bin/grep c" outfile
+	echo -e $RED"./pipex infile \"ls -l -a\" \"/usr/bin/grep c\" outfile"$RST
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./pipex infile "ls -l -a" "/usr/bin/grep c" outfile
 
 else
 	echo -ne "$BOLD_WHITE Compilation $RST"
