@@ -77,7 +77,9 @@ int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
 int	ft_find_env(char **envp, t_dt *data_ppx)
 {
 	int		ite_find;
+	int	cmd_found;
 
+	cmd_found = 0;
 	ite_find = -1;
 	while (data_ppx->all_cmd[++ite_find])
 	{
@@ -85,7 +87,8 @@ int	ft_find_env(char **envp, t_dt *data_ppx)
 		{
 			if (envp[0])
 			{
-				return (ft_find_path(envp, data_ppx, ite_find));
+				if (ft_find_path(envp, data_ppx, ite_find) == SUCCESS)
+					cmd_found++;
 			}
 		}
 	}
