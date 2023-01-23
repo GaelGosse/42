@@ -77,7 +77,7 @@ int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
 int	ft_find_env(char **envp, t_dt *data_ppx)
 {
 	int		ite_find;
-	int	cmd_found;
+	int		cmd_found;
 
 	cmd_found = 0;
 	ite_find = -1;
