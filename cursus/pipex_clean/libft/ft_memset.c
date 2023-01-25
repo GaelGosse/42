@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/04 17:02:09 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:17:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../color.h"
+#include "libft.h" 
 
-size_t	ft_strlen(const char *str)
+void	*ft_memset(void	*str, int value, size_t len)
 {
-	size_t	i;
+	unsigned char	*p;
+	int				i;
 
-	if (!str)
-		return (0);
+	p = str;
 	i = 0;
-	while (str[i] != '\0')
+	while (len--)
+	{
+		*(p + i) = (unsigned char)value;
 		i++;
-	return (i);
+	}
+	return (p);
 }

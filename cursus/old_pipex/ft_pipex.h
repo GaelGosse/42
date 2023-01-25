@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 16:40:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/22 19:35:11 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ typedef struct dt
 	char	***all_cmd;
 	char	***all_option;
 	pid_t	*pids_process;
-	int		fd_in_f;
-	int		fd_out_f;
+	int		fd_infile;
+	int		fd_outfile;
 	int		fd_std[2];
 }			t_dt;
 
@@ -58,20 +58,12 @@ void	ft_pipex(int argc, char **argv, char **envp, t_dt *data);
 void	ft_build_data(int argc, char **argv, t_dt *data);
 
 // ft_find_path.c
-void	ft_free_all(char *str, char **tab);
-int		ft_find_cmd(char **envp, t_dt *data_ppx, int ite_find, int ite_env);
-int		ft_find_path(char **envp, t_dt *data_ppx, int ite_find);
-int		ft_find_env(char **envp, t_dt *data_ppx);
+int		ft_find_cmd(char **envp, t_dt *data, int ite_find_path, int ite_env);
+int		ft_find_path(char **envp, t_dt *data, int ite_find_path);
+int		ft_find_env(char **envp, t_dt *data);
 
 // ft_exec.c
-void	ft_child_one(t_dt *data_ppx, char **envp);
-void	ft_child_two(t_dt *data_ppx, char **envp);
-void	ft_exec(t_dt *data_ppx, int argc, char **argv, char **envp);
-
-// ft_exec_utils.c
-void	ft_init_file_n_pipe(t_dt *data_ppx, char **argv, int argc);
-void	ft_close(t_dt *data_ppx);
-void	ft_close_ch(t_dt *data_ppx);
+void	ft_exec(t_dt *data, int argc, char **argv, char **envp);
 
 // ft_free_n_err.c
 void	ft_print_three(t_dt *data);

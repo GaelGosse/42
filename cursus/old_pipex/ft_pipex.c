@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 16:40:21 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/23 18:57:47 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,6 @@ int	main(int argc, char **argv, char **envp)
 	(void)argv;
 	(void)envp;
 }
+
+// 1 | 3 < 2 arg
+// 2 > 1 | 4 < 3 arg

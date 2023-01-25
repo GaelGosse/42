@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/20 10:28:53 by gael              #+#    #+#             */
+/*   Updated: 2022/06/14 19:21:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
+	char		*result;
+	size_t		i;
+	size_t		j;
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
+	i = start;
+	j = 0;
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		len = 0;
+	if (len > (ft_strlen(s) - start))
+		len = ft_strlen(s) - start;
+	result = (char *)malloc(len * sizeof(char) + 1);
+	if (!result)
+		return (NULL);
+	while (i < (start + len))
+	{
+		result[j] = s[i];
 		i++;
-	return (i);
+		j++;
+	}
+	result[j] = '\0';
+	return (result);
 }

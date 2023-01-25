@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/06/08 16:12:48 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 18:55:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
+	t_list	*last;
 
-	if (!str)
+	if (!lst)
 		return (0);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	last = lst;
+	while (last->next)
+	{
+		if (last->next != NULL)
+			last = last->next;
+	}
+	return (last);
 }

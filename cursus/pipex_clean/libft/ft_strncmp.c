@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/09 19:06:34 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:20:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strncmp(const char *first, const char *second, size_t length)
 {
 	size_t	i;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str[i] != '\0')
+	while ((first[i] || second[i]) && i < length)
+	{
+		if (first[i] != second[i])
+		{
+			return ((unsigned char)(first[i]) - (unsigned char)(second[i]));
+		}
 		i++;
-	return (i);
+	}
+	return (0);
 }

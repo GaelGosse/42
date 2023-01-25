@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/18 13:11:07 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/15 16:42:00 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	char	*res;
+	int		i;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str[i] != '\0')
+	res = NULL;
+	res = ft_strdup(str);
+	while (res[i])
+	{
+		res[i] = (*f)(i, res[i]);
 		i++;
-	return (i);
+	}
+	res[i] = '\0';
+	return (res);
 }

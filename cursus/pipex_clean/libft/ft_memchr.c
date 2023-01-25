@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/09 19:07:42 by ggosse            #+#    #+#             */
+/*   Updated: 2022/05/30 02:01:13 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_memchr(const void *s, int c, size_t len)
 {
-	size_t	i;
+	const unsigned char	*str;
+	size_t				i;
 
-	if (!str)
-		return (0);
+	str = (unsigned char *)s;
 	i = 0;
-	while (str[i] != '\0')
+	while (i < len)
+	{
+		if (str[i] == (unsigned char)c)
+			return ((void *)str + i);
 		i++;
-	return (i);
+	}
+	return (NULL);
 }

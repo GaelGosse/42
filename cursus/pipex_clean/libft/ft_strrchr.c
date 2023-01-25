@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/09 19:05:21 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:20:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strrchr(const char *str, int search)
 {
-	size_t	i;
+	int	i;
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	i = (int)ft_strlen((const char *)(str));
+	while (i >= 0)
+	{
+		if (str[i] == (unsigned char)(search))
+		{
+			return ((char *)(&str[i]));
+		}
+		i--;
+	}
+	return (NULL);
 }

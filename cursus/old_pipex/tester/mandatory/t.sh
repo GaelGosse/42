@@ -12,7 +12,7 @@ big_bad=$BACK_RED" Error "$RST
 
 
 ##### COMPIL #####
-gcc -Wall -Wextra -Werror -g */*.c *.c */*.h *.h -o pipex
+gcc -Wall -Wextra -Werror -g3 */*.c *.c */*.h *.h -o pipex
 rm -f *.gch */*.gch
 chmod 777 pipex
 
@@ -23,6 +23,7 @@ echo -e $CYAN" ----- ----- ----- ----- "$RST" $BACK_YELLOW $(date +"%H:%M:%S") $
 echo -e $CYAN"$CMD"$RST"\n"
 
 # valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes  --leak-check=full --show-leak-kinds=all --track-origins=yes 
+# valgrind --leak-check=full 
 # gdb --args 
 
 # valgrind --leak-check=full --show-leak-kinds=all ./pipex infile "ls" "/usr/bin/grep xhd" outfile
@@ -133,17 +134,22 @@ fi
 
 # 4 no infileS existed => error message
 > outfile
-CMD_4="./pipex infiles \"ls\" \"wc -l\" outfile"
+CMD_4="./pipex infiles \"ls\" \"/usr/bin/grep xhd\" outfile"
 vlg=$(valgrind $CMD_4 2>&1 | grep "in use at exit: 0 bytes in 0 blocks" | wc -l)
 res=$(echo $CMD_4 | bash 2>&1 | grep "No such file" --color=never || echo "bad")
-res2=$(echo $CMD_4 | bash 2>&1 | grep "No such file" --color=never || echo "bad")
 
 echo -ne "infile\t"
 if [[ $res == "No such file or directory" ]]
 then
-	echo -ne $good"\t\t"
+	echo -ne $good"\t"
 else
-	echo -ne $bad"\t\t"
+	echo -ne $bad"\t"
+fi
+if [[ 'xhd.txt' == $(cat outfile) ]]
+then
+	echo -ne $good"\t"
+else
+	echo -ne $bad"\t"
 fi
 if [[ $vlg -eq 1 ]]
 then

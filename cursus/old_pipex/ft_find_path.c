@@ -79,8 +79,6 @@ int	ft_find_env(char **envp, t_dt *data_ppx)
 	ite_find = -1;
 	while (data_ppx->all_cmd[++ite_find])
 	{
-		if (!data_ppx->all_cmd[ite_find][0])
-			return (FAIL);
 		if (!access(data_ppx->all_cmd[ite_find][0], X_OK) == 0)
 		{
 			if (envp[0])

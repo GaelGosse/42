@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/24 15:55:59 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:19:15 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strdup(const char *src)
 {
-	size_t	i;
+	char	*result;
+	int		i;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str[i] != '\0')
+	result = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	while (src[i])
+	{
+		result[i] = src[i];
 		i++;
-	return (i);
+	}
+	result[i] = '\0';
+	return (result);
 }
