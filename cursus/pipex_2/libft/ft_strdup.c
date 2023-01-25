@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:55:59 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/14 19:19:15 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/24 11:46:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(const char *src)
 	int		i;
 
 	i = 0;
+	if (!src)
+		return (NULL);
 	result = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
