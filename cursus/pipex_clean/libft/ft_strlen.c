@@ -6,12 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 11:45:58 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:56:44 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../color.h"
 
 size_t	ft_strlen(const char *str)
 {

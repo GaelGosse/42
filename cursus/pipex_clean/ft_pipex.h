@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:26:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 16:40:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:56:29 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
 // pipe, unlink
 # include <fcntl.h>
 
-# include "color.h"
 # include "libft/libft.h"
 
 # define FAIL -1

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:15:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/01/24 16:40:21 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/26 18:58:20 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ void	ft_build_data(int argc, char **argv, t_dt *data_ppx)
 		data_ppx->all_cmd[ite_argv - 2] = ft_split(argv[ite_argv], ' ');
 		ite_argv++;
 	}
-	(void)argc;
-	(void)argv;
-	(void)data_ppx;
 }
 
 void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx)
@@ -36,10 +33,6 @@ void	ft_pipex(int argc, char **argv, char **envp, t_dt *data_ppx)
 	ft_build_data(argc, argv, data_ppx);
 	ft_find_env(envp, data_ppx);
 	ft_exec(data_ppx, argc, argv, envp);
-	(void)argc;
-	(void)argv;
-	(void)envp;
-	(void)data_ppx;
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -50,7 +43,4 @@ int	main(int argc, char **argv, char **envp)
 		return (ft_error("wrong args"), 1);
 	ft_pipex(argc, argv, envp, &data_ppx);
 	ft_free_data_cmd(&data_ppx);
-	(void)argc;
-	(void)argv;
-	(void)envp;
 }

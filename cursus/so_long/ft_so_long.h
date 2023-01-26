@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/22 09:29:05 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/26 20:29:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # include <string.h>
 # include <fcntl.h>
 # include "color.h"
+
+# include "minilibx/mlx.h"
+# include <X11/keysym.h>
+# include <X11/X.h>
 # include "libft/libft.h"
 
 # define SUCCESS 1
@@ -60,6 +64,7 @@ int		ft_check_ext(char *filename);
 void	ft_build_map(t_map *map);
 
 // ft_so_long.c
+int		ft_create_game(t_map *map, void **mlx_ptr, void **win_ptr);
 int		parsing(t_map *map, int argc, char **argv, char **envp);
 void	ft_print_map_s(char **tab);
 void	ft_print_map_xl(char **tab);
@@ -72,6 +77,6 @@ int		ft_valid_path(t_map *map);
 /************************************ MLX *************************************/
 
 // ft_create_game.c
-void	ft_display_map(t_map *map);
+int	ft_display_map(t_map *map, void **mlx_ptr, void **win_ptr);
 
 #endif

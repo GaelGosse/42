@@ -65,9 +65,6 @@ int	ft_find_path(char **envp, t_dt *data_ppx, int ite_find)
 		}
 	}
 	return (FAIL);
-	(void)ite_find;
-	(void)envp;
-	(void)data_ppx;
 }
 
 int	ft_find_env(char **envp, t_dt *data_ppx)
@@ -91,5 +88,4 @@ int	ft_find_env(char **envp, t_dt *data_ppx)
 		}
 	}
 	return (FAIL);
-	(void)envp;
 }
