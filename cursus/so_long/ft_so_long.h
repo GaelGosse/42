@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/26 20:29:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/27 17:41:34 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,18 @@ typedef struct map
 	t_letters	check_letters;
 }				t_map;
 
+typedef struct game
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		img_size;
+	void	*sprite_0;
+	void	*sprite_1;
+	void	*sprite_P;
+	void	*sprite_C;
+	void	*sprite_E;
+}			t_game;
+
 /********************************** PARSING ***********************************/
 
 // ft_check_format.C
@@ -64,8 +76,8 @@ int		ft_check_ext(char *filename);
 void	ft_build_map(t_map *map);
 
 // ft_so_long.c
-int		ft_create_game(t_map *map, void **mlx_ptr, void **win_ptr);
-int		parsing(t_map *map, int argc, char **argv, char **envp);
+int		ft_create_game(t_map *map, t_game *game);
+int		ft_parsing(t_map *map, int argc, char **argv, char **envp);
 void	ft_print_map_s(char **tab);
 void	ft_print_map_xl(char **tab);
 
@@ -77,6 +89,6 @@ int		ft_valid_path(t_map *map);
 /************************************ MLX *************************************/
 
 // ft_create_game.c
-int	ft_display_map(t_map *map, void **mlx_ptr, void **win_ptr);
+int	ft_display_map(t_map *map, t_game *game);
 
 #endif

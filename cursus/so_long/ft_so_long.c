@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/26 20:19:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/27 15:21:58 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_print_map_xl(char **tab)
 	}
 }
 
-int	parsing(t_map *map, int argc, char **argv, char **envp)
+int	ft_parsing(t_map *map, int argc, char **argv, char **envp)
 {
 	map->check_letters.letter_c = 0;
 	map->check_letters.letter_e = 0;
@@ -93,24 +93,23 @@ int	parsing(t_map *map, int argc, char **argv, char **envp)
 	(void)envp;
 }
 
-int	ft_create_game(t_map *map, void **mlx_ptr, void **win_ptr)
+int	ft_create_game(t_map *map, t_game *game)
 {
-	ft_display_map(map, mlx_ptr, win_ptr);
+	ft_display_map(map, game);
 	return (1);
 	(void)map;
 }
 
 int	main(int argc, char **argv, char **envp)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	t_game	game;
 	t_map	map;
 
 	if (argc != 2)
 		return (ft_putstr_fd("you must called one arg\n", 1), 1);
-	if (parsing(&map, argc, argv, envp) == FAIL)
+	if (ft_parsing(&map, argc, argv, envp) == FAIL)
 		return (1);
-	ft_create_game(&map, &mlx_ptr, &win_ptr);
+	ft_create_game(&map, &game);
 	printf(PURPLE"map.height: %i"RESET"\n", map.height);
 	printf(PURPLE"map.width: %i"RESET"\n", map.width);
 	(void)argc;

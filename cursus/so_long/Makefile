@@ -52,7 +52,7 @@ fclean :
 	@echo
 	@echo "${YELLOW} ----- clean...  -----${NC}"
 	@echo
-	make clean 
+	make clean --no-print-directory
 	rm -f $(NAME)
 	@echo
 	@echo "${YELLOW} ----- ✅ fclean done -----${NC}"
