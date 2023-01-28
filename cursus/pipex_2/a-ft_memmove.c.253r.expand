@@ -1,0 +1,300 @@
+
+;; Function ft_memmove (ft_memmove, funcdef_no=6, decl_uid=3877, cgraph_uid=7, symbol_order=6)
+
+Partition 2: size 8 align 8
+	src_17
+Partition 1: size 8 align 8
+	dst_15
+Partition 0: size 8 align 8
+	i_10
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+;; Generating RTL for gimple basic block 9
+
+;; Generating RTL for gimple basic block 10
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Forwarding edge 6->7 to 11 failed.
+Merging block 12 into block 11...
+Merged blocks 11 and 12.
+Merged 11 and 12 without moving.
+Removing jump 66.
+Merging block 13 into block 11...
+Merged blocks 11 and 13.
+Merged 11 and 13 without moving.
+
+
+try_optimize_cfg iteration 2
+
+Forwarding edge 6->7 to 11 failed.
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 6 NOTE_INSN_DELETED)
+(note 6 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 6 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [3 destination+0 S8 A64])
+        (reg:DI 5 di [ destination ])) "libft/ft_memmove.c":16:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -48 [0xffffffffffffffd0])) [3 source+0 S8 A64])
+        (reg:DI 4 si [ source ])) "libft/ft_memmove.c":16:1 -1
+     (nil))
+(insn 4 3 5 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])
+        (reg:DI 1 dx [ n ])) "libft/ft_memmove.c":16:1 -1
+     (nil))
+(note 5 4 8 2 NOTE_INSN_FUNCTION_BEG)
+(insn 8 5 9 2 (set (reg/f:DI 92)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [3 destination+0 S8 A64])) "libft/ft_memmove.c":21:6 -1
+     (nil))
+(insn 9 8 10 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])
+        (reg/f:DI 92)) "libft/ft_memmove.c":21:6 -1
+     (nil))
+(insn 10 9 11 2 (set (reg/f:DI 93)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -48 [0xffffffffffffffd0])) [3 source+0 S8 A64])) "libft/ft_memmove.c":22:6 -1
+     (nil))
+(insn 11 10 12 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 src+0 S8 A64])
+        (reg/f:DI 93)) "libft/ft_memmove.c":22:6 -1
+     (nil))
+(insn 12 11 13 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])
+        (const_int 0 [0])) "libft/ft_memmove.c":23:4 -1
+     (nil))
+(insn 13 12 14 2 (set (reg/f:DI 94)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])) "libft/ft_memmove.c":24:5 -1
+     (nil))
+(insn 14 13 15 2 (set (reg:CC 17 flags)
+        (compare:CC (reg/f:DI 94)
+            (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [1 src+0 S8 A64]))) "libft/ft_memmove.c":24:5 -1
+     (nil))
+(jump_insn 15 14 16 2 (set (pc)
+        (if_then_else (geu (reg:CC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 38)
+            (pc))) "libft/ft_memmove.c":24:5 -1
+     (nil)
+ -> 38)
+(note 16 15 17 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 17 16 18 4 (set (pc)
+        (label_ref 29)) "libft/ft_memmove.c":26:9 -1
+     (nil)
+ -> 29)
+(barrier 18 17 31)
+(code_label 31 18 19 5 4 (nil) [1 uses])
+(note 19 31 20 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 20 19 21 5 (set (reg/f:DI 95)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 src+0 S8 A64])) "libft/ft_memmove.c":28:16 -1
+     (nil))
+(insn 21 20 22 5 (set (reg:DI 96)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])) "libft/ft_memmove.c":28:16 -1
+     (nil))
+(insn 22 21 23 5 (parallel [
+            (set (reg/f:DI 82 [ _1 ])
+                (plus:DI (reg/f:DI 95)
+                    (reg:DI 96)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":28:16 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [1 src+0 S8 A64])
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64]))
+        (nil)))
+(insn 23 22 24 5 (set (reg/f:DI 97)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])) "libft/ft_memmove.c":28:7 -1
+     (nil))
+(insn 24 23 25 5 (set (reg:DI 98)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])) "libft/ft_memmove.c":28:7 -1
+     (nil))
+(insn 25 24 26 5 (parallel [
+            (set (reg/f:DI 83 [ _2 ])
+                (plus:DI (reg/f:DI 97)
+                    (reg:DI 98)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":28:7 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64]))
+        (nil)))
+(insn 26 25 27 5 (set (reg:QI 84 [ _3 ])
+        (mem:QI (reg/f:DI 82 [ _1 ]) [0 *_1+0 S1 A8])) "libft/ft_memmove.c":28:16 -1
+     (nil))
+(insn 27 26 28 5 (set (mem:QI (reg/f:DI 83 [ _2 ]) [0 *_2+0 S1 A8])
+        (reg:QI 84 [ _3 ])) "libft/ft_memmove.c":28:11 -1
+     (nil))
+(insn 28 27 29 5 (parallel [
+            (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])
+                (plus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":29:5 -1
+     (nil))
+(code_label 29 28 30 6 3 (nil) [1 uses])
+(note 30 29 32 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 32 30 33 6 (set (reg:DI 99)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])) "libft/ft_memmove.c":26:12 -1
+     (nil))
+(insn 33 32 34 6 (set (reg:CC 17 flags)
+        (compare:CC (reg:DI 99)
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64]))) "libft/ft_memmove.c":26:12 -1
+     (nil))
+(jump_insn 34 33 37 6 (set (pc)
+        (if_then_else (ltu (reg:CC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 31)
+            (pc))) "libft/ft_memmove.c":26:12 -1
+     (nil)
+ -> 31)
+(note 37 34 35 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 35 37 36 7 (set (pc)
+        (label_ref 60)) -1
+     (nil)
+ -> 60)
+(barrier 36 35 38)
+(code_label 38 36 39 8 2 (nil) [1 uses])
+(note 39 38 40 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 40 39 41 8 (set (pc)
+        (label_ref 54)) "libft/ft_memmove.c":34:9 -1
+     (nil)
+ -> 54)
+(barrier 41 40 56)
+(code_label 56 41 42 9 7 (nil) [1 uses])
+(note 42 56 43 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 43 42 44 9 (set (reg:DI 100)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])) "libft/ft_memmove.c":36:20 -1
+     (nil))
+(insn 44 43 45 9 (parallel [
+            (set (reg:DI 85 [ _4 ])
+                (plus:DI (reg:DI 100)
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":36:20 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])
+            (const_int -1 [0xffffffffffffffff]))
+        (nil)))
+(insn 45 44 46 9 (set (reg/f:DI 101)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 src+0 S8 A64])) "libft/ft_memmove.c":36:20 -1
+     (nil))
+(insn 46 45 47 9 (parallel [
+            (set (reg/f:DI 86 [ _5 ])
+                (plus:DI (reg:DI 85 [ _4 ])
+                    (reg/f:DI 101)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":36:20 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [1 src+0 S8 A64])
+            (reg:DI 85 [ _4 ]))
+        (nil)))
+(insn 47 46 48 9 (set (reg:DI 102)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])) "libft/ft_memmove.c":36:7 -1
+     (nil))
+(insn 48 47 49 9 (parallel [
+            (set (reg:DI 87 [ _6 ])
+                (plus:DI (reg:DI 102)
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":36:7 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])
+            (const_int -1 [0xffffffffffffffff]))
+        (nil)))
+(insn 49 48 50 9 (set (reg/f:DI 103)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])) "libft/ft_memmove.c":36:7 -1
+     (nil))
+(insn 50 49 51 9 (parallel [
+            (set (reg/f:DI 88 [ _7 ])
+                (plus:DI (reg:DI 87 [ _6 ])
+                    (reg/f:DI 103)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":36:7 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])
+            (reg:DI 87 [ _6 ]))
+        (nil)))
+(insn 51 50 52 9 (set (reg:QI 89 [ _8 ])
+        (mem:QI (reg/f:DI 86 [ _5 ]) [0 *_5+0 S1 A8])) "libft/ft_memmove.c":36:20 -1
+     (nil))
+(insn 52 51 53 9 (set (mem:QI (reg/f:DI 88 [ _7 ]) [0 *_7+0 S1 A8])
+        (reg:QI 89 [ _8 ])) "libft/ft_memmove.c":36:15 -1
+     (nil))
+(insn 53 52 54 9 (parallel [
+            (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])
+                (plus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_memmove.c":37:5 -1
+     (nil))
+(code_label 54 53 55 10 6 (nil) [1 uses])
+(note 55 54 57 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 57 55 58 10 (set (reg:DI 104)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 i+0 S8 A64])) "libft/ft_memmove.c":34:12 -1
+     (nil))
+(insn 58 57 59 10 (set (reg:CC 17 flags)
+        (compare:CC (reg:DI 104)
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -56 [0xffffffffffffffc8])) [2 n+0 S8 A64]))) "libft/ft_memmove.c":34:12 -1
+     (nil))
+(jump_insn 59 58 60 10 (set (pc)
+        (if_then_else (ltu (reg:CC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 56)
+            (pc))) "libft/ft_memmove.c":34:12 -1
+     (nil)
+ -> 56)
+(code_label 60 59 61 11 5 (nil) [1 uses])
+(note 61 60 62 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 62 61 65 11 (set (reg/f:DI 90 [ _25 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 dst+0 S8 A64])) "libft/ft_memmove.c":40:9 -1
+     (nil))
+(insn 65 62 69 11 (set (reg/f:DI 91 [ <retval> ])
+        (reg/f:DI 90 [ _25 ])) "libft/ft_memmove.c":40:9 -1
+     (nil))
+(insn 69 65 70 11 (set (reg/i:DI 0 ax)
+        (reg/f:DI 91 [ <retval> ])) "libft/ft_memmove.c":41:1 -1
+     (nil))
+(insn 70 69 0 11 (use (reg/i:DI 0 ax)) "libft/ft_memmove.c":41:1 -1
+     (nil))

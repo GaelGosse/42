@@ -1,0 +1,60 @@
+
+;; Function ft_bzero (ft_bzero, funcdef_no=6, decl_uid=3816, cgraph_uid=7, symbol_order=6)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 str+0 S8 A64])
+        (reg:DI 5 di [ str ])) "libft/ft_bzero.c":16:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [2 n+0 S8 A64])
+        (reg:DI 4 si [ n ])) "libft/ft_bzero.c":16:1 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:DI 82)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [2 n+0 S8 A64])) "libft/ft_bzero.c":17:2 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:DI 83)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 str+0 S8 A64])) "libft/ft_bzero.c":17:2 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 1 dx)
+        (reg:DI 82)) "libft/ft_bzero.c":17:2 -1
+     (nil))
+(insn 10 9 11 2 (set (reg:SI 4 si)
+        (const_int 0 [0])) "libft/ft_bzero.c":17:2 -1
+     (nil))
+(insn 11 10 12 2 (set (reg:DI 5 di)
+        (reg:DI 83)) "libft/ft_bzero.c":17:2 -1
+     (nil))
+(call_insn 12 11 0 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_memset") [flags 0x41]  <function_decl 0x7f696d8e7400 ft_memset>) [0 ft_memset S1 A8])
+            (const_int 0 [0]))) "libft/ft_bzero.c":17:2 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))

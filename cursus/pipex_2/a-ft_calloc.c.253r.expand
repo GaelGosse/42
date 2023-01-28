@@ -1,0 +1,208 @@
+
+;; Function ft_calloc (ft_calloc, funcdef_no=6, decl_uid=3819, cgraph_uid=7, symbol_order=6)
+
+Partition 0: size 8 align 8
+	res_12
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Removing jump 46.
+Merging block 10 into block 9...
+Merged blocks 9 and 10.
+Merged 9 and 10 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])
+        (reg:DI 5 di [ nmemb ])) "libft/ft_calloc.c":16:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [2 size+0 S8 A64])
+        (reg:DI 4 si [ size ])) "libft/ft_calloc.c":16:1 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])
+            (const_int 0 [0]))) "libft/ft_calloc.c":19:5 -1
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 20)
+            (pc))) "libft/ft_calloc.c":19:5 -1
+     (nil)
+ -> 20)
+(note 9 8 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg:DI 88)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])) "libft/ft_calloc.c":19:23 -1
+     (nil))
+(insn 11 10 12 4 (parallel [
+            (set (reg:DI 82 [ _1 ])
+                (mult:DI (reg:DI 88)
+                    (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -32 [0xffffffffffffffe0])) [2 size+0 S8 A64])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_calloc.c":19:23 -1
+     (nil))
+(insn 12 11 13 4 (parallel [
+            (set (reg:DI 89)
+                (udiv:DI (reg:DI 82 [ _1 ])
+                    (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])))
+            (set (reg:DI 90)
+                (umod:DI (reg:DI 82 [ _1 ])
+                    (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_calloc.c":19:30 -1
+     (nil))
+(insn 13 12 14 4 (set (reg:DI 83 [ _2 ])
+        (reg:DI 89)) "libft/ft_calloc.c":19:30 -1
+     (nil))
+(insn 14 13 15 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])) [2 size+0 S8 A64])
+            (reg:DI 83 [ _2 ]))) "libft/ft_calloc.c":19:12 -1
+     (nil))
+(jump_insn 15 14 16 4 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 20)
+            (pc))) "libft/ft_calloc.c":19:12 -1
+     (nil)
+ -> 20)
+(note 16 15 17 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 18 5 (set (reg/f:DI 86 [ _5 ])
+        (const_int 0 [0])) "libft/ft_calloc.c":20:10 -1
+     (nil))
+(jump_insn 18 17 19 5 (set (pc)
+        (label_ref 43)) "libft/ft_calloc.c":20:10 -1
+     (nil)
+ -> 43)
+(barrier 19 18 20)
+(code_label 20 19 21 6 2 (nil) [2 uses])
+(note 21 20 22 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 22 21 23 6 (set (reg:DI 91)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])) "libft/ft_calloc.c":21:8 -1
+     (nil))
+(insn 23 22 24 6 (parallel [
+            (set (reg:DI 84 [ _3 ])
+                (mult:DI (reg:DI 91)
+                    (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -32 [0xffffffffffffffe0])) [2 size+0 S8 A64])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_calloc.c":21:8 -1
+     (nil))
+(insn 24 23 25 6 (set (reg:DI 5 di)
+        (reg:DI 84 [ _3 ])) "libft/ft_calloc.c":21:8 -1
+     (nil))
+(call_insn 25 24 26 6 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7f2cc95c9700 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) "libft/ft_calloc.c":21:8 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 26 25 27 6 (set (reg/f:DI 92)
+        (reg:DI 0 ax)) "libft/ft_calloc.c":21:8 -1
+     (expr_list:REG_NOALIAS (reg/f:DI 92)
+        (nil)))
+(insn 27 26 28 6 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 res+0 S8 A64])
+        (reg/f:DI 92)) "libft/ft_calloc.c":21:8 -1
+     (nil))
+(insn 28 27 29 6 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [1 res+0 S8 A64])
+            (const_int 0 [0]))) "libft/ft_calloc.c":22:5 -1
+     (nil))
+(jump_insn 29 28 30 6 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 34)
+            (pc))) "libft/ft_calloc.c":22:5 -1
+     (nil)
+ -> 34)
+(note 30 29 31 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 31 30 32 7 (set (reg/f:DI 86 [ _5 ])
+        (const_int 0 [0])) "libft/ft_calloc.c":23:10 -1
+     (nil))
+(jump_insn 32 31 33 7 (set (pc)
+        (label_ref 43)) "libft/ft_calloc.c":23:10 -1
+     (nil)
+ -> 43)
+(barrier 33 32 34)
+(code_label 34 33 35 8 4 (nil) [1 uses])
+(note 35 34 36 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 36 35 37 8 (set (reg:DI 93)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [2 size+0 S8 A64])) "libft/ft_calloc.c":24:2 -1
+     (nil))
+(insn 37 36 38 8 (parallel [
+            (set (reg:DI 85 [ _4 ])
+                (mult:DI (reg:DI 93)
+                    (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -24 [0xffffffffffffffe8])) [2 nmemb+0 S8 A64])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_calloc.c":24:2 -1
+     (nil))
+(insn 38 37 39 8 (set (reg:DI 94)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 res+0 S8 A64])) "libft/ft_calloc.c":24:2 -1
+     (nil))
+(insn 39 38 40 8 (set (reg:DI 4 si)
+        (reg:DI 85 [ _4 ])) "libft/ft_calloc.c":24:2 -1
+     (nil))
+(insn 40 39 41 8 (set (reg:DI 5 di)
+        (reg:DI 94)) "libft/ft_calloc.c":24:2 -1
+     (nil))
+(call_insn 41 40 42 8 (call (mem:QI (symbol_ref:DI ("ft_bzero") [flags 0x41]  <function_decl 0x7f2cc9337b00 ft_bzero>) [0 ft_bzero S1 A8])
+        (const_int 0 [0])) "libft/ft_calloc.c":24:2 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 42 41 43 8 (set (reg/f:DI 86 [ _5 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 res+0 S8 A64])) "libft/ft_calloc.c":25:9 -1
+     (nil))
+(code_label 43 42 44 9 3 (nil) [2 uses])
+(note 44 43 45 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 45 44 49 9 (set (reg/f:DI 87 [ <retval> ])
+        (reg/f:DI 86 [ _5 ])) "libft/ft_calloc.c":26:1 -1
+     (nil))
+(insn 49 45 50 9 (set (reg/i:DI 0 ax)
+        (reg/f:DI 87 [ <retval> ])) "libft/ft_calloc.c":26:1 -1
+     (nil))
+(insn 50 49 0 9 (use (reg/i:DI 0 ax)) "libft/ft_calloc.c":26:1 -1
+     (nil))

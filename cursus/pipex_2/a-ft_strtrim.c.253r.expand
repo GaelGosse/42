@@ -1,0 +1,694 @@
+
+;; Function ft_isset (ft_isset, funcdef_no=6, decl_uid=3949, cgraph_uid=7, symbol_order=6)
+
+Partition 0: size 4 align 4
+	i_7
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Removing jump 42.
+Merging block 10 into block 9...
+Merged blocks 9 and 10.
+Merged 9 and 10 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 7 NOTE_INSN_DELETED)
+(note 7 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 7 5 2 (set (reg:SI 90)
+        (reg:SI 5 di [ c ])) "libft/ft_strtrim.c":16:1 -1
+     (nil))
+(insn 5 2 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [2 set+0 S8 A64])
+        (reg:DI 4 si [ set ])) "libft/ft_strtrim.c":16:1 -1
+     (nil))
+(insn 3 5 4 2 (set (reg:QI 91)
+        (subreg:QI (reg:SI 90) 0)) "libft/ft_strtrim.c":16:1 -1
+     (nil))
+(insn 4 3 6 2 (set (mem/c:QI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [0 c+0 S1 A32])
+        (reg:QI 91)) "libft/ft_strtrim.c":16:1 -1
+     (nil))
+(note 6 4 9 2 NOTE_INSN_FUNCTION_BEG)
+(insn 9 6 10 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 i+0 S4 A32])
+        (const_int 0 [0])) "libft/ft_strtrim.c":19:4 -1
+     (nil))
+(jump_insn 10 9 11 2 (set (pc)
+        (label_ref 27)) "libft/ft_strtrim.c":20:8 -1
+     (nil)
+ -> 27)
+(barrier 11 10 34)
+(code_label 34 11 12 4 5 (nil) [1 uses])
+(note 12 34 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (reg:SI 92)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 i+0 S4 A32])) "libft/ft_strtrim.c":22:10 -1
+     (nil))
+(insn 14 13 15 4 (set (reg:DI 82 [ _1 ])
+        (sign_extend:DI (reg:SI 92))) "libft/ft_strtrim.c":22:10 -1
+     (nil))
+(insn 15 14 16 4 (set (reg/f:DI 93)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [2 set+0 S8 A64])) "libft/ft_strtrim.c":22:10 -1
+     (nil))
+(insn 16 15 17 4 (parallel [
+            (set (reg/f:DI 83 [ _2 ])
+                (plus:DI (reg:DI 82 [ _1 ])
+                    (reg/f:DI 93)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":22:10 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])) [2 set+0 S8 A64])
+            (reg:DI 82 [ _1 ]))
+        (nil)))
+(insn 17 16 18 4 (set (reg:QI 84 [ _3 ])
+        (mem:QI (reg/f:DI 83 [ _2 ]) [0 *_2+0 S1 A8])) "libft/ft_strtrim.c":22:10 -1
+     (nil))
+(insn 18 17 19 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:QI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -20 [0xffffffffffffffec])) [0 c+0 S1 A32])
+            (reg:QI 84 [ _3 ]))) "libft/ft_strtrim.c":22:6 -1
+     (nil))
+(jump_insn 19 18 20 4 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 24)
+            (pc))) "libft/ft_strtrim.c":22:6 -1
+     (nil)
+ -> 24)
+(note 20 19 21 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 21 20 22 5 (set (reg:SI 88 [ _8 ])
+        (const_int 1 [0x1])) "libft/ft_strtrim.c":24:11 -1
+     (nil))
+(jump_insn 22 21 23 5 (set (pc)
+        (label_ref 39)) "libft/ft_strtrim.c":24:11 -1
+     (nil)
+ -> 39)
+(barrier 23 22 24)
+(code_label 24 23 25 6 3 (nil) [1 uses])
+(note 25 24 26 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 26 25 27 6 (parallel [
+            (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -4 [0xfffffffffffffffc])) [1 i+0 S4 A32])
+                (plus:SI (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -4 [0xfffffffffffffffc])) [1 i+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":26:4 -1
+     (nil))
+(code_label 27 26 28 7 2 (nil) [1 uses])
+(note 28 27 29 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 29 28 30 7 (set (reg:SI 94)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 i+0 S4 A32])) "libft/ft_strtrim.c":20:12 -1
+     (nil))
+(insn 30 29 31 7 (set (reg:DI 85 [ _4 ])
+        (sign_extend:DI (reg:SI 94))) "libft/ft_strtrim.c":20:12 -1
+     (nil))
+(insn 31 30 32 7 (set (reg/f:DI 95)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [2 set+0 S8 A64])) "libft/ft_strtrim.c":20:12 -1
+     (nil))
+(insn 32 31 33 7 (parallel [
+            (set (reg/f:DI 86 [ _5 ])
+                (plus:DI (reg:DI 85 [ _4 ])
+                    (reg/f:DI 95)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":20:12 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -32 [0xffffffffffffffe0])) [2 set+0 S8 A64])
+            (reg:DI 85 [ _4 ]))
+        (nil)))
+(insn 33 32 35 7 (set (reg:QI 87 [ _6 ])
+        (mem:QI (reg/f:DI 86 [ _5 ]) [0 *_5+0 S1 A8])) "libft/ft_strtrim.c":20:12 -1
+     (nil))
+(insn 35 33 36 7 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:QI 87 [ _6 ])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":20:9 -1
+     (nil))
+(jump_insn 36 35 37 7 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 34)
+            (pc))) "libft/ft_strtrim.c":20:9 -1
+     (nil)
+ -> 34)
+(note 37 36 38 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 38 37 39 8 (set (reg:SI 88 [ _8 ])
+        (const_int 0 [0])) "libft/ft_strtrim.c":28:9 -1
+     (nil))
+(code_label 39 38 40 9 4 (nil) [1 uses])
+(note 40 39 41 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 41 40 45 9 (set (reg:SI 89 [ <retval> ])
+        (reg:SI 88 [ _8 ])) "libft/ft_strtrim.c":29:1 -1
+     (nil))
+(insn 45 41 46 9 (set (reg/i:SI 0 ax)
+        (reg:SI 89 [ <retval> ])) "libft/ft_strtrim.c":29:1 -1
+     (nil))
+(insn 46 45 0 9 (use (reg/i:SI 0 ax)) "libft/ft_strtrim.c":29:1 -1
+     (nil))
+
+;; Function ft_strtrim (ft_strtrim, funcdef_no=7, decl_uid=3938, cgraph_uid=8, symbol_order=7)
+
+Partition 2: size 8 align 8
+	res_34
+Partition 1: size 8 align 8
+	end_17
+Partition 0: size 8 align 8
+	start_16
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+;; Generating RTL for gimple basic block 9
+
+;; Generating RTL for gimple basic block 10
+
+;; Generating RTL for gimple basic block 11
+
+;; Generating RTL for gimple basic block 12
+
+;; Generating RTL for gimple basic block 13
+
+;; Generating RTL for gimple basic block 14
+
+;; Generating RTL for gimple basic block 15
+
+;; Generating RTL for gimple basic block 16
+
+;; Generating RTL for gimple basic block 17
+
+;; Generating RTL for gimple basic block 18
+
+;; Generating RTL for gimple basic block 19
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Removing jump 126.
+Merging block 21 into block 20...
+Merged blocks 20 and 21.
+Merged 20 and 21 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])
+        (reg:DI 5 di [ str ])) "libft/ft_strtrim.c":32:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -48 [0xffffffffffffffd0])) [2 set+0 S8 A64])
+        (reg:DI 4 si [ set ])) "libft/ft_strtrim.c":32:1 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":37:5 -1
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 13)
+            (pc))) "libft/ft_strtrim.c":37:5 -1
+     (nil)
+ -> 13)
+(note 9 8 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg/f:DI 97 [ _18 ])
+        (const_int 0 [0])) "libft/ft_strtrim.c":38:10 -1
+     (nil))
+(jump_insn 11 10 12 4 (set (pc)
+        (label_ref 123)) "libft/ft_strtrim.c":38:10 -1
+     (nil)
+ -> 123)
+(barrier 12 11 13)
+(code_label 13 12 14 5 7 (nil) [1 uses])
+(note 14 13 15 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 15 14 16 5 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -48 [0xffffffffffffffd0])) [2 set+0 S8 A64])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":39:5 -1
+     (nil))
+(jump_insn 16 15 17 5 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 24)
+            (pc))) "libft/ft_strtrim.c":39:5 -1
+     (nil)
+ -> 24)
+(note 17 16 18 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 6 (set (reg:DI 99)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":40:11 -1
+     (nil))
+(insn 19 18 20 6 (set (reg:DI 5 di)
+        (reg:DI 99)) "libft/ft_strtrim.c":40:11 -1
+     (nil))
+(call_insn 20 19 21 6 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_strdup") [flags 0x41]  <function_decl 0x7fc6b3af9b00 ft_strdup>) [0 ft_strdup S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":40:11 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 21 20 22 6 (set (reg/f:DI 97 [ _18 ])
+        (reg:DI 0 ax)) "libft/ft_strtrim.c":40:11 -1
+     (nil))
+(jump_insn 22 21 23 6 (set (pc)
+        (label_ref 123)) "libft/ft_strtrim.c":40:11 -1
+     (nil)
+ -> 123)
+(barrier 23 22 24)
+(code_label 24 23 25 7 9 (nil) [1 uses])
+(note 25 24 26 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 26 25 27 7 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])
+        (const_int 0 [0])) "libft/ft_strtrim.c":41:8 -1
+     (nil))
+(insn 27 26 28 7 (set (reg:DI 100)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":42:8 -1
+     (nil))
+(insn 28 27 29 7 (set (reg:DI 5 di)
+        (reg:DI 100)) "libft/ft_strtrim.c":42:8 -1
+     (nil))
+(call_insn 29 28 30 7 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_strlen") [flags 0x41]  <function_decl 0x7fc6b3afc000 ft_strlen>) [0 ft_strlen S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":42:8 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 30 29 31 7 (set (reg:DI 82 [ _1 ])
+        (reg:DI 0 ax)) "libft/ft_strtrim.c":42:8 -1
+     (nil))
+(insn 31 30 32 7 (parallel [
+            (set (reg:DI 101)
+                (plus:DI (reg:DI 82 [ _1 ])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":42:6 -1
+     (nil))
+(insn 32 31 33 7 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])
+        (reg:DI 101)) "libft/ft_strtrim.c":42:6 -1
+     (nil))
+(jump_insn 33 32 34 7 (set (pc)
+        (label_ref 37)) "libft/ft_strtrim.c":43:8 -1
+     (nil)
+ -> 37)
+(barrier 34 33 56)
+(code_label 56 34 35 8 12 (nil) [1 uses])
+(note 35 56 36 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 36 35 37 8 (parallel [
+            (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])
+                (plus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":44:8 -1
+     (nil))
+(code_label 37 36 38 9 10 (nil) [1 uses])
+(note 38 37 39 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 39 38 40 9 (set (reg/f:DI 102)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":43:21 -1
+     (nil))
+(insn 40 39 41 9 (set (reg:DI 103)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])) "libft/ft_strtrim.c":43:21 -1
+     (nil))
+(insn 41 40 42 9 (parallel [
+            (set (reg/f:DI 83 [ _2 ])
+                (plus:DI (reg/f:DI 102)
+                    (reg:DI 103)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":43:21 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64]))
+        (nil)))
+(insn 42 41 43 9 (set (reg:QI 84 [ _3 ])
+        (mem:QI (reg/f:DI 83 [ _2 ]) [0 *_2+0 S1 A8])) "libft/ft_strtrim.c":43:21 -1
+     (nil))
+(insn 43 42 44 9 (set (reg:SI 85 [ _4 ])
+        (sign_extend:SI (reg:QI 84 [ _3 ]))) "libft/ft_strtrim.c":43:9 -1
+     (nil))
+(insn 44 43 45 9 (set (reg:DI 104)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -48 [0xffffffffffffffd0])) [2 set+0 S8 A64])) "libft/ft_strtrim.c":43:9 -1
+     (nil))
+(insn 45 44 46 9 (set (reg:DI 4 si)
+        (reg:DI 104)) "libft/ft_strtrim.c":43:9 -1
+     (nil))
+(insn 46 45 47 9 (set (reg:SI 5 di)
+        (reg:SI 85 [ _4 ])) "libft/ft_strtrim.c":43:9 -1
+     (nil))
+(call_insn 47 46 48 9 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_isset") [flags 0x3]  <function_decl 0x7fc6b3afc900 ft_isset>) [0 ft_isset S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":43:9 -1
+     (nil)
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 48 47 49 9 (set (reg:SI 86 [ _5 ])
+        (reg:SI 0 ax)) "libft/ft_strtrim.c":43:9 -1
+     (nil))
+(insn 49 48 50 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 86 [ _5 ])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":43:35 -1
+     (nil))
+(jump_insn 50 49 51 9 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 59)
+            (pc))) "libft/ft_strtrim.c":43:35 -1
+     (nil)
+ -> 59)
+(note 51 50 52 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 52 51 53 10 (set (reg/f:DI 105)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":43:41 -1
+     (nil))
+(insn 53 52 54 10 (set (reg:DI 106)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])) "libft/ft_strtrim.c":43:41 -1
+     (nil))
+(insn 54 53 55 10 (parallel [
+            (set (reg/f:DI 87 [ _6 ])
+                (plus:DI (reg/f:DI 105)
+                    (reg:DI 106)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":43:41 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64]))
+        (nil)))
+(insn 55 54 57 10 (set (reg:QI 88 [ _7 ])
+        (mem:QI (reg/f:DI 87 [ _6 ]) [0 *_6+0 S1 A8])) "libft/ft_strtrim.c":43:41 -1
+     (nil))
+(insn 57 55 58 10 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:QI 88 [ _7 ])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":43:35 -1
+     (nil))
+(jump_insn 58 57 59 10 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 56)
+            (pc))) "libft/ft_strtrim.c":43:35 -1
+     (nil)
+ -> 56)
+(code_label 59 58 60 11 11 (nil) [1 uses])
+(note 60 59 61 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 61 60 62 11 (set (reg:DI 107)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":45:15 -1
+     (nil))
+(insn 62 61 63 11 (set (reg:DI 5 di)
+        (reg:DI 107)) "libft/ft_strtrim.c":45:15 -1
+     (nil))
+(call_insn 63 62 64 11 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_strlen") [flags 0x41]  <function_decl 0x7fc6b3afc000 ft_strlen>) [0 ft_strlen S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":45:15 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 64 63 65 11 (set (reg:DI 89 [ _8 ])
+        (reg:DI 0 ax)) "libft/ft_strtrim.c":45:15 -1
+     (nil))
+(insn 65 64 66 11 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])
+            (reg:DI 89 [ _8 ]))) "libft/ft_strtrim.c":45:5 -1
+     (nil))
+(jump_insn 66 65 67 11 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 84)
+            (pc))) "libft/ft_strtrim.c":45:5 -1
+     (nil)
+ -> 84)
+(note 67 66 68 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 68 67 69 12 (set (reg:DI 108)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc6b3b13240 *.LC0>)) "libft/ft_strtrim.c":47:9 -1
+     (nil))
+(insn 69 68 70 12 (set (reg:DI 5 di)
+        (reg:DI 108)) "libft/ft_strtrim.c":47:9 -1
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc6b3b13240 *.LC0>)
+        (nil)))
+(call_insn 70 69 71 12 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_strdup") [flags 0x41]  <function_decl 0x7fc6b3af9b00 ft_strdup>) [0 ft_strdup S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":47:9 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 71 70 72 12 (set (reg:DI 109)
+        (reg:DI 0 ax)) "libft/ft_strtrim.c":47:9 -1
+     (nil))
+(insn 72 71 73 12 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 res+0 S8 A64])
+        (reg:DI 109)) "libft/ft_strtrim.c":47:9 -1
+     (nil))
+(insn 73 72 74 12 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -8 [0xfffffffffffffff8])) [2 res+0 S8 A64])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":48:6 -1
+     (nil))
+(jump_insn 74 73 75 12 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 79)
+            (pc))) "libft/ft_strtrim.c":48:6 -1
+     (nil)
+ -> 79)
+(note 75 74 76 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 76 75 77 13 (set (reg/f:DI 97 [ _18 ])
+        (const_int 0 [0])) "libft/ft_strtrim.c":49:11 -1
+     (nil))
+(jump_insn 77 76 78 13 (set (pc)
+        (label_ref 123)) "libft/ft_strtrim.c":49:11 -1
+     (nil)
+ -> 123)
+(barrier 78 77 79)
+(code_label 79 78 80 14 14 (nil) [1 uses])
+(note 80 79 81 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 81 80 82 14 (set (reg/f:DI 97 [ _18 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 res+0 S8 A64])) "libft/ft_strtrim.c":51:11 -1
+     (nil))
+(jump_insn 82 81 83 14 (set (pc)
+        (label_ref 123)) "libft/ft_strtrim.c":51:11 -1
+     (nil)
+ -> 123)
+(barrier 83 82 84)
+(code_label 84 83 85 15 13 (nil) [1 uses])
+(note 85 84 86 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 86 85 87 15 (set (pc)
+        (label_ref 90)) "libft/ft_strtrim.c":53:8 -1
+     (nil)
+ -> 90)
+(barrier 87 86 105)
+(code_label 105 87 88 16 17 (nil) [1 uses])
+(note 88 105 89 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 89 88 90 16 (parallel [
+            (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])
+                (plus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":54:6 -1
+     (nil))
+(code_label 90 89 91 17 15 (nil) [1 uses])
+(note 91 90 92 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+(insn 92 91 93 17 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":53:21 -1
+     (nil))
+(insn 93 92 94 17 (set (reg:DI 111)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])) "libft/ft_strtrim.c":53:21 -1
+     (nil))
+(insn 94 93 95 17 (parallel [
+            (set (reg/f:DI 90 [ _9 ])
+                (plus:DI (reg/f:DI 110)
+                    (reg:DI 111)))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":53:21 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64]))
+        (nil)))
+(insn 95 94 96 17 (set (reg:QI 91 [ _10 ])
+        (mem:QI (reg/f:DI 90 [ _9 ]) [0 *_9+0 S1 A8])) "libft/ft_strtrim.c":53:21 -1
+     (nil))
+(insn 96 95 97 17 (set (reg:SI 92 [ _11 ])
+        (sign_extend:SI (reg:QI 91 [ _10 ]))) "libft/ft_strtrim.c":53:9 -1
+     (nil))
+(insn 97 96 98 17 (set (reg:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -48 [0xffffffffffffffd0])) [2 set+0 S8 A64])) "libft/ft_strtrim.c":53:9 -1
+     (nil))
+(insn 98 97 99 17 (set (reg:DI 4 si)
+        (reg:DI 112)) "libft/ft_strtrim.c":53:9 -1
+     (nil))
+(insn 99 98 100 17 (set (reg:SI 5 di)
+        (reg:SI 92 [ _11 ])) "libft/ft_strtrim.c":53:9 -1
+     (nil))
+(call_insn 100 99 101 17 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_isset") [flags 0x3]  <function_decl 0x7fc6b3afc900 ft_isset>) [0 ft_isset S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":53:9 -1
+     (nil)
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 101 100 102 17 (set (reg:SI 93 [ _12 ])
+        (reg:SI 0 ax)) "libft/ft_strtrim.c":53:9 -1
+     (nil))
+(insn 102 101 103 17 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 93 [ _12 ])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":53:33 -1
+     (nil))
+(jump_insn 103 102 104 17 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 108)
+            (pc))) "libft/ft_strtrim.c":53:33 -1
+     (nil)
+ -> 108)
+(note 104 103 106 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+(insn 106 104 107 18 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":53:33 -1
+     (nil))
+(jump_insn 107 106 108 18 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 105)
+            (pc))) "libft/ft_strtrim.c":53:33 -1
+     (nil)
+ -> 105)
+(code_label 108 107 109 19 16 (nil) [1 uses])
+(note 109 108 110 19 [bb 19] NOTE_INSN_BASIC_BLOCK)
+(insn 110 109 111 19 (set (reg:DI 113)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])) "libft/ft_strtrim.c":55:40 -1
+     (nil))
+(insn 111 110 112 19 (parallel [
+            (set (reg:DI 94 [ _13 ])
+                (minus:DI (reg:DI 113)
+                    (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":55:40 -1
+     (expr_list:REG_EQUAL (minus:DI (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])) [3 end+0 S8 A64])
+            (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64]))
+        (nil)))
+(insn 112 111 113 19 (parallel [
+            (set (reg:DI 95 [ _14 ])
+                (plus:DI (reg:DI 94 [ _13 ])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 113 112 114 19 (set (reg:DI 114)
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [3 start+0 S8 A64])) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 114 113 115 19 (set (reg:SI 96 [ _15 ])
+        (subreg:SI (reg:DI 114) 0)) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 115 114 116 19 (set (reg:DI 115)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -40 [0xffffffffffffffd8])) [2 str+0 S8 A64])) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 116 115 117 19 (set (reg:DI 1 dx)
+        (reg:DI 95 [ _14 ])) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 117 116 118 19 (set (reg:SI 4 si)
+        (reg:SI 96 [ _15 ])) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 118 117 119 19 (set (reg:DI 5 di)
+        (reg:DI 115)) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(call_insn 119 118 120 19 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_substr") [flags 0x41]  <function_decl 0x7fc6b3afc600 ft_substr>) [0 ft_substr S1 A8])
+            (const_int 0 [0]))) "libft/ft_strtrim.c":55:8 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 120 119 121 19 (set (reg:DI 116)
+        (reg:DI 0 ax)) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 121 120 122 19 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 res+0 S8 A64])
+        (reg:DI 116)) "libft/ft_strtrim.c":55:8 -1
+     (nil))
+(insn 122 121 123 19 (set (reg/f:DI 97 [ _18 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 res+0 S8 A64])) "libft/ft_strtrim.c":56:9 -1
+     (nil))
+(code_label 123 122 124 20 8 (nil) [4 uses])
+(note 124 123 125 20 [bb 20] NOTE_INSN_BASIC_BLOCK)
+(insn 125 124 129 20 (set (reg/f:DI 98 [ <retval> ])
+        (reg/f:DI 97 [ _18 ])) "libft/ft_strtrim.c":57:1 -1
+     (nil))
+(insn 129 125 130 20 (set (reg/i:DI 0 ax)
+        (reg/f:DI 98 [ <retval> ])) "libft/ft_strtrim.c":57:1 -1
+     (nil))
+(insn 130 129 0 20 (use (reg/i:DI 0 ax)) "libft/ft_strtrim.c":57:1 -1
+     (nil))
