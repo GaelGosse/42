@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/27 15:21:58 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/28 16:23:28 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ int	ft_parsing(t_map *map, int argc, char **argv, char **envp)
 	(void)envp;
 }
 
-int	ft_create_game(t_map *map, t_game *game)
+int	ft_create_game(t_game *game, t_map *map)
 {
-	ft_display_map(map, game);
+	ft_display_map(game, map);
 	return (1);
 	(void)map;
 }
@@ -109,9 +109,9 @@ int	main(int argc, char **argv, char **envp)
 		return (ft_putstr_fd("you must called one arg\n", 1), 1);
 	if (ft_parsing(&map, argc, argv, envp) == FAIL)
 		return (1);
-	ft_create_game(&map, &game);
-	printf(PURPLE"map.height: %i"RESET"\n", map.height);
-	printf(PURPLE"map.width: %i"RESET"\n", map.width);
+	ft_create_game(&game, &map);
+	printf(PURPLE"map.h: %i"RESET"\n", map.h);
+	printf(PURPLE"map.w: %i"RESET"\n", map.w);
 	(void)argc;
 	(void)argv;
 	(void)envp;
