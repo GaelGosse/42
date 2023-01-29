@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_filemap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:41:09 by gael              #+#    #+#             */
-/*   Updated: 2023/01/14 22:38:40 by gael             ###   ########.fr       */
+/*   Updated: 2023/01/29 23:50:00 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_buf_read(int fd, t_map *map)
 	}
 	map->map_org = ft_split(map->map_to_build, '\n');
 	map->map_chck = ft_split(map->map_to_build, '\n');
+	free(map->map_to_build);
 	return (SUCCESS);
 }
 

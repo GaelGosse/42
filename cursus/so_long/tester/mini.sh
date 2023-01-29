@@ -6,11 +6,11 @@ rm -f *.gch */*.gch
 if [[ $# == 1 ]]
 then
 	echo -e $CYAN" ----- $1 ----- "$RST
-	make && echo "" && echo -e "\n$BACK_YELLOW ./so_long $RST\n" && ./so_long $1
+	make && echo "" && echo -e "\n$BACK_YELLOW ./so_long $RST\n" && valgrind --log-file="z1" --leak-check=full ./so_long $1 
 elif [[ $# == 0 ]]
 then
 	echo -e $CYAN" ----- map_1 ----- "$RST
-	make && echo "" && echo -e "\n$BACK_YELLOW ./so_long $RST\n" && ./so_long maps/map_1.ber
+	make && echo "" && echo -e "\n$BACK_YELLOW ./so_long $RST\n" && valgrind --log-file="z1" --leak-check=full ./so_long maps/map_1.ber 
 elif [[ $# == 2 && $2 == "-g" ]]
 then
 	echo -e $CYAN" ----- $1 ----- "$RST

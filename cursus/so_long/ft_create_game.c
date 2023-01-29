@@ -6,11 +6,21 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/01/28 19:40:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/29 23:53:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
+
+void	ft_free_tab_str(char **tab_str)
+{
+	int	ite_free_two;
+
+	ite_free_two = -1;
+	while (tab_str[++ite_free_two])
+		free(tab_str[ite_free_two]);
+	free(tab_str);
+}
 
 void	ft_destroy_and_free(t_game *game, t_map *map)
 {
@@ -24,9 +34,12 @@ void	ft_destroy_and_free(t_game *game, t_map *map)
 		mlx_destroy_image(game->mlibx, game->img_c);
 	if (game->img_e != NULL)
 		mlx_destroy_image(game->mlibx, game->img_e);
+
+	mlx_destroy_window(game->mlibx, game->window);
 	mlx_destroy_display(game->mlibx);
+	ft_free_tab_str(map->map_chck);
+	ft_free_tab_str(map->map_org);
 	free(game->mlibx);
-	// free struct map
 	exit (1); 
 	(void)map;
 }
@@ -38,15 +51,15 @@ void	ft_init_sprite(t_game *game, t_map *map)
 	if (game->img_0 == NULL)
 		ft_destroy_and_free(game, map);
 	game->img_1 = NULL;
-	game->img_1 = mlx_xpm_file_to_image(game->mlibx, "./sprites/rocks/xpm/rock4.xpm", &game->img_size, &game->img_size);
+	game->img_1 = mlx_xpm_file_to_image(game->mlibx, "./sprites/rocks/xpm/rock4_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_1 == NULL)
 		ft_destroy_and_free(game, map);
 	game->img_p = NULL;
-	game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/ship1.xpm", &game->img_size, &game->img_size);
+	game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/ship_l_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_p == NULL)
 		ft_destroy_and_free(game, map);
 	game->img_c = NULL;
-	game->img_c = mlx_xpm_file_to_image(game->mlibx, "./sprites/crystals/xpm/crystal1.xpm", &game->img_size, &game->img_size);
+	game->img_c = mlx_xpm_file_to_image(game->mlibx, "./sprites/crystals/xpm/crystal1_on_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_c == NULL)
 		ft_destroy_and_free(game, map);
 	game->img_e = NULL;
@@ -84,7 +97,7 @@ void	ft_place_tiles(t_game *game, t_map *map)
 	(void)ite_col;
 }
 
-void	*event_listen(int key, t_game *game)
+int event_listen(int key, t_game *game)
 {
 	printf(RED"event here\n"RESET);
 	return (0);
@@ -108,11 +121,11 @@ int	ft_display_map(t_game *game, t_map *map)
 	ft_place_tiles(game, map);
 	// ft_init_sprite(game, map);
 	// mlx_put_image_to_window((game->mlibx), (game->window), game->img_0, 0, 0);
-	// usleep(3000000);
-	mlx_hook(game->window,KeyPress, KeyPressMask, &event_listen, &game);
+	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, &game);
+	mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &event_listen, &game);
+	usleep(5000000);
 	
-	mlx_destroy_window(game->mlibx, game->window);
-	mlx_destroy_display(game->mlibx);
+	ft_destroy_and_free(game, map);
 	
 	return (free(game->mlibx), SUCCESS);
 	(void)img;
