@@ -577,8 +577,8 @@ function rmv()
 	then
 		if [ -f "$(pwd)/$1" ]; then
 			echo
-			echo -e "$BOLD_RED┌─────── $YELLOW$(file $1)$RST"
-			echo -e "$RED│$RST $BACK_RED Remove $RST $RED$(pwd)/$BOLD_YELLOW$1$RST"
+			echo -e  "$BOLD_RED┌─────── $YELLOW$(head -c 25 <<< file $1)$BOLD_RED\tsize: $YELLOW$(stat --printf="%s" $1) octets$RST"
+			echo -e       "$RED│$RST $BACK_RED Remove $RST $RED$(pwd)/$BOLD_YELLOW$1$RST"
 			echo -ne "$BOLD_RED└─ ♠ $YELLOW"
 			read answer
 			if [[ $answer == 'y' || $answer == 'yes' ]]
@@ -591,8 +591,8 @@ function rmv()
 		elif [ -d "$(pwd)/$1" ]; then
 			# echo -e "$BOLD_RED (!) Warning it's a folder, maybe it's not empty (!) $RST"
 			echo
-			echo -e "$BOLD_RED┌─────── $YELLOW$(file $1)$RST"
-			echo -e "$RED│$RST $BACK_RED Remove $RST $RED$(pwd)/$BOLD_YELLOW$1$RST"
+			echo -e  "$BOLD_RED┌─────── $YELLOW$(head -c 25 | echo $(file $1))$BOLD_RED\tsize: $YELLOW$(stat --printf="%s" $1) octets$RST"
+			echo -e       "$RED│$RST $BACK_RED Remove $RST $RED$(pwd)/$BOLD_YELLOW$1$RST"
 			echo -ne "$BOLD_RED└─ ♠ $YELLOW"
 			read answer
 			if [[ $answer == 'y' || $answer == 'yes' ]]
@@ -600,6 +600,7 @@ function rmv()
 				rm -rf $1
 				echo
 			else
+				echo
 				echo -e $NOTHING
 			fi
 		else
@@ -928,10 +929,22 @@ function endlate ()
 function msearch () 
 { 
 	if [[ $# == 2 ]]; then
-		echo $(man $1) | grep --color=always -E -o ".{0,5}$2.{0,20}";
+		echo $(man $1) | grep --color=always -E -o ".{0,25}$2.{0,35}";
 	else
 		echo "args missing, two expected";
 	fi
+}
+
+function vlg()
+{
+	echo
+	echo -e "\t"$BOLD_WHITE"----- valgrind -----"$RST 
+	echo -e "--leak-check            = <no|summary|yes|full>"
+	echo -e "--show-leak-kinds       = <definite|indirect|possible|reachable|all>"
+	echo -e "--track-origins         = <yes|no>"
+	echo -e "--track-fds             = <yes|no>"
+	echo -e "--errors-for-leak-kinds = <set>"
+	echo -e "--leak-resolution       = <low|med|high>"
 }
 
 function normi () 
