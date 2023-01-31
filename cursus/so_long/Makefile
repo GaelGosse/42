@@ -32,7 +32,7 @@ $(NAME) : $(OBJ)
 	@echo
 	$(MAKE) --no-print-directory -C libft
 	$(MAKE) --no-print-directory -C minilibx
-	$(CC) $(OBJ) minilibx/libmlx_Linux.a libft/libft.a $(LIBX) $(LIBXFLAGS) -g -o $(NAME) 
+	$(CC) $(OBJ) minilibx/libmlx_Linux.a libft/libft.a $(LIBX) $(LIBXFLAGS) -g3 -o $(NAME) 
 
 %.o : %.c
 	$(CC) -c $< -o $@

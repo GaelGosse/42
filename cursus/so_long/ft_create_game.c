@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/01/29 23:53:48 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/31 19:17:22 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	ft_free_tab_str(char **tab_str)
 	free(tab_str);
 }
 
-void	ft_destroy_and_free(t_game *game, t_map *map)
+void	ft_destroy_and_free(t_game *game)
 {
+	printf(YELLOW"destroy"RESET"\n");
 	if (game->img_0 != NULL)
 		mlx_destroy_image(game->mlibx, game->img_0);
 	if (game->img_1 != NULL)
@@ -35,99 +36,120 @@ void	ft_destroy_and_free(t_game *game, t_map *map)
 	if (game->img_e != NULL)
 		mlx_destroy_image(game->mlibx, game->img_e);
 
-	mlx_destroy_window(game->mlibx, game->window);
-	mlx_destroy_display(game->mlibx);
-	ft_free_tab_str(map->map_chck);
-	ft_free_tab_str(map->map_org);
-	free(game->mlibx);
+	// mlx_destroy_window(game->mlibx, game->window);
+	// mlx_destroy_display(game->mlibx);
+	// ft_free_tab_str(game->map->map_chck);
+	// ft_free_tab_str(game->map->map_org);
+	// free(game->mlibx);
 	exit (1); 
-	(void)map;
 }
 
-void	ft_init_sprite(t_game *game, t_map *map)
+void	ft_init_sprite(t_game *game)
 {
 	game->img_0 = NULL;
 	game->img_0 = mlx_xpm_file_to_image(game->mlibx, "./sprites/ground/xpm/water.xpm", &game->img_size, &game->img_size);
 	if (game->img_0 == NULL)
-		ft_destroy_and_free(game, map);
+		ft_destroy_and_free(game->mlibx);
+		// mlx_destroy_image(game->mlibx, game->img_0);
 	game->img_1 = NULL;
 	game->img_1 = mlx_xpm_file_to_image(game->mlibx, "./sprites/rocks/xpm/rock4_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_1 == NULL)
-		ft_destroy_and_free(game, map);
+		ft_destroy_and_free(game->mlibx);
+		// mlx_destroy_image(game->mlibx, game->img_1);
 	game->img_p = NULL;
-	game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/ship_l_water.xpm", &game->img_size, &game->img_size);
+	game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/right/ship_r_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_p == NULL)
-		ft_destroy_and_free(game, map);
+		ft_destroy_and_free(game->mlibx);
+		// mlx_destroy_image(game->mlibx, game->img_p);
 	game->img_c = NULL;
 	game->img_c = mlx_xpm_file_to_image(game->mlibx, "./sprites/crystals/xpm/crystal1_on_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_c == NULL)
-		ft_destroy_and_free(game, map);
+		ft_destroy_and_free(game->mlibx);
+		// mlx_destroy_image(game->mlibx, game->img_c);
 	game->img_e = NULL;
-	game->img_e = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/shadow_rl.xpm", &game->img_size, &game->img_size);
+	game->img_e = mlx_xpm_file_to_image(game->mlibx, "./sprites/ground/xpm/shadow_center.xpm", &game->img_size, &game->img_size);
 	if (game->img_e == NULL)
-		ft_destroy_and_free(game, map);
+		ft_destroy_and_free(game->mlibx);
+		// mlx_destroy_image(game->mlibx, game->img_e);
 }
 
-void	ft_place_tiles(t_game *game, t_map *map)
+void	ft_place_tiles(t_game *game, char **tab)
 {
 	int	ite_row;
 	int	ite_col;
 
-	ite_row = -1;
-	ite_col = -1;
-	ft_init_sprite(game, map);
-	while (map->map_org[++ite_row])
+	ite_row = 0;
+	ite_col = 0;
+	while (game->map->map_org[ite_row])
 	{
-		ite_col = -1;
-		while (map->map_org[ite_row][++ite_col])
+		ite_col = 0;
+		while (game->map->map_org[ite_row][ite_col])
 		{
-			if (map->map_org[ite_row][ite_col] == '0')
+			if (game->map->map_org[ite_row][ite_col] == '0')
 				mlx_put_image_to_window((game->mlibx), (game->window), game->img_0, ite_col*32, ite_row*32);
-			else if (map->map_org[ite_row][ite_col] == '1')
+			else if (game->map->map_org[ite_row][ite_col] == '1')
 				mlx_put_image_to_window((game->mlibx), (game->window), game->img_1, ite_col*32, ite_row*32);
-			else if (map->map_org[ite_row][ite_col] == 'E')
+			else if (game->map->map_org[ite_row][ite_col] == 'E')
 				mlx_put_image_to_window((game->mlibx), (game->window), game->img_e, ite_col*32, ite_row*32);
-			else if (map->map_org[ite_row][ite_col] == 'C')
+			else if (game->map->map_org[ite_row][ite_col] == 'C')
 				mlx_put_image_to_window((game->mlibx), (game->window), game->img_c, ite_col*32, ite_row*32);
-			else if (map->map_org[ite_row][ite_col] == 'P')
+			else if (game->map->map_org[ite_row][ite_col] == 'P')
 				mlx_put_image_to_window((game->mlibx), (game->window), game->img_p, ite_col*32, ite_row*32);
+			ite_col++;
 		}
+		ite_row++;
 	}
-	(void)ite_row;
-	(void)ite_col;
+	(void)tab;
 }
 
 int event_listen(int key, t_game *game)
 {
-	printf(RED"event here\n"RESET);
+	if (key == XK_w)
+	{
+		printf(RED"here\n"RST);
+		ft_place_tiles(game, game->map->map_org);
+	}
+	else if (key == XK_s)
+	{
+		printf(CYAN"here\n"RST);
+		ft_place_tiles(game, game->map->map_org);
+	}
+	else if (key == XK_a)
+	{
+		printf(GREEN"here\n"RST);
+		ft_place_tiles(game, game->map->map_org);
+	}
+	else if (key == XK_d)
+	{
+		printf(PURPLE"here\n"RST);
+		ft_place_tiles(game, game->map->map_org);
+	}
 	return (0);
 	(void)key;
 	(void)game;
 }
 
-int	ft_display_map(t_game *game, t_map *map)
+int	ft_display_map(t_game *game)
 {
-	void	*img;
 
 	(game->img_size) = 32;
 	(game->mlibx) = mlx_init();
-	game->window = mlx_new_window((game->mlibx), map->w*32, map->h*32, "so_long");
+	game->window = mlx_new_window((game->mlibx), game->map->w*32, game->map->h*32, "so_long");
 
 	if (game->mlibx == NULL)
 		return (FAIL);
 	if (game->window == NULL)
 		return (free(game->window), FAIL);
 
-	ft_place_tiles(game, map);
-	// ft_init_sprite(game, map);
-	// mlx_put_image_to_window((game->mlibx), (game->window), game->img_0, 0, 0);
+	ft_init_sprite(game);
+	ft_print_map_s(game->map->map_org);
+	ft_place_tiles(game, game->map->map_org);
+	ft_print_map_s(game->map->map_org);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, &game);
-	mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &event_listen, &game);
-	usleep(5000000);
+	mlx_loop(game->mlibx);
+	usleep(3000000);
 	
-	ft_destroy_and_free(game, map);
+	ft_destroy_and_free(game);
 	
 	return (free(game->mlibx), SUCCESS);
-	(void)img;
-	(void)map;
 }

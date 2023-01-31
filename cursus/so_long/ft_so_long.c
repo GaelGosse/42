@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/28 16:23:28 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/01/31 18:56:44 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,48 +70,49 @@ void	ft_print_map_xl(char **tab)
 	}
 }
 
-int	ft_parsing(t_map *map, int argc, char **argv, char **envp)
+int	ft_parsing(t_game *game, int argc, char **argv, char **envp)
 {
-	map->check_letters.letter_c = 0;
-	map->check_letters.letter_e = 0;
-	map->check_letters.letter_p = 0;
+	game->map = malloc(sizeof(t_map));
+	if (!game->map)
+		return (0);
+	game->map->check_letters.letter_c = 0;
+	game->map->check_letters.letter_e = 0;
+	game->map->check_letters.letter_p = 0;
 	if (ft_check_ext(argv[1]) == FAIL)
 		return (printf("wrong filename extension\n"), FAIL);
-	if (ft_read_file(map, argv[1]) == FAIL)
+	if (ft_read_file(game, argv[1]) == FAIL)
 		return (printf("file does not exist\n"), FAIL);
-	if (ft_check_rectangular(map) == FAIL)
+	if (ft_check_rectangular(game) == FAIL)
 		return (FAIL);
-	if (ft_nbr_letters(map) == FAIL)
+	if (ft_nbr_letters(game) == FAIL)
 		return (FAIL);
-	if (ft_if_wall(map) == FAIL)
+	if (ft_if_wall(game) == FAIL)
 		return (printf("there are some leaks on walls\n"), FAIL);
-	if (ft_wrong_letters(map) == FAIL)
+	if (ft_wrong_letters(game) == FAIL)
 		return (printf("Letters allowed on your map : P, C, E, 0, 1\n"), FAIL);
-	ft_valid_path(map);
+	ft_valid_path(game);
 	return (SUCCESS);
 	(void)argc;
 	(void)envp;
 }
 
-int	ft_create_game(t_game *game, t_map *map)
+int	ft_create_game(t_game *game)
 {
-	ft_display_map(game, map);
+	ft_display_map(game);
 	return (1);
-	(void)map;
 }
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_game	game;
-	t_map	map;
 
 	if (argc != 2)
 		return (ft_putstr_fd("you must called one arg\n", 1), 1);
-	if (ft_parsing(&map, argc, argv, envp) == FAIL)
+	if (ft_parsing(&game, argc, argv, envp) == FAIL)
 		return (1);
-	ft_create_game(&game, &map);
-	printf(PURPLE"map.h: %i"RESET"\n", map.h);
-	printf(PURPLE"map.w: %i"RESET"\n", map.w);
+	ft_create_game(&game);
+	printf(PURPLE"game.map->h: %i"RESET"\n", game.map->h);
+	printf(PURPLE"game.map->w: %i"RESET"\n", game.map->w);
 	(void)argc;
 	(void)argv;
 	(void)envp;
