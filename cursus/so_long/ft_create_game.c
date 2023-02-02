@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/01/31 19:17:22 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/02 20:31:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,52 +24,53 @@ void	ft_free_tab_str(char **tab_str)
 
 void	ft_destroy_and_free(t_game *game)
 {
-	printf(YELLOW"destroy"RESET"\n");
-	if (game->img_0 != NULL)
+	// printf(YELLOW"destroy"RESET"\n");
+	if (game->img_0)
 		mlx_destroy_image(game->mlibx, game->img_0);
-	if (game->img_1 != NULL)
+	if (game->img_1)
 		mlx_destroy_image(game->mlibx, game->img_1);
-	if (game->img_p != NULL)
+	if (game->img_p)
 		mlx_destroy_image(game->mlibx, game->img_p);
-	if (game->img_c != NULL)
+	if (game->img_c)
 		mlx_destroy_image(game->mlibx, game->img_c);
-	if (game->img_e != NULL)
+	if (game->img_e)
 		mlx_destroy_image(game->mlibx, game->img_e);
-
-	// mlx_destroy_window(game->mlibx, game->window);
-	// mlx_destroy_display(game->mlibx);
-	// ft_free_tab_str(game->map->map_chck);
-	// ft_free_tab_str(game->map->map_org);
-	// free(game->mlibx);
-	exit (1); 
+	if (game->window)
+		mlx_destroy_window(game->mlibx, game->window);
+	if (game->window)
+		mlx_destroy_display(game->mlibx);
+	free(game->mlibx);
+	ft_free_tab_str(game->map->map_chck);
+	ft_free_tab_str(game->map->map_org);
+	exit (1);
 }
 
 void	ft_init_sprite(t_game *game)
 {
-	game->img_0 = NULL;
+	game->img_0 = 0;
+	game->img_1 = 0;
+	game->img_p = 0;
+	game->img_c = 0;
+	game->img_e = 0;
 	game->img_0 = mlx_xpm_file_to_image(game->mlibx, "./sprites/ground/xpm/water.xpm", &game->img_size, &game->img_size);
 	if (game->img_0 == NULL)
-		ft_destroy_and_free(game->mlibx);
+		ft_destroy_and_free(game);
 		// mlx_destroy_image(game->mlibx, game->img_0);
-	game->img_1 = NULL;
 	game->img_1 = mlx_xpm_file_to_image(game->mlibx, "./sprites/rocks/xpm/rock4_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_1 == NULL)
-		ft_destroy_and_free(game->mlibx);
+		ft_destroy_and_free(game);
 		// mlx_destroy_image(game->mlibx, game->img_1);
-	game->img_p = NULL;
 	game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/right/ship_r_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_p == NULL)
-		ft_destroy_and_free(game->mlibx);
+		ft_destroy_and_free(game);
 		// mlx_destroy_image(game->mlibx, game->img_p);
-	game->img_c = NULL;
 	game->img_c = mlx_xpm_file_to_image(game->mlibx, "./sprites/crystals/xpm/crystal1_on_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_c == NULL)
-		ft_destroy_and_free(game->mlibx);
+		ft_destroy_and_free(game);
 		// mlx_destroy_image(game->mlibx, game->img_c);
-	game->img_e = NULL;
 	game->img_e = mlx_xpm_file_to_image(game->mlibx, "./sprites/ground/xpm/shadow_center.xpm", &game->img_size, &game->img_size);
 	if (game->img_e == NULL)
-		ft_destroy_and_free(game->mlibx);
+		ft_destroy_and_free(game);
 		// mlx_destroy_image(game->mlibx, game->img_e);
 }
 
@@ -107,21 +108,25 @@ int event_listen(int key, t_game *game)
 	if (key == XK_w)
 	{
 		printf(RED"here\n"RST);
+		ft_move_w(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	else if (key == XK_s)
 	{
 		printf(CYAN"here\n"RST);
+		ft_move_s(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	else if (key == XK_a)
 	{
 		printf(GREEN"here\n"RST);
+		ft_move_a(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	else if (key == XK_d)
 	{
 		printf(PURPLE"here\n"RST);
+		ft_move_d(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	return (0);
@@ -142,10 +147,13 @@ int	ft_display_map(t_game *game)
 		return (free(game->window), FAIL);
 
 	ft_init_sprite(game);
-	ft_print_map_s(game->map->map_org);
 	ft_place_tiles(game, game->map->map_org);
-	ft_print_map_s(game->map->map_org);
-	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, &game);
+	ft_find_p(game);
+	printf("game->map->p_x: %i\n", game->map->p_x);
+	printf("game->map->p_y: %i\n", game->map->p_y);
+	printf("game->map->map_org[game->map->p_y][game->map->p_x]: %c\n", game->map->map_org[game->map->p_y][game->map->p_x]);
+	// ft_print_map_s(game->map->map_org);
+	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, game);
 	mlx_loop(game->mlibx);
 	usleep(3000000);
 	

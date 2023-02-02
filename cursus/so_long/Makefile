@@ -11,15 +11,17 @@ NC = \033[0m
 
 ##### VAR #####
 NAME   = so_long
-CC    = gcc -Wall -Werror -Wextra
+CC    = gcc -Wall -Werror -Wextra -g3 -MMD -MP
 
 SRC  := ft_check_filemap.c \
 		ft_check_format.c \
 		ft_create_game.c \
 		ft_so_long.c \
-		ft_valid_path.c
+		ft_valid_path.c \
+		ft_move.c 
 
 OBJ = $(SRC:%.c=%.o)
+DEPS = $(OBJ:%.o=%.d)
 LIBX = -L minilibx/ 
 LIBXFLAGS = -lmlx -lXext -lX11 -lz -lm
 
@@ -32,9 +34,9 @@ $(NAME) : $(OBJ)
 	@echo
 	$(MAKE) --no-print-directory -C libft
 	$(MAKE) --no-print-directory -C minilibx
-	$(CC) $(OBJ) minilibx/libmlx_Linux.a libft/libft.a $(LIBX) $(LIBXFLAGS) -g3 -o $(NAME) 
+	$(CC) $(OBJ) minilibx/libmlx_Linux.a libft/libft.a $(LIBX) $(LIBXFLAGS) -o $(NAME) 
 
-%.o : %.c
+%.o : %.c Makefile
 	$(CC) -c $< -o $@
 
 clean:
@@ -58,6 +60,8 @@ fclean :
 	@echo "${YELLOW} ----- ✅ fclean done -----${NC}"
 	@echo
 
-re : fclean all
+re : fclean all 
+
+-include ${DEPS}
 
 .PHONY: clean fclean all re

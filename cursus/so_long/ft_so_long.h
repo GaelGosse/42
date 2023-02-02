@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/01/31 18:55:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/02 20:31:19 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_map
 	char		**map_chck;
 	int			h;
 	int			w;
+	int			p_y;
+	int			p_x;
 	int			fd_map;
 	t_letters	check_letters;
 }				t_map;
@@ -91,5 +93,12 @@ int		ft_valid_path(t_game *game);
 
 // ft_create_game.c
 int	ft_display_map(t_game *game);
+
+// ft_move.c
+void	ft_move_w(t_game *game);
+void	ft_move_s(t_game *game);
+void	ft_move_a(t_game *game);
+void	ft_move_d(t_game *game);
+void	ft_find_p(t_game *game);
 
 #endif
