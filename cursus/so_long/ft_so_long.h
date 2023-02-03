@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/02/02 20:31:19 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/03 22:20:08 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_map
 	int			w;
 	int			p_y;
 	int			p_x;
+	int			count_step;
 	int			fd_map;
 	t_letters	check_letters;
 }				t_map;

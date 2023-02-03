@@ -1,49 +1,49 @@
-==1411900== Memcheck, a memory error detector
-==1411900== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1411900== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1411900== Command: ./so_long maps/map_1.ber
-==1411900== Parent PID: 1411874
-==1411900== 
-==1411900== 
-==1411900== Process terminating with default action of signal 2 (SIGINT)
-==1411900==    at 0x4AE1D47: poll (poll.c:29)
-==1411900==    by 0x4BFD7E1: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==1411900==    by 0x4BFF22B: xcb_wait_for_event (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==1411900==    by 0x48CEE87: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==1411900==    by 0x48B7EB7: XNextEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==1411900==    by 0x110B82: mlx_loop (in /mnt/nfs/homes/ggosse/42/cursus/so_long/so_long)
-==1411900==    by 0x10F9BE: ft_display_map (ft_create_game.c:157)
-==1411900==    by 0x10FFDD: ft_create_game (ft_so_long.c:101)
-==1411900==    by 0x110057: main (ft_so_long.c:113)
-==1411900== 
-==1411900== HEAP SUMMARY:
-==1411900==     in use at exit: 293,534 bytes in 1,063 blocks
-==1411900==   total heap usage: 3,137 allocs, 2,074 frees, 360,623 bytes allocated
-==1411900== 
-==1411900== 2 bytes in 1 blocks are definitely lost in loss record 1 of 64
-==1411900==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1411900==    by 0x1129DD: ft_strdup (in /mnt/nfs/homes/ggosse/42/cursus/so_long/so_long)
-==1411900==    by 0x10EA34: ft_buf_read (ft_check_filemap.c:33)
-==1411900==    by 0x10EB40: ft_read_file (ft_check_filemap.c:50)
-==1411900==    by 0x10FF1B: ft_parsing (ft_so_long.c:83)
-==1411900==    by 0x11003F: main (ft_so_long.c:111)
-==1411900== 
-==1411900== 123,253 bytes in 494 blocks are definitely lost in loss record 64 of 64
-==1411900==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1411900==    by 0x112A89: ft_strjoin (in /mnt/nfs/homes/ggosse/42/cursus/so_long/so_long)
-==1411900==    by 0x10EA5B: ft_buf_read (ft_check_filemap.c:35)
-==1411900==    by 0x10EB40: ft_read_file (ft_check_filemap.c:50)
-==1411900==    by 0x10FF1B: ft_parsing (ft_so_long.c:83)
-==1411900==    by 0x11003F: main (ft_so_long.c:111)
-==1411900== 
-==1411900== LEAK SUMMARY:
-==1411900==    definitely lost: 123,255 bytes in 495 blocks
-==1411900==    indirectly lost: 0 bytes in 0 blocks
-==1411900==      possibly lost: 0 bytes in 0 blocks
-==1411900==    still reachable: 170,279 bytes in 568 blocks
-==1411900==         suppressed: 0 bytes in 0 blocks
-==1411900== Reachable blocks (those to which a pointer was found) are not shown.
-==1411900== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==1411900== 
-==1411900== For lists of detected and suppressed errors, rerun with: -s
-==1411900== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 485 from 1)
+==2431610== Memcheck, a memory error detector
+==2431610== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2431610== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2431610== Command: ./so_long maps/map_1.ber
+==2431610== Parent PID: 2431606
+==2431610== 
+==2431610== 
+==2431610== Process terminating with default action of signal 2 (SIGINT)
+==2431610==    at 0x4AE1D47: poll (poll.c:29)
+==2431610==    by 0x4BFD7E1: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==2431610==    by 0x4BFF22B: xcb_wait_for_event (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==2431610==    by 0x48CEE87: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==2431610==    by 0x48B7EB7: XNextEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==2431610==    by 0x110B82: mlx_loop (in /mnt/nfs/homes/ggosse/42/cursus/so_long/so_long)
+==2431610==    by 0x10F9BE: ft_display_map (ft_create_game.c:157)
+==2431610==    by 0x10FFDD: ft_create_game (ft_so_long.c:101)
+==2431610==    by 0x110057: main (ft_so_long.c:113)
+==2431610== 
+==2431610== HEAP SUMMARY:
+==2431610==     in use at exit: 770,383 bytes in 2,085 blocks
+==2431610==   total heap usage: 5,127 allocs, 3,042 frees, 863,138 bytes allocated
+==2431610== 
+==2431610== 2 bytes in 1 blocks are definitely lost in loss record 1 of 66
+==2431610==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2431610==    by 0x1129DD: ft_strdup (in /mnt/nfs/homes/ggosse/42/cursus/so_long/so_long)
+==2431610==    by 0x10EA34: ft_buf_read (ft_check_filemap.c:33)
+==2431610==    by 0x10EB40: ft_read_file (ft_check_filemap.c:50)
+==2431610==    by 0x10FF1B: ft_parsing (ft_so_long.c:83)
+==2431610==    by 0x11003F: main (ft_so_long.c:111)
+==2431610== 
+==2431610== 494,512 bytes in 992 blocks are definitely lost in loss record 66 of 66
+==2431610==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2431610==    by 0x112A89: ft_strjoin (in /mnt/nfs/homes/ggosse/42/cursus/so_long/so_long)
+==2431610==    by 0x10EA5B: ft_buf_read (ft_check_filemap.c:35)
+==2431610==    by 0x10EB40: ft_read_file (ft_check_filemap.c:50)
+==2431610==    by 0x10FF1B: ft_parsing (ft_so_long.c:83)
+==2431610==    by 0x11003F: main (ft_so_long.c:111)
+==2431610== 
+==2431610== LEAK SUMMARY:
+==2431610==    definitely lost: 494,514 bytes in 993 blocks
+==2431610==    indirectly lost: 0 bytes in 0 blocks
+==2431610==      possibly lost: 0 bytes in 0 blocks
+==2431610==    still reachable: 275,869 bytes in 1,092 blocks
+==2431610==         suppressed: 0 bytes in 0 blocks
+==2431610== Reachable blocks (those to which a pointer was found) are not shown.
+==2431610== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==2431610== 
+==2431610== For lists of detected and suppressed errors, rerun with: -s
+==2431610== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 969 from 1)

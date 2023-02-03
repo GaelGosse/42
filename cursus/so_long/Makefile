@@ -44,6 +44,7 @@ clean:
 	@echo "${YELLOW} ----- clean...  -----${NC}"
 	@echo
 	rm -f $(OBJ)
+	rm -f $(DEPS)
 	make clean --no-print-directory -C minilibx
 	make fclean --no-print-directory -C libft
 	@echo
