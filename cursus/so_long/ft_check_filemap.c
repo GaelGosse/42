@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:41:09 by gael              #+#    #+#             */
-/*   Updated: 2023/01/31 18:21:50 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/04 23:22:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,23 @@ int	ft_buf_read(int fd, t_game *game)
 		else
 			game->map->map_to_build = ft_strjoin(game->map->map_to_build, buf);
 	}
+	// ft_check_map(game->map->map_to_build);
 	game->map->map_org = ft_split(game->map->map_to_build, '\n');
 	game->map->map_chck = ft_split(game->map->map_to_build, '\n');
-	free(game->map->map_to_build);
-	return (SUCCESS);
+	return (free(game->map->map_to_build), SUCCESS);
 }
+
+// int	ft_check_map(char *str)
+// {
+// 	int	ite_backslash_1;
+
+// 	ite_backslash_1 = 0;
+// 	while (str[ite_backslash_1])
+// 	{
+// 		if (str[ite_backslash_1] == '\n' )
+// 			printf("\n");
+// 	}
+// }
 
 int	ft_read_file(t_game *game, char *filename)
 {
