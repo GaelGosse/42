@@ -44,7 +44,12 @@ SRC = ft_atoi.c \
     ft_lstdelone_bonus.c \
     ft_lstclear_bonus.c \
     ft_lstiter_bonus.c \
-    ft_lstmap_bonus.c
+    ft_lstmap_bonus.c \
+    ft_printf.c \
+    ft_tools.c \
+    ft_putnbr_base_low.c \
+    ft_putnbr_base_up.c \
+    ft_putunbr.c
 
 OBJ = *.o
 

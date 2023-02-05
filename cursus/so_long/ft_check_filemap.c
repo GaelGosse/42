@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:41:09 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 05:19:35 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 09:16:31 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_check_map(char *str)
 		if (str[ite_back] == '\n' && str[ite_back + 1] == '\n')
 			count++;
 		if (count > 0 && ft_is_letter(str[ite_back]) == SUCCESS)
-			return (ft_putstr_fd("a file must contain Z one map", 2), FAIL);
+			return (ft_putstr_fd("a file must contain one map", 2), FAIL);
 		ite_back++;
 	}
 	return (SUCCESS);

@@ -6,31 +6,52 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:48:06 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/14 19:17:57 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 07:48:13 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static int	num_len(long int nbr)
 {
-	if (n == -2147483648)
+	long int	len;
+
+	len = 1;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		len++;
+	}
+	while (nbr > 9)
+	{
+		nbr = nbr / 10;
+		len++;
+	}
+	return (len);
+}
+int	ft_putnbr_fd(int nbr, int fd)
+{
+	int	len;
+
+	len = num_len(nbr);
+	if (nbr == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
-		return ;
+		return (11);
 	}
-	if (n < 0 && n != -2147483648)
+	if (nbr < 0 && nbr != -2147483648)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		nbr *= -1;
 	}
-	if (n < 10)
+	if (nbr < 10)
 	{
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd(nbr + '0', fd);
 	}
 	else
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
 	}
+	return (len);
 }

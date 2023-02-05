@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 19:23:13 by ggosse            #+#    #+#             */
-/*   Updated: 2023/02/05 05:37:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 07:56:15 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,14 @@ void	ft_move_w(t_game *game)
 		ft_find_p(game);
 		ft_remove_p(game);
 		ft_place_p(game, game->map->p_y - 1, game->map->p_x);
-		ft_putstr_fd("step :", 1);
-		ft_putnbr_fd(game->map->count_step, 1);
-		ft_putchar_fd('\n', 1);
+		mlx_destroy_image(game->mlibx, game->img_p);
+		game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/top/ship_t_water.xpm", &game->img_size, &game->img_size);
+		if (game->img_p == NULL)
+		{
+			ft_putstr_fd("Error\nproblem with image...", 2);
+			ft_destroy_and_free(game);
+		}
+		ft_printf("step: %i\n", game->map->count_step);
 		game->map->count_step++;
 	}
 	else if (game->map->map_org[game->map->p_y - 1][game->map->p_x] == 'E')
@@ -123,7 +128,6 @@ void	ft_move_w(t_game *game)
 			ft_destroy_and_free(game);
 		}
 	}
-	(void)game;
 }
 void	ft_move_s(t_game *game)
 {
@@ -133,9 +137,14 @@ void	ft_move_s(t_game *game)
 		ft_find_p(game);
 		ft_remove_p(game);
 		ft_place_p(game, game->map->p_y + 1, game->map->p_x);
-		ft_putstr_fd("step :", 1);
-		ft_putnbr_fd(game->map->count_step, 1);
-		ft_putchar_fd('\n', 1);
+		mlx_destroy_image(game->mlibx, game->img_p);
+		game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/bottom/ship_b_water.xpm", &game->img_size, &game->img_size);
+		if (game->img_p == NULL)
+		{
+			ft_putstr_fd("Error\nproblem with image...", 2);
+			ft_destroy_and_free(game);
+		}
+		ft_printf("step: %i\n", game->map->count_step);
 		game->map->count_step++;
 	}
 	else if (game->map->map_org[game->map->p_y + 1][game->map->p_x] == 'E')
@@ -146,7 +155,6 @@ void	ft_move_s(t_game *game)
 			ft_destroy_and_free(game);
 		}
 	}
-	(void)game;
 }
 void	ft_move_a(t_game *game)
 {
@@ -156,9 +164,14 @@ void	ft_move_a(t_game *game)
 		ft_find_p(game);
 		ft_remove_p(game);
 		ft_place_p(game, game->map->p_y, game->map->p_x - 1);
-		ft_putstr_fd("step :", 1);
-		ft_putnbr_fd(game->map->count_step, 1);
-		ft_putchar_fd('\n', 1);
+		mlx_destroy_image(game->mlibx, game->img_p);
+		game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/left/ship_l_water.xpm", &game->img_size, &game->img_size);
+		if (game->img_p == NULL)
+		{
+			ft_putstr_fd("Error\nproblem with image...", 2);
+			ft_destroy_and_free(game);
+		}
+		ft_printf("step: %i\n", game->map->count_step);
 		game->map->count_step++;
 	}
 	else if (game->map->map_org[game->map->p_y][game->map->p_x - 1] == 'E')
@@ -169,7 +182,6 @@ void	ft_move_a(t_game *game)
 			ft_destroy_and_free(game);
 		}
 	}
-	(void)game;
 }
 void	ft_move_d(t_game *game)
 {
@@ -179,9 +191,14 @@ void	ft_move_d(t_game *game)
 		ft_find_p(game);
 		ft_remove_p(game);
 		ft_place_p(game, game->map->p_y, game->map->p_x + 1);
-		ft_putstr_fd("step :", 1);
-		ft_putnbr_fd(game->map->count_step, 1);
-		ft_putchar_fd('\n', 1);
+		mlx_destroy_image(game->mlibx, game->img_p);
+		game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/right/ship_r_water.xpm", &game->img_size, &game->img_size);
+		if (game->img_p == NULL)
+		{
+			ft_putstr_fd("Error\nproblem with image...", 2);
+			ft_destroy_and_free(game);
+		}
+		ft_printf("step: %i\n", game->map->count_step);
 		game->map->count_step++;
 	}
 	else if (game->map->map_org[game->map->p_y][game->map->p_x + 1] == 'E')
@@ -192,5 +209,4 @@ void	ft_move_d(t_game *game)
 			ft_destroy_and_free(game);
 		}
 	}
-	(void)game;
 }

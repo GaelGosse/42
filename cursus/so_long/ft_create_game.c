@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 05:38:32 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 09:22:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_free_tab_str(char **tab_str)
 
 void	ft_destroy_and_free(t_game *game)
 {
-	// printf(YELLOW"destroy"RESET"\n");
 	if (game->img_0)
 		mlx_destroy_image(game->mlibx, game->img_0);
 	if (game->img_1)
@@ -87,15 +86,15 @@ void	ft_place_tiles(t_game *game, char **tab)
 		while (game->map->map_org[ite_row][ite_col])
 		{
 			if (game->map->map_org[ite_row][ite_col] == '0')
-				mlx_put_image_to_window((game->mlibx), (game->window), game->img_0, ite_col*32, ite_row*32);
+				mlx_put_image_to_window((game->mlibx), (game->window), game->img_0, ite_col * 32, ite_row * 32);
 			else if (game->map->map_org[ite_row][ite_col] == '1')
-				mlx_put_image_to_window((game->mlibx), (game->window), game->img_1, ite_col*32, ite_row*32);
+				mlx_put_image_to_window((game->mlibx), (game->window), game->img_1, ite_col * 32, ite_row * 32);
 			else if (game->map->map_org[ite_row][ite_col] == 'E')
-				mlx_put_image_to_window((game->mlibx), (game->window), game->img_e, ite_col*32, ite_row*32);
+				mlx_put_image_to_window((game->mlibx), (game->window), game->img_e, ite_col * 32, ite_row * 32);
 			else if (game->map->map_org[ite_row][ite_col] == 'C')
-				mlx_put_image_to_window((game->mlibx), (game->window), game->img_c, ite_col*32, ite_row*32);
+				mlx_put_image_to_window((game->mlibx), (game->window), game->img_c, ite_col * 32, ite_row * 32);
 			else if (game->map->map_org[ite_row][ite_col] == 'P')
-				mlx_put_image_to_window((game->mlibx), (game->window), game->img_p, ite_col*32, ite_row*32);
+				mlx_put_image_to_window((game->mlibx), (game->window), game->img_p, ite_col * 32, ite_row * 32);
 			ite_col++;
 		}
 		ite_row++;
@@ -132,24 +131,19 @@ int event_listen(int key, t_game *game)
 
 int	ft_display_map(t_game *game)
 {
-
 	(game->img_size) = 32;
 	(game->mlibx) = mlx_init();
-	game->window = mlx_new_window((game->mlibx), game->map->w*32, game->map->h*32, "so_long");
-
+	game->window = mlx_new_window((game->mlibx), game->map->w * 32, game->map->h * 32, "so_long");
 	if (game->mlibx == NULL)
 		return (FAIL);
 	if (game->window == NULL)
 		return (free(game->window), FAIL);
-
+	game->map->count_step = 0;
 	ft_init_sprite(game);
 	ft_place_tiles(game, game->map->map_org);
 	ft_find_p(game);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, game);
 	mlx_loop(game->mlibx);
-	usleep(3000000);
-	
 	ft_destroy_and_free(game);
-	
 	return (free(game->mlibx), SUCCESS);
 }

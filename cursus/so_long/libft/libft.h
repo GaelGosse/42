@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:56:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 07:49:18 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *destination, const void *source, size_t size);
 void	*ft_memmove(void *destination, const void *source, size_t n);
 void	*ft_memset(void	*str, int value, size_t len);
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_putstr_fd(char *s, int fd);
 char	**ft_split(const char *str, char sep);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *src);
@@ -69,5 +69,17 @@ char	*ft_strtrim(const char *str, const char *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int chr);
 int		ft_toupper(int chr);
+
+void	ft_putptr_hexa(unsigned long long int ptr);
+int		ft_putptr(unsigned long long int ptr);
+
+int		ft_int(char chr, int var);
+int		ft_uns(char chr, unsigned long long int var);
+int		ft_conv(const char *str, int i, va_list args);
+int		ft_printf(const char *str, ...);
+
+int		ft_putunbr(unsigned long long int nbr);
+int		ft_putnbr_base_low(unsigned long long int nbr);
+int		ft_putnbr_base_up(unsigned long long int nbr);
 
 #endif
