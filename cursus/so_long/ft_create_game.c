@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/02/02 20:31:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 04:54:06 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,26 @@ void	ft_init_sprite(t_game *game)
 	game->img_p = 0;
 	game->img_c = 0;
 	game->img_e = 0;
-	game->img_0 = mlx_xpm_file_to_image(game->mlibx, "./sprites/ground/xpm/water.xpm", &game->img_size, &game->img_size);
+	game->img_0 = mlx_xpm_file_to_image(game->mlibx,
+		"./sprites/ground/xpm/water.xpm", &game->img_size, &game->img_size);
 	if (game->img_0 == NULL)
 		ft_destroy_and_free(game);
-		// mlx_destroy_image(game->mlibx, game->img_0);
-	game->img_1 = mlx_xpm_file_to_image(game->mlibx, "./sprites/rocks/xpm/rock4_water.xpm", &game->img_size, &game->img_size);
+	game->img_1 = mlx_xpm_file_to_image(game->mlibx,
+		"./sprites/rocks/xpm/rock4_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_1 == NULL)
 		ft_destroy_and_free(game);
-		// mlx_destroy_image(game->mlibx, game->img_1);
-	game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/right/ship_r_water.xpm", &game->img_size, &game->img_size);
+	game->img_p = mlx_xpm_file_to_image(game->mlibx,
+		"./sprites/player/xpm/right/ship_r_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_p == NULL)
 		ft_destroy_and_free(game);
-		// mlx_destroy_image(game->mlibx, game->img_p);
-	game->img_c = mlx_xpm_file_to_image(game->mlibx, "./sprites/crystals/xpm/crystal1_on_water.xpm", &game->img_size, &game->img_size);
+	game->img_c = mlx_xpm_file_to_image(game->mlibx,
+		"./sprites/crystals/xpm/crystal1_on_water.xpm", &game->img_size, &game->img_size);
 	if (game->img_c == NULL)
 		ft_destroy_and_free(game);
-		// mlx_destroy_image(game->mlibx, game->img_c);
-	game->img_e = mlx_xpm_file_to_image(game->mlibx, "./sprites/ground/xpm/shadow_center.xpm", &game->img_size, &game->img_size);
+	game->img_e = mlx_xpm_file_to_image(game->mlibx,
+		"./sprites/ground/xpm/shadow_center.xpm", &game->img_size, &game->img_size);
 	if (game->img_e == NULL)
 		ft_destroy_and_free(game);
-		// mlx_destroy_image(game->mlibx, game->img_e);
 }
 
 void	ft_place_tiles(t_game *game, char **tab)

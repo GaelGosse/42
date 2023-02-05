@@ -30,5 +30,5 @@ else
 fi
 
 sleep 1
-# make fclean
+make clean
 echo ""

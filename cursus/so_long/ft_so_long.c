@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/01/31 18:56:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 04:58:44 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_parsing(t_game *game, int argc, char **argv, char **envp)
 	if (ft_check_ext(argv[1]) == FAIL)
 		return (printf("wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
-		return (printf("file does not exist\n"), FAIL);
+		return (FAIL);
 	if (ft_check_rectangular(game) == FAIL)
 		return (FAIL);
 	if (ft_nbr_letters(game) == FAIL)

@@ -11,7 +11,8 @@ NC = \033[0m
 
 ##### VAR #####
 NAME   = so_long
-CC    = gcc -Wall -Werror -Wextra -g3 -MMD -MP
+CC    = gcc -Wall -Werror -Wextra -g3
+#  -MMD -MP
 
 SRC  := ft_check_filemap.c \
 		ft_check_format.c \
@@ -63,6 +64,6 @@ fclean :
 
 re : fclean all 
 
--include ${DEPS}
+# -include ${DEPS}
 
 .PHONY: clean fclean all re

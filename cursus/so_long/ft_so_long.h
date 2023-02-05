@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/02/03 22:20:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 04:56:31 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int		ft_if_wall(t_game *game);
 int		ft_read_file(t_game *game, char *filename);
 int		ft_check_ext(char *filename);
 void	ft_build_map(t_game *game);
+int	ft_is_letter(char chr);
+int	ft_check_map(char *str);
 
 // ft_so_long.c
 int		ft_create_game(t_game *game);
