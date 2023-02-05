@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 09:22:25 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 16:02:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,18 @@ void	ft_destroy_and_free(t_game *game)
 	exit (1);
 }
 
-void	ft_init_sprite(t_game *game)
+void	ft_init_img(t_game *game)
 {
 	game->img_0 = 0;
 	game->img_1 = 0;
 	game->img_p = 0;
 	game->img_c = 0;
 	game->img_e = 0;
+}
+
+void	ft_init_sprite(t_game *game)
+{
+	ft_init_img(game);
 	game->img_0 = mlx_xpm_file_to_image(game->mlibx,
 		"./sprites/ground/xpm/water.xpm", &game->img_size, &game->img_size);
 	if (game->img_0 == NULL)

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 22:37:27 by gael              #+#    #+#             */
-/*   Updated: 2023/02/03 23:21:34 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 15:47:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_check_collectibles(t_game *game)
 		while (game->map->map_chck[ite_collect1][++ite_collect2])
 		{
 			if (game->map->map_chck[ite_collect1][ite_collect2] == 'C')
-				return (printf("Invalid path to C and E\n"), FAIL);
+				return (ft_putstr_fd("Invalid path to C and E\n", 2), FAIL);
 		}
 	}
 	return (SUCCESS);
@@ -61,9 +61,28 @@ int	ft_check_collectibles(t_game *game)
 
 int	ft_valid_path(t_game *game)
 {
+	int	ite_reach_row;
+	int	ite_reach_col;
+
 	while (ft_propagation(game) == FAIL)
 	{
 		ft_propagation(game);
+	}
+	ite_reach_row = 0;
+	// ft_print_map_s(game->map->map_chck);
+	while (game->map->map_chck[ite_reach_row])
+	{
+		ite_reach_col = 0;
+		while (game->map->map_chck[ite_reach_row][ite_reach_col])
+		{
+			if (game->map->map_chck[ite_reach_row][ite_reach_col] == 'E')
+			{
+				if (ft_exit_reachable(game, ite_reach_row, ite_reach_col) == FAIL)
+					return (ft_putstr_fd("Invalid path to C and E\n", 2), FAIL);
+			}
+			ite_reach_col++;
+		}
+		ite_reach_row++;
 	}
 	return (ft_check_collectibles(game));
 }
@@ -94,5 +113,18 @@ int	ft_replace_around(t_game *game, int ite_big, int ite_lil)
 		game->map->map_chck[ite_big - 1][ite_lil] = 'P';
 		return (SUCCESS);
 	}
+	return (FAIL);
+}
+
+int	ft_exit_reachable(t_game *game, int e_row, int e_col)
+{
+	if (game->map->map_chck[e_row - 1][e_col] == 'P')
+		return (SUCCESS);
+	if (game->map->map_chck[e_row + 1][e_col] == 'P')
+		return (SUCCESS);
+	if (game->map->map_chck[e_row][e_col - 1] == 'P')
+		return (SUCCESS);
+	if (game->map->map_chck[e_row][e_col + 1] == 'P')
+		return (SUCCESS);
 	return (FAIL);
 }

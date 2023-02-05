@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 19:23:13 by ggosse            #+#    #+#             */
-/*   Updated: 2023/02/05 07:56:15 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:09:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_move_w(t_game *game)
 		ft_remove_p(game);
 		ft_place_p(game, game->map->p_y - 1, game->map->p_x);
 		mlx_destroy_image(game->mlibx, game->img_p);
-		game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/top/ship_t_water.xpm", &game->img_size, &game->img_size);
+		game->img_p = mlx_xpm_file_to_image(game->mlibx, "./sprites/player/xpm/top/ship_t_f.xpm", &game->img_size, &game->img_size);
 		if (game->img_p == NULL)
 		{
 			ft_putstr_fd("Error\nproblem with image...", 2);
