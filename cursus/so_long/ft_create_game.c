@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 04:54:06 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 05:38:32 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,25 +107,21 @@ int event_listen(int key, t_game *game)
 {
 	if (key == XK_w)
 	{
-		printf(RED"here\n"RST);
 		ft_move_w(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	else if (key == XK_s)
 	{
-		printf(CYAN"here\n"RST);
 		ft_move_s(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	else if (key == XK_a)
 	{
-		printf(GREEN"here\n"RST);
 		ft_move_a(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
 	else if (key == XK_d)
 	{
-		printf(PURPLE"here\n"RST);
 		ft_move_d(game);
 		ft_place_tiles(game, game->map->map_org);
 	}
@@ -149,10 +145,6 @@ int	ft_display_map(t_game *game)
 	ft_init_sprite(game);
 	ft_place_tiles(game, game->map->map_org);
 	ft_find_p(game);
-	printf("game->map->p_x: %i\n", game->map->p_x);
-	printf("game->map->p_y: %i\n", game->map->p_y);
-	printf("game->map->map_org[game->map->p_y][game->map->p_x]: %c\n", game->map->map_org[game->map->p_y][game->map->p_x]);
-	// ft_print_map_s(game->map->map_org);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, game);
 	mlx_loop(game->mlibx);
 	usleep(3000000);

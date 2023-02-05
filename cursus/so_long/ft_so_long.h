@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:20:27 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 04:56:31 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 05:33:58 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,15 @@ int		ft_valid_path(t_game *game);
 /************************************ MLX *************************************/
 
 // ft_create_game.c
-int	ft_display_map(t_game *game);
+int		ft_display_map(t_game *game);
+void	ft_destroy_and_free(t_game *game);
 
 // ft_move.c
 void	ft_move_w(t_game *game);
 void	ft_move_s(t_game *game);
 void	ft_move_a(t_game *game);
 void	ft_move_d(t_game *game);
+
 void	ft_find_p(t_game *game);
 
 #endif

@@ -10,7 +10,7 @@ then
 elif [[ $# == 0 ]]
 then
 	echo -e $CYAN" ----- map_1 ----- "$RST
-	make && echo "" && echo -e "\n$BACK_YELLOW ./so_long $RST\n" && valgrind --log-file="z1" --leak-check=full ./so_long maps/map_1.ber 
+	make && echo "" && echo -e "\n$BACK_YELLOW ./so_long $RST\n" && valgrind --log-file="z1" --leak-check=full ./so_long maps/maze.ber 
 elif [[ $# == 2 ]]
 then
 	if [[ $2 == "-g" ]]
@@ -30,5 +30,5 @@ else
 fi
 
 sleep 1
-make clean
+# make clean
 echo ""

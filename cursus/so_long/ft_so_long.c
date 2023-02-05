@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 04:58:44 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 05:37:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,6 @@ int	main(int argc, char **argv, char **envp)
 	if (ft_parsing(&game, argc, argv, envp) == FAIL)
 		return (1);
 	ft_create_game(&game);
-	printf(PURPLE"game.map->h: %i"RESET"\n", game.map->h);
-	printf(PURPLE"game.map->w: %i"RESET"\n", game.map->w);
 	(void)argc;
 	(void)argv;
 	(void)envp;

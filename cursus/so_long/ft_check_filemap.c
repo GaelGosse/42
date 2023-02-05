@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:41:09 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 04:57:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 05:19:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_buf_read(int fd, t_game *game)
 		else
 			game->map->map_to_build = ft_strjoin(game->map->map_to_build, buf);
 	}
-	if (ft_check_map(game->map->map_to_build) == SUCCESS)
+	if (ft_check_map(game->map->map_to_build) == FAIL)
 		return (free(game->map->map_to_build), FAIL);
 	game->map->map_org = ft_split(game->map->map_to_build, '\n');
 	game->map->map_chck = ft_split(game->map->map_to_build, '\n');
@@ -50,17 +50,18 @@ int	ft_is_letter(char chr)
 
 int	ft_check_map(char *str)
 {
-	int	ite_backslash;
+	int	ite_back;
 	int	count;
 
 	count = 0;
-	ite_backslash = 0;
-	while (str[ite_backslash + 1])
+	ite_back = 0;
+	while (str[ite_back + 1])
 	{
-		if (str[ite_backslash] == '\n' && str[ite_backslash + 1])
+		if (str[ite_back] == '\n' && str[ite_back + 1] == '\n')
 			count++;
-		if (count && ft_is_letter(str[ite_backslash]) == SUCCESS)
-			return (ft_putstr_fd("a file must contain one map", 2), FAIL);
+		if (count > 0 && ft_is_letter(str[ite_back]) == SUCCESS)
+			return (ft_putstr_fd("a file must contain Z one map", 2), FAIL);
+		ite_back++;
 	}
 	return (SUCCESS);
 }
@@ -72,7 +73,8 @@ int	ft_read_file(t_game *game, char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (ft_putstr_fd("file does not exist\n", 1), FAIL);
-	ft_buf_read(fd, game);
+	if (ft_buf_read(fd, game) == FAIL)
+		return (FAIL);
 	if (close(fd) == -1)
 		return (ft_putstr_fd("close err\n", 1), FAIL);
 	return (SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 19:23:13 by ggosse            #+#    #+#             */
-/*   Updated: 2023/02/05 05:01:15 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/05 05:37:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_remove_p(t_game *game)
 	}
 }
 
-void	ft_remove_p(t_game *game)
+void	ft_place_p(t_game *game, int new_y, int new_x)
 {
 	int	ite_row;
 	int	ite_col;
@@ -71,9 +71,11 @@ void	ft_remove_p(t_game *game)
 		ite_col = 0;
 		while (game->map->map_org[ite_row][ite_col])
 		{
-			if (game->map->map_org[ite_row][ite_col] == 'P')
+			if (ite_col == new_x && ite_row == new_y)
 			{
-				game->map->map_org[ite_row][ite_col] = '0';
+				game->map->p_x = ite_col;
+				game->map->p_y = ite_row;
+				game->map->map_org[ite_row][ite_col] = 'P';
 				break;
 			}
 			ite_col++;
@@ -82,23 +84,113 @@ void	ft_remove_p(t_game *game)
 	}
 }
 
+int	ft_check_exit(t_game *game)
+{
+	int	ite_collect1;
+	int	ite_collect2;
+
+	ite_collect1 = -1;
+	while (game->map->map_org[++ite_collect1])
+	{
+		ite_collect2 = -1;
+		while (game->map->map_org[ite_collect1][++ite_collect2])
+		{
+			if (game->map->map_org[ite_collect1][ite_collect2] == 'C')
+				return (FAIL);
+		}
+	}
+	return (SUCCESS);
+}
+
 void	ft_move_w(t_game *game)
 {
-	printf("move_w\n");
+	if (game->map->map_org[game->map->p_y - 1][game->map->p_x] == '0' ||
+		game->map->map_org[game->map->p_y - 1][game->map->p_x] == 'C')
+	{
+		ft_find_p(game);
+		ft_remove_p(game);
+		ft_place_p(game, game->map->p_y - 1, game->map->p_x);
+		ft_putstr_fd("step :", 1);
+		ft_putnbr_fd(game->map->count_step, 1);
+		ft_putchar_fd('\n', 1);
+		game->map->count_step++;
+	}
+	else if (game->map->map_org[game->map->p_y - 1][game->map->p_x] == 'E')
+	{
+		if (ft_check_exit(game) == SUCCESS)
+		{
+			ft_putstr_fd("You won :)", 1);
+			ft_destroy_and_free(game);
+		}
+	}
 	(void)game;
 }
 void	ft_move_s(t_game *game)
 {
-	printf("move_s\n");
+	if (game->map->map_org[game->map->p_y + 1][game->map->p_x] == '0' ||
+		game->map->map_org[game->map->p_y + 1][game->map->p_x] == 'C')
+	{
+		ft_find_p(game);
+		ft_remove_p(game);
+		ft_place_p(game, game->map->p_y + 1, game->map->p_x);
+		ft_putstr_fd("step :", 1);
+		ft_putnbr_fd(game->map->count_step, 1);
+		ft_putchar_fd('\n', 1);
+		game->map->count_step++;
+	}
+	else if (game->map->map_org[game->map->p_y + 1][game->map->p_x] == 'E')
+	{
+		if (ft_check_exit(game) == SUCCESS)
+		{
+			ft_putstr_fd("You won :)", 1);
+			ft_destroy_and_free(game);
+		}
+	}
 	(void)game;
 }
 void	ft_move_a(t_game *game)
 {
-	printf("move_a\n");
+	if (game->map->map_org[game->map->p_y][game->map->p_x - 1] == '0' ||
+		game->map->map_org[game->map->p_y][game->map->p_x - 1] == 'C')
+	{
+		ft_find_p(game);
+		ft_remove_p(game);
+		ft_place_p(game, game->map->p_y, game->map->p_x - 1);
+		ft_putstr_fd("step :", 1);
+		ft_putnbr_fd(game->map->count_step, 1);
+		ft_putchar_fd('\n', 1);
+		game->map->count_step++;
+	}
+	else if (game->map->map_org[game->map->p_y][game->map->p_x - 1] == 'E')
+	{
+		if (ft_check_exit(game) == SUCCESS)
+		{
+			ft_putstr_fd("You won :)", 1);
+			ft_destroy_and_free(game);
+		}
+	}
 	(void)game;
 }
 void	ft_move_d(t_game *game)
 {
-	printf("move_d\n");
+	if (game->map->map_org[game->map->p_y][game->map->p_x + 1] == '0' ||
+		game->map->map_org[game->map->p_y][game->map->p_x + 1] == 'C')
+	{
+		ft_find_p(game);
+		ft_remove_p(game);
+		ft_place_p(game, game->map->p_y, game->map->p_x + 1);
+		ft_putstr_fd("step :", 1);
+		ft_putnbr_fd(game->map->count_step, 1);
+		ft_putchar_fd('\n', 1);
+		game->map->count_step++;
+	}
+	else if (game->map->map_org[game->map->p_y][game->map->p_x + 1] == 'E')
+	{
+		if (ft_check_exit(game) == SUCCESS)
+		{
+			ft_putstr_fd("You won :)", 1);
+			ft_destroy_and_free(game);
+		}
+	}
 	(void)game;
 }
