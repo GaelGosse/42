@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -30,7 +31,10 @@ int	ft_buf_read(int fd, t_game *game)
 		buf[ret] = '\0';
 		buf[1] = '\0';
 		if (!game->map->map_to_build)
+		{
 			game->map->map_to_build = ft_strdup(buf);
+			// free(buf);
+		}
 		else
 			game->map->map_to_build = ft_strjoin(game->map->map_to_build, buf);
 	}

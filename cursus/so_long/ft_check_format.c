@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:07:15 by gael              #+#    #+#             */
-/*   Updated: 2023/01/31 18:25:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/06 16:24:18 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	ft_check_rectangular(t_game *game)
 	while (game->map->map_org[++ite_check1])
 	{
 		if (prev != (int)ft_strlen(game->map->map_org[ite_check1]))
-			return (printf("line too long\n"), FAIL);
+			return (ft_putstr_fd("line too long\n", 2), FAIL);
 		prev = ft_strlen(game->map->map_org[ite_check1]);
 	}
 	game->map->h = ite_check1;
 	game->map->w = prev;
 	if (prev == ite_check1)
-		return (printf("map must be rectangular\n"), FAIL);
+		return (ft_putstr_fd("map must be rectangular\n", 2), FAIL);
 	return (SUCCESS);
 }
 
@@ -52,11 +52,11 @@ int	ft_nbr_letters(t_game *game)
 		}
 	}
 	if (game->map->check_letters.letter_c == 0)
-		return (printf("your map must contain at least one C \n"), FAIL);
+		return (ft_putstr_fd("your map must contain at least a C \n", 2), FAIL);
 	if (game->map->check_letters.letter_e != 1)
-		return (printf("Your map must contain one E\n"), FAIL);
+		return (ft_putstr_fd("Your map must contain one E\n", 2), FAIL);
 	if (game->map->check_letters.letter_p != 1)
-		return (printf("Your map must contain one P\n"), FAIL);
+		return (ft_putstr_fd("Your map must contain one P\n", 2), FAIL);
 	return (SUCCESS);
 }
 

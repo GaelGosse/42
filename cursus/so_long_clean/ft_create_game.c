@@ -6,43 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 23:37:07 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 17:25:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/06 19:29:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
-
-void	ft_free_tab_str(char **tab_str)
-{
-	int	ite_free_two;
-
-	ite_free_two = -1;
-	while (tab_str[++ite_free_two])
-		free(tab_str[ite_free_two]);
-	free(tab_str);
-}
-
-void	ft_destroy_and_free(t_game *game)
-{
-	if (game->img_0)
-		mlx_destroy_image(game->mlibx, game->img_0);
-	if (game->img_1)
-		mlx_destroy_image(game->mlibx, game->img_1);
-	if (game->img_p)
-		mlx_destroy_image(game->mlibx, game->img_p);
-	if (game->img_c)
-		mlx_destroy_image(game->mlibx, game->img_c);
-	if (game->img_e)
-		mlx_destroy_image(game->mlibx, game->img_e);
-	if (game->window)
-		mlx_destroy_window(game->mlibx, game->window);
-	if (game->window)
-		mlx_destroy_display(game->mlibx);
-	free(game->mlibx);
-	ft_free_tab_str(game->map->map_chck);
-	ft_free_tab_str(game->map->map_org);
-	exit (1);
-}
 
 void	ft_init_img(t_game *game)
 {
@@ -147,6 +115,7 @@ int	ft_display_map(t_game *game)
 	ft_init_sprite(game);
 	ft_place_tiles(game, game->map->map_org);
 	ft_find_p(game);
+	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, game);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &event_listen, game);
 	mlx_loop(game->mlibx);
 	ft_destroy_and_free(game);

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 15:21:02 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/06 18:27:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,19 +117,3 @@ int	main(int argc, char **argv, char **envp)
 	(void)envp;
 	return (0);
 }
-
-
-// \n too much
-// 2 maps in one map
-
-
-
-
-/*
-
-EXT .ber
-read map
-is rectangular
-
-
-*/
