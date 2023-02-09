@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 22:37:27 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 18:02:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/07 15:39:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	ft_check_collectibles(t_game *game)
 		while (game->map->map_chck[ite_collect1][++ite_collect2])
 		{
 			if (game->map->map_chck[ite_collect1][ite_collect2] == 'C')
-				return (ft_putstr_fd("Invalid path to C and E\n", 2), FAIL);
+				return (ft_free_parsing(game, \
+					"Invalid path leading to C or E\n"), FAIL);
 		}
 	}
 	return (SUCCESS);
@@ -75,10 +76,10 @@ int	ft_valid_path(t_game *game)
 		while (game->map->map_chck[ite_reach_row][ite_reach_col])
 		{
 			if (game->map->map_chck[ite_reach_row][ite_reach_col] == 'E')
-			{
-				if (ft_exit_reachable(game, ite_reach_row, ite_reach_col) == FAIL)
-					return (ft_putstr_fd("Invalid path to C and E\n", 2), FAIL);
-			}
+				if (ft_exit_reachable(game, ite_reach_row, \
+					ite_reach_col) == FAIL)
+					return (ft_free_parsing(game, \
+					"Invalid path leading to C and E\n"), FAIL);
 			ite_reach_col++;
 		}
 		ite_reach_row++;

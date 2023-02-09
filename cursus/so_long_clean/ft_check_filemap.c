@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:41:09 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 09:16:31 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/07 17:20:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +21,6 @@ int	ft_buf_read(int fd, t_game *game)
 	buf[1] = '\0';
 	if (fd < 0 || fd > 1024 || read(fd, 0, 0) < 0)
 		return (FAIL);
-	game->map->map_to_build = NULL;
 	while (buf[0] != '\0')
 	{
 		ret = read(fd, buf, 1);
@@ -30,19 +28,16 @@ int	ft_buf_read(int fd, t_game *game)
 			return (FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
-		if (!game->map->map_to_build)
-		{
-			game->map->map_to_build = ft_strdup(buf);
-			// free(buf);
-		}
+		if (!game->map->map_build)
+			game->map->map_build = ft_strdup(buf);
 		else
-			game->map->map_to_build = ft_strjoin(game->map->map_to_build, buf);
+			game->map->map_build = ft_strjoin(game->map->map_build, buf);
 	}
-	if (ft_check_map(game->map->map_to_build) == FAIL)
-		return (free(game->map->map_to_build), FAIL);
-	game->map->map_org = ft_split(game->map->map_to_build, '\n');
-	game->map->map_chck = ft_split(game->map->map_to_build, '\n');
-	return (free(game->map->map_to_build), SUCCESS);
+	if (ft_check_map(game->map->map_build, game) == FAIL)
+		return (FAIL);
+	game->map->map_org = ft_split(game->map->map_build, '\n');
+	game->map->map_chck = ft_split(game->map->map_build, '\n');
+	return (free(game->map->map_build), game->map->map_build = NULL, SUCCESS);
 }
 
 int	ft_is_letter(char chr)
@@ -52,7 +47,7 @@ int	ft_is_letter(char chr)
 	return (FAIL);
 }
 
-int	ft_check_map(char *str)
+int	ft_check_map(char *str, t_game *game)
 {
 	int	ite_back;
 	int	count;
@@ -64,7 +59,8 @@ int	ft_check_map(char *str)
 		if (str[ite_back] == '\n' && str[ite_back + 1] == '\n')
 			count++;
 		if (count > 0 && ft_is_letter(str[ite_back]) == SUCCESS)
-			return (ft_putstr_fd("a file must contain one map", 2), FAIL);
+			return (ft_free_parsing(game,
+					"a file must contain one map\n"), FAIL);
 		ite_back++;
 	}
 	return (SUCCESS);
@@ -76,11 +72,15 @@ int	ft_read_file(t_game *game, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (ft_putstr_fd("file does not exist\n", 1), FAIL);
+		return (ft_putstr_fd("Error\nfile does not exist\n", 1), FAIL);
+	printf("access(filename, F_OK): %i\n", access(filename, F_OK));
+	if (access(filename, F_OK) != 0)
+		return (ft_putstr_fd(\lock
+			"Error\nyou must use a file to contain the map", 2));
 	if (ft_buf_read(fd, game) == FAIL)
 		return (FAIL);
 	if (close(fd) == -1)
-		return (ft_putstr_fd("close err\n", 1), FAIL);
+		return (ft_putstr_fd("Error\nclose err\n", 1), FAIL);
 	return (SUCCESS);
 }
 

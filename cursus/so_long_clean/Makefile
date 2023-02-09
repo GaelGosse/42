@@ -19,7 +19,9 @@ SRC  := ft_check_filemap.c \
 		ft_create_game.c \
 		ft_so_long.c \
 		ft_valid_path.c \
-		ft_move.c 
+		ft_move.c \
+		ft_free.c \
+		ft_handle_p.c
 
 OBJ = $(SRC:%.c=%.o)
 DEPS = $(OBJ:%.o=%.d)

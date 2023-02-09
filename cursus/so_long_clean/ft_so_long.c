@@ -6,71 +6,31 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:16:46 by gael              #+#    #+#             */
-/*   Updated: 2023/02/06 18:27:50 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/07 15:34:40 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
 
-void	ft_print_map_s(char **tab)
+int	ft_check_env(char **envp)
 {
-	int	ite_print_str;
-	int	ite_print_chr;
+	int	ite_env;
+	int	is_path;
 
-	ite_print_str = 0;
-	ite_print_chr = 0;
-	while (tab[ite_print_str])
+	is_path = 0;
+	ite_env = 0;
+	while (envp[ite_env])
 	{
-		ite_print_chr = 0;
-		while (tab[ite_print_str][ite_print_chr])
-		{
-			if (tab[ite_print_str][ite_print_chr] == '1')
-				printf(BACK_WHITE"%c"RST, tab[ite_print_str][ite_print_chr]);
-			if (tab[ite_print_str][ite_print_chr] == '0')
-				printf(" ");
-			if (tab[ite_print_str][ite_print_chr] == 'E')
-				printf(BACK_GREEN"%c"RST, tab[ite_print_str][ite_print_chr]);
-			if (tab[ite_print_str][ite_print_chr] == 'C')
-				printf(BACK_YELLOW"%c"RST, tab[ite_print_str][ite_print_chr]);
-			if (tab[ite_print_str][ite_print_chr] == 'P')
-				printf(BACK_RED"%c"RST, tab[ite_print_str][ite_print_chr]);
-			ite_print_chr++;
-		}
-		printf("\n");
-		ite_print_str++;
+		if (ft_strncmp(envp[ite_env], "PATH=", 5) == 0)
+			is_path++;
+		ite_env++;
 	}
+	if (is_path)
+		return (SUCCESS);
+	return (FAIL);
 }
 
-void	ft_print_map_xl(char **tab)
-{
-	int	ite_print_str;
-	int	ite_print_chr;
-
-	ite_print_str = 0;
-	ite_print_chr = 0;
-	while (tab[ite_print_str])
-	{
-		ite_print_chr = 0;
-		while (tab[ite_print_str][ite_print_chr])
-		{
-			if (tab[ite_print_str][ite_print_chr] == '1')
-				printf(BACK_WHITE" %c "RST, tab[ite_print_str][ite_print_chr]);
-			if (tab[ite_print_str][ite_print_chr] == '0')
-				printf("   ");
-			if (tab[ite_print_str][ite_print_chr] == 'E')
-				printf(BACK_GREEN" %c "RST, tab[ite_print_str][ite_print_chr]);
-			if (tab[ite_print_str][ite_print_chr] == 'C')
-				printf(BACK_YELLOW" %c "RST, tab[ite_print_str][ite_print_chr]);
-			if (tab[ite_print_str][ite_print_chr] == 'P')
-				printf(BACK_RED" %c "RST, tab[ite_print_str][ite_print_chr]);
-			ite_print_chr++;
-		}
-		printf("\n");
-		ite_print_str++;
-	}
-}
-
-int	ft_parsing(t_game *game, int argc, char **argv, char **envp)
+int	ft_parsing(t_game *game, char **argv)
 {
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)
@@ -78,8 +38,11 @@ int	ft_parsing(t_game *game, int argc, char **argv, char **envp)
 	game->map->check_letters.letter_c = 0;
 	game->map->check_letters.letter_e = 0;
 	game->map->check_letters.letter_p = 0;
+	game->map->map_build = NULL;
+	game->map->map_org = NULL;
+	game->map->map_chck = NULL;
 	if (ft_check_ext(argv[1]) == FAIL)
-		return (printf("wrong filename extension\n"), FAIL);
+		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
 	if (ft_check_rectangular(game) == FAIL)
@@ -87,14 +50,13 @@ int	ft_parsing(t_game *game, int argc, char **argv, char **envp)
 	if (ft_nbr_letters(game) == FAIL)
 		return (FAIL);
 	if (ft_if_wall(game) == FAIL)
-		return (printf("there are some leaks on walls\n"), FAIL);
+		return (ft_free_parsing(game, "there are some leaks on walls\n"), FAIL);
 	if (ft_wrong_letters(game) == FAIL)
-		return (printf("Letters allowed on your map : P, C, E, 0, 1\n"), FAIL);
+		return (ft_free_parsing(game,
+				"Letters allowed on your map : P, C, E, 0, 1\n"), FAIL);
 	if (ft_valid_path(game) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
-	(void)argc;
-	(void)envp;
 }
 
 int	ft_create_game(t_game *game)
@@ -107,13 +69,12 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_game	game;
 
+	if (ft_check_env(envp) == FAIL)
+		return (ft_putstr_fd("Error\nyou must have env. variables\n", 2), 1);
 	if (argc != 2)
-		return (ft_putstr_fd("you must called one arg\n", 1), 1);
-	if (ft_parsing(&game, argc, argv, envp) == FAIL)
+		return (ft_putstr_fd("Error\nyou must called one arg\n", 2), 1);
+	if (ft_parsing(&game, argv) == FAIL)
 		return (1);
 	ft_create_game(&game);
-	(void)argc;
-	(void)argv;
-	(void)envp;
 	return (0);
 }
