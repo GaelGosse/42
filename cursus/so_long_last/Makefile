@@ -33,7 +33,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@echo
-	@echo "${YELLOW} ----- compile -----${NC}"
+	@echo -e "${YELLOW} ----- compile -----${NC}"
 	@echo
 	$(MAKE) --no-print-directory -C libft
 	$(MAKE) --no-print-directory -C minilibx
@@ -44,24 +44,24 @@ $(NAME) : $(OBJ)
 
 clean:
 	@echo
-	@echo "${YELLOW} ----- clean...  -----${NC}"
+	@echo -e "${YELLOW} ----- clean...  -----${NC}"
 	@echo
 	rm -f $(OBJ)
 	rm -f $(DEPS)
 	make clean --no-print-directory -C minilibx
 	make fclean --no-print-directory -C libft
 	@echo
-	@echo "${YELLOW} ----- ✅ clean done -----${NC}"
+	@echo -e "${YELLOW} ----- ✅ clean done -----${NC}"
 	@echo
 
 fclean :
 	@echo
-	@echo "${YELLOW} ----- clean...  -----${NC}"
+	@echo -e "${YELLOW} ----- clean...  -----${NC}"
 	@echo
 	make clean --no-print-directory
 	rm -f $(NAME)
 	@echo
-	@echo "${YELLOW} ----- ✅ fclean done -----${NC}"
+	@echo -e "${YELLOW} ----- ✅ fclean done -----${NC}"
 	@echo
 
 re : fclean all 

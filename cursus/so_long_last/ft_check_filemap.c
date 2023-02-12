@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_filemap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:41:09 by gael              #+#    #+#             */
-/*   Updated: 2023/02/09 16:57:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/02/12 16:43:09 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_read_file(t_game *game, char *filename)
 	if (fd == -1)
 		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
 	if (access(filename, F_OK) != 0)
-		return (ft_free_parsing(game,\
+		return (ft_free_parsing(game, \
 			"you must use a file to contain the map"), FAIL);
 	if (ft_buf_read(fd, game) == FAIL)
 		return (FAIL);
