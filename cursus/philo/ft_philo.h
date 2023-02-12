@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_philo.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 01:29:08 by gael              #+#    #+#             */
-/*   Updated: 2023/02/12 01:29:08 by gael             ###   ########.fr       */
+/*   Created: 2023/02/12 20:57:26 by ggosse            #+#    #+#             */
+/*   Updated: 2023/02/12 20:58:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,23 @@
 # include <string.h>
 # include <termios.h>
 # include <unistd.h>
+# include "libft/libft.h"
+
+# define SUCCESS 1
+# define FAIL -1
+
+typedef struct s_table
+{
+	int	nbr_of_philo;
+	int	die_time;
+	int	eat_time;
+	int	sleep_time;
+	int	cycles;
+}		t_table;
 
 //ft_philo.c
-void			ft_test(char *str);
+void			ft_init_struct(t_table *table);
+//ft_philo.c
+int				ft_parsing(int argc, char *argv[], t_table *table);
 
 #endif
