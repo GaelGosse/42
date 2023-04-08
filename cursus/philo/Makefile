@@ -11,14 +11,15 @@ NC = \033[0m
 
 ##### VAR #####
 NAME   = philo
-CC     = gcc -Wall -Werror -Wextra -g3
+CC     = gcc -Wall -Werror -Wextra -pthread -g3
 # -MMD -MP
 
-SRC  := ft_philo.c
+SRC  := philo.c \
+		init.c
 
 OBJ = $(SRC:%.c=%.o)
 DEPS = $(OBJ:%.o=%.d)
-LIBX = -L minilibx/ 
+LIBX = -L minilibx/
 
 ##### RULES #####
 all: $(NAME)
@@ -28,7 +29,7 @@ $(NAME) : $(OBJ)
 	@echo "${YELLOW} ----- compile -----${NC}"
 	@echo
 	$(MAKE) --no-print-directory -C libft
-	$(CC) $(OBJ) libft/libft.a $(LIBX) $(LIBXFLAGS) -o $(NAME) 
+	$(CC) $(OBJ) libft/libft.a $(LIBX) $(LIBXFLAGS) -o $(NAME)
 
 %.o : %.c Makefile
 	$(CC) -c $< -o $@
@@ -54,7 +55,7 @@ fclean :
 	@echo "${YELLOW} ----- ✅ fclean done -----${NC}"
 	@echo
 
-re : fclean all 
+re : fclean all
 
 # -include ${DEPS}
 
