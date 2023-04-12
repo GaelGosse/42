@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_philo.h                                         :+:      :+:    :+:   */
+/*   ft_cursus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 20:57:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/04/12 18:34:47 by ggosse           ###   ########.fr       */
+/*   Created: 2023/04/12 18:21:59 by ggosse            #+#    #+#             */
+/*   Updated: 2023/04/12 18:21:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PHILO_H
-# define FT_PHILO_H
+#ifndef FT_CURSUS_H
+# define FT_CURSUS_H
 
 # include <dirent.h>
 # include <errno.h>
@@ -44,38 +44,4 @@
 # define FAIL -1
 // ---------------------------- end define ---------------------------------- //
 
-// ------------------------------ struct ------------------------------------ //
 
-typedef struct philo
-{
-	int				id_philo;
-	int				die_time;
-	int				eat_time;
-	int				sleep_time;
-	int				cycles;
-	pthread_t		*thrd;
-	pthread_mutex_t	mtx_fork;
-	pthread_mutex_t	mtx_print;
-	pthread_mutex_t	mtx_eat;
-	pthread_mutex_t	mtx_end;
-}					t_philo;
-
-typedef struct s_table
-{
-	long long	start_time;
-	int			nbr_of_philo;
-	int			die_time;
-	int			eat_time;
-	int			sleep_time;
-	int			cycles;
-	t_philo		*philo;
-}				t_table;
-// ---------------------------- end struct ---------------------------------- //
-
-//init.c
-void		init_mutex(t_table *table);
-//philo.c
-int			ft_parsing(int argc, char **argv, t_table *table);
-long long	get_time(void);
-
-#endif
