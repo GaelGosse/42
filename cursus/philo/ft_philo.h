@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 20:57:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/04/12 18:34:47 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/04/13 17:35:07 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 # include <readline/history.h>
 
 // ------------------------------ include ----------------------------------- //
-# include "libft/libft.h"
 #include "color.h"
 // ---------------------------- end include --------------------------------- //
 
@@ -58,6 +57,7 @@ typedef struct philo
 	pthread_mutex_t	mtx_print;
 	pthread_mutex_t	mtx_eat;
 	pthread_mutex_t	mtx_end;
+	struct philo	*next;
 }					t_philo;
 
 typedef struct s_table
@@ -68,14 +68,8 @@ typedef struct s_table
 	int			eat_time;
 	int			sleep_time;
 	int			cycles;
-	t_philo		*philo;
+	t_philo		*philos;
+	t_philo		*philos_head;
 }				t_table;
 // ---------------------------- end struct ---------------------------------- //
 
-//init.c
-void		init_mutex(t_table *table);
-//philo.c
-int			ft_parsing(int argc, char **argv, t_table *table);
-long long	get_time(void);
-
-#endif

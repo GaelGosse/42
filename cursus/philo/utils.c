@@ -1,19 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:53:31 by ggosse            #+#    #+#             */
-/*   Updated: 2022/06/15 16:40:47 by ggosse           ###   ########.fr       */
+/*   Created: 2023/04/13 12:12:21 by ggosse            #+#    #+#             */
+/*   Updated: 2023/04/13 17:34:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
+#include "ft_philo.h"
+
+t_philo	*ft_lstnew_philo(t_table *table, int i_philo)
+{
+	t_philo	*new;
+
+	new = malloc(sizeof(t_philo));
+	if (!new)
+		return (NULL);
+	new->id_philo = i_philo;
+	new->die_time = table->die_time;
+	new->eat_time = table->eat_time;
+	new->sleep_time = table->sleep_time;
+	new->cycles = FAIL;
+	new->thrd = NULL;
+	new->next = NULL;
+	printf(GREEN"new->id_philo: %i"RESET"\n", new->id_philo);
+	printf(GREEN"new->die_time: %i"RESET"\n", new->die_time);
+	printf(GREEN"new->eat_time: %i"RESET"\n", new->eat_time);
+	printf(GREEN"new->sleep_time: %i"RESET"\n", new->sleep_time);
+	printf("\n");
+	return (new);
+}
+
+void	ft_lstadd_back(t_philo **lst, t_philo *new)
+{
+	t_philo	*tmp;
+
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	tmp = *lst;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = new;
+}
 
 static int	ft_isspace(int chr)
 {

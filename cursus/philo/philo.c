@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:51:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/04/12 18:39:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/04/13 12:43:54 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,21 @@ long long	get_time(void)
 
 void	init_philos(t_table *table)
 {
-	int	i_philos;
+	int		i_philos;
+	t_philo	*human;
 
 	i_philos = 0;
-	while (table->)
+	while (i_philos < table->nbr_of_philo)
 	{
-
+		human = ft_lstnew_philo(table, i_philos + 1);
+		if (table->philos == NULL)
+		{
+			table->philos = human;
+			table->philos_head = table->philos;
+		}
+		else
+			ft_lstadd_back(&table->philos, human);
+		i_philos++;
 	}
 }
 
@@ -38,6 +47,7 @@ int	ft_parsing(int argc, char **argv, t_table *table)
 {
 	if (argc == 5 || argc == 6)
 	{
+		table->start_time = get_time();
 		table->nbr_of_philo = ft_atoi(argv[1]);
 		table->die_time = ft_atoi(argv[2]);
 		table->eat_time = ft_atoi(argv[3]);
@@ -46,16 +56,14 @@ int	ft_parsing(int argc, char **argv, t_table *table)
 			table->cycles = ft_atoi(argv[5]);
 		else
 			table->cycles = FAIL;
+		table->philos = NULL;
 		printf("nbr_of_philo: %i\n", table->nbr_of_philo);
 		printf("die_time: %i\n", table->die_time);
 		printf("eat_time: %i\n", table->eat_time);
 		printf("sleep_time: %i\n", table->sleep_time);
 		if (argc == 6)
 			printf("cycles: %i\n", table->cycles);
-		table->start_time = get_time();
-		printf(PURPLE"time: %lli"RESET"\n", get_time() - table->start_time);
-		usleep(500);
-		printf(PURPLE"time: %lli"RESET"\n", get_time() - table->start_time);
+		init_philos(table);
 	}
 	else
 		return (printf("wrong args\n"), FAIL);

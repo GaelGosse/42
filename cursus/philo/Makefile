@@ -15,7 +15,8 @@ CC     = gcc -Wall -Werror -Wextra -pthread -g3
 # -MMD -MP
 
 SRC  := philo.c \
-		init.c
+		init.c \
+		utils.c \
 
 OBJ = $(SRC:%.c=%.o)
 DEPS = $(OBJ:%.o=%.d)
@@ -28,8 +29,7 @@ $(NAME) : $(OBJ)
 	@echo
 	@echo "${YELLOW} ----- compile -----${NC}"
 	@echo
-	$(MAKE) --no-print-directory -C libft
-	$(CC) $(OBJ) libft/libft.a $(LIBX) $(LIBXFLAGS) -o $(NAME)
+	$(CC) $(OBJ) $(LIBX) $(LIBXFLAGS) -o $(NAME)
 
 %.o : %.c Makefile
 	$(CC) -c $< -o $@
@@ -40,7 +40,6 @@ clean:
 	@echo
 	rm -f $(OBJ)
 	rm -f $(DEPS)
-	make fclean --no-print-directory -C libft
 	@echo
 	@echo "${YELLOW} ----- ✅ clean done -----${NC}"
 	@echo
