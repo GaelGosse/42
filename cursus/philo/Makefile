@@ -12,15 +12,18 @@ NC = \033[0m
 ##### VAR #####
 NAME   = philo
 CC     = gcc -Wall -Werror -Wextra -pthread -g3
+# -fdump-rtl-expand
 # -MMD -MP
 
 SRC  := philo.c \
 		init.c \
 		utils.c \
+		if_mtx.c \
+		dinner.c \
+		about_death.c \
 
 OBJ = $(SRC:%.c=%.o)
 DEPS = $(OBJ:%.o=%.d)
-LIBX = -L minilibx/
 
 ##### RULES #####
 all: $(NAME)
@@ -29,7 +32,7 @@ $(NAME) : $(OBJ)
 	@echo
 	@echo "${YELLOW} ----- compile -----${NC}"
 	@echo
-	$(CC) $(OBJ) $(LIBX) $(LIBXFLAGS) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 %.o : %.c Makefile
 	$(CC) -c $< -o $@

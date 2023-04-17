@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_philo.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 20:57:26 by ggosse            #+#    #+#             */
-/*   Updated: 2023/04/13 17:35:07 by ggosse           ###   ########.fr       */
+/*   Created: 2023/04/09 20:57:26 by gael              #+#    #+#             */
+/*   Updated: 2023/04/17 03:44:25 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <pthread.h>
 # include <sys/types.h>
 # include <sys/time.h>
 # include <sys/resource.h>
@@ -39,8 +40,8 @@
 // ---------------------------- end include --------------------------------- //
 
 // ------------------------------ define ------------------------------------ //
-# define SUCCESS 1
-# define FAIL -1
+# define SUCCESS 0
+# define FAIL 1
 // ---------------------------- end define ---------------------------------- //
 
 // ------------------------------ struct ------------------------------------ //
@@ -52,24 +53,66 @@ typedef struct philo
 	int				eat_time;
 	int				sleep_time;
 	int				cycles;
-	pthread_t		*thrd;
-	pthread_mutex_t	mtx_fork;
-	pthread_mutex_t	mtx_print;
-	pthread_mutex_t	mtx_eat;
-	pthread_mutex_t	mtx_end;
-	struct philo	*next;
+	int				nbr_meal;
+	long long		last_eat;
+	int				align_eat;
+	int				fork_l;
+	int				fork_r;
+	pthread_t		id_thrd;
+	struct s_table	*table;
 }					t_philo;
 
 typedef struct s_table
 {
-	long long	start_time;
-	int			nbr_of_philo;
-	int			die_time;
-	int			eat_time;
-	int			sleep_time;
-	int			cycles;
-	t_philo		*philos;
-	t_philo		*philos_head;
-}				t_table;
+	int				nbr_of_philo;
+	int				die_time;
+	int				eat_time;
+	int				sleep_time;
+	int				cycles;
+	int				dead;
+	int				act_cycle;
+	int				end_cycle;
+	long long		start_time;
+	pthread_t		main_thrd;
+	pthread_mutex_t	mtx_end_cycle;
+	pthread_mutex_t	mtx_last_eat;
+	pthread_mutex_t	mtx_print;
+	pthread_mutex_t	mtx_end;
+	pthread_mutex_t	mtx_die;
+	pthread_mutex_t	mtx_eat;
+	pthread_mutex_t	mtx_fork[200];
+	t_philo			philos[200];
+}					t_table;
 // ---------------------------- end struct ---------------------------------- //
 
+//about_death.c
+void	confirm_death(t_philo *philo);
+void	end_or_dead(t_table *table);
+//dinner.c
+int		check_all(t_philo *philo);
+void	eat_left(t_philo *philo);
+void	eat_right(t_philo *philo);
+int		only_philo(t_philo *philo);
+void	*start_routine(void *arg);
+//if_mtx.c
+int		is_all_satiated(t_philo *philo);
+int		is_dead(t_philo *philo);
+int		is_end_cycle(t_philo *philo);
+int		is_starve(t_philo *philo, long long time_ago);
+void	print_mtx(t_philo *philo, char *msg);
+//philo.c
+void	ft_usleep(int slp);
+long long get_time(void);
+int		odd_dinner(t_table *table);
+void	*start_dinner(t_table *table);
+//utils.c
+int		ft_atoi(const char *str);
+int		ft_isspace(int chr);
+int		ft_strlen(char *str);
+//init.c
+int		check_arg(int argc, char **argv);
+int		ft_parsing(int argc, char **argv, t_table *table);
+int		init_mutex(t_table *table);
+int		init_philos(t_table *table);
+
+#endif

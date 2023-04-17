@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:51:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/04/13 12:43:54 by ggosse           ###   ########.fr       */
+/*   Created: 2023/04/09 18:51:05 by gael              #+#    #+#             */
+/*   Updated: 2023/04/17 03:38:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,53 @@
 
 long long	get_time(void)
 {
-	long long				milli;
 	static struct timeval	tv;
 
-	if (gettimeofday(&tv, NULL)  == -1)
-		return (0);
-	milli = (tv.tv_sec + tv.tv_usec);
-	return (milli);
+	if (gettimeofday(&tv, NULL) == -1)
+		return (FAIL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-void	init_philos(t_table *table)
+int	odd_dinner(t_table *table)
 {
-	int		i_philos;
-	t_philo	*human;
+	int		i_odd;
 
-	i_philos = 0;
-	while (i_philos < table->nbr_of_philo)
+	i_odd = -1;
+	while (++i_odd < table->nbr_of_philo)
 	{
-		human = ft_lstnew_philo(table, i_philos + 1);
-		if (table->philos == NULL)
+		if (i_odd % 2 != 0)
 		{
-			table->philos = human;
-			table->philos_head = table->philos;
+			if (pthread_create((&table->philos[i_odd].id_thrd), NULL, \
+			start_routine, &(table->philos[i_odd])) != 0)
+				return (FAIL);
 		}
-		else
-			ft_lstadd_back(&table->philos, human);
-		i_philos++;
 	}
+	return (SUCCESS);
 }
 
-int	ft_parsing(int argc, char **argv, t_table *table)
+void	*start_dinner(t_table *table)
 {
-	if (argc == 5 || argc == 6)
+	// t_table	*tmp;
+	int		i_even;
+
+	// tmp = table->philo;
+	table->start_time = get_time();
+	i_even = -1;
+	while (++i_even < table->nbr_of_philo)
 	{
-		table->start_time = get_time();
-		table->nbr_of_philo = ft_atoi(argv[1]);
-		table->die_time = ft_atoi(argv[2]);
-		table->eat_time = ft_atoi(argv[3]);
-		table->sleep_time = ft_atoi(argv[4]);
-		if (argc == 6)
-			table->cycles = ft_atoi(argv[5]);
-		else
-			table->cycles = FAIL;
-		table->philos = NULL;
-		printf("nbr_of_philo: %i\n", table->nbr_of_philo);
-		printf("die_time: %i\n", table->die_time);
-		printf("eat_time: %i\n", table->eat_time);
-		printf("sleep_time: %i\n", table->sleep_time);
-		if (argc == 6)
-			printf("cycles: %i\n", table->cycles);
-		init_philos(table);
+		if (i_even % 2 == 0)
+		{
+			if (pthread_create((&table->philos[i_even].id_thrd), NULL, \
+			start_routine, &(table->philos[i_even])) != 0)
+				return ((int *)FAIL);
+		}
 	}
-	else
-		return (printf("wrong args\n"), FAIL);
-	return (SUCCESS);
+	usleep(table->eat_time / 2 * 1000);
+	if (odd_dinner(table))
+		return ((int *)FAIL);
+	end_or_dead(table);
+	// destroy_mtx
+	return (table->philos);
 }
 
 int	main(int argc, char *argv[])
@@ -75,21 +68,45 @@ int	main(int argc, char *argv[])
 	t_table	table;
 	t_philo	*philos;
 
-	if (ft_parsing(argc, argv, &table))
+	if (check_arg(argc, argv) == FAIL \
+	|| ft_parsing(argc, argv, &table) == FAIL || init_philos(&table) == FAIL \
+	|| init_mutex(&table))
 		return (FAIL);
+	start_dinner(&table);
 	(void)argc;
 	(void)argv;
 	(void)philos;
 	(void)table;
 }
 
-// void	ft_usleep(int slp)
+void	ft_usleep(int slp)
+{
+	long long	tmp;
+
+	tmp = get_time();
+	while (get_time() < tmp + slp)
+	{
+		tmp = get_time();
+		usleep(50);
+	}
+}
+
+// int	ft_usleep(t_philo *philo, int ref)
 // {
-// 	long long	tmp;
-//
-// 	tmp = get_time();
-// 	while (get_time() < tmp + slp)
+// 	long int	milliseconds;
+// 	long int	interval;
+// 	long int	time;
+
+// 	time = 0;
+// 	milliseconds = get_time();
+// 	while (is_dead(philo) == 0 && time < ref)
 // 	{
-// 		usleep(40);
+// 		if (is_starve(philo, get_time()) != 0)
+// 			return (1);
+// 		interval = get_time();
+// 		time = interval - milliseconds;
+// 		usleep(50);
 // 	}
+// 	return (0);
 // }
+
