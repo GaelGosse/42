@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 20:52:19 by gael              #+#    #+#             */
-/*   Updated: 2023/04/17 03:28:54 by gael             ###   ########.fr       */
+/*   Updated: 2023/04/17 15:29:58 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	init_philos(t_table *table)
 		printf("id: %i \n\n", table->philos[i_philos].id_philo);
 		printf("fork_l %i \n", table->philos[i_philos].fork_l);
 		printf("fork_r %i \n", table->philos[i_philos].fork_r);
-		printf("\n.....................................\n\n");
 	}
 	return (SUCCESS);
 }

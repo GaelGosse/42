@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   if_mtx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 23:14:50 by gael              #+#    #+#             */
-/*   Updated: 2023/04/17 03:28:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/04/17 17:58:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	print_mtx(t_philo *philo, char *msg)
 	if (is_end_cycle(philo) != 0)
 		return ;
 	pthread_mutex_lock(&philo->table->mtx_print);
-	// check dead \t
+	if (is_dead(philo) == 0)
 		printf("%lli %i %s\n", get_time() - philo->table->start_time, \
 	philo->id_philo, msg);
 	pthread_mutex_unlock(&philo->table->mtx_print);

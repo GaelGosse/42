@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:51:05 by gael              #+#    #+#             */
-/*   Updated: 2023/04/17 03:38:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/04/17 16:52:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ int	odd_dinner(t_table *table)
 
 void	*start_dinner(t_table *table)
 {
-	// t_table	*tmp;
-	int		i_even;
+	int	i_even;
 
-	// tmp = table->philo;
 	table->start_time = get_time();
 	i_even = -1;
 	while (++i_even < table->nbr_of_philo)
@@ -59,8 +57,27 @@ void	*start_dinner(t_table *table)
 	if (odd_dinner(table))
 		return ((int *)FAIL);
 	end_or_dead(table);
-	// destroy_mtx
+	finish(table);
 	return (table->philos);
+}
+
+int	ft_usleep(t_philo *philo, int ref)
+{
+	long int	milliseconds;
+	long int	interval;
+	long int	time;
+
+	time = 0;
+	milliseconds = get_time();
+	while (is_dead(philo) == 0 && time < ref)
+	{
+		if (is_starve(philo, get_time()) != 0)
+			return (1);
+		interval = get_time();
+		time = interval - milliseconds;
+		usleep(50);
+	}
+	return (0);
 }
 
 int	main(int argc, char *argv[])
@@ -78,35 +95,3 @@ int	main(int argc, char *argv[])
 	(void)philos;
 	(void)table;
 }
-
-void	ft_usleep(int slp)
-{
-	long long	tmp;
-
-	tmp = get_time();
-	while (get_time() < tmp + slp)
-	{
-		tmp = get_time();
-		usleep(50);
-	}
-}
-
-// int	ft_usleep(t_philo *philo, int ref)
-// {
-// 	long int	milliseconds;
-// 	long int	interval;
-// 	long int	time;
-
-// 	time = 0;
-// 	milliseconds = get_time();
-// 	while (is_dead(philo) == 0 && time < ref)
-// 	{
-// 		if (is_starve(philo, get_time()) != 0)
-// 			return (1);
-// 		interval = get_time();
-// 		time = interval - milliseconds;
-// 		usleep(50);
-// 	}
-// 	return (0);
-// }
-

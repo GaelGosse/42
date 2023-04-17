@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   about_death.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 18:40:31 by gael              #+#    #+#             */
-/*   Updated: 2023/04/17 03:44:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/04/17 17:39:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	confirm_death(t_philo *philo)
 {
-	print_mtx(philo, "died");
+	print_mtx(philo, BOLD_RED"died"RST);
 	pthread_mutex_lock(&(philo->table->mtx_die));
 	philo->table->dead = 1;
 	pthread_mutex_unlock(&(philo->table->mtx_die));

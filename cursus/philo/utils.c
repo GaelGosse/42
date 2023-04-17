@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:12:21 by gael              #+#    #+#             */
-/*   Updated: 2023/04/17 03:29:06 by gael             ###   ########.fr       */
+/*   Updated: 2023/04/17 17:55:43 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,27 @@ int	ft_atoi(const char *str)
 	if (res > INT_MAX)
 		return (FAIL);
 	return (res * sign);
+}
+
+void	finish(t_table *table)
+{
+	int	i_finish;
+
+	i_finish = -1;
+	while (++i_finish < table->nbr_of_philo)
+		pthread_join(table->philos[i_finish].id_thrd, NULL);
+	i_finish = -1;
+	while (++i_finish < table->nbr_of_philo)
+		pthread_mutex_destroy(&table->mtx_fork[i_finish]);
+	destroy_mtx(table);
+}
+
+void	destroy_mtx(t_table *table)
+{
+	pthread_mutex_destroy(&table->mtx_end_cycle);
+	pthread_mutex_destroy(&table->mtx_last_eat);
+	pthread_mutex_destroy(&table->mtx_print);
+	pthread_mutex_destroy(&table->mtx_end);
+	pthread_mutex_destroy(&table->mtx_die);
+	pthread_mutex_destroy(&table->mtx_eat);
 }
