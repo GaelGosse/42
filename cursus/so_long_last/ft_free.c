@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:29:27 by ggosse            #+#    #+#             */
-/*   Updated: 2023/02/09 16:54:15 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/08/01 11:51:45 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_free_parsing(t_game *game, char *err)
 	{
 		free(game->map->map_build);
 		game->map->map_build = NULL;
-	}	
+	}
 	if (game->map->map_org)
 		ft_free_tab_str(game->map->map_org);
 	if (game->map->map_chck)
