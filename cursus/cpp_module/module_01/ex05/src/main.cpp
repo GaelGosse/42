@@ -6,13 +6,14 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:24:06 by gael              #+#    #+#             */
-/*   Updated: 2023/10/30 17:24:10 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/10/30 18:12:15 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Harl.hpp"
 
 // color
 # define BLACK "\033[0;30m"
@@ -38,61 +39,12 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc != 4)
-	{
-		std::cout << RED << "Wrong args" << RST << std::endl;
-		return (1);
-	}
+	Harl Harl;
 
-	std::string		search = argv[2];
-	std::string		replace = argv[3];
-	if (search.size() == 0)
-	{
-		std::cout << RED << "The searching string must be not empty" << RST << std::endl;
-		return (1);
-	}
-
-	std::ifstream	file(argv[1]);
-	if (file.fail())
-	{
-		std::cout << RED << "file: " << argv[1] << " does not exist" << RST << std::endl;
-		return (1);
-	}
-	if (file.tellg() == 0)
-	{
-		std::cout << "file: " << argv[1] << " is empty" << std::endl;
-		return (1);
-	}
-
-	std::ofstream	ofs(std::string(argv[1] + std::string(".replace")).c_str());
-	int				i_read = 0;
-	int				i_search = 0;
-	int				i_word = 0;
-
-	if (file.is_open()) {
-		std::string line;
-		while (std::getline(file, line))
-		{
-			i_read = 0;
-			while (line[i_read])
-			{
-				i_search = 0;
-				i_word = i_read;
-				while (search[i_search] && search[i_search] == line[i_read])
-				{
-					i_search++;
-					i_read++;
-				}
-				if (search[i_search] == '\0')
-				{
-					ofs << replace;
-				}
-				ofs << line[i_read];
-				i_read++;
-			}
-			ofs << "\n";
-		}
-	}
-	file.close();
-	ofs.close();
+	Harl.complain("DEBUG");
+	Harl.complain("INFO");
+	Harl.complain("WARNING");
+	Harl.complain("ERROR");
+	(void)argc;
+	(void)argv;
 }
