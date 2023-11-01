@@ -1,0 +1,16 @@
+drwxr-xr-x 8 ggosse 2022_paris   4096 May  4 18:29 .
+drwxr-xr-x 5 ggosse 2022_paris   4096 May  4 18:22 ..
+drwxr-xr-x 2 ggosse 2022_paris   4096 May  4 18:27 built_in
+-rw-r--r-- 1 ggosse 2022_paris   2423 Apr 13 16:20 color.h
+drwxr-xr-x 2 ggosse 2022_paris   4096 May  4 18:28 exec
+drwxr-xr-x 2 ggosse 2022_paris   4096 May  4 18:27 free
+-rw-r--r-- 1 ggosse 2022_paris  18293 May  4 18:28 ft_minishell.h
+-rw-r--r-- 1 ggosse 2022_paris    100 Apr 13 16:20 leak.txt
+drwxr-xr-x 2 ggosse 2022_paris   4096 May  4 18:27 lib
+-rw-r--r-- 1 ggosse 2022_paris   2715 May  4 18:22 main.c
+-rw-r--r-- 1 ggosse 2022_paris 204888 May  4 18:27 main.o
+-rw-r--r-- 1 ggosse 2022_paris   3846 May  4 18:22 Makefile
+-rwxr-xr-x 1 ggosse 2022_paris 742832 May  4 18:28 minishell
+drwxr-xr-x 2 ggosse 2022_paris   4096 May  4 18:28 parsing
+drwxr-xr-x 2 ggosse 2022_paris   4096 May  4 18:27 signal
+-rw-r--r-- 1 ggosse 2022_paris      0 May  4 18:29 test
