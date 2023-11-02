@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:35:18 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/01 16:55:18 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/02 13:55:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Fixed
 			Fixed(const float value);
 			Fixed(const Fixed&);			// copy constructor
 			Fixed &operator=(const Fixed&);	// overload operator
+			Fixed &operator<<(const Fixed&);
 			~Fixed();						// desstructor
 			int		getRawBits(void) const;
 			void	setRawBits(int const raw);

@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:35:11 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/01 15:34:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/02 14:23:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ Fixed::Fixed(const Fixed &src)
 	*this = src;
 }
 
-Fixed& Fixed::operator=(const Fixed& src)
+Fixed&	Fixed::operator=(const Fixed& src)
 {
-	std::cout << "Copy assigment operator called" << std::endl;
+	std::cout << "Copy assigment operator= called" << std::endl;
 	_value = src.getRawBits();
 	return (*this);
 }
@@ -46,6 +46,13 @@ Fixed& Fixed::operator=(const Fixed& src)
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+std::ostream	Fixed::operator<<(Fixed nbr)
+{
+	std::cout << "Copy assigment operator<< called" << std::endl;
+	
+	return (nbr);
 }
 
 int	Fixed::getRawBits(void) const
