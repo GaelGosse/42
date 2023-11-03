@@ -6,9 +6,12 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/03 13:29:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/03 14:03:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <string>
 #include <iostream>
@@ -60,3 +63,4 @@ class ClapTrap
 			int			_energy_points;
 			int			_attack_damage;
 };
+#endif

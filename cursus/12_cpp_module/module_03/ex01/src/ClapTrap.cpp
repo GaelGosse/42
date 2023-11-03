@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/03 14:11:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/03 14:11:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap& src)
 {
 	std::cout << GREEN << "Copy constructor called" << RST << std::endl;
-	*this = src
+	*this = src;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)

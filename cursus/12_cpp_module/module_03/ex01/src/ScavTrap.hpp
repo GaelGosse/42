@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/03 13:29:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/03 14:12:51 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
 #include <string>
+#include <cstdlib>
+#include <iomanip>
+#include <csignal>
 #include <iostream>
+#include "ClapTrap.hpp"
+
+
 // color
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -43,16 +52,14 @@
 # define RESET "\033[0m"
 # define RST "\033[0m"
 
-class ClapTrap
+class ScavTrap : ClapTrap
 {
 		public:
-			ClapTrap(std::string name);
-			ClapTrap(const ClapTrap&);
-			ClapTrap&operator=(const ClapTrap&);
-			~ClapTrap();
+			ScavTrap(std::string name);
+			ScavTrap(const ScavTrap&);
+			~ScavTrap();
 			void	attack(const std::string& target);
-			void	takeDamage(unsigned int amount);
-			void	beRepaired(unsigned int amount);
+			void	guardGate(void);
 
 		private:
 			std::string	_name;
@@ -60,3 +67,5 @@ class ClapTrap
 			int			_energy_points;
 			int			_attack_damage;
 };
+
+#endif
