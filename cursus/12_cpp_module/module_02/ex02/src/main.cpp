@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:55:52 by gael              #+#    #+#             */
-/*   Updated: 2023/11/05 16:30:42 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/05 21:06:00 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void){
 	Fixed			a;
-	Fixed const		b(Fixed(5,05f) * Fixed(2));
+	Fixed const		b(Fixed(5.05f) * Fixed(2));
 
 	std::cout << b << std::endl;
 

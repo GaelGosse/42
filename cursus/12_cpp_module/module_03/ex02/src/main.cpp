@@ -6,16 +6,16 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:55:52 by gael              #+#    #+#             */
-/*   Updated: 2023/11/07 16:03:51 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/07 16:42:19 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ScavTrap	Karl("Karl");
+	FragTrap	Karl("Karl");
 
 	std::cout << std::endl;
 	Karl.attack("Franz");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/03 14:12:34 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/06 10:58:03 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_name = name;
 	this->_hit_points = 100;
 	this->_energy_points = 50;
-	this->_attack_damage = 0;
+	this->_attack_damage = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src)

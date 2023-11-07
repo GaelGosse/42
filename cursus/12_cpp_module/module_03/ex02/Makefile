@@ -19,10 +19,10 @@ NC = \033[0m
 # ----------------------------------- srcs ----------------------------------- #
 SRCS	=	main.cpp \
 			ClapTrap.cpp \
-			ScavTrap.cpp
+			FragTrap.cpp
 # --------------------------------- end srcs --------------------------------- #
 
-SOFT_NAME := ScavTrap
+SOFT_NAME := FragTrap
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
 OBJ = $(addprefix $(OBJ_DIR),$(OBJS))
