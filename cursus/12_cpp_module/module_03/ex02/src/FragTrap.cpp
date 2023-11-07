@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/07 16:43:09 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/07 18:40:24 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,16 @@ FragTrap::~FragTrap()
 	std::cout << GREEN << "FragTrap Destructor called for " << this->_name << RST << std::endl;
 }
 
-void	FragTrap::attack(const std::string& target)
+void	FragTrap::highFivesGuys(void)
 {
 	if (this->_name.size() == 0)
 	{
-		std::cout << "The FragTrap is wrongly named and cannot execute something." << std::endl;
+		std::cout << "The ClapTrap is wrongly named and cannot execute something." << std::endl;
+	}
+	if (this->_hit_points > 0)
+	{
+		std::cout << "Do you want to high fives ?" << std::endl;
 	}
 	else
-	{
-		if (this->_energy_points > 0)
-		{
-			std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
-			this->_energy_points -= 1;
-		}
-		else
-		{
-			std::cout << "FragTrap cannot attack with no energy." << std::endl;
-		}
-	}
-}
-
-void	FragTrap::guardGate(void)
-{
-	if (this->_name.size() == 0)
-	{
-		std::cout << "The FragTrap is wrongly named and cannot execute something." << std::endl;
-	}
-	else
-	{
-		std::cout << this->_name << " entering in mode Gate keeper." << std::endl;
-	}
+		std::cout << this->name << " is dead..." << std::endl;
 }

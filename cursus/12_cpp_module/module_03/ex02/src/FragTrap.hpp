@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/07 16:53:59 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/07 18:11:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ class FragTrap : ClapTrap
 			FragTrap(const FragTrap&);
 			~FragTrap();
 
-			void	highFive
+			void	highFivesGuys(void);
 
 		private:
 			std::string	_name;

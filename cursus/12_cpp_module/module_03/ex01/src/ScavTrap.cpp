@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/06 10:58:03 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/07 18:25:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	ScavTrap::attack(const std::string& target)
 	{
 		std::cout << "The ScavTrap is wrongly named and cannot execute something." << std::endl;
 	}
+	else if (this->_hit_points <= 0)
+	{
+		std::cout << this->name << " is dead..." << std::endl;
+	}
 	else
 	{
 		if (this->_energy_points > 0)
@@ -58,6 +62,10 @@ void	ScavTrap::guardGate(void)
 	if (this->_name.size() == 0)
 	{
 		std::cout << "The ScavTrap is wrongly named and cannot execute something." << std::endl;
+	}
+	else if (this->_hit_points <= 0)
+	{
+		std::cout << this->name << " is dead..." << std::endl;
 	}
 	else
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   replace_dollar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mlamarcq <mlamarcq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:38:32 by ggosse            #+#    #+#             */
-/*   Updated: 2023/10/30 19:13:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:23:44 by mlamarcq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	replace_dollar(t_mini_sh *mini_sh, int *i_replace)
 	final_var = ft_find_var_env(mini_sh->env, var_name);
 	free(var_name);
 	if (final_var)
-		final_var = ft_strjoin_dhandle_sigint_2free(ft_strdup_len(mini_sh->rl_out->word, \
+		final_var = ft_strjoin_dfree(ft_strdup_len(mini_sh->rl_out->word, \
 		0, save), final_var);
 	else
 		final_var = ft_strdup_len(mini_sh->rl_out->word, 0, save);
@@ -38,13 +38,6 @@ void	replace_dollar(t_mini_sh *mini_sh, int *i_replace)
 	free(mini_sh->rl_out->word);
 	mini_sh->rl_out->word = ft_strdup(final_var);
 	free(final_var);
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
 }
 
 void	start_rplc_dlr(t_mini_sh *mini_sh, int *save, int *save2, int *i_rplc)

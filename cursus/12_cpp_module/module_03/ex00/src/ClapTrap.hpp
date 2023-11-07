@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/03 13:29:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/07 18:10:30 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ class ClapTrap
 			ClapTrap(const ClapTrap&);
 			ClapTrap&operator=(const ClapTrap&);
 			~ClapTrap();
+
 			void	attack(const std::string& target);
 			void	takeDamage(unsigned int amount);
 			void	beRepaired(unsigned int amount);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_signal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mlamarcq <mlamarcq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:07:31 by mael              #+#    #+#             */
-/*   Updated: 2023/10/30 19:13:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/02 11:51:37 by mlamarcq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,6 @@ void	exec_signal(int index)
 		signal(SIGINT, &handle_sigint_3);
 		signal(SIGQUIT, SIG_IGN);
 	}
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
-	printf("\n");
 }
 
 void	handle_sigquit(int sig)

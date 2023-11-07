@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mlamarcq <mlamarcq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 23:43:09 by gael              #+#    #+#             */
-/*   Updated: 2023/05/07 18:45:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/02 17:58:16 by mlamarcq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_env_2(char **envp, t_mini_sh *mini_sh)
 	mini_sh->env[env_length] = 0;
 }
 
-void	init_rl(t_mini_sh *mini_sh, char *str)
+void	init_rl(t_mini_sh *mini_sh)
 {
 	mini_sh->output = readline("minishell> ");
 	mini_sh->sep = 0;
@@ -53,7 +53,6 @@ void	init_rl(t_mini_sh *mini_sh, char *str)
 	mini_sh->count_append = 0;
 	ft_memset(&mini_sh->rl_out, 0, sizeof(t_parse));
 	ft_memset(&mini_sh->data, 0, sizeof(t_env));
-	(void)str;
 }
 
 void	launch_cmd(t_mini_sh *mini_sh)
@@ -79,7 +78,7 @@ int	main(int argc, char *argv[], char **envp)
 	init_env_2(envp, &mini_sh);
 	while (1)
 	{
-		init_rl(&mini_sh, "abc");
+		init_rl(&mini_sh);
 		if (!mini_sh.output)
 		{
 			printf("exit\n");
