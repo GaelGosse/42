@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:55:52 by gael              #+#    #+#             */
-/*   Updated: 2023/11/07 16:03:51 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/09 11:15:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,23 @@ int	main(void)
 	ScavTrap	Karl("Karl");
 
 	std::cout << std::endl;
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
+	Karl.attack("Franz");
 	Karl.attack("Franz");
 	Karl.guardGate();
 	std::cout << std::endl;

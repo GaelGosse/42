@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/03 14:12:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/09 16:13:26 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,15 @@
 # define RESET "\033[0m"
 # define RST "\033[0m"
 
-class ScavTrap : ClapTrap
+class ScavTrap : public ClapTrap
 {
 		public:
 			ScavTrap(std::string name);
 			ScavTrap(const ScavTrap&);
 			~ScavTrap();
+
+			ScavTrap& operator=(const ScavTrap& src);
+
 			void	attack(const std::string& target);
 			void	guardGate(void);
 

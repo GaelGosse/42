@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/07 18:40:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/09 15:54:20 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ FragTrap::~FragTrap()
 	std::cout << GREEN << "FragTrap Destructor called for " << this->_name << RST << std::endl;
 }
 
+FragTrap& FragTrap::operator=(const FragTrap& src)
+{
+	std::cout << GREEN << "FragTrap overload operator called" << RST << std::endl;
+	this->_name = src._name + "Copy";
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+	return (*this);
+}
+
 void	FragTrap::highFivesGuys(void)
 {
 	if (this->_name.size() == 0)
@@ -44,5 +54,5 @@ void	FragTrap::highFivesGuys(void)
 		std::cout << "Do you want to high fives ?" << std::endl;
 	}
 	else
-		std::cout << this->name << " is dead..." << std::endl;
+		std::cout << this->_name << " is dead..." << std::endl;
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/09 16:13:33 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/10 18:34:55 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/10 18:35:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef WRONG_ANIMAL_HPP
+# define WRONG_ANIMAL_HPP
 
 #include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <csignal>
 #include <iostream>
-#include "ClapTrap.hpp"
-
-
+#include <fstream>
+#include <iomanip>
+#include <cstdlib>
 // color
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -52,23 +49,22 @@
 # define RESET "\033[0m"
 # define RST "\033[0m"
 
-class ScavTrap : public ClapTrap
+class WrongAnimal
 {
 		public:
-			ScavTrap(std::string name);
-			ScavTrap(const ScavTrap&);
-			~ScavTrap();
+			WrongAnimal();
+			WrongAnimal(std::string type);
+			WrongAnimal(const WrongAnimal& src);
+			WrongAnimal&operator=(const WrongAnimal& src);
+			virtual ~WrongAnimal();
 
-			ScavTrap& operator=(const ScavTrap& src);
+			virtual void		makeSound(void) const;
 
-			void	attack(const std::string& target);
-			void	guardGate(void);
+			std::string	getType(void) const;
+			void		setType(std::string type);
 
 		private:
-			std::string	_name;
-			int			_hit_points;
-			int			_energy_points;
-			int			_attack_damage;
+			std::string	_type;
 };
 
 #endif

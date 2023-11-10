@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,46 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal(void) : _type("Meta")
+WrongAnimal::WrongAnimal(void) : _type("Meta")
 {
-	std::cout << GREEN << "Animal constructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongAnimal constructor called" << RST << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
+WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-	std::cout << GREEN << "Animal constructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongAnimal constructor called" << RST << std::endl;
 }
 
-Animal::Animal(const Animal& src)
+WrongAnimal::WrongAnimal(const WrongAnimal& src)
 {
-	std::cout << GREEN << "Animal copy constructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongAnimal copy constructor called" << RST << std::endl;
 	*this = src;
 }
 
-Animal& Animal::operator=(const Animal& src)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& src)
 {
-	std::cout << GREEN << "Animal overload operator called" << RST << std::endl;
+	std::cout << GREEN << "WrongAnimal overload operator called" << RST << std::endl;
 	this->_type = src._type;
 	return (*this);
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << GREEN << "Animal destructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongAnimal destructor called" << RST << std::endl;
 }
 
-void	Animal::makeSound(void) const
+void	WrongAnimal::makeSound(void) const
 {
 }
 
-std::string	Animal::getType(void) const
+std::string	WrongAnimal::getType(void) const
 {
 	return (this->_type);
 }
 
-void	Animal::setType(std::string type)
+void	WrongAnimal::setType(std::string type)
 {
 	this->_type = type;
 }

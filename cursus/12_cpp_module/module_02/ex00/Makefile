@@ -35,6 +35,7 @@ $(OBJF) :
 		@touch ${OBJF}
 ${SOFT_NAME} : ${OBJ}
 		${CC} ${OBJ} ${FLAGS} -o ${SOFT_NAME}
+		@echo -e "${GREEN} Compilation OK ${NC}"
 -include ${DEP}
 clean :
 		${RM} -rf ${OBJ_DIR} ${OBJF}

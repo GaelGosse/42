@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/07 18:25:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/09 14:56:13 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ClapTrap::attack(const std::string& target)
 	}
 	else if (this->_hit_points <= 0)
 	{
-		std::cout << this->name << " is dead..." << std::endl;
+		std::cout << this->_name << " is dead..." << std::endl;
 	}
 	else
 	{
@@ -74,13 +74,11 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	}
 	else if (this->_hit_points <= 0)
 	{
-		std::cout << this->name << " is dead..." << std::endl;
+		std::cout << this->_name << " is dead..." << std::endl;
 	}
 	else
 	{
-		if (this->_hit_points == 0)
-			std::cout << this->_name << " cannot take damage, already dead." << std::endl;
-		else if ((int)(this->_hit_points - amount) <= 0)
+		if ((int)(this->_hit_points - amount) <= 0)
 		{
 			std::cout << this->_name << " took " << amount << " damages and dead." << std::endl;
 			this->_hit_points = 0;
@@ -101,21 +99,17 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if (this->_hit_points <= 0)
 	{
-		std::cout << this->name << " is dead..." << std::endl;
+		std::cout << this->_name << " cannot be repaired because he is dead." << std::endl;
 	}
 	else
 	{
-		if (this->_hit_points <= 0)
-		{
-			std::cout << this->_name <<" cannot be repaired, already dead." << std::endl;
-		}
-		else if (this->_energy_points > 0)
+		if (this->_energy_points > 0)
 		{
 			this->_hit_points += amount;
 			this->_energy_points -= 1;
 			std::cout << this->_name << " recover " << amount << " hit points." << std::endl;
 		}
-		else if (this->_energy_points == 0)
+		else
 		{
 			std::cout << "Cannot recover with no energy." << std::endl;
 		}

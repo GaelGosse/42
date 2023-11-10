@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/07 18:11:53 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/09 15:59:07 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@
 # define RESET "\033[0m"
 # define RST "\033[0m"
 
-class FragTrap : ClapTrap
+class FragTrap : public ClapTrap
 {
 		public:
 			FragTrap(std::string name);
 			FragTrap(const FragTrap&);
 			~FragTrap();
+
+			FragTrap&	operator=(const FragTrap& src);
 
 			void	highFivesGuys(void);
 

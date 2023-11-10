@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog(void) : Animal("Dog")
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 {
-	std::cout << GREEN << "Dog constructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongCat constructor called" << RST << std::endl;
 }
 
-Dog::Dog(const Dog& src)
+WrongCat::WrongCat(const WrongCat& src)
 {
-	std::cout << GREEN << "Dog copy constructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongCat copy constructor called" << RST << std::endl;
 	*this = src;
 }
 
-Dog& Dog::operator=(const Dog& src)
+WrongCat& WrongCat::operator=(const WrongCat& src)
 {
-	std::cout << GREEN << "Dog overload operator called" << RST << std::endl;
+	std::cout << GREEN << "WrongCat overload operator called" << RST << std::endl;
 	this->setType(src.getType());
 	return (*this);
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << GREEN << "Dog destructor called" << RST << std::endl;
+	std::cout << GREEN << "WrongCat destructor called" << RST << std::endl;
 }
 
-void	Dog::makeSound(void) const
+void	WrongCat::makeSound(void) const
 {
-	std::cout << "Wouaf" << std::endl;
+	std::cout << "tgd$#5$fgb..." << std::endl;
 }

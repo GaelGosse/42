@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:07:22 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/07 18:25:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/09 16:10:24 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ ScavTrap::~ScavTrap()
 	std::cout << GREEN << "ScavTrap Destructor called for " << this->_name << RST << std::endl;
 }
 
+ScavTrap& ScavTrap::operator=(const ScavTrap& src)
+{
+	std::cout << GREEN << "ScavTrap overload operator called" << RST << std::endl;
+	this->_name = src._name + "Copy";
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+	return (*this);
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->_name.size() == 0)
@@ -41,7 +51,7 @@ void	ScavTrap::attack(const std::string& target)
 	}
 	else if (this->_hit_points <= 0)
 	{
-		std::cout << this->name << " is dead..." << std::endl;
+		std::cout << this->_name << " is dead..." << std::endl;
 	}
 	else
 	{
@@ -65,7 +75,7 @@ void	ScavTrap::guardGate(void)
 	}
 	else if (this->_hit_points <= 0)
 	{
-		std::cout << this->name << " is dead..." << std::endl;
+		std::cout << this->_name << " is dead..." << std::endl;
 	}
 	else
 	{
