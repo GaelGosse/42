@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << GREEN << "Cat constructor called" << RST << std::endl;
+	this->brain = new Brain();
 }
 
 Cat::Cat(const Cat& src)
@@ -32,10 +34,16 @@ Cat& Cat::operator=(const Cat& src)
 
 Cat::~Cat()
 {
-	std::cout << GREEN << "Cat destructor called" << RST << std::endl;
+	delete brain;
+	std::cout << RED << "Cat destructor called" << RST << std::endl;
 }
 
 void	Cat::makeSound(void) const
 {
 	std::cout << "Miaou" << std::endl;
+}
+
+void	Cat::think(int idx) const
+{
+	this->brain->getIdeas(idx);
 }

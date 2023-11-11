@@ -18,6 +18,7 @@ NC = \033[0m
 
 # ----------------------------------- srcs ----------------------------------- #
 SRCS	=	Animal.cpp \
+			Brain.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			main.cpp \

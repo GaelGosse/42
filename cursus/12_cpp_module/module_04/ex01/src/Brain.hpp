@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 18:34:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/11 15:17:19 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/11 13:44:34 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/11 16:47:08 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONG_ANIMAL_HPP
-# define WRONG_ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 #include <string>
-#include <iostream>
-#include <fstream>
-#include <iomanip>
 #include <cstdlib>
+#include <iomanip>
+#include <csignal>
+#include <iostream>
 // color
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -49,22 +49,18 @@
 # define RESET "\033[0m"
 # define RST "\033[0m"
 
-class WrongAnimal
+class Brain
 {
-		public:
-			WrongAnimal();
-			WrongAnimal(std::string type);
-			WrongAnimal(const WrongAnimal& src);
-			WrongAnimal&operator=(const WrongAnimal& src);
-			virtual ~WrongAnimal();
+	public:
+		Brain();
+		Brain(const Brain&src);
+		Brain&operator=(const Brain&src);
+		~Brain();
 
-			virtual void		makeSound(void) const;
+		void	getIdeas(int idx);
 
-			std::string	getType(void) const;
-			void		setType(std::string type);
-
-		private:
-			std::string	_type;
+	private:
+		std::string	ideas[100];
 };
 
 #endif

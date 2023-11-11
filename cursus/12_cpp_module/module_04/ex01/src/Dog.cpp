@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << GREEN << "Dog constructor called" << RST << std::endl;
+	this->brain = new Brain();
 }
 
 Dog::Dog(const Dog& src)
@@ -32,10 +34,16 @@ Dog& Dog::operator=(const Dog& src)
 
 Dog::~Dog()
 {
-	std::cout << GREEN << "Dog destructor called" << RST << std::endl;
+	delete brain;
+	std::cout << RED << "Dog destructor called" << RST << std::endl;
 }
 
 void	Dog::makeSound(void) const
 {
 	std::cout << "Wouaf" << std::endl;
+}
+
+void	Dog::think(int idx) const
+{
+	this->brain->getIdeas(idx);
 }
