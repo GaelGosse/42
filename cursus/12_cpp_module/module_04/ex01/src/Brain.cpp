@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:44:34 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/11 16:51:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/13 16:37:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::Brain(void)
 {
-	std::cout << GREEN << "Brain Constructor called" << RST << std::endl;
+	std::cout << DIM_GREEN << "Brain Constructor called" << RST << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = "I don't want to burn the world";
 }
@@ -34,7 +34,7 @@ Brain& Brain::operator=(const Brain& src)
 
 Brain::~Brain(void)
 {
-	std::cout << RED << "Brain Destructor called" << RST << std::endl;
+	std::cout << DIM_RED << "Brain Destructor called" << RST << std::endl;
 }
 
 void	Brain::getIdeas(int idx)

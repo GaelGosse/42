@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:44:34 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/11 16:47:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/13 16:37:48 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@
 # define BOLD_PURPLE "\033[1;35m"
 # define BOLD_CYAN "\033[1;36m"
 # define BOLD_WHITE "\033[1;37m"
+
+# define DIM_BLACK "\033[2;30m"
+# define DIM_RED "\033[2;31m"
+# define DIM_GREEN "\033[2;32m"
+# define DIM_YELLOW "\033[2;33m"
+# define DIM_BLUE "\033[2;34m"
+# define DIM_PURPLE "\033[2;35m"
+# define DIM_CYAN "\033[2;36m"
+# define DIM_WHITE "\033[2;37m"
 
 # define BACK_BLACK "\033[0;40m"
 # define BACK_RED "\033[0;41m"

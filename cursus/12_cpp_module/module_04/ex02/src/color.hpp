@@ -1,20 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   color.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 16:18:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 16:37:38 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/13 17:59:30 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/13 17:59:33 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
 // color
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -34,6 +29,42 @@
 # define BOLD_CYAN "\033[1;36m"
 # define BOLD_WHITE "\033[1;37m"
 
+# define DIM_BLACK "\033[2;30m"
+# define DIM_RED "\033[2;31m"
+# define DIM_GREEN "\033[2;32m"
+# define DIM_YELLOW "\033[2;33m"
+# define DIM_BLUE "\033[2;34m"
+# define DIM_PURPLE "\033[2;35m"
+# define DIM_CYAN "\033[2;36m"
+# define DIM_WHITE "\033[2;37m"
+
+# define ITALIC_BLACK "\033[3;30m"
+# define ITALIC_RED "\033[3;31m"
+# define ITALIC_GREEN "\033[3;32m"
+# define ITALIC_YELLOW "\033[3;33m"
+# define ITALIC_BLUE "\033[3;34m"
+# define ITALIC_PURPLE "\033[3;35m"
+# define ITALIC_CYAN "\033[3;36m"
+# define ITALIC_WHITE "\033[3;37m"
+
+# define UNDER_BLACK "\033[4;30m"
+# define UNDER_RED "\033[4;31m"
+# define UNDER_GREEN "\033[4;32m"
+# define UNDER_YELLOW "\033[4;33m"
+# define UNDER_BLUE "\033[4;34m"
+# define UNDER_PURPLE "\033[4;35m"
+# define UNDER_CYAN "\033[4;36m"
+# define UNDER_WHITE "\033[4;37m"
+
+# define BLINK_BLACK "\033[5;30m"
+# define BLINK_RED "\033[5;31m"
+# define BLINK_GREEN "\033[5;32m"
+# define BLINK_YELLOW "\033[5;33m"
+# define BLINK_BLUE "\033[5;34m"
+# define BLINK_PURPLE "\033[5;35m"
+# define BLINK_CYAN "\033[5;36m"
+# define BLINK_WHITE "\033[5;37m"
+
 # define BACK_BLACK "\033[0;40m"
 # define BACK_RED "\033[0;41m"
 # define BACK_GREEN "\033[0;42m"
@@ -45,48 +76,3 @@
 
 # define RESET "\033[0m"
 # define RST "\033[0m"
-
-int	main(int argc, char **argv){
-	int				nbr_animals = 6;
-	const Animal*	animals[nbr_animals];
-
-	for (int i = 0; i < nbr_animals / 2; i++)
-	{
-		animals[i] = new Dog();
-		std::cout << "Dog " << i + 1<< std::endl;
-	}
-	std::cout << std::endl;
-	for (int i = nbr_animals / 2; i < nbr_animals; i++)
-	{
-		animals[i] = new Cat();
-		std::cout << "Cat " << i + 1<< std::endl;
-	}
-
-	std::cout << std::endl;
-	animals[4]->makeSound();
-	animals[4]->think(0);
-	std::cout << std::endl;
-
-	for (int i = 0; i < nbr_animals; i++)
-	{
-		delete animals[i];
-		std::cout << std::endl;
-	}
-
-	(void)argc;
-	(void)argv;
-}
-
-// int	main(int argc, char **argv){
-// 	const WrongAnimal* meta = new WrongAnimal();
-// 	const WrongAnimal* i = new WrongCat();
-
-// 	std::cout << i->getType() << " " << std::endl;
-// 	i->makeSound(); //will output the cat sound!
-// 	meta->makeSound();
-
-// 	// delete meta;
-// 	delete i;
-// 	(void)argc;
-// 	(void)argv;
-// }
