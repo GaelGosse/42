@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   I_MateriaSource.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 18:01:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 18:40:29 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/15 18:00:39 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef INTERFACE_MATERIASOURCE_HPP
+# define INTERFACE_MATERIASOURCE_HPP
 
 #include <string>
 #include <cstdlib>
@@ -19,24 +19,21 @@
 #include <csignal>
 #include <iostream>
 
+#include "A_Materia.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 #include "Character.hpp"
 
-class AMateria
+class MateriaSource
 {
-	protected:
-		std::string	_type;
-
 	public:
-		AMateria(void); // canonic form
-		AMateria(std::string const & type);
-		AMateria(const AMateria& src); // canonic form
-		AMateria& operator=(const AMateria& src); // canonic form
-		virtual ~AMateria(void); // canonic form
+		MateriaSource();
+		MateriaSource(const MateriaSource&src);
+		MateriaSource&operator=(const MateriaSource&src);
+		~MateriaSource();
 
-		std::string const & getType() const;
-
-		virtual AMateria* clone() const = 0;
-		virtual void use(Character& target);
+	private:
+		std::string	name;
 };
 
 #endif

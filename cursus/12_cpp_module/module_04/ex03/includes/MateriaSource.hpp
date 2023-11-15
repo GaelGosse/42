@@ -6,30 +6,34 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 18:07:43 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/15 17:06:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MateriaSource.hpp"
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-MateriaSource::MateriaSource(void)
-{
-	std::cout << "MateriaSource Constructor called" << std::endl;
-}
+#include <string>
+#include <cstdlib>
+#include <iomanip>
+#include <csignal>
+#include <iostream>
 
-MateriaSource::MateriaSource(const MateriaSource& src)
-{
-	std::cout << "Copy MateriaSource constructor called" << std::endl;
-	*this = src;
-}
-MateriaSource& MateriaSource::operator=(const MateriaSource& src)
-{
-	std::cout << "Overload MateriaSource operator called" << std::endl;
-	(void)src;
-	return (*this);
-}
-MateriaSource::~MateriaSource(void)
-{
-	std::cout << "MateriaSource Destructor called" << std::endl;
-}
+#include "A_Materia.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "Character.hpp"
 
+class MateriaSource
+{
+	public:
+		MateriaSource();
+		MateriaSource(const MateriaSource&src);
+		MateriaSource&operator=(const MateriaSource&src);
+		~MateriaSource();
+
+	private:
+		std::string	name;
+};
+
+#endif

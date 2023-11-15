@@ -17,15 +17,16 @@ CYAN = \033[0;36m
 NC = \033[0m
 
 # ----------------------------------- srcs ----------------------------------- #
-SRCS	=	AMateria.cpp \
-			Character.cpp \
-			Cure.cpp \
-			Ice.cpp \
+SRCS	=	A_Animal.cpp \
+			Brain.cpp \
+			Cat.cpp \
+			Dog.cpp \
 			main.cpp \
-			MateriaSource.cpp
+			WrongAnimal.cpp \
+			WrongCat.cpp
 # --------------------------------- end srcs --------------------------------- #
 
-SOFT_NAME := Materia
+SOFT_NAME := Animal
 OBJS = $(SRCS:%.cpp=%.o)
 SRC = $(addprefix $(SRC_DIR),$(SRCS))
 OBJ = $(addprefix $(OBJ_DIR),$(OBJS))

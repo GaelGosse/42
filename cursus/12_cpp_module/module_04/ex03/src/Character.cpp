@@ -6,11 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:07:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 18:28:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/15 17:43:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "../includes/Character.hpp"
 
 Character::Character(void)
 {

@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:54:32 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 18:03:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/15 17:06:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-Ice::Ice(void)
-{
-	std::cout << "Ice Constructor called" << std::endl;
-}
+#include <string>
+#include <cstdlib>
+#include <iomanip>
+#include <csignal>
+#include <iostream>
+#include "color.hpp"
 
-Ice::Ice(const Ice& src)
-{
-	std::cout << "Copy Ice constructor called" << std::endl;
-	*this = src;
-}
-Ice& Ice::operator=(const Ice& src)
-{
-	std::cout << "Overload Ice operator called" << std::endl;
-	(void)src;
-	return (*this);
-}
-Ice::~Ice(void)
-{
-	std::cout << "Ice Destructor called" << std::endl;
-}
+#include "A_Materia.hpp"
 
+class Ice
+{
+	public:
+		Ice();
+		Ice(const Ice&src);
+		Ice&operator=(const Ice&src);
+		~Ice();
+
+	private:
+		std::string	name;
+};
+
+#endif

@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:55:44 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 18:03:45 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/13 17:54:32 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/15 17:44:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "../includes/Ice.hpp"
 
-Cure::Cure(void)
+Ice::Ice(void)
 {
-	std::cout << "Cure Constructor called" << std::endl;
+	std::cout << "Ice Constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure& src)
+Ice::Ice(const Ice& src)
 {
-	std::cout << "Copy Cure constructor called" << std::endl;
+	std::cout << "Copy Ice constructor called" << std::endl;
 	*this = src;
 }
-Cure& Cure::operator=(const Cure& src)
+Ice& Ice::operator=(const Ice& src)
 {
-	std::cout << "Overload Cure operator called" << std::endl;
+	std::cout << "Overload Ice operator called" << std::endl;
 	(void)src;
 	return (*this);
 }
-Cure::~Cure(void)
+Ice::~Ice(void)
 {
-	std::cout << "Cure Destructor called" << std::endl;
+	std::cout << "Ice Destructor called" << std::endl;
 }
 

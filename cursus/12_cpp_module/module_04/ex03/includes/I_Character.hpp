@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   I_Character.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:54:32 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 18:40:00 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/13 18:07:55 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/15 18:14:27 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef INTERFACE_CHARACTER_HPP
+# define INTERFACE_CHARACTER_HPP
 
 #include <string>
 #include <cstdlib>
 #include <iomanip>
 #include <csignal>
 #include <iostream>
-#include "color.hpp"
 
-#include "AMateria.hpp"
+#include "A_Materia.hpp"
 
-class Ice
+class A_Materia;
+
+class I_Character
 {
 	public:
-		Ice();
-		Ice(const Ice&src);
-		Ice&operator=(const Ice&src);
-		~Ice();
+		~I_Character(); // canonic form
+
+		// Methods
+		virtual void	equip(A_Materia* m);
+
+		// getter
+
+		// setter
+
 
 	private:
 		std::string	name;
