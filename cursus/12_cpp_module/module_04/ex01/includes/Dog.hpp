@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:55:44 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:44:26 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/10 16:17:47 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/16 16:47:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
+#include "../includes/AAnimal.hpp"
+#include "../includes/Brain.hpp"
 
-#include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <csignal>
-#include <iostream>
-#include "Color.hpp"
-
-#include "AMateria.hpp"
-
-class AMateria;
-
-class Cure : public AMateria
+class Dog : public AAnimal
 {
 	public:
-		Cure();
-		Cure(const Cure&src);
-		Cure&operator=(const Cure&src);
-		~Cure();
+		Dog();
+		Dog(const Dog& src);
+		Dog&operator=(const Dog& src);
+		~Dog();
 
+		void		makeSound(void) const;
+		std::string	think(int idx) const;
+
+	private:
+		Brain*	brain;
 };
 
 #endif

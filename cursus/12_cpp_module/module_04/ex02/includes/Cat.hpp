@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:55:44 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:44:26 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/10 16:17:47 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/16 16:45:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-#include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <csignal>
-#include <iostream>
-#include "Color.hpp"
+#include "A_Animal.hpp"
+#include "Brain.hpp"
 
-#include "AMateria.hpp"
-
-class AMateria;
-
-class Cure : public AMateria
+class Cat : public A_Animal
 {
 	public:
-		Cure();
-		Cure(const Cure&src);
-		Cure&operator=(const Cure&src);
-		~Cure();
+		Cat();
+		Cat(const Cat&);
+		Cat&	operator=(const Cat&);
+		~Cat();
 
+		void		makeSound(void) const;
+		std::string	think(int idx) const;
+
+	private:
+		Brain*	brain;
 };
 
 #endif

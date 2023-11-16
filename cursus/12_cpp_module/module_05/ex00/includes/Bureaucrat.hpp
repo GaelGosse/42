@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   I_MateriaSource.hpp                                :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:18:40 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/16 17:31:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERFACE_MATERIASOURCE_HPP
-# define INTERFACE_MATERIASOURCE_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <string>
 #include <cstdlib>
@@ -19,21 +19,29 @@
 #include <csignal>
 #include <iostream>
 
-#include "AMateria.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "Character.hpp"
-
-class MateriaSource
+class Bureaucrat
 {
 	public:
-		MateriaSource();
-		MateriaSource(const MateriaSource&src);
-		MateriaSource&operator=(const MateriaSource&src);
-		~MateriaSource();
+		Bureaucrat(); // canonical form
+		Bureaucrat(const Bureaucrat&src); // canonical form
+		Bureaucrat&operator=(const Bureaucrat&src); // canonical form
+		~Bureaucrat(); // canonical form
+
+		// methods
+		void	upgrade(void);
+		void	downgrade(void);
+
+		// getter
+		const std::string	getName(void);
+		int					getGrade(void);
+
+		// setter
+		void	setName(const std::string);
+		void	setGrade(int);
 
 	private:
-		std::string	name;
+		const std::string	_name;
+		int					grade;
 };
 
 #endif

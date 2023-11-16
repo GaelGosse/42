@@ -13,21 +13,12 @@ SRC_DIR = src/
 HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRC	=	Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		main.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
+SRC	=	Bureaucrat.cpp \
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		Animal.hpp \
-		Cat.hpp \
-		Dog.hpp \
-		WrongAnimal.hpp \
-		WrongCat.hpp \
+		Bureaucrat.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 

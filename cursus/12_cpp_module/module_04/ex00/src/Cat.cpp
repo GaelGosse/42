@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../includes/Cat.hpp"
 
 Cat::Cat(void) : Animal("Cat")
 {

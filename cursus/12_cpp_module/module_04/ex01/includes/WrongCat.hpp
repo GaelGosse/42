@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:55:44 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:44:26 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/10 16:17:47 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/16 16:48:08 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef WRONG_CAT_HPP
+# define WRONG_CAT_HPP
 
-#include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <csignal>
-#include <iostream>
-#include "Color.hpp"
+#include "../includes/AWrongAnimal.hpp"
 
-#include "AMateria.hpp"
-
-class AMateria;
-
-class Cure : public AMateria
+class WrongCat : public AWrongAnimal
 {
 	public:
-		Cure();
-		Cure(const Cure&src);
-		Cure&operator=(const Cure&src);
-		~Cure();
+		WrongCat();
+		WrongCat(const WrongCat&);
+		WrongCat&	operator=(const WrongCat&);
+		~WrongCat();
 
+		void	makeSound(void) const;
 };
 
 #endif

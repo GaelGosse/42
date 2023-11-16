@@ -6,11 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:26:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/10 18:20:05 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:55:31 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 
 Animal::Animal(void) : _type("Meta")
 {

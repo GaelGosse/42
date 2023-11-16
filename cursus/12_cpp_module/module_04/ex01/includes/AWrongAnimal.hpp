@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AWrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 16:18:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 16:51:35 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/10 18:34:55 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/16 16:47:40 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/WrongCat.hpp"
-#include "../includes/A_Animal.hpp"
-#include "../includes/Cat.hpp"
-#include "../includes/Dog.hpp"
+#ifndef AWRONG_ANIMAL_HPP
+# define AWRONG_ANIMAL_HPP
+
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cstdlib>
 // color
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -46,46 +49,22 @@
 # define RESET "\033[0m"
 # define RST "\033[0m"
 
-int	main(int argc, char **argv){
-	int				nbr_animals = 4;
-	const A_Animal*	animals[nbr_animals];
+class AWrongAnimal
+{
+		public:
+			AWrongAnimal();
+			AWrongAnimal(std::string type);
+			AWrongAnimal(const AWrongAnimal& src);
+			AWrongAnimal&operator=(const AWrongAnimal& src);
+			virtual ~AWrongAnimal();
 
-	for (int i = 0; i < nbr_animals / 2; i++)
-	{
-		animals[i] = new Dog();
-		std::cout << std::endl;
-	}
-	std::cout << "-----" << std::endl;
-	for (int i = nbr_animals / 2; i < nbr_animals; i++)
-	{
-		animals[i] = new Cat();
-		std::cout << std::endl;
-	}
+			virtual void		makeSound(void) const;
 
-	animals[2]->makeSound();
-	std::cout << animals[2]->think(0) << std::endl;
-	std::cout << std::endl;
+			std::string	getType(void) const;
+			void		setType(std::string type);
 
-	for (int i = 0; i < nbr_animals; i++)
-	{
-		delete animals[i];
-		std::cout << std::endl;
-	}
+		private:
+			std::string	_type;
+};
 
-	(void)argc;
-	(void)argv;
-}
-
-// int	main(int argc, char **argv){
-// 	const WrongA_Animal* meta = new WrongA_Animal();
-// 	const WrongA_Animal* i = new WrongCat();
-
-// 	std::cout << i->getType() << " " << std::endl;
-// 	i->makeSound(); //will output the cat sound!
-// 	meta->makeSound();
-
-// 	// delete meta;
-// 	delete i;
-// 	(void)argc;
-// 	(void)argv;
-// }
+#endif

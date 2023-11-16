@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Brain.hpp"
 
 Cat::Cat(void) : A_Animal("Cat")
 {
@@ -29,7 +29,13 @@ Cat& Cat::operator=(const Cat& src)
 {
 	std::cout << GREEN << "Cat overload operator called" << RST << std::endl;
 	this->setType(src.getType());
-	this->brain = src.getBrain();
+	if (this->brain)
+	{
+		delete this->brain;
+		this->brain = new Brain();
+		for (int i = 0; i < 100; i++)
+			this->brain->setIdea(i, src.brain->getIdea(i));
+	}
 	return (*this);
 }
 
@@ -44,7 +50,7 @@ void	Cat::makeSound(void) const
 	std::cout << "Miaou" << std::endl;
 }
 
-void	Cat::think(int idx) const
+std::string	Cat::think(int idx) const
 {
-	this->brain->getIdeas(idx);
+	return (this->brain->getIdea(idx));
 }

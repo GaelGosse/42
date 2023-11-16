@@ -6,15 +6,15 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:18:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 16:37:38 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 16:51:43 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "../includes/AWrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
+#include "../includes/AAnimal.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
 // color
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -48,7 +48,7 @@
 
 int	main(int argc, char **argv){
 	int				nbr_animals = 6;
-	const Animal*	animals[nbr_animals];
+	const AAnimal*	animals[nbr_animals];
 
 	for (int i = 0; i < nbr_animals / 2; i++)
 	{
@@ -64,7 +64,8 @@ int	main(int argc, char **argv){
 
 	std::cout << std::endl;
 	animals[4]->makeSound();
-	animals[4]->think(0);
+	std::cout << animals[4]->think(0) << std::endl;
+
 	std::cout << std::endl;
 
 	for (int i = 0; i < nbr_animals; i++)
@@ -78,8 +79,8 @@ int	main(int argc, char **argv){
 }
 
 // int	main(int argc, char **argv){
-// 	const WrongAnimal* meta = new WrongAnimal();
-// 	const WrongAnimal* i = new WrongCat();
+// 	const AWrongAnimal* meta = new AWrongAnimal();
+// 	const AWrongAnimal* i = new WrongCat();
 
 // 	std::cout << i->getType() << " " << std::endl;
 // 	i->makeSound(); //will output the cat sound!

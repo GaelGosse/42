@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:54:32 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/15 17:06:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:44:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include <iomanip>
 #include <csignal>
 #include <iostream>
-#include "color.hpp"
+#include "Color.hpp"
 
-#include "A_Materia.hpp"
+#include "AMateria.hpp"
 
 class Ice
 {

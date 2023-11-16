@@ -6,11 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:44:34 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/13 16:37:59 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 16:51:15 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "../includes/Brain.hpp"
 
 Brain::Brain(void)
 {
@@ -37,10 +37,19 @@ Brain::~Brain(void)
 	std::cout << DIM_RED << "Brain Destructor called" << RST << std::endl;
 }
 
-void	Brain::getIdeas(int idx)
+std::string	Brain::getIdea(int idx)
+{
+		// std::cout << this->ideas[idx] << std::endl;
+	if (idx >= 0 && idx < 100)
+		return (this->ideas[idx]);
+	else
+		return (NULL);
+}
+
+void	Brain::setIdea(int idx, std::string idea)
 {
 	if (idx >= 0 && idx < 100)
-		std::cout << this->ideas[idx] << std::endl;
+		this->ideas[idx] = idea;
 	else
 		std::cout << "Wrong index, only 100 ideas started to 0 index : must be between 0 and 99 included." << std::endl;
 }

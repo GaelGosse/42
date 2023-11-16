@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   I_MateriaSource.hpp                                :+:      :+:    :+:   */
+/*   ICharacter.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:18:40 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/13 18:07:55 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/16 15:34:31 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERFACE_MATERIASOURCE_HPP
-# define INTERFACE_MATERIASOURCE_HPP
+#ifndef INTERFACE_CHARACTER_HPP
+# define INTERFACE_CHARACTER_HPP
 
 #include <string>
 #include <cstdlib>
@@ -20,17 +20,24 @@
 #include <iostream>
 
 #include "AMateria.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "Character.hpp"
 
-class MateriaSource
+class AMateria;
+
+class ICharacter
 {
 	public:
-		MateriaSource();
-		MateriaSource(const MateriaSource&src);
-		MateriaSource&operator=(const MateriaSource&src);
-		~MateriaSource();
+		virtual ~ICharacter(); // canonic form
+
+		// Methods
+		// virtual std::string const & getName() const = 0;
+		// virtual void equip(AMateria* m) = 0;
+		// virtual void unequip(int idx) = 0;
+		// virtual void use(int idx, ICharacter& target) = 0;
+
+		// getter
+
+		// setter
+
 
 	private:
 		std::string	name;

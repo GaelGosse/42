@@ -6,15 +6,15 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:18:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/10 18:39:07 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:55:45 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
 
 int	main(int argc, char **argv){
 	const Animal* meta = new Animal();

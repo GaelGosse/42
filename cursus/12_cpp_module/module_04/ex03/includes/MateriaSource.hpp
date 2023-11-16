@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/15 17:06:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:18:40 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <csignal>
 #include <iostream>
 
-#include "A_Materia.hpp"
+#include "AMateria.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "Character.hpp"

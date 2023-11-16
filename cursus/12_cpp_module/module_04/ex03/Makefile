@@ -13,23 +13,23 @@ SRC_DIR = src/
 HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRC	=	A_Materia.cpp \
+SRC	=	AMateria.cpp \
 		Character.cpp \
 		Cure.cpp \
 		Ice.cpp \
-		I_Character.cpp \
+		ICharacter.cpp \
 		main.cpp \
 		MateriaSource.cpp
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		A_Materia.hpp \
+		AMateria.hpp \
 		Character.hpp \
-		color.hpp \
+		Color.hpp \
 		Cure.hpp \
 		Ice.hpp \
-		I_Character.hpp \
+		ICharacter.hpp \
 		I_MateriaSource.hpp \
 		MateriaSource.hpp \
 )

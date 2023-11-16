@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:54:32 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/15 17:44:02 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:43:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 Ice::Ice(void)
 {
-	std::cout << "Ice Constructor called" << std::endl;
+	std::cout << CYAN << "Ice Constructor called" << std::endl;
 }
 
 Ice::Ice(const Ice& src)
 {
-	std::cout << "Copy Ice constructor called" << std::endl;
+	std::cout << CYAN << "Copy Ice constructor called" << std::endl;
 	*this = src;
 }
 Ice& Ice::operator=(const Ice& src)
 {
-	std::cout << "Overload Ice operator called" << std::endl;
+	std::cout << CYAN << "Overload Ice operator called" << std::endl;
 	(void)src;
 	return (*this);
 }
 Ice::~Ice(void)
 {
-	std::cout << "Ice Destructor called" << std::endl;
+	std::cout << RED << "Ice Destructor called" << std::endl;
 }
 

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../includes/WrongCat.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
+WrongCat::WrongCat(void) : AWrongAnimal("WrongCat")
 {
 	std::cout << GREEN << "WrongCat constructor called" << RST << std::endl;
 }

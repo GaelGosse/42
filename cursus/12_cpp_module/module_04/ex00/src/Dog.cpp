@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../includes/Dog.hpp"
 
 Dog::Dog(void) : Animal("Dog")
 {

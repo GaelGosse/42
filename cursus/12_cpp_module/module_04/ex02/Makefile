@@ -1,51 +1,58 @@
-.PHONY : all clean fclean re
-CC := c++
-FLAGS := -std=c++98 -g3 -Wall -Wextra -Werror  -MMD -MP -I src/
-#FLAGS += -fsanitize=address
-SRC_DIR := src/
-OBJ_DIR := obj/
-RM := rm
-VAL := valgrind --leak-check=full --track-origins=yes
-BLACK = \033[1;30m
-REDBG = \033[30;41m
-RED = \033[0;31m
-GREEN = \033[0;32m
-ORANGE = \033[0;33m
-BLUE = \033[0;34m
-MAGENTA = \033[0;35m
-CYAN = \033[0;36m
-NC = \033[0m
-
+NAME = Abstract
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+DFLAGS = -MMD
+MKDIR = mkdir -p
+RM = rm -f
+MAKE_SILENT = make --no-print-directory
+PURPLE = \033[35m
+GREEN = \033[32m
+YELLOW = \033[33m
+END = \033[0m
+SRC_DIR = src/
+HEADER_DIR = includes/
+OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRCS	=	A_Animal.cpp \
-			Brain.cpp \
-			Cat.cpp \
-			Dog.cpp \
-			main.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp
+SRC	=	A_Animal.cpp \
+		Brain.cpp \
+		Cat.cpp \
+		Dog.cpp \
+		main.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp
 # --------------------------------- end srcs --------------------------------- #
 
-SOFT_NAME := Animal
-OBJS = $(SRCS:%.cpp=%.o)
-SRC = $(addprefix $(SRC_DIR),$(SRCS))
-OBJ = $(addprefix $(OBJ_DIR),$(OBJS))
-DEP = $(OBJ:%.o=%.d)
-OBJF := ${OBJ_DIR}.cache_exists
-all : ${SOFT_NAME}
-${OBJ_DIR}%.o : $(SRC_DIR)%.cpp $(OBJF) Makefile
-		${CC} ${FLAGS} -c $< -o $@
-$(OBJF) :
-		@mkdir -p ${OBJ_DIR}
-		@touch ${OBJF}
-${SOFT_NAME} : ${OBJ}
-		${CC} ${OBJ} ${FLAGS} -o ${SOFT_NAME}
-		@echo -e "${GREEN} Compilation OK ${NC}"
--include ${DEP}
+#---------------------------------- headers -----------------------------------#
+HEAD = $(addprefix $(HEADER_DIR), \
+		A_Animal.hpp \
+		Brain.hpp \
+		Cat.hpp \
+		Dog.hpp \
+		WrongAnimal.hpp \
+		WrongCat.hpp \
+)
+#-------------------------------- end headers ---------------------------------#
+
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
+all : $(OBJ_DIR) $(NAME)
+$(NAME) : $(OBJ)
+	echo "$(YELLOW)Making CPP Exercise$(END)"
+	$(CXX) $(OBJ) -o $(NAME)
+	echo "$(GREEN)Done$(END)"
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(HEAD) Makefile
+	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
+$(OBJ_DIR) :
+	$(MKDIR) $(OBJ_DIR)
 clean :
-		${RM} -rf ${OBJ_DIR} ${OBJF}
+	echo "$(PURPLE)Cleaning CPP Exercise's objects...$(END)"
+	$(RM) -r $(OBJ_DIR)
+	echo "$(GREEN)Done$(END)"
 fclean : clean
-		${RM} -f ${SOFT_NAME}
-re : fclean all
+	echo "$(PURPLE)Cleaning CPP Exercise...$(END)"
+	$(RM) $(NAME)
+	echo "$(GREEN)Done$(END)"
+re : fclean
+	$(MAKE_SILENT) all
+.PHONY : all clean fclean re
 
 

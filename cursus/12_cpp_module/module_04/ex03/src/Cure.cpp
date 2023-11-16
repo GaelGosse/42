@@ -6,30 +6,30 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:55:44 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/15 17:43:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:43:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cure.hpp"
 
-Cure::Cure(void)
+Cure::Cure(void) : AMateria("ice")
 {
-	std::cout << "Cure Constructor called" << std::endl;
+	std::cout << CYAN << "Cure Constructor called" << std::endl;
 }
 
 Cure::Cure(const Cure& src)
 {
-	std::cout << "Copy Cure constructor called" << std::endl;
+	std::cout << CYAN << "Copy Cure constructor called" << std::endl;
 	*this = src;
 }
 Cure& Cure::operator=(const Cure& src)
 {
-	std::cout << "Overload Cure operator called" << std::endl;
+	std::cout << CYAN << "Overload Cure operator called" << std::endl;
 	(void)src;
 	return (*this);
 }
 Cure::~Cure(void)
 {
-	std::cout << "Cure Destructor called" << std::endl;
+	std::cout << RED << "Cure Destructor called" << std::endl;
 }
 

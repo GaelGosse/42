@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:07:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/15 18:09:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/16 15:34:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 # include <csignal>
 # include <iostream>
 
-#include "I_Character.hpp"
+#include "ICharacter.hpp"
 
-class Character : public I_Character
+class Character : public ICharacter
 {
 	public:
-		Character();
+		Character(); // canonical form
+		Character(const Character&src); // canonical form
+		Character&operator=(const Character&src); // canonical form
+		~Character(); // canonical form
+
 		Character(std::string name);
-		Character(const Character&src);
-		Character&operator=(const Character&src);
-		~Character();
 
 	private:
 		std::string	name;

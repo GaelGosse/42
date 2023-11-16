@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   I_MateriaSource.hpp                                :+:      :+:    :+:   */
+/*   AMateria.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:18:40 by ggosse           ###   ########.fr       */
+/*   Created: 2023/11/13 18:01:59 by ggosse            #+#    #+#             */
+/*   Updated: 2023/11/15 17:57:21 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERFACE_MATERIASOURCE_HPP
-# define INTERFACE_MATERIASOURCE_HPP
+#ifndef AMateria_HPP
+# define AMateria_HPP
 
 #include <string>
 #include <cstdlib>
@@ -19,21 +19,25 @@
 #include <csignal>
 #include <iostream>
 
-#include "AMateria.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
 #include "Character.hpp"
+#include "Color.hpp"
 
-class MateriaSource
+class AMateria
 {
-	public:
-		MateriaSource();
-		MateriaSource(const MateriaSource&src);
-		MateriaSource&operator=(const MateriaSource&src);
-		~MateriaSource();
+	protected:
+		std::string	_type;
 
-	private:
-		std::string	name;
+	public:
+		AMateria(void); // canonic form
+		AMateria(const AMateria& src); // canonic form
+		AMateria& operator=(const AMateria& src); // canonic form
+		virtual ~AMateria(void); // canonic form
+
+		AMateria(std::string const & type);
+		std::string const & getType() const;
+
+// 		virtual AMateria* clone() const = 0;
+// 		virtual void use(Character& target);
 };
 
 #endif

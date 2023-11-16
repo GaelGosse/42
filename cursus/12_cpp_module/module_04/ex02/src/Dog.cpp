@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Brain.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Brain.hpp"
 
 Dog::Dog(void) : A_Animal("Dog")
 {
@@ -43,7 +43,7 @@ void	Dog::makeSound(void) const
 	std::cout << "Wouaf" << std::endl;
 }
 
-void	Dog::think(int idx) const
+std::string	Dog::think(int idx) const
 {
-	this->brain->getIdeas(idx);
+	return (this->brain->getIdea(idx));
 }

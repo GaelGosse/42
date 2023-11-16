@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A_Animal.hpp"
+#include "../includes/A_Animal.hpp"
 
 A_Animal::A_Animal(void) : _type("Meta")
 {
@@ -44,9 +44,10 @@ void	A_Animal::makeSound(void) const
 {
 }
 
-void	A_Animal::think(int idx) const
+std::string	A_Animal::think(int idx) const
 {
 	(void)idx;
+	return ("");
 }
 
 std::string	A_Animal::getType(void) const
