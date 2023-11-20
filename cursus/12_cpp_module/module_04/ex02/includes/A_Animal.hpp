@@ -58,7 +58,7 @@ class A_Animal
 			A_Animal&operator=(const A_Animal& src);
 			virtual ~A_Animal();
 
-			virtual void		makeSound(void) const;
+			virtual void		makeSound(void) const = 0;
 			virtual std::string	think(int idx) const;
 
 			std::string	getType(void) const;

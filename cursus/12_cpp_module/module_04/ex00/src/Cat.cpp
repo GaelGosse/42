@@ -17,7 +17,7 @@ Cat::Cat(void) : Animal("Cat")
 	std::cout << GREEN << "Cat constructor called" << RST << std::endl;
 }
 
-Cat::Cat(const Cat& src)
+Cat::Cat(const Cat& src) : Animal(src)
 {
 	std::cout << GREEN << "Cat copy constructor called" << RST << std::endl;
 	*this = src;

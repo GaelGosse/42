@@ -16,10 +16,10 @@
 Cat::Cat(void) : A_Animal("Cat")
 {
 	std::cout << GREEN << "Cat constructor called" << RST << std::endl;
-	this->brain = new Brain();
+	this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat& src)
+Cat::Cat(const Cat& src) : A_Animal(src), _brain(new Brain)
 {
 	std::cout << GREEN << "Cat copy constructor called" << RST << std::endl;
 	*this = src;
@@ -29,19 +29,19 @@ Cat& Cat::operator=(const Cat& src)
 {
 	std::cout << GREEN << "Cat overload operator called" << RST << std::endl;
 	this->setType(src.getType());
-	if (this->brain)
+	if (this->_brain)
 	{
-		delete this->brain;
-		this->brain = new Brain();
+		delete this->_brain;
+		this->_brain = new Brain();
 		for (int i = 0; i < 100; i++)
-			this->brain->setIdea(i, src.brain->getIdea(i));
+			this->_brain->setIdea(i, src._brain->getIdea(i));
 	}
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	delete brain;
+	delete _brain;
 	std::cout << RED << "Cat destructor called" << RST << std::endl;
 }
 
@@ -52,5 +52,5 @@ void	Cat::makeSound(void) const
 
 std::string	Cat::think(int idx) const
 {
-	return (this->brain->getIdea(idx));
+	return (this->_brain->getIdea(idx));
 }

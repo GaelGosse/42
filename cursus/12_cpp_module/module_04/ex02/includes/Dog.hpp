@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:17:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 16:45:45 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/19 16:10:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Dog : public A_Animal
 		std::string	think(int idx) const;
 
 	private:
-		Brain*	brain;
+		Brain*	_brain;
 };
 
 #endif

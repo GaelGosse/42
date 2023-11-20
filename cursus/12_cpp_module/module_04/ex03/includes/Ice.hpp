@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:54:32 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:44:57 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/19 22:43:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 #include "AMateria.hpp"
 
-class Ice
+class Ice : public AMateria
 {
 	public:
 		Ice();
@@ -30,8 +30,8 @@ class Ice
 		Ice&operator=(const Ice&src);
 		~Ice();
 
-	private:
-		std::string	name;
+		AMateria*	clone(void) const;
+		void		use(ICharacter& target);
 };
 
 #endif

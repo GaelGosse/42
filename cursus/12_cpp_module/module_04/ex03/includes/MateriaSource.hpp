@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:07:43 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:18:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/20 15:55:32 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 #include <csignal>
 #include <iostream>
 
+#include "IMateriaSource.hpp"
 #include "AMateria.hpp"
-#include "Cure.hpp"
 #include "Ice.hpp"
-#include "Character.hpp"
+#include "Cure.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 	public:
 		MateriaSource();
@@ -32,8 +32,12 @@ class MateriaSource
 		MateriaSource&operator=(const MateriaSource&src);
 		~MateriaSource();
 
+		void		learnMateria(AMateria *m);
+		AMateria	*createMateria(std::string const & type);
+
 	private:
-		std::string	name;
+		AMateria	*_inventory[4];
+		int			_nbMateria;
 };
 
 #endif

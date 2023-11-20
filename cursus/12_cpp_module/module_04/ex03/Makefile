@@ -1,6 +1,6 @@
 NAME = interface
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 DFLAGS = -MMD
 MKDIR = mkdir -p
 RM = rm -f
@@ -18,6 +18,7 @@ SRC	=	AMateria.cpp \
 		Cure.cpp \
 		Ice.cpp \
 		ICharacter.cpp \
+		IMateriaSource.cpp \
 		main.cpp \
 		MateriaSource.cpp
 # --------------------------------- end srcs --------------------------------- #
@@ -30,7 +31,7 @@ HEAD = $(addprefix $(HEADER_DIR), \
 		Cure.hpp \
 		Ice.hpp \
 		ICharacter.hpp \
-		I_MateriaSource.hpp \
+		IMateriaSource.hpp \
 		MateriaSource.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
@@ -38,23 +39,22 @@ HEAD = $(addprefix $(HEADER_DIR), \
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 all : $(OBJ_DIR) $(NAME)
 $(NAME) : $(OBJ)
-	echo "$(YELLOW)Making CPP Exercise$(END)"
+	@echo -e "$(YELLOW)Making CPP Exercise$(END)"
 	$(CXX) $(OBJ) -o $(NAME)
-	echo "$(GREEN)Done$(END)"
+	@echo -e "$(GREEN)Done$(END)"
 $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(HEAD) Makefile
 	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
 $(OBJ_DIR) :
-	$(MKDIR) $(OBJ_DIR)
+	@$(MKDIR) $(OBJ_DIR)
 clean :
-	echo "$(PURPLE)Cleaning CPP Exercise's objects...$(END)"
-	$(RM) -r $(OBJ_DIR)
-	echo "$(GREEN)Done$(END)"
+	@echo -e "$(RED)Cleaning CPP Exercise's objects...$(END)"
+	@$(RM) -r $(OBJ_DIR)
+	@echo -e "$(GREEN)Done$(END)"
 fclean : clean
-	echo "$(PURPLE)Cleaning CPP Exercise...$(END)"
-	$(RM) $(NAME)
-	echo "$(GREEN)Done$(END)"
+	@echo -e "$(RED)Cleaning CPP Exercise...$(END)"
+	@$(RM) $(NAME)
+	@echo -e "$(GREEN)Done$(END)"
 re : fclean
-	$(MAKE_SILENT) all
-.PHONY : all clean fclean re
+	@$(MAKE_SILENT) all
 
 

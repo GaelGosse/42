@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:55:44 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:44:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/19 20:28:28 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include "Color.hpp"
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class AMateria;
 
@@ -32,6 +33,8 @@ class Cure : public AMateria
 		Cure&operator=(const Cure&src);
 		~Cure();
 
+		AMateria*	clone(void) const;
+		void		use(ICharacter& target);
 };
 
 #endif

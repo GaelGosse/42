@@ -15,40 +15,43 @@
 // canonical form
 AMateria::AMateria(void)
 {
-	std::cout << BOLD_CYAN << "AMateria Constructor called" << std::endl;
+	std::cout << BOLD_CYAN << "AMateria Constructor called" << RST << std::endl;
 }
 AMateria::AMateria(const AMateria& src)
 {
-	std::cout << BOLD_CYAN << "Copy AMateria constructor called" << std::endl;
+	std::cout << BOLD_CYAN << "Copy AMateria constructor called" << RST << std::endl;
 	*this = src;
 }
 AMateria& AMateria::operator=(const AMateria& src)
 {
-	std::cout << BOLD_CYAN << "Overload AMateria operator called" << std::endl;
+	std::cout << BOLD_CYAN << "Overload AMateria operator called" << RST << std::endl;
 	(void)src;
 	return (*this);
 }
 AMateria::~AMateria(void)
 {
-	std::cout << BOLD_RED << "AMateria Destructor called" << std::endl;
+	std::cout << BOLD_RED << "AMateria Destructor called" << RST << std::endl;
+	std::cout << std::endl;
 }
 
 AMateria::AMateria(std::string const & type)
 {
 	this->_type = type;
 }
-// // other functions
-// virtual AMateria* clone() const
-// {
 
-// }
+// other functions
 
-// void AMateria::use(Character& target)
-// {
-// 	(void)target;
-// }
+void AMateria::use(ICharacter& target)
+{
+	(void)target;
+}
 
 std::string const & AMateria::getType() const
 {
 	return (this->_type);
 }
+void AMateria::setType(std::string type)
+{
+	this->_type = type;
+}
+

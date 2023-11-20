@@ -36,23 +36,21 @@ HEAD = $(addprefix $(HEADER_DIR), \
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 all : $(OBJ_DIR) $(NAME)
 $(NAME) : $(OBJ)
-	echo "$(YELLOW)Making CPP Exercise$(END)"
+	@echo -e "$(YELLOW)Making CPP Exercise$(END)"
 	$(CXX) $(OBJ) -o $(NAME)
-	echo "$(GREEN)Done$(END)"
+	@echo -e "$(GREEN)Done$(END)"
 $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(HEAD) Makefile
 	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
 $(OBJ_DIR) :
-	$(MKDIR) $(OBJ_DIR)
+	@$(MKDIR) $(OBJ_DIR)
 clean :
-	echo "$(PURPLE)Cleaning CPP Exercise's objects...$(END)"
-	$(RM) -r $(OBJ_DIR)
-	echo "$(GREEN)Done$(END)"
+	@echo -e "$(RED)Cleaning CPP Exercise's objects...$(END)"
+	@$(RM) -r $(OBJ_DIR)
+	@echo -e "$(GREEN)Done$(END)"
 fclean : clean
-	echo "$(PURPLE)Cleaning CPP Exercise...$(END)"
-	$(RM) $(NAME)
-	echo "$(GREEN)Done$(END)"
+	@echo -e "$(RED)Cleaning CPP Exercise...$(END)"
+	@$(RM) $(NAME)
+	@echo -e "$(GREEN)Done$(END)"
 re : fclean
-	$(MAKE_SILENT) all
+	@$(MAKE_SILENT) all
 .PHONY : all clean fclean re
-
-

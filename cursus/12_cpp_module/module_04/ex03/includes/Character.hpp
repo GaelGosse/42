@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:07:55 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 15:34:56 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/20 14:02:37 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,31 @@
 # include <iostream>
 
 #include "ICharacter.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 class Character : public ICharacter
 {
 	public:
 		Character(); // canonical form
+		Character(const std::string name);
 		Character(const Character&src); // canonical form
 		Character&operator=(const Character&src); // canonical form
 		~Character(); // canonical form
 
-		Character(std::string name);
+		std::string const &	getName() const;
+
+		virtual void	equip(AMateria* m);
+		virtual void	unequip(int idx);
+		virtual void	use(int idx, ICharacter& target);
 
 	private:
-		std::string	name;
+		std::string	_name;
+		int			_nbMateria;
+		AMateria	*_inventory[4];
+		AMateria	*_onGround;
+
 };
 
 #endif

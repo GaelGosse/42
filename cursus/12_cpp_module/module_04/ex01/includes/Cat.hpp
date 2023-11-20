@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:17:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/16 16:47:17 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/11/19 14:14:58 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Cat : public AAnimal
 		std::string	think(int idx) const;
 
 	private:
-		Brain*	brain;
+		Brain*	_brain;
 };
 
 #endif

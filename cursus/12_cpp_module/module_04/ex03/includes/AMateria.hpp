@@ -19,14 +19,13 @@
 #include <csignal>
 #include <iostream>
 
-#include "Character.hpp"
 #include "Color.hpp"
+#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
-	protected:
-		std::string	_type;
-
 	public:
 		AMateria(void); // canonic form
 		AMateria(const AMateria& src); // canonic form
@@ -34,10 +33,16 @@ class AMateria
 		virtual ~AMateria(void); // canonic form
 
 		AMateria(std::string const & type);
-		std::string const & getType() const;
 
-// 		virtual AMateria* clone() const = 0;
-// 		virtual void use(Character& target);
+		std::string const & getType() const;
+		virtual void setType(std::string type);
+
+		virtual AMateria*	clone() const = 0;
+		virtual void		use(ICharacter& target);
+
+	protected:
+		std::string	_type;
+
 };
 
 #endif
