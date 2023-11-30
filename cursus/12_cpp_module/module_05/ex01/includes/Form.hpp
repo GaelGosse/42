@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:39:24 by gael              #+#    #+#             */
-/*   Updated: 2023/11/30 12:55:07 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/30 18:11:41 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ class Form
 
 		// methods
 		void	beSigned(const Bureaucrat& Bureaucrat);
+		void	checkGrade(int new_grade);
 
 		// accessors
-		std::string	getname(void) const;
+		std::string	getName(void) const;
 		int			getGradeSign(void) const;
 		int			getGradeExec(void) const;
 		bool		getSigned(void) const;
@@ -69,5 +70,7 @@ class Form
 		const int			_grade_exec;
 		bool				_isSigned;
 };
+
+std::ostream &operator<<(std::ostream &out, Form const &src);
 
 #endif

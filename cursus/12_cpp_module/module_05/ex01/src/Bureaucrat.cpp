@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/30 12:47:47 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/30 18:14:51 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 // canonical form
 Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(150)
 {
-	std::cout << "Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << std::endl;
+	std::cout << BOLD_GREEN << "Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << RST << std::endl;
 }
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	checkGrade(grade);
 	this->_grade = grade;
-	std::cout << "Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << std::endl;
+	std::cout << BOLD_GREEN << "Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << RST << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src)
 {
-	std::cout << "Copy Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << std::endl;
+	std::cout << BOLD_GREEN << "Copy Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << RST << std::endl;
 	*this = src;
 }
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
@@ -38,7 +38,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 }
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat Destructor called for '" << _name << "' at grade " << _grade << std::endl;
+	std::cout << BOLD_RED << "Bureaucrat Destructor called for '" << _name << "' at grade " << _grade << RST << std::endl;
 }
 
 // operator

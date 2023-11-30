@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:39:24 by gael              #+#    #+#             */
-/*   Updated: 2023/11/30 12:54:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/30 18:13:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Form::Form() :
 	_grade_exec(150),
 	_isSigned(false)
 {
-	std::cout << "Form Constructor called" << std::endl;
+	std::cout << GREEN << "Form Constructor called" << RST << std::endl;
 }
 Form::Form(std::string name, int grade_sign, int grade_exec) :
 	_name(name),
@@ -27,16 +27,18 @@ Form::Form(std::string name, int grade_sign, int grade_exec) :
 	_grade_exec(grade_exec),
 	_isSigned(false)
 {
-	std::cout << "Form Constructor called" << std::endl;
+	checkGrade(grade_sign);
+	checkGrade(grade_exec);
+	std::cout << GREEN << "Form Constructor called" << RST << std::endl;
 }
 
 Form::Form(const Form& src) :
-	_name(src._name),
+	// _name(src._name),
 	_grade_sign(src._grade_sign),
 	_grade_exec(src._grade_exec),
 	_isSigned(src._isSigned)
 {
-	std::cout << "Copy Form constructor called" << std::endl;
+	std::cout << GREEN << "Copy Form constructor called" << RST << std::endl;
 	*this = src;
 }
 Form& Form::operator=(const Form& src)
@@ -47,17 +49,37 @@ Form& Form::operator=(const Form& src)
 }
 Form::~Form(void)
 {
-	std::cout << "Form Destructor called" << std::endl;
+	std::cout << RED << "Form Destructor called" << RST << std::endl;
 }
 
 // methods
-void	beSigned(const Bureaucrat& Bureaucrat)
+void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
-	(void)Bureaucrat;
+	if (bureaucrat.getGrade() <= this->getGradeSign())
+	{
+		if (this->getSigned())
+		{
+			std::cout << "The form " << this->getName() << " has been already signed." << std::endl;
+		}
+		else
+		{
+			this->_isSigned = true;
+			std::cout << "The form " << this->getName() << " has been signed by " << bureaucrat.getName() << std::endl;
+		}
+	}
+	else
+		throw Form::GradeTooLowException();
+}
+void	Form::checkGrade(int new_grade)
+{
+	if (new_grade < 1)
+		throw Form::GradeTooHighException();
+	else if (new_grade > 150)
+		throw Form::GradeTooLowException();
 }
 
 // accessors
-std::string	Form::getname(void) const
+std::string	Form::getName(void) const
 {
 	return (this->_name);
 }
@@ -73,3 +95,14 @@ bool	Form::getSigned(void) const
 {
 	return (this->_isSigned);
 }
+
+// operators
+std::ostream &operator<<(std::ostream &out, Form const &src)
+{
+	out << "The form " << src.getName() << "," << std::endl;
+	out << " has sign grade " << src.getGradeSign() << "," << std::endl;
+	out << " have exec grade " << src.getGradeExec() << "," << std::endl;
+	out << " and sign status is : " << src.getSigned();
+	return (out);
+}
+
