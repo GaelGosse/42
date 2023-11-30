@@ -6,14 +6,14 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/29 20:31:37 by gael             ###   ########.fr       */
+/*   Updated: 2023/11/30 12:47:47 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
 // canonical form
-Bureaucrat::Bureaucrat(void) : _name("no one"), _grade(150)
+Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(150)
 {
 	std::cout << "Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << std::endl;
 }
