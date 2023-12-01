@@ -6,12 +6,11 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 14:23:25 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:45:09 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-
 
 // canonical form
 Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(150)
@@ -24,7 +23,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	this->_grade = grade;
 	std::cout << BOLD_GREEN << "Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << RST << std::endl;
 }
-
 Bureaucrat::Bureaucrat(const Bureaucrat& src)
 {
 	std::cout << BOLD_GREEN << "Copy Bureaucrat Constructor called for '" << _name << "' at grade " << _grade << RST << std::endl;
@@ -50,6 +48,21 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &src)
 }
 
 // methods
+void	Bureaucrat::signForm(Form& form)
+{
+	if (form.getGradeSign() <= this->getGrade())
+	{
+		if (form.getSigned())
+			std::cout << this->getName() << " couldm't sign " << form.getName() << " because it's already sign." << std::endl;
+		else
+		{
+			form.beSigned(*this);
+			std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		}
+	}
+	else
+		throw Form::GradeTooLowException();
+}
 void	Bureaucrat::checkGrade(int new_grade)
 {
 	if (new_grade < 1)

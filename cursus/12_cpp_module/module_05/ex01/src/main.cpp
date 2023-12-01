@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:39:08 by gael              #+#    #+#             */
-/*   Updated: 2023/11/30 18:09:09 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:44:00 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ int	main(int argc, char **argv)
 {
 	std::cout << std::endl;
 	std::cout << " ----------------------------------------- " << std::endl;
-	std::cout << " ---------- main ---------- " << std::endl;
+	std::cout << " ----------------- main ------------------ " << std::endl;
 	std::cout << " ----------------------------------------- " << std::endl;
 	std::cout << std::endl;
 	try
 	{
 		Form		cirfa("cirfa", 145, 140);
 		Bureaucrat	me("Gael", 150);
-
 
 		std::cout << std::endl;
 		// cirfa.beSigned(me);
@@ -33,7 +32,15 @@ int	main(int argc, char **argv)
 		me.upgrade();
 		me.upgrade();
 		me.upgrade();
-		cirfa.beSigned(me);
+
+		std::cout << std::endl;
+		std::cout << cirfa << std::endl;
+		std::cout << std::endl;
+
+		// cirfa.beSigned(me);
+		// cirfa.beSigned(me);
+		me.signForm(cirfa);
+		me.signForm(cirfa);
 
 		std::cout << std::endl;
 		std::cout << cirfa << std::endl;
@@ -52,7 +59,7 @@ int	main(int argc, char **argv)
 
 	std::cout << std::endl;
 	std::cout << " ----------------------------------------- " << std::endl;
-	std::cout << " ---------- create low / high ---------- " << std::endl;
+	std::cout << " ----------- create low / high ----------- " << std::endl;
 	std::cout << " ----------------------------------------- " << std::endl;
 	std::cout << std::endl;
 	try

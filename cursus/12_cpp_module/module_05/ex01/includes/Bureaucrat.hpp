@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/11/30 18:13:33 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:42:29 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,9 @@
 #include <iomanip>
 #include <csignal>
 #include <iostream>
-// #include "Form.hpp"
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -100,6 +102,7 @@ class Bureaucrat
 		Bureaucrat(std::string name, int grade);
 
 		// methods
+		void	signForm(Form& form);
 		void	checkGrade(int new_grade);
 		void	upgrade(void);
 		void	downgrade(void);
@@ -130,7 +133,6 @@ class Bureaucrat
 					return ("Grade is Too Low...");
 				}
 		};
-
 
 	private:
 		const std::string	_name;

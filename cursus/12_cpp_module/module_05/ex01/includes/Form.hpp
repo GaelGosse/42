@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:39:24 by gael              #+#    #+#             */
-/*   Updated: 2023/11/30 18:11:41 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/01 15:40:12 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <csignal>
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
