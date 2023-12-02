@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:39:08 by gael              #+#    #+#             */
-/*   Updated: 2023/12/02 15:53:29 by gael             ###   ########.fr       */
+/*   Updated: 2023/12/02 18:18:38 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	std::cout << std::endl;
 	try
 	{
-		ShrubberyCreationForm	cirfa("cirfa", 145, 140);
+		ShrubberyCreationForm	noel("noel");
 		Bureaucrat				me("Gael", 150);
 
 	}

@@ -6,18 +6,16 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 18:30:05 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/02 18:19:30 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-#include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <csignal>
-#include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class ShrubberyCreationForm : public AForm
 {
@@ -28,6 +26,10 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm&operator=(const ShrubberyCreationForm&src);
 		~ShrubberyCreationForm();
 
+		// other constructor
+		ShrubberyCreationForm(std::string filename);
+
+
 		// methods
 		void	execute(Bureaucrat const & bureaucrat) const;
 
@@ -36,7 +38,7 @@ class ShrubberyCreationForm : public AForm
 		// operator
 
 	private:
-		std::string	name;
+		std::string	_target;
 };
 
 #endif

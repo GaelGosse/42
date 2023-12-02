@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 18:33:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/02 19:08:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) :
 {
 	std::cout << "ShrubberyCreationForm Constructor called" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm() :
-	AForm("Shrubbery Creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string filename) :
+	AForm("Shrubbery Creation", 145, 137), _target(filename)
 {
 	std::cout << GREEN << "ShrubberyCreationForm Constructor called" << RST << std::endl;
 }
@@ -42,20 +42,23 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 // methods
 void	ShrubberyCreationForm::execute(Bureaucrat const & bureaucrat) const
 {
-	std::string	filename(target + "_shrubbery");
-	std::ofstream ofs(filename.c_str());
-	ofs << ""						<< std::endl;
-	ofs << "          /\\"			<< std::endl;
-	ofs << "         /__\\"			<< std::endl;
-	ofs << "        /____\\"		<< std::endl;
-	ofs << "       /______\\"		<< std::endl;
-	ofs << "      /________\\"		<< std::endl;
-	ofs << "     /__________\\"		<< std::endl;
-	ofs << "         |  |"			<< std::endl;
-	ofs << "_________|__|_________"	<< std::endl;
-	ofs << ""						<< std::endl;
+	if (Bureaucrat.getSigned() == 1 && Bureaucrat.getGrade() >= this->getGradeExec())
+	{
+		std::string	filename(_target + "_shrubbery");
+		std::ofstream ofs(filename.c_str());
+		ofs << ""						<< std::endl;
+		ofs << "          /\\"			<< std::endl;
+		ofs << "         /__\\"			<< std::endl;
+		ofs << "        /____\\"		<< std::endl;
+		ofs << "       /______\\"		<< std::endl;
+		ofs << "      /________\\"		<< std::endl;
+		ofs << "     /__________\\"		<< std::endl;
+		ofs << "         |  |"			<< std::endl;
+		ofs << "_________|__|_________"	<< std::endl;
+		ofs << ""						<< std::endl;
 
-	ofs.close();
+		ofs.close();
+	}
 }
 
 // accessor

@@ -6,18 +6,16 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:38 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 17:08:38 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/02 18:19:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-#include <string>
-#include <cstdlib>
-#include <iomanip>
-#include <csignal>
-#include <iostream>
+#include "AForm.hpp"
+
+class AForm;
 
 class RobotomyRequestForm
 {
