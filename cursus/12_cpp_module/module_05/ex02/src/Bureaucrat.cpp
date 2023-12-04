@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 18:28:43 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/04 17:54:42 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	Bureaucrat::upgrade(void)
 	{
 		checkGrade(this->_grade - 1);
 		this->_grade--;
-		std::cout << this->_name << " upgrade to " << this->_grade << " grade" << std::endl;
+		// std::cout << this->_name << " upgrade to " << this->_grade << " grade" << std::endl;
 	}
 	catch (BureaucratException &e)
 	{
@@ -89,7 +89,7 @@ void	Bureaucrat::downgrade(void)
 	{
 		checkGrade(this->_grade + 1);
 		this->_grade++;
-		std::cout << this->_name << " downgrade to " << this->_grade << " grade" << std::endl;
+		// std::cout << this->_name << " downgrade to " << this->_grade << " grade" << std::endl;
 	}
 	catch (BureaucratException &e)
 	{

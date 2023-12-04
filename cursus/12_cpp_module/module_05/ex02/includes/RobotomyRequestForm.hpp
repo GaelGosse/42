@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:38 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/02 18:19:25 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/04 15:53:25 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,27 @@
 
 class AForm;
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public AForm
 {
 	public:
 		// canonical form
-		RobotomyRequestForm();
+		RobotomyRequestForm(std::string name);
 		RobotomyRequestForm(const RobotomyRequestForm&src);
 		RobotomyRequestForm&operator=(const RobotomyRequestForm&src);
 		~RobotomyRequestForm();
 
 		// methods
+		void	execute(Bureaucrat const & bureaucrat) const;
 
 		// accessor
+		void		setTarget(std::string target);
+		std::string	getTarget(void) const;
 
 		// operator
 
 	private:
-		std::string	name;
+		RobotomyRequestForm();
+		std::string	_target;
 };
 
 #endif

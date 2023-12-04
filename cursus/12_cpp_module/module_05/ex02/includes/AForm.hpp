@@ -27,16 +27,20 @@ class AForm
 {
 	public:
 		// canonical form
-		AForm();
 		AForm(const AForm&src);
 		AForm&operator=(const AForm&src);
 		~AForm();
+
 		// other constructor
 		AForm(std::string name, int grade_sign, int grade_exec);
 
 		// methods
-		void	beSigned(const Bureaucrat& Bureaucrat);
-		void	checkGrade(int new_grade);
+		void			checkGrade(int new_grade) const;
+		void			checkGradeSign(const Bureaucrat& bureaucrat) const;
+		void			checkGradeExec(const Bureaucrat& bureaucrat) const;
+		void			beSigned(const Bureaucrat& Bureaucrat);
+		void			beExecuted(Bureaucrat const & executor) const;
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 		// accessors
 		std::string	getName(void) const;
@@ -55,7 +59,7 @@ class AForm
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade is Too High...");
+					return ("E: Grade is Too High...");
 				}
 		};
 		class GradeTooLowException : public AFormException
@@ -63,11 +67,20 @@ class AForm
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade is Too Low...");
+					return ("E: Grade is Too Low...");
+				}
+		};
+		class UnsignedException : public AFormException
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("E: Form is Unsigned...");
 				}
 		};
 
-	private:
+	protected:
+		AForm();
 		const std::string	_name;
 		const int			_grade_sign;
 		const int			_grade_exec;

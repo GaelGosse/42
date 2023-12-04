@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/02 18:19:16 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/04 17:52:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,27 @@
 
 class AForm;
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
 	public:
 		// canonical form
-		PresidentialPardonForm();
+		PresidentialPardonForm(std::string name);
 		PresidentialPardonForm(const PresidentialPardonForm&src);
 		PresidentialPardonForm&operator=(const PresidentialPardonForm&src);
 		~PresidentialPardonForm();
 
 		// methods
+		void	execute(Bureaucrat const & bureaucrat) const;
 
 		// accessor
+		void		setTarget(std::string target);
+		std::string	getTarget(void) const;
 
 		// operator
 
 	private:
-		std::string	name;
+		PresidentialPardonForm();
+		std::string	_target;
 };
 
 #endif

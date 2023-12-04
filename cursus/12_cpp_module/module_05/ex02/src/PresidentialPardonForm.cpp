@@ -1,42 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 17:08:51 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/04 18:25:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PresidentialPardonForm.hpp"
 
 // canonical form
-PresidentialPardonForm::PresidentialPardonForm(void)
+PresidentialPardonForm::PresidentialPardonForm(void) :
+	AForm(), _target("unknown")
 {
-	std::cout << "PresidentialPardonForm Constructor called" << std::endl;
+	std::cout << GREEN << "PresidentialPardonForm Constructor called" << RST << std::endl;
 }
-
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
+PresidentialPardonForm::PresidentialPardonForm(std::string name) :
+	AForm("Presidential Form", 25, 5), _target(name)
 {
-	std::cout << "Copy PresidentialPardonForm constructor called" << std::endl;
+	std::cout << GREEN << "PresidentialPardonForm Constructor called" << RST << std::endl;
+}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) :
+	AForm(src)
+{
+	std::cout << GREEN << "Copy PresidentialPardonForm constructor called" << RST << std::endl;
 	*this = src;
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& src)
 {
 	std::cout << "Overload PresidentialPardonForm operator called" << std::endl;
-	(void)src;
+	setTarget(src.getTarget());
 	return (*this);
 }
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	std::cout << "PresidentialPardonForm Destructor called" << std::endl;
+	std::cout << RED << "PresidentialPardonForm Destructor called" << RST << std::endl;
 }
 
-		// methods
+// methods
+void	PresidentialPardonForm::execute(Bureaucrat const & bureaucrat) const
+{
+	try
+	{
+		beExecuted(bureaucrat);
+		std::cout << BOLD_WHITE << this->getName() << RST << " has been pardon by Zaphod Beeblebrox" << std::endl;
+	}
+	catch (std::exception &e) { std::cout << e.what() << std::endl; }
+}
 
-		// accessor
+// accessor
+void	PresidentialPardonForm::setTarget(std::string target)
+{
+	this->_target = target;
+}
+std::string	PresidentialPardonForm::getTarget(void) const
+{
+	return (this->_target);
+}
 
-		// operator
+// operator
 

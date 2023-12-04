@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/02 18:19:30 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/04 15:53:30 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,22 @@ class ShrubberyCreationForm : public AForm
 {
 	public:
 		// canonical form
-		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string name);
 		ShrubberyCreationForm(const ShrubberyCreationForm&src);
 		ShrubberyCreationForm&operator=(const ShrubberyCreationForm&src);
 		~ShrubberyCreationForm();
-
-		// other constructor
-		ShrubberyCreationForm(std::string filename);
-
 
 		// methods
 		void	execute(Bureaucrat const & bureaucrat) const;
 
 		// accessor
+		void		setTarget(std::string target);
+		std::string	getTarget(void) const;
 
 		// operator
 
 	private:
+		ShrubberyCreationForm();
 		std::string	_target;
 };
 

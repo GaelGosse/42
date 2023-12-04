@@ -52,10 +52,28 @@ AForm::~AForm(void)
 }
 
 // methods
+void	AForm::checkGrade(int new_grade) const
+{
+	if (new_grade < 1)
+		throw AForm::GradeTooHighException();
+	else if (new_grade > 150)
+		throw AForm::GradeTooLowException();
+}
+void	AForm::checkGradeSign(const Bureaucrat& bureaucrat) const
+{
+	if (bureaucrat.getGrade() > this->getGradeSign())
+		throw AForm::GradeTooLowException();
+}
+void	AForm::checkGradeExec(const Bureaucrat& bureaucrat) const
+{
+	if (bureaucrat.getGrade() > this->getGradeExec())
+		throw AForm::GradeTooLowException();
+}
 void	AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() <= this->getGradeSign())
+	try
 	{
+		this->checkGradeSign(bureaucrat);
 		if (this->getSigned())
 		{
 			std::cout << "The form " << BOLD_WHITE << this->getName() << RST << " has been already signed." << std::endl;
@@ -66,14 +84,16 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat)
 			std::cout << "The form " << BOLD_WHITE << this->getName() << RST << " has been signed by " << BOLD_WHITE << bureaucrat.getName() << RST << std::endl;
 		}
 	}
-	else
-		throw AForm::GradeTooLowException();
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
-void	AForm::checkGrade(int new_grade)
+void	AForm::beExecuted(Bureaucrat const & executor) const
 {
-	if (new_grade < 1)
-		throw AForm::GradeTooHighException();
-	else if (new_grade > 150)
+	if (!this->_isSigned)
+		throw AForm::UnsignedException();
+	else if (executor.getGrade() > this->getGradeExec())
 		throw AForm::GradeTooLowException();
 }
 
