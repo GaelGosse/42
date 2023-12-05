@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/04 17:54:42 by gael             ###   ########.fr       */
+/*   Updated: 2023/12/05 17:05:02 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,30 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &src)
 // methods
 void	Bureaucrat::signForm(AForm& form)
 {
-	if (form.getGradeSign() <= this->getGrade())
+	try
 	{
-		if (form.getSigned())
-			std::cout << this->getName() << " couldm't sign " << form.getName() << " because it's already sign." << std::endl;
-		else
-		{
-			form.beSigned(*this);
-			std::cout << this->getName() << " signed " << form.getName() << std::endl;
-		}
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
-	else
-		throw AForm::GradeTooLowException();
+	catch (std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because : " << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+}
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't execute " << form.getName() << " because : " << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+	(void)form;
 }
 void	Bureaucrat::checkGrade(int new_grade)
 {

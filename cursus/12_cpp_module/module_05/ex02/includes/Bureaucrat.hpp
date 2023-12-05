@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:18:58 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/01 18:28:29 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/05 16:49:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ class Bureaucrat
 
 		// methods
 		void	signForm(AForm& form);
+		void	executeForm(AForm const & form);
 		void	checkGrade(int new_grade);
 		void	upgrade(void);
 		void	downgrade(void);

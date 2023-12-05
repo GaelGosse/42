@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/04 18:25:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/12/05 17:03:40 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 // methods
 void	PresidentialPardonForm::execute(Bureaucrat const & bureaucrat) const
 {
-	try
-	{
+	// try
+	// {
 		beExecuted(bureaucrat);
 		std::cout << BOLD_WHITE << this->getName() << RST << " has been pardon by Zaphod Beeblebrox" << std::endl;
-	}
-	catch (std::exception &e) { std::cout << e.what() << std::endl; }
+	// }
+	// catch (std::exception &e) { std::cout << e.what() << std::endl; }
 }
 
 // accessor

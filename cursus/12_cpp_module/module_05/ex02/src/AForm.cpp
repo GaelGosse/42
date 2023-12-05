@@ -71,8 +71,8 @@ void	AForm::checkGradeExec(const Bureaucrat& bureaucrat) const
 }
 void	AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-	try
-	{
+	// try
+	// {
 		this->checkGradeSign(bureaucrat);
 		if (this->getSigned())
 		{
@@ -83,11 +83,11 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat)
 			this->_isSigned = true;
 			std::cout << "The form " << BOLD_WHITE << this->getName() << RST << " has been signed by " << BOLD_WHITE << bureaucrat.getName() << RST << std::endl;
 		}
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	// }
+	// catch (std::exception &e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
 }
 void	AForm::beExecuted(Bureaucrat const & executor) const
 {

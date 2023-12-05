@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/04 18:26:12 by gael             ###   ########.fr       */
+/*   Updated: 2023/12/05 17:03:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 // methods
 void	ShrubberyCreationForm::execute(Bureaucrat const & bureaucrat) const
 {
-	try
-	{
+	// try
+	// {
 		beExecuted(bureaucrat);
 		std::string	filename(_target + "_shrubbery");
 		std::ofstream ofs(filename.c_str());
@@ -61,8 +61,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & bureaucrat) const
 
 		ofs.close();
 		std::cout << filename << " has been created" << std::endl;
-	}
-	catch (std::exception &e) { std::cout << e.what() << std::endl; }
+	// }
+	// catch (std::exception &e) { std::cout << e.what() << std::endl; }
 }
 
 // accessor

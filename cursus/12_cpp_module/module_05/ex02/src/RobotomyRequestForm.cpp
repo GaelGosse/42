@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:38 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/04 18:25:56 by gael             ###   ########.fr       */
+/*   Updated: 2023/12/05 17:03:49 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 // methods
 void	RobotomyRequestForm::execute(Bureaucrat const & bureaucrat) const
 {
-	try
-	{
+	// try
+	// {
 		beExecuted(bureaucrat);
 		std::cout << "Brrrrr..." << std::endl;
 		if (std::rand() % 2)
 			std::cout << BOLD_WHITE << bureaucrat.getName() << RST << " became robot" << std::endl;
 		else
 			std::cout << "operation failed" << std::endl;
-	}
-	catch (std::exception &e) { std::cout << e.what() << std::endl; }
+	// }
+	// catch (std::exception &e) { std::cout << e.what() << std::endl; }
 }
 
 // accessor
