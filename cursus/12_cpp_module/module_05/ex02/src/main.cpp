@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:39:08 by gael              #+#    #+#             */
-/*   Updated: 2023/12/05 17:10:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/07 15:49:35 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		std::cout << " ---------- sign allowed ---------- " << std::endl;
 		for(int i = 0; i < 78; i++)
 			me.upgrade();
-		me.signed(robot);
+		me.signForm(robot);
 
 		for(int i = 0; i < 27; i++)
 			me.upgrade();

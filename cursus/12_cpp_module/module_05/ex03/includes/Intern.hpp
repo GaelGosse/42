@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:33:52 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/06 18:51:40 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/07 13:42:17 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ class Intern
 		~Intern();
 
 		// methods
-		AForm	*makeForm(form_name, form_target);
+		AForm	*makeForm(std::string form_name, std::string form_target);
+		AForm	*makePresidentialForm(std::string target);
+		AForm	*makeRobotomyForm(std::string target);
+		AForm	*makeShrubberyForm(std::string target);
 
 		// accessor
 

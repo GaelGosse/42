@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 18:33:52 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/06 19:58:21 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/07 14:17:27 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,14 @@ Intern::~Intern(void)
 }
 
 // methods
-AForm	*makeForm(form_name, form_target)
+AForm	*Intern::makeForm(std::string form_name, std::string form_target)
 {
-
 	std::string levels[3] = {
 		"Presidential Pardon",
 		"Robotomy Request",
 		"Shrubbery Creation",
 	};
-	void(Intern::*f[3])(void) = {
+	AForm *(Intern::*f[3])(std::string target) = {
 		&Intern::makePresidentialForm,
 		&Intern::makeRobotomyForm,
 		&Intern::makeShrubberyForm
@@ -52,10 +51,13 @@ AForm	*makeForm(form_name, form_target)
 	for (int i = 0; i < 3; i++)
 	{
 		if (levels[i] == form_name)
-			(this->*f[i])();
+		{
+			std::cout << "Intern creates " << BOLD_WHITE << form_name << RST << std::endl;
+			return ((this->*f[i])(form_target));
+		}
 	}
-
-	return (form);
+	std::cout << RED << "no form created" << RST << std::endl;
+	return NULL;
 }
 AForm	*Intern::makePresidentialForm(std::string target)
 {

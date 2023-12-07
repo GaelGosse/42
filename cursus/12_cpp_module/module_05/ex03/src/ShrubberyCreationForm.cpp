@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:08:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/05 17:03:57 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/07 14:15:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & bureaucrat) const
 		ofs << ""						<< std::endl;
 
 		ofs.close();
-		std::cout << filename << " has been created" << std::endl;
+		std::cout << BOLD_WHITE << filename << RST << " has been created" << std::endl;
 	// }
 	// catch (std::exception &e) { std::cout << e.what() << std::endl; }
 }

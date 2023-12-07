@@ -15,6 +15,7 @@ OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
 SRC	=	AForm.cpp \
 		Bureaucrat.cpp \
+		Intern.cpp \
 		main.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
@@ -25,6 +26,7 @@ SRC	=	AForm.cpp \
 HEAD = $(addprefix $(HEADER_DIR), \
 		AForm.hpp \
 		Bureaucrat.hpp \
+		Intern.hpp \
 		PresidentialPardonForm.hpp \
 		RobotomyRequestForm.hpp \
 		ShrubberyCreationForm.hpp \

@@ -6,11 +6,12 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:39:08 by gael              #+#    #+#             */
-/*   Updated: 2023/12/05 17:10:24 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/07 14:22:22 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Intern.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
@@ -71,7 +72,7 @@ int	main(int argc, char **argv)
 		std::cout << " ---------- sign allowed ---------- " << std::endl;
 		for(int i = 0; i < 78; i++)
 			me.upgrade();
-		me.signed(robot);
+		me.signForm(robot);
 
 		for(int i = 0; i < 27; i++)
 			me.upgrade();
@@ -123,6 +124,28 @@ int	main(int argc, char **argv)
 		me.executeForm(pform);
 		me.executeForm(pform);
 		std::cout << " -------------------- " << std::endl;
+		std::cout << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	try
+	{
+		std::cout << " ----------------------------------------- " << std::endl;
+		std::cout << " ---------------- Intern ----------------- " << std::endl;
+		std::cout << " ----------------------------------------- " << std::endl;
+		Bureaucrat	me("Gael", 1);
+		Intern		someone;
+		AForm		*anything;
+
+		anything = someone.makeForm("Shrubbery Creation", "garden");
+
+		std::cout << std::endl;
+		me.signForm(*anything);
+		std::cout << std::endl;
+		me.executeForm(*anything);
 		std::cout << std::endl;
 	}
 	catch (std::exception &e)
