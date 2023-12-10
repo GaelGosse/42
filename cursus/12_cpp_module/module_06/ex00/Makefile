@@ -1,4 +1,4 @@
-NAME = bureaucrat
+NAME = convert
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 DFLAGS = -MMD
@@ -13,13 +13,13 @@ SRC_DIR = src/
 HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRC	=	Bureaucrat.cpp \
-		main.cpp
+SRC	=	main.cpp \
+		ScalarConverter.cpp
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		Bureaucrat.hpp \
+		ScalarConverter.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 
