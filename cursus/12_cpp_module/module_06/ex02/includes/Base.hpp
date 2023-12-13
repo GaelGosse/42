@@ -1,46 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 18:20:29 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/13 18:46:33 by ggosse           ###   ########.fr       */
+/*   Created: 2023/12/13 19:04:36 by ggosse            #+#    #+#             */
+/*   Updated: 2023/12/13 19:06:23 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 #include <string>
 #include <cstdlib>
 #include <iomanip>
 #include <csignal>
 #include <iostream>
-#include <stdint.h>
 
-struct Data
-{
-	std::string	str;
-	std::string	getStr(void){ return (str); }
-};
-
-class Serializer
+class Base
 {
 	public:
 		// canonical form
-		Serializer();
-		Serializer(const Serializer&src);
-		Serializer&operator=(const Serializer&src);
-		~Serializer();
+		virtual ~Base();
+
+		// others constructors
 
 		// methods
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
 
-	private:
-		std::string	name;
+		// accessor
+
+		// operator
+
+		// exceptions
+
 };
 
 #endif
