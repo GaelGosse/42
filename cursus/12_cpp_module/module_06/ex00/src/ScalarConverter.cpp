@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:12:45 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/11 20:45:13 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/12/13 19:01:56 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter& src)
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 {
 	std::cout << "Overload ScalarConverter operator called" << std::endl;
-	(void)src;
+	static_cast<void>(src);
 	return (*this);
 }
 
