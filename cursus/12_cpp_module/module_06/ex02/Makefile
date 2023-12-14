@@ -13,13 +13,13 @@ SRC_DIR = src/
 HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRC	=	main.cpp \
-		Serializer.cpp
+SRC	=	Base.cpp \
+		main.cpp
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		Serializer.hpp \
+		Base.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 
