@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
+/*   Whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 19:04:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/15 01:37:39 by gael             ###   ########.fr       */
+/*   Created: 2023/12/16 17:31:01 by gael              #+#    #+#             */
+/*   Updated: 2023/12/16 17:35:44 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Base.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-Base::~Base(void)
+template <typename T>
+void swap(T a, T b)
 {
-
+	T tmp = a;
+	a = b;
+	b = tmp;
 }
+template <typename T>
+T min(T a, T b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+template <typename T>
+T max(T a, T b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+#endif

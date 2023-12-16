@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 19:04:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/15 01:37:39 by gael             ###   ########.fr       */
+/*   Created: 2023/12/15 01:27:09 by gael              #+#    #+#             */
+/*   Updated: 2023/12/15 01:57:05 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Base.hpp"
+#ifndef A_HPP
+# define A_HPP
 
-Base::~Base(void)
+#include <string>
+#include <cstdlib>
+#include <iomanip>
+#include <csignal>
+#include <iostream>
+#include "Base.hpp"
+
+class A : public Base
 {
+	public:
+		A();
+		A(const A&src);
+		A&operator=(const A&src);
+		~A();
 
-}
+	private:
+		std::string	name;
+};
+
+#endif

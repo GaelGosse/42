@@ -1,4 +1,4 @@
-NAME = id
+NAME = serialize
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 DFLAGS = -MMD
@@ -13,20 +13,13 @@ SRC_DIR = src/
 HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRC	=	A.cpp \
-		Base.cpp \
-		B.cpp \
-		C.cpp \
-		main.cpp
+SRC	=	main.cpp \
+		Serializer.cpp
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		A.hpp \
-		Base.hpp \
-		B.hpp \
-		C.hpp \
-		color.hpp \
+		Serializer.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 
