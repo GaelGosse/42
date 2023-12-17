@@ -1,4 +1,4 @@
-NAME = serialize
+NAME = templates
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 DFLAGS = -MMD
@@ -14,12 +14,11 @@ HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
 SRC	=	main.cpp \
-		Serializer.cpp
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		Serializer.hpp \
+		Iter.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 

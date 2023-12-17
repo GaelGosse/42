@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   Iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 01:27:14 by gael              #+#    #+#             */
-/*   Updated: 2023/12/15 01:56:58 by gael             ###   ########.fr       */
+/*   Created: 2023/12/17 00:22:51 by ggosse            #+#    #+#             */
+/*   Updated: 2023/12/17 15:56:09 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_HPP
-# define C_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
 #include <string>
 #include <cstdlib>
 #include <iomanip>
 #include <csignal>
 #include <iostream>
-#include "Base.hpp"
 
-class C : public Base
+template <typename T>
+void	iter(T *arr, unsigned int size, void (*f)(&T))
 {
-	public:
-		C();
-		C(const C&src);
-		C&operator=(const C&src);
-		~C();
+	for (int i = 0; i < size; i++)
+	{
+		f(arr[i]);
+	}
+}
 
-	private:
-		std::string	name;
-};
+
 
 #endif
