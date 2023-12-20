@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Iter.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 00:22:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/12/18 15:29:35 by ggosse           ###   ########.fr       */
+/*   Created: 2023/12/19 15:40:20 by ggosse            #+#    #+#             */
+/*   Updated: 2023/12/20 20:32:53 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 #include <string>
 #include <cstdlib>
@@ -20,18 +20,32 @@
 #include <iostream>
 
 template <typename T>
-void	iter(T *arr, int size, void (*f)(T&))
+class Array
 {
-	for (int i = 0; i < size; i++)
-	{
-		f(arr[i]);
-	}
-}
+	public:
+		// canonical form
+		Array();
+		Array(const Array&src);
+		Array&operator=(const Array&src);
+		~Array();
 
-template <typename T>
-void	print(T &a)
-{
-	std::cout << a << std::endl;
-}
+		// others constructors
+		Array(unsigned int n);
+
+		// methods
+
+		// accessor
+		unsigned int	size(void);
+
+		// operator
+		T& operator[](int index);
+
+		// exceptions
+
+	private:
+		unsigned int	_len;
+		T				*_arr;
+
+};
 
 #endif
