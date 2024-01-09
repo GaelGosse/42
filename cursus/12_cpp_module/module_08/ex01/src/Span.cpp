@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/09 19:14:44 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/09 21:30:19 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,36 @@ Span::~Span(void)
 // other constructor
 
 // methods
-void	addNumber(int nbr)
+void	Span::addNumber(int nbr)
 {
+	(void)nbr;
 }
-void	addRange(std::vector<int>::iterator const& begin, std::vector<int>::iterator const& end)
+void	Span::addRange(std::vector<int>::iterator const& begin, std::vector<int>::iterator const& end)
 {
+	(void)begin;
+	(void)end;
 }
-int		shortestSpan()
+int		Span::shortestSpan()
 {
-	std::vector<int>::iterator ite = 0;
+	int	prev;
 
+	prev = *this->_v.begin();
 	for (std::vector<int>::iterator ite = this->_v.begin(); ite < this->_v.end(); ite++)
 	{
-		
+		std::cout << *ite << std::endl;
 	}
-	return ();
+	return (prev);
 }
-int		longestSpan()
+int		Span::longestSpan()
 {
-	std::vector<int>::iterator ite = 0;
+	int	prev;
 
+	prev = *this->_v.begin();
 	for (std::vector<int>::iterator ite = this->_v.begin(); ite < this->_v.end(); ite++)
 	{
-		
+		std::cout << *ite << std::endl;
 	}
-	return ();
+	return (prev);
 }
 
 // accessors
