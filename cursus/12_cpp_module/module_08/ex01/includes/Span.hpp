@@ -6,13 +6,14 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/09 21:27:49 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/11 16:14:37 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
+#include <algorithm>
 #include <string>
 #include <cstdlib>
 #include <iomanip>
@@ -24,7 +25,7 @@ class Span
 {
 	public:
 		// canonical form
-		Span(int n);
+		Span(unsigned int n);
 		Span(const Span&src);
 		Span&operator=(const Span&src);
 		~Span();
@@ -37,14 +38,32 @@ class Span
 		int		longestSpan();
 
 		// accessors
+		std::vector<int>	getVector() const;
+		unsigned int		getSize() const;
 
 		// operators
 
 		// exceptions
+		class FullException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Vector is full");
+				}
+		};
+		class EmptyException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Vector is empty");
+				}
+		};
 
 	private:
 		Span();
-		int					_N;
+		unsigned int		_size;
 		std::vector<int>	_v;
 };
 
