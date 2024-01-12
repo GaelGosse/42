@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/11 16:14:37 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/12 14:30:07 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,14 @@ class Span
 				virtual const char* what() const throw()
 				{
 					return ("Vector is empty");
+				}
+		};
+		class NotEnoughException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Vector must have 2 elements to calculate a gap");
 				}
 		};
 

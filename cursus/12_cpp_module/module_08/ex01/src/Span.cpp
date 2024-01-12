@@ -6,11 +6,19 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/11 17:19:55 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/12 14:32:38 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Span.hpp"
+
+void	printVector(std::vector<int> vct)
+{
+	// for (unsigned int i = 0; i < vct.capacity(); i++)
+	// 	std::cout << "_v[" << i << "]: " << vct[i] << std::endl;
+	for (std::vector<int>::iterator i = vct.begin(); i != vct.end(); i++)
+		std::cout << "_v: " << *i << std::endl;
+}
 
 // canonical form
 Span::Span(void)
@@ -45,6 +53,8 @@ Span::Span(unsigned int nbr) : _size(nbr)
 // methods
 void	Span::addNumber(int nbr)
 {
+	if (this->_v.size() >= this->_size)
+		throw Span::FullException();
 	this->_v.push_back(nbr);
 }
 void	Span::addRange(std::vector<int>::iterator const& begin, std::vector<int>::iterator const& end)
@@ -58,17 +68,23 @@ int		Span::shortestSpan()
 
 	if (this->_v.capacity() == 0)
 		throw Span::EmptyException();
+	if (this->_v.size < 2)
+		throw Span::NotEnoughException();
 	std::vector<int> tmp = this->_v;
 	sort (tmp.begin(), tmp.end());
 
-	int	prev = 2147483647;
+	int	prev = *tmp.begin();
+	int	min = 2147483647;
 	for (std::vector<int>::iterator ite = tmp.begin(); ite != tmp.end(); ite++)
 	{
 		if (ite != tmp.begin())
-			prev = ite
-		std::cout << *ite << std::endl;
+		{
+			if (*ite - prev < min)
+				min = *ite - prev;
+			prev = *ite;
+		}
 	}
-	return (prev);
+	return (min);
 }
 // 3   // prev ite
 // 7   //
@@ -78,22 +94,22 @@ int		Span::longestSpan()
 {
 	if (this->_v.capacity() == 0)
 		throw Span::EmptyException();
-	int	prev = 0;
-	std::vector<int> tmp = this->_v;
+	if (this->_v.size < 2)
+		throw Span::NotEnoughException();
 
+	std::vector<int> tmp = this->_v;
 	sort (tmp.begin(), tmp.end());
 
+	int	min = 0;
+	int	max = 0;
 	for (std::vector<int>::iterator ite = tmp.begin(); ite != tmp.end(); ite++)
 	{
 		if (ite == tmp.begin())
-			prev = 0;
-		if (abs(*ite - prev) > prev)
-		{
-			prev = *ite - prev;
-		}
-		std::cout << "*ite: " << *ite << std::endl;
+			min = *ite;
+		max = *ite;
 	}
-	return (prev);
+
+	return (max - min);
 }
 
 // accessors
@@ -105,6 +121,8 @@ unsigned int	Span::getSize() const
 {
 	return (this->_size);
 }
+
+
 
 // operators
 
