@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/12 14:30:07 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/12 17:10:59 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Span
 
 		// methods
 		void	addNumber(int nbr);
-		void	addRange(std::vector<int>::iterator const& begin, std::vector<int>::iterator const& end);
+		void	addRange(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end);
 		int		shortestSpan();
 		int		longestSpan();
 
