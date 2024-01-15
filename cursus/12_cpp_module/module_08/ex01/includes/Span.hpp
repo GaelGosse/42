@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/12 17:10:59 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:01:14 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Span
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Vector is full");
+					return ("Vector is full.");
 				}
 		};
 		class EmptyException : public std::exception
@@ -57,7 +57,15 @@ class Span
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Vector is empty");
+					return ("Vector is empty.");
+				}
+		};
+		class FillErrException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Vector cannot contain more than it's own size.");
 				}
 		};
 		class NotEnoughException : public std::exception
@@ -65,7 +73,7 @@ class Span
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Vector must have 2 elements to calculate a gap");
+					return ("Vector must have 2 elements to calculate a gap.");
 				}
 		};
 

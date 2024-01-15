@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 01:40:53 by gael              #+#    #+#             */
-/*   Updated: 2024/01/14 21:54:09 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/15 17:04:14 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,16 @@ Span::Span(unsigned int nbr) : _size(nbr)
 // methods
 void	Span::addNumber(int nbr)
 {
-	// if (this->_v.size() >= this->_size)
-	// 	throw Span::FullException();
+	if (this->_v.size() >= this->_size)
+		throw Span::FullException();
 	this->_v.push_back(nbr);
 }
 
 void	Span::addRange(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end)
 {
-	this->_v.insert(_v.begin(), begin, end);
+	if (distance(begin, end) + _v.size() > _v.capacity())
+		throw Span::FillErrException();
+	_v.insert(_v.begin(), begin, end);
 }
 
 int		Span::shortestSpan()

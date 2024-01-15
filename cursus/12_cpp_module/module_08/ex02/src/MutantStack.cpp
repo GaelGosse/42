@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   MutantStack.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:40:25 by gael              #+#    #+#             */
-/*   Updated: 2024/01/15 14:40:25 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/15 17:12:16 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ MutantStack::~MutantStack(void)
 	std::cout << "MutantStack Destructor called" << std::endl;
 }
 
-		// other constructor
+// other constructor
 
-		// methods
+// methods
 
-		// accessors
+// accessors
 
-		// operators
+// operators
 
-		// exceptions
+// exceptions
 
