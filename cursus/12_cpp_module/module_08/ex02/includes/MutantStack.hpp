@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:40:25 by gael              #+#    #+#             */
-/*   Updated: 2024/01/15 17:20:39 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/16 15:38:39 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 #include <csignal>
 #include <iostream>
 #include <stack>
+#include <list>
 
 template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
 		// canonical form
-		MutantStack<T>();
-		MutantStack<T>(const MutantStack& src);
+		MutantStack<T>(void);
+		MutantStack<T>(const MutantStack<T>& src);
 		MutantStack<T>&operator=(const MutantStack& src);
-		~MutantStack<T>();
+		~MutantStack<T>(void);
 
 		// add *_iterator in MutantStack with real stack
 		typedef typename MutantStack<T>::stack::container_type::iterator iterator;
@@ -37,10 +38,18 @@ class MutantStack : public std::stack<T>
 		typedef typename MutantStack<T>::stack::container_type::const_reverse_iterator const_reverse_iterator;
 
 		// methods
-		iterator	begin(void);
-		reverse_iterator	begin(void);
-		const_iterator	begin(void);
-		const_reverse_iterator	begin(void);
+		iterator				begin(void);
+		iterator				end(void);
+
+		reverse_iterator		rbegin(void);
+		reverse_iterator		rend(void);
+
+		const_iterator			cbegin(void) const;
+		const_iterator			cend(void) const;
+
+		const_reverse_iterator	crbegin(void) const;
+		const_reverse_iterator	crend(void) const;
+
 
 		// accessors
 
@@ -49,5 +58,7 @@ class MutantStack : public std::stack<T>
 		// exceptions
 
 };
+
+#include "../src/MutantStack.tpp"
 
 #endif
