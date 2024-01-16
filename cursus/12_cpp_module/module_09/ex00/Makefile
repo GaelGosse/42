@@ -1,4 +1,4 @@
-NAME = mutant
+NAME = templates
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 DFLAGS = -MMD
@@ -18,7 +18,7 @@ SRC	=	main.cpp \
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		MutantStack.hpp \
+		Easyfind.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 
