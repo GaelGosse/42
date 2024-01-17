@@ -1,4 +1,4 @@
-NAME = templates
+NAME = btc
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 DFLAGS = -MMD
@@ -13,12 +13,13 @@ SRC_DIR = src/
 HEADER_DIR = includes/
 OBJ_DIR = obj/
 # ----------------------------------- srcs ----------------------------------- #
-SRC	=	main.cpp \
+SRC	=	BitcoinExchange.cpp \
+		main.cpp
 # --------------------------------- end srcs --------------------------------- #
 
 #---------------------------------- headers -----------------------------------#
 HEAD = $(addprefix $(HEADER_DIR), \
-		Easyfind.hpp \
+		BitcoinExchange.hpp \
 )
 #-------------------------------- end headers ---------------------------------#
 

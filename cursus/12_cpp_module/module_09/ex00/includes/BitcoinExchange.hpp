@@ -6,18 +6,23 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:42 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/16 17:51:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/17 18:37:06 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
-#include <string>
-#include <cstdlib>
 #include <iomanip>
-#include <csignal>
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <climits>
+#include <cctype>
+#include <cstdlib>
+#include <algorithm>
+#include <sys/time.h>
 
 class BitcoinExchange
 {
