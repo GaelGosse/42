@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:42 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/17 18:37:06 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/18 16:04:09 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 #include <cstdlib>
 #include <algorithm>
 #include <sys/time.h>
+#include <stack>
+#include <vector>
+#include <list>
+#include <map>
+#include <deque>
+#include <set>
 
 class BitcoinExchange
 {
@@ -43,8 +49,8 @@ class BitcoinExchange
 
 // exceptions
 
-	private:
-		std::string	name;
+	// private:
+	// 	std::map<double>	_btc;
 };
 
 #endif

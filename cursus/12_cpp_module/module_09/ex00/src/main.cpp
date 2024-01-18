@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:08 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/17 18:43:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/18 16:31:46 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,37 @@ int	main(int argc, char **argv, char **envp)
 		return (1);
 	}
 
-	std::ifstream	file(argv[1]);
+	std::ifstream	file("mini.csv");
 	std::string		line;
+	char			*endline = NULL;
+	double			exc_rate = 0;
+	int				year = 1970;
+	int				month = 0;
+	int				day = 0;
+
 	if (file.is_open())
 	{
+
 		while (getline(file, line))
 		{
-			std::cout << line << std::endl;
-			if (isdigit(line[0]) && isdigit(line[1]) && isdigit(line[2]) && isdigit(line[3]))
-				std::cout << "OK" << std::endl;
-			else
-				std::cout << "ERR" << std::endl;
+			std::cout << " ----------------------------------------- " << std::endl;
+			std::cout << "line: " << line << std::endl;
+
+			exc_rate = strtod(line.c_str(), &endline);
+			std::cout << "exc_rate: " << exc_rate << std::endl;
+			// this->_btc
 			std::cout << std::endl;
 		}
-		// file.close();
+		file.close();
 	}
 	else
-		std::cout << "Can't open " << argv[1] << std::endl;
+		std::cout << "Can't open data.csv" << std::endl;
+		// std::cout << "Can't open " << argv[1] << std::endl;
 		// file.close();
 
+	(void)year;
+	(void)month;
+	(void)day;
 	(void)argc;
 	(void)argv;
 	(void)envp;
