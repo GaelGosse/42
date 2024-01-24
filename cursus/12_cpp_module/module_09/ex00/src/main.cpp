@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:08 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/18 16:31:46 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/24 13:26:09 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,35 @@ int	main(int argc, char **argv, char **envp)
 		std::cout << "Must have one argument" << std::endl;
 		return (1);
 	}
-
-	std::ifstream	file("mini.csv");
-	std::string		line;
-	char			*endline = NULL;
-	double			exc_rate = 0;
-	int				year = 1970;
-	int				month = 0;
-	int				day = 0;
-
-	if (file.is_open())
+	try
 	{
+		BitcoinExchange	btc;
+		std::ifstream	input_file(argv[1]);
+		std::string		line, date, exc_rate;
 
-		while (getline(file, line))
+		if (input_file.is_open())
 		{
-			std::cout << " ----------------------------------------- " << std::endl;
-			std::cout << "line: " << line << std::endl;
+			getline(input_file, line);
+			while (getline(input_file, line))
+			{
+				std::istringstream	curr_line(line);
 
-			exc_rate = strtod(line.c_str(), &endline);
-			std::cout << "exc_rate: " << exc_rate << std::endl;
-			// this->_btc
-			std::cout << std::endl;
+				std::cout << " -------------------- " << std::endl;
+				// std::cout << "line: " << line << std::endl;
+				if (getline(curr_line, date, '|') && getline(curr_line, exc_rate, '|'))
+				{
+					std::cout << "date: " << date << std::endl;
+					std::cout << "exc_rate: " << exc_rate << std::endl;
+				}
+				std::cout << std::endl << std::endl;
+			}
+			input_file.close();
 		}
-		file.close();
+		else
+			throw BitcoinExchange::OpenInputException();
 	}
-	else
-		std::cout << "Can't open data.csv" << std::endl;
-		// std::cout << "Can't open " << argv[1] << std::endl;
-		// file.close();
+	catch (std::exception &e) { std::cout << e.what() << std::endl; }
 
-	(void)year;
-	(void)month;
-	(void)day;
 	(void)argc;
 	(void)argv;
 	(void)envp;

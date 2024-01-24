@@ -30,7 +30,8 @@ $(NAME) : $(OBJ)
 	$(CXX) $(OBJ) -o $(NAME)
 	echo "$(GREEN)Done$(END)"
 $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp $(HEAD) Makefile
-	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
+	$(CXX) $(DFLAGS) -c $< -o $@
+#	$(CXX) $(CXXFLAGS) $(DFLAGS) -c $< -o $@
 $(OBJ_DIR) :
 	$(MKDIR) $(OBJ_DIR)
 clean :
