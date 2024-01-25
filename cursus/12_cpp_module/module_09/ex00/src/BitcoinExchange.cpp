@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:42 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/24 13:19:53 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/24 15:07:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ BitcoinExchange::BitcoinExchange(void)
 		while (getline(data_file, line))
 		{
 			std::istringstream	curr_line(line);
-
 			if (getline(curr_line, date, ',') && getline(curr_line, exc_rate, ','))
 				this->_btc.insert( std::make_pair(date, std::strtod(exc_rate.c_str(), 0)) );
 		}
