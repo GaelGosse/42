@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:08 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/25 17:29:58 by ggosse           ###   ########.fr       */
+/*   Updated: 2024/01/28 22:00:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,44 +19,37 @@ bool	check_format(std::string year, std::string month, std::string day)
 	unsigned int	r_day = std::atoi(day.c_str());
 
 	if (r_year < 1970 || r_year > 2024)
-	{
-		std::cout << RED << "ERR" << RST << std::endl;
 		return false;
-	}
 	if (r_month > 12 || r_day > 31 || (r_month == 2  && r_day > 29))
-	{
-		std::cout << RED << "ERR" << RST << std::endl;
 		return false;
-	}
 	if ((r_month == 4 || r_month == 6 || r_month == 9 || r_month == 11) && r_day >= 31)
-	{
-		std::cout << RED << "ERR" << RST << std::endl;
 		return false;
-	}
 	return true;
 }
 
-void	check_date(std::string date)
+bool	check_date(std::string date)
 {
 	std::istringstream	curr_line(date);
 	std::string			year;
 	std::string			month;
 	std::string			day;
+	double				r_date;
 
-	date = std::strtod(date.c_str(), 0);
+	r_date = std::strtod(date.c_str(), 0);
 	if (getline(curr_line, year, '-') && getline(curr_line, month, '-') && getline(curr_line, day, '-'))
 	{
 		if (check_format(year, month, day) == false)
-			return ;
+		{
+			std::cout << "Err: bad input => " << date << std::endl;
+			return false;
+		}
 	}
 	else
 	{
-		std::cout << RED << "ERR" << RST << std::endl;
-		return ;
+		std::cout << "Err: bad input => " << date << std::endl;
+		return false;
 	}
-	std::cout << "			year: " << std::strtod(year.c_str(), 0) << std::endl;
-	std::cout << "			month: " << std::strtod(month.c_str(), 0) << std::endl;
-	std::cout << "			day: " << std::strtod(day.c_str(), 0) << std::endl;
+	return true;
 }
 
 std::string	strtrim(std::string& str)
@@ -70,14 +63,33 @@ std::string	strtrim(std::string& str)
 	return (str.substr(first, last - first + 1));
 }
 
-void	check_value(std::string	value)
+bool	check_value(std::string	value)
 {
-	int	r_value = std::strtod(value.c_str(), 0);
+	if (std::none_of(value.begin(), value.end(), ::isdigit))
+	{
+		std::cout << "Err: not a number" << std::endl;
+		return false;
+	}
+	size_t	len_value;
+	double	r_value = std::stod(value.c_str(), &len_value);
 
-	if (std::all_of(value.begin(), value.end(), ::isdigit) == false)
-		std::cout << RED << "ERR" << RST << std::endl;
+	// if (std::all_of(value.begin(), value.end(), ::isdigit) == false)
+	if (r_value < 0)
+	{
+		std::cout << "Err: not a positive number" << std::endl;
+		return false;
+	}
+	if (len_value != value.length())
+	{
+		std::cout << "Err: not only " << std::endl;
+		return false;
+	}
 	if (r_value >= 2147483647 || r_value <= -2147483648)
-		std::cout << RED << "ERR" << RST << std::endl;
+	{
+		std::cout << "Err: too large number" << std::endl;
+		return false;
+	}
+	return true;
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -100,25 +112,25 @@ int	main(int argc, char **argv, char **envp)
 			{
 				std::istringstream	curr_line(line);
 
-				std::cout << " -------------------- " << std::endl;
-				std::cout << "line: " << line << std::endl;
 				if (getline(curr_line, date, '|') && getline(curr_line, exc_rate, '|'))
 				{
-					check_date(date);
-					check_value(strtrim(exc_rate));
-					// std::cout << "date: " << date << std::endl;
-					// std::cout << "exc_rate: " << exc_rate << std::endl;
+					if (check_date(date) && check_value(strtrim(exc_rate)))
+					{
+						std::cout << GREEN << "OK " << RST << std::endl;
+						btc.retrieveDate(date);
+					}
 				}
 				else
-					std::cout << RED << "ERR" << RST << std::endl;
-				std::cout << std::endl << std::endl;
+					std::cout << "c Err: bad input => " << line << std::endl;
+				std::cout << std::endl;
+				std::cout << std::endl;
 			}
 			input_file.close();
 		}
 		else
 			throw BitcoinExchange::OpenInputException();
 	}
-	catch (std::exception &e) { std::cout << e.what() << std::endl; }
+	catch (std::exception &e) { std::cout << "exception: " << e.what() << std::endl; }
 
 	(void)argc;
 	(void)argv;
