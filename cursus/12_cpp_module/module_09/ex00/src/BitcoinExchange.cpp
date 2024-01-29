@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:42 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/29 16:18:09 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/29 16:21:27 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	BitcoinExchange::retrieveDate(std::string date)
 		rate = it->second;
 	}
 	std::cout << std::endl;
-	// std::cout << "rate: " << rate << std::endl;
+	std::cout << "rate: " << rate << std::endl;
 }
 
 // accessor
