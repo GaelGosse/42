@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:42 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/29 16:21:27 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/30 15:53:38 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 BitcoinExchange::BitcoinExchange(void)
 {
 	// std::cout << "BitcoinExchange Constructor called" << std::endl;
-	std::ifstream	data_file("mini.csv");
+	std::ifstream	data_file("data.csv");
 	std::string		line, date, exc_rate;
 
 	if (data_file.is_open())
@@ -60,31 +60,26 @@ BitcoinExchange::~BitcoinExchange(void)
 // others constructors
 
 // methods
-void	BitcoinExchange::retrieveDate(std::string date)
+void	BitcoinExchange::retrieveDate(std::string date, std::string exc_rate)
 {
 	double	rate = 0;
 
-	std::cout << "[0]: " << BACK_RED << this->_btc.begin()->first << RST << std::endl;
-	std::cout << "[1]: " << date << std::endl;
 	if (this->_btc.find(date) != this->_btc.end())
 	{
-		std::cout << BACK_RED << "a" << RST << std::endl;
 		rate = this->_btc[date];
 	}
 	else if (this->_btc.begin()->first > date)
 	{
-		std::cout << BACK_RED << "b" << RST << std::endl;
 		rate = this->_btc.begin()->second;
 	}
 	else
 	{
-		std::cout << BACK_RED << "c" << RST << std::endl;
 		std::map<std::string, double>::iterator it = this->_btc.lower_bound(date);
-		it--;
+		if (it != this->_btc.begin())
+			it--;
 		rate = it->second;
 	}
-	std::cout << std::endl;
-	std::cout << "rate: " << rate << std::endl;
+	std::cout << date << " => " << exc_rate << " = " << std::strtod(exc_rate.c_str(), 0) * rate << std::endl;
 }
 
 // accessor

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:08 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/28 22:00:23 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/30 15:54:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,14 +116,11 @@ int	main(int argc, char **argv, char **envp)
 				{
 					if (check_date(date) && check_value(strtrim(exc_rate)))
 					{
-						std::cout << GREEN << "OK " << RST << std::endl;
-						btc.retrieveDate(date);
+						btc.retrieveDate(date, exc_rate);
 					}
 				}
 				else
-					std::cout << "c Err: bad input => " << line << std::endl;
-				std::cout << std::endl;
-				std::cout << std::endl;
+					std::cout << "Err: bad input => " << line << std::endl;
 			}
 			input_file.close();
 		}

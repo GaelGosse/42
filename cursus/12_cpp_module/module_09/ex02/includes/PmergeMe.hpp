@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 02:55:26 by gael              #+#    #+#             */
-/*   Updated: 2024/01/30 15:33:18 by gael             ###   ########.fr       */
+/*   Created: 2024/01/30 15:56:11 by gael              #+#    #+#             */
+/*   Updated: 2024/01/30 17:00:29 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
 // color
 # define BLACK "\033[0;30m"
@@ -82,63 +82,67 @@
 
 #include <string>
 #include <cstdlib>
+#include <climits>
 #include <iomanip>
 #include <csignal>
 #include <iostream>
-#include <stack>
+#include <sys/time.h>
+#include <vector>
+#include <deque>
 
-class Rpn
+class PmergeMe
 {
 	public:
-		// canonical form
-		Rpn();
-		Rpn(const Rpn& src);
-		Rpn&operator=(const Rpn& src);
-		~Rpn();
+		PmergeMe();
+		PmergeMe(const PmergeMe& res);
+		PmergeMe& operator=(const PmergeMe& res);
+		~PmergeMe();
+
 		// other constructor
 
-		// methods
-		bool	isOpe(char chr);
-		void	calculate(std::string arg);
-		void	check_parse(std::string arg);
+		//main
+		void				startProgram(int argc, char *argv[]);
+
+		// methods vector
+		void				merge_sort_vector(int left, int middle, int right);
+		void				merge_insert_sort_vector(int left, int right);
+		void				insertion_sort_vector(int left, int right);
+		bool				CheckErrors();
+		void				printSequence();
+		void				fillContainers(char **argv, int argc);
+
+		// methods deque
+		void				merge_insert_sort_deque(int left, int right);
+		void				merge_sort_deque(int left, int middle, int right);
+		void				insertion_sort_deque(int left, int right);
+		bool				numbersOnly(std::string str);
 
 		// accessors
-		std::stack<double>		getDigit(void);
-
-		// mutators
-		void	setDigit(Rpn src);
+		std::vector<long>	getVect() const;
+		std::deque<long>	getDeque() const;
 
 		// operators
 
 		// exceptions
-		class WrongParamException : public std::exception
+		class NanException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Must have only operators -+/* and digits separate by space.");
+					return ("Must have number only.");
 				}
 		};
-		class CalculException : public std::exception
+		class IntException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Must have only N digits and N - 1 operators.");
-				}
-		};
-		class MinException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Must have 2 digits and 1 operators at least.");
+					return ("Must be a positive and not too large.");
 				}
 		};
 
 	private:
-		std::stack<double>	_digit;
-
+		std::vector<long> _vect;
+		std::deque<long> _deque;
 };
-
 #endif

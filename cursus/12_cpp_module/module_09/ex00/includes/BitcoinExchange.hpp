@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:51:42 by ggosse            #+#    #+#             */
-/*   Updated: 2024/01/28 19:27:16 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/30 15:48:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ class BitcoinExchange
 	// others constructors
 
 	// methods
-	void							retrieveDate(std::string date);
+	void							retrieveDate(std::string date, std::string exc_rate);
 	std::map<std::string, double>	getBtc(void) const;
 
 	// accessor

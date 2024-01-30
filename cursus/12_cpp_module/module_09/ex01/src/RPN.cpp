@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 02:55:26 by gael              #+#    #+#             */
-/*   Updated: 2024/01/29 15:40:33 by gael             ###   ########.fr       */
+/*   Updated: 2024/01/30 15:36:05 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ double	eval(double a, double b, char ope)
 		case '*':
 			return (a * b);
 		default:
-			std::cout << "wrong operator" << std::endl;
+			return 0;
 	}
 }
 
@@ -74,15 +74,52 @@ bool	Rpn::isOpe(char chr)
 	return false;
 }
 
-void	Rpn::calculate(std::string arg)
+void	Rpn::check_parse(std::string arg)
 {
+	int	nb_ope = 0;
+	int	nb_digit = 0;
+
 	for(int i = 0; i < arg.length(); i++)
 	{
 		if ((isOpe(arg[i]) || std::isdigit(arg[i])) && (arg[i + 1] == ' ' || arg[i + 1] == 0))
 		{
 			if (isOpe(arg[i]))
-				this->_oper.push(arg[i]);
+				nb_ope++;
 			if (std::isdigit(arg[i]))
+				nb_digit++;
+		}
+		else if (arg[i] == ' ')
+			;
+		else
+			throw Rpn::WrongParamException();
+	}
+	if (nb_ope < 1)
+		throw Rpn::MinException();
+	if (nb_ope + 1 != nb_digit)
+		throw Rpn::CalculException();
+}
+
+void	Rpn::calculate(std::string arg)
+{
+	double	first = 0;
+	double	second = 0;
+	double	res = 0;
+
+	check_parse(arg);
+	for(int i = 0; i < arg.length(); i++)
+	{
+		if ((isOpe(arg[i]) || std::isdigit(arg[i])) && (arg[i + 1] == ' ' || arg[i + 1] == 0))
+		{
+			if (isOpe(arg[i]))
+			{
+				second = this->_digit.top();
+				this->_digit.pop();
+				first = this->_digit.top();
+				this->_digit.pop();
+				std::cout<<first<<arg[i]<<second<<" = "<<eval(first, second, arg[i])<<std::endl;
+				this->_digit.push(eval(first, second, arg[i]));
+			}
+			else
 				this->_digit.push(arg[i] - '0');
 			// std::cout << BACK_GREEN << arg[i] << RST;
 		}
@@ -93,43 +130,16 @@ void	Rpn::calculate(std::string arg)
 			throw Rpn::WrongParamException();
 			// std::cout << BACK_RED << arg[i] << RST;
 	}
-	if (this->_oper.size() + 1 != this->_digit.size())
-		throw Rpn::CalculException();
-	if (this->_oper.size() < 1)
-		throw Rpn::MinException();
-	this->_digit = reverse_stack(this->_digit);
-	this->_oper = reverse_stack(this->_oper);
-
-	double	current = this->_digit.top();
-	this->_digit.pop();
-	while (this->_digit.size() != 0)
-	{
-		// std::cout << this->_digit.top() << this->_oper.top() << current << " = " << eval(current, this->_digit.top(), this->_oper.top()) << std::endl;
-		// current = eval(this->_digit.top(), current, this->_oper.top());
-		std::cout << current << this->_oper.top() << this->_digit.top() << " = " << eval(current, this->_digit.top(), this->_oper.top()) << std::endl;
-		current = eval(current, this->_digit.top(), this->_oper.top());
-		this->_oper.pop();
-		this->_digit.pop();
-	}
-	std::cout << BACK_RED << current << RST << std::endl;
 	std::cout << std::endl;
 }
 
 // accessors
-std::stack<char>	Rpn::getOper(void)
-{
-	return (this->_oper);
-}
-std::stack<double>		Rpn::getDigit(void)
+std::stack<double>	Rpn::getDigit(void)
 {
 	return (this->_digit);
 }
 
 // mutators
-void	Rpn::setOper(Rpn src)
-{
-	this->_oper = src.getOper();
-}
 void	Rpn::setDigit(Rpn src)
 {
 	this->_digit = src.getDigit();
@@ -138,6 +148,3 @@ void	Rpn::setDigit(Rpn src)
 // operators
 
 // exceptions
-
-1   7   9   3   8   5   6   4
-  -   +   /   +   -   /   *
