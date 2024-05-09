@@ -1,6 +1,6 @@
 [server]
 [mysqld]
-user			          = mysql
+user			          = root
 port			          = 3306
 basedir			        = /usr
 datadir			        = /var/lib/mysql
