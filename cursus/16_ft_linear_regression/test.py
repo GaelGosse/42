@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import math
-
+from matplotlib.animation import FuncAnimation
 
 # ----- ----- READ CSV DATA ----- -----
 data = pd.read_csv('data.csv')
@@ -29,20 +29,19 @@ d_price_max += price_max * 0.1
 
 
 # ----- ----- FUNCTION ----- -----
-def function(x, a, b):
+def fct_guess_price(x, a, b):
+	print(f"{a}\t* x + {b}")
 	return a * x + b
 
-x = np.linspace(0, d_km_max, km_max)
-y = function(x, 0, (price_max - price_min) / 2 + price_min)
 
-
-# ----- ----- DISPLAY SETTINGS ----- -----
+# ----- ----- CREATE GRAPH ----- -----
 fig, ax = plt.subplots()
-ax.scatter(data[x_label], data[y_label], label='cars', color='red')
-ax.plot(x, y, label='correlation km & price')
+sc = ax.scatter(data[x_label], data[y_label], label='cars', color='red')
+# print(sc.get_offsets()[0][1])
+line, = ax.plot([], [], label='correlation km & price')
 
 
-# ----- ----- DISPLAY ----- -----
+# ----- ----- GRAPH SETTINGS ----- -----
 ax.set_xlim([d_km_min, d_km_max])
 ax.set_ylim([d_price_min, d_price_max])
 ax.set_xlabel(x_label)
@@ -52,14 +51,25 @@ ax.legend()
 ax.grid(True)
 
 
+# ----- ----- ANIMATION ----- -----
+final_a = 0
+final_b = 0
+act_dist = []
+prev_dist = []
 def update(frame):
-    a = np.sin(frame / 10)  # Example: change 'a' over time
-    b = (price_max - price_min) / 2 + price_min
-    x = np.linspace(0, d_km_max, km_max)
-    y = function(x, a, b)
-    line.set_data(x, y)
-    return line,
-ani = FuncAnimation(fig, update, frames=np.arange(0, 100), blit=True)
+	final_a = np.sin(frame / 1000)
+	# print(final_a)
+	final_b = (price_max - price_min) / 2 + price_min
+
+	final_a = -0.03056
+	final_b = 9000
+
+	x = np.linspace(0, d_km_max, km_max)
+	y = fct_guess_price(x, final_a, final_b)
+	line.set_data(x, y)
+	return line,
+ani = FuncAnimation(fig, update, frames=np.arange(-30, 30), blit=True, interval = 5000, repeat=False)
+
 
 
 def on_key(event):

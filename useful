@@ -1,0 +1,27 @@
+import os
+import shutil
+
+def list_files(directory):
+    return set(os.listdir(directory))
+
+def sync_files(source_dir, target_dir):
+    source_files = list_files(source_dir)
+    target_files = list_files(target_dir)
+
+    # Files missing in target directory
+    missing_in_target = source_files - target_files
+    for file in missing_in_target:
+        shutil.copy(os.path.join(source_dir, file), target_dir)
+        print(f"Copied {file} from {source_dir} to {target_dir}")
+
+    # Files missing in source directory
+    missing_in_source = target_files - source_files
+    for file in missing_in_source:
+        shutil.copy(os.path.join(target_dir, file), source_dir)
+        print(f"Copied {file} from {target_dir} to {source_dir}")
+
+# Example usage
+phone_music_dir = '/path/to/phone/music'
+computer_music_dir = '/path/to/computer/music'
+
+sync_files(phone_music_dir, computer_music_dir)
