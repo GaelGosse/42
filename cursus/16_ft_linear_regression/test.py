@@ -6,7 +6,6 @@ from matplotlib.animation import FuncAnimation
 
 # ----- ----- READ CSV DATA ----- -----
 data = pd.read_csv('data.csv')
-
 x_label = data.columns[0]
 y_label = data.columns[1]
 
@@ -28,9 +27,13 @@ d_price_min -= price_max * 0.1
 d_price_max += price_max * 0.1
 
 
-# ----- ----- FUNCTION ----- -----
+# ----- ----- LINEAR FUNCTION ----- -----
 def fct_guess_price(x, a, b):
-	print(f"{a}\t* x + {b}")
+	print(f"main(x)= {a}\t* x + {b}")
+	return a * x + b
+
+def perpendicular(x, a, b):
+	print(f"perp(x)= {a}\t* x + {b}")
 	return a * x + b
 
 
@@ -39,6 +42,16 @@ fig, ax = plt.subplots()
 sc = ax.scatter(data[x_label], data[y_label], label='cars', color='red')
 # print(sc.get_offsets()[0][1])
 line, = ax.plot([], [], label='correlation km & price')
+line2, = ax.plot([], [], label='perpdclr')
+
+
+# ----- ----- DIST BTWEEN POINTS N FCT ----- -----
+def check_dist_dots(a, b):
+	perp_a = -1 / a
+	perp_b = 0
+	for dot in sc.get_offsets():
+		perp_b = dot[1] - perp_a * dot[0]
+	print("-------")
 
 
 # ----- ----- GRAPH SETTINGS ----- -----
@@ -52,24 +65,32 @@ ax.grid(True)
 
 
 # ----- ----- ANIMATION ----- -----
-final_a = 0
-final_b = 0
+final_a = 0.01
+final_b = (price_max - price_min) / 2 + price_min
 act_dist = []
 prev_dist = []
 def update(frame):
 	final_a = np.sin(frame / 1000)
-	# print(final_a)
 	final_b = (price_max - price_min) / 2 + price_min
 
-	final_a = -0.03056
-	final_b = 9000
+	# final_a = -0.03056
+	# final_b = 9000
+
+	check_dist_dots(final_a, final_b)
 
 	x = np.linspace(0, d_km_max, km_max)
 	y = fct_guess_price(x, final_a, final_b)
 	line.set_data(x, y)
-	return line,
-ani = FuncAnimation(fig, update, frames=np.arange(-30, 30), blit=True, interval = 5000, repeat=False)
+	return line, line2
 
+ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval = 10000, repeat=False)
+
+# ----- ----- WO/ ANIM ----- -----
+# x = np.linspace(0, d_km_max, km_max)
+# y = fct_guess_price(x, final_a, final_b)
+# y2 = perpendicular(x, -1 / final_a, final_b)
+# plt.plot(x, y, label='linear fct')
+# plt.plot(x, y2, label='perp')
 
 
 def on_key(event):
