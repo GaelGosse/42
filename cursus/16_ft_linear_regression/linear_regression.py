@@ -65,7 +65,7 @@ prev_dist = []
 def check_dist_dots(a, b):
 	act_dist.clear()
 	if (a == 0):
-		a = 1
+		a = 1e-10
 	perp_a = -1 / a
 	perp_b = 0
 	for dot in sc.get_offsets():
@@ -85,6 +85,9 @@ ax.set_ylim([d_price_min, d_price_max])
 ax.set_xlim([60000, 80000])
 ax.set_ylim([-5000, 15000])
 
+# ax.set_xlim([0, d_km_max])
+# ax.set_ylim([0, d_km_max])
+
 ax.set_xlabel(x_label)
 ax.set_ylabel(y_label)
 
@@ -92,21 +95,20 @@ ax.set_title('')
 ax.legend()
 ax.grid(True)
 
+def clearly(number):
+	return f"{number:,}".replace(",", " ")
 
 # ----- ----- ANIMATION ----- -----
 final_a = 0.01
 final_b = (price_max - price_min) / 2 + price_min
 
-param_a = -90
-end_a = False
-end_b = False
-
 step = 0
-up = True
+param_a = -90
+min_a = np.sin(param_a / 10000)
 
 def update(frame):
-	global param_a, step, up, end_a, end_b
-	final_a = np.sin(param_a / 1000)
+	global step, param_a, min_a
+	final_a = np.sin(param_a / 10000)
 	final_b = (price_max - price_min) / 2 + price_min
 
 	# final_a = -0.03056
@@ -116,39 +118,27 @@ def update(frame):
 	check_dist_dots(final_a, final_b)
 	sum_act_dist = sum(act_dist)
 	sum_prev_dist = sum(prev_dist)
-	if (sum_prev_dist != 0 and up == True and sum_act_dist > sum_prev_dist):
-		end_a = True
-		if (step == 1):
-			print(GREEN, "+", RESET);
-			up = not up
-			param_a *= -1
-		print(RED, "+:", sum(act_dist), sum(prev_dist), RESET)
-	elif (sum_prev_dist != 0 and up == False and sum_act_dist < sum_prev_dist):
-		end_a = True
-		if (step == 1):
-			print(GREEN, "-", RESET);
-			up = not up
-			param_a *= -1
-		print(RED, "-:", sum(act_dist), sum(prev_dist), RESET)
+	if (sum_prev_dist != 0 and sum_act_dist < sum_prev_dist):
+		min_a = param_a
+		print(GREEN, f"sum_act_dist: {clearly(int(sum_act_dist))}", RESET)
+	if (sum_prev_dist != 0 and sum_act_dist > sum_prev_dist):
+		print(RED, f"sum_act_dist: {clearly(int(sum_act_dist))}", RESET)
+		ani.event_source.stop()
+
+
+	param_a += 1
 
 	print(f"up {up} n°{step}    main(x)= {final_a}\t* x + {final_b}")
 	x = np.linspace(0, d_km_max, km_max)
 	y = fct_guess_price(x, final_a, final_b)
 	line.set_data(x, y)
-	if (up == True):
-		param_a += 1
-	else:
-		param_a -= 1
-	step += 1
-	print('\n--------------------')
+
+	print("-----\n")
 	return line,
 
-ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval = 1000, repeat=True)
+# ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), fargs=(ani,), blit=True, interval=1000, repeat=False)
+ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval=10, repeat=False)
 
-# first step which sens
-# is arrived with A ?
-# same thing with b
-# loop with A and B -> is arrived both
 
 
 # ----- ----- WO/ ANIM ----- -----
