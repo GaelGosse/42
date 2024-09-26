@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
+import pandas as pds
 import math
 from matplotlib.animation import FuncAnimation
 
@@ -20,31 +20,21 @@ CYAN = "\033[96m"
 RESET = "\033[0m"
 
 # ----- ----- READ CSV DATA ----- -----
-data = pd.read_csv('data.csv')
+data = pds.read_csv('data.csv')
 x_label = data.columns[0]
 y_label = data.columns[1]
 
 
 # ----- ----- TERMINAL GRAPH ----- -----
 km_min = math.floor(data.min()['km'])
-km_max = math.ceil(data.max()['km'])
+c0_max = math.ceil(data.max()['km'])
 price_min = math.floor(data.min()['price'])
 price_max = math.ceil(data.max()['price'])
-
-d_km_min = km_min
-d_km_max = km_max
-d_price_min = price_min
-d_price_max = price_max
-
-d_km_min -= km_max * 0.1
-d_km_max += km_max * 0.1
-d_price_min -= price_max * 0.1
-d_price_max += price_max * 0.1
 
 
 # ----- ----- LINEAR FUNCTION ----- -----
 def fct_guess_price(x, a, b):
-	# print(f"main(x)= {a}\t* x + {b}")
+	print(f"main(x)= {a}\t* x + {b}")
 	return a * x + b
 
 def perpendicular(x, a, b):
@@ -69,24 +59,25 @@ def check_dist_dots(a, b):
 	perp_a = -1 / a
 	perp_b = 0
 	for dot in sc.get_offsets():
-		perp_b = dot[1] - perp_a * dot[0] #2: find b
-		# a * x + b = perp_a * x + perp_b #3: y=y
+		perp_b = dot[1] - perp_a * dot[0]	#2: find b
+		# a * x + b = perp_a * x + perp_b	#3: y=y
 		# a - perp_a = b - perp_b
-		x = (perp_b - b) / (a - perp_a) #3: find x of intersect
-		y = perp_a * x + perp_b #4: find y of intersect
+		x = (perp_b - b) / (a - perp_a)		#3: find x of intersect
+		y = perp_a * x + perp_b				#4: find y of intersect
 		dist = math.sqrt(pow(x - dot[0], 2) + pow(y - dot[1], 2))
 		act_dist.append(dist)
 
 
+# ----- ----- NORMALISATION ----- -----
+# print("@", data.to_numpy())
+norm_data = pds.DataFrame({data.columns[0]: data[data.columns[0]], data.columns[1]: data[data.columns[1]]})
+norm_data['km'] = norm_data['km'].apply(lambda x: x / c0_max)
+norm_data['km'] = norm_data['km'].apply(lambda x: x / c0_max)
+print(f"{norm_data}\n{data}")
+
 # ----- ----- GRAPH SETTINGS ----- -----
-ax.set_xlim([d_km_min, d_km_max])
-ax.set_ylim([d_price_min, d_price_max])
-
-ax.set_xlim([60000, 80000])
-ax.set_ylim([-5000, 15000])
-
-# ax.set_xlim([0, d_km_max])
-# ax.set_ylim([0, d_km_max])
+ax.set_xlim([0, 1])
+ax.set_ylim([0, 1])
 
 ax.set_xlabel(x_label)
 ax.set_ylabel(y_label)
@@ -97,6 +88,7 @@ ax.grid(True)
 
 def clearly(number):
 	return f"{number:,}".replace(",", " ")
+
 
 # ----- ----- ANIMATION ----- -----
 final_a = 0.01
@@ -128,8 +120,8 @@ def update(frame):
 
 	param_a += 1
 
-	print(f"up {up} n°{step}    main(x)= {final_a}\t* x + {final_b}")
-	x = np.linspace(0, d_km_max, km_max)
+	print(f"n°{step}    main(x)= {final_a}\t* x + {final_b}")
+	x = np.linspace(0, c0_max, c0_max)
 	y = fct_guess_price(x, final_a, final_b)
 	line.set_data(x, y)
 
@@ -137,12 +129,12 @@ def update(frame):
 	return line,
 
 # ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), fargs=(ani,), blit=True, interval=1000, repeat=False)
-ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval=10, repeat=False)
+# ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval=10, repeat=False)
 
 
 
 # ----- ----- WO/ ANIM ----- -----
-# x = np.linspace(0, d_km_max, km_max)
+# x = np.linspace(0, c0_max, c0_max)
 # y = fct_guess_price(x, final_a, final_b)
 # y2 = perpendicular(x, -1 / final_a, final_b)
 # plt.plot(x, y, label='linear fct')
