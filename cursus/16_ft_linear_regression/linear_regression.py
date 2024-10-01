@@ -21,7 +21,7 @@ RESET = "\033[0m"
 
 
 # ----- ----- READ CSV DATA ----- -----
-data = pds.read_csv('invert.csv')
+data = pds.read_csv('data.csv')
 x_label = data.columns[0]
 y_label = data.columns[1]
 
@@ -53,6 +53,10 @@ def perpendicular(x, a, b):
 fig, ax = plt.subplots()
 sc = ax.scatter(norm_data[x_label], norm_data[y_label], label='cars', color='red')
 # print(sc.get_offsets()[0][1])
+middle_index = len(norm_data) // 2
+middle_point = norm_data.iloc[middle_index]
+ax.scatter(middle_point[x_label], middle_point[y_label], color='blue', label='middle point')
+
 line, = ax.plot([], [], label='correlation km & price')
 
 
@@ -106,6 +110,8 @@ def	mean_half_array(arr):
 	if first_mean is None or second_mean is None:
 		return None
 
+	print('first_mean:', first_mean);
+	print('second_mean:', second_mean);
 	if (first_mean > second_mean):
 		return 1
 	else:
@@ -117,7 +123,7 @@ final_b = (c1_max - c1_min) / 2 + c1_min
 step = 0
 param_a = -90
 step_a = 1
-min_a = np.sin(param_a / 10000)
+min_a = np.sin(param_a / 1000)
 
 final_b = mean_half_array(norm_data[data.columns[1]])
 if (final_b == 1):
@@ -166,10 +172,18 @@ ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval=
 # plt.plot(x, y, label='linear fct')
 # plt.plot(x, y2, label='perp')
 
-
+is_paused = False
 def on_key(event):
+	global is_paused
 	if event.key == 'escape':
 		plt.close(fig)
+	elif event.key == ' ':
+		if is_paused:
+			ani.event_source.start()
+		else:
+			ani.event_source.stop()
+		is_paused = not is_paused
+
 fig.canvas.mpl_connect('key_press_event', on_key)
 
 plt.show()
