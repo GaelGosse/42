@@ -110,8 +110,8 @@ def	mean_half_array(arr):
 	if first_mean is None or second_mean is None:
 		return None
 
-	print('first_mean:', first_mean);
-	print('second_mean:', second_mean);
+	# print('first_mean:', first_mean);
+	# print('second_mean:', second_mean);
 	if (first_mean > second_mean):
 		return 1
 	else:
@@ -121,47 +121,85 @@ final_a = 0.01
 final_b = (c1_max - c1_min) / 2 + c1_min
 
 step = 0
-param_a = -90
-step_a = 1
-min_a = np.sin(param_a / 1000)
+param_a = 0
+min_a = np.sin(param_a / 200)
+diff_a = 0
+diff_b = 0
+step = 0
+up_a = False
+up_b = False
 
-final_b = mean_half_array(norm_data[data.columns[1]])
-if (final_b == 1):
-	step_a = -1
-else:
-	step_a = 1
+final_b = mean_half_array(norm_data["km"])
+print(final_b)
 def update(frame):
-	global step, param_a, min_a, final_a, final_b, step_a
-	final_a = np.sin(param_a / 1000)
+	global step, param_a, min_a, final_a, final_b, diff_a, diff_b, up_a, up_b, step
+	final_a = np.sin(param_a / 200)
 
-	print('final_b:', final_b);
 	# final_a = -0.03056
 	# final_b = 9000
 
 	prev_dist = act_dist.copy()
-	check_dist_dots(final_a, final_b)
-	sum_act_dist = sum(act_dist)
+	check_dist_dots(np.sin(param_a + 1 / 200), final_b)
+	sum_up_a = sum(act_dist)
 	sum_prev_dist = sum(prev_dist)
-	if (sum_prev_dist != 0 and sum_act_dist < sum_prev_dist):
-		min_a = param_a
-		print(GREEN, f"sum_act_dist: {clearly(sum_act_dist)}", RESET)
-	if (sum_prev_dist != 0 and sum_act_dist > sum_prev_dist):
-		print(RED, f"sum_act_dist: {clearly(sum_act_dist)}", RESET)
-		ani.event_source.stop()
 
+	check_dist_dots(np.sin(param_a - 1 / 200), final_b)
+	sum_down_a = sum(act_dist)
 
-	param_a += step_a
+	check_dist_dots(np.sin(param_a / 200), final_b + 0.1)
+	sum_up_b = sum(act_dist)
+
+	check_dist_dots(np.sin(param_a / 200), final_b - 0.1)
+	sum_down_b = sum(act_dist)
+
+	if (sum_prev_dist != 0):
+		if (sum_up_a < sum_down_a and sum_up_a < sum_prev_dist):
+			diff_a = sum_up_a - sum_prev_dist
+			up_a = False
+		elif (sum_down_a < sum_up_a and sum_down_a < sum_prev_dist):
+			diff_a = sum_down_a - sum_prev_dist
+			up_a = True
+
+		if (sum_up_b < sum_down_b and sum_up_b < sum_prev_dist):
+			diff_b = sum_up_b - sum_prev_dist
+			up_b = False
+		elif (sum_down_b < sum_up_b and sum_down_b < sum_prev_dist):
+			diff_b = sum_down_b - sum_prev_dist
+			up_b = True
+
+		if (diff_b < diff_a and step > 100):
+			if (up_b):
+				final_b += 0.1
+			else:
+				final_b -= 0.1
+		else:
+			if (up_a):
+				param_a += 1
+			else:
+				param_a -= 1
+			final_a = np.sin(param_a / 200)
+
+	# if (sum_prev_dist != 0 and sum_act_dist < sum_prev_dist):
+	# 	min_a = param_a
+	# 	print(GREEN, f"sum_act_dist: {clearly(sum_act_dist)}", RESET)
+
+	# if (sum_prev_dist != 0 and sum_act_dist > sum_prev_dist):
+	# 	print(RED, f"sum_act_dist: {clearly(sum_act_dist)}", RESET)
+	# 	ani.event_source.stop()
+	print(f"np.sin(param_a - 1 / 200): {np.sin(param_a - 1 / 200)}")
+	print(f"np.sin(param_a + 1 / 200): {np.sin(param_a + 1 / 200)}")
 
 	print(f"n°{step}    main(x)= {final_a}\t* x + {final_b}")
 	x = np.linspace(0, c0_max, c0_max)
 	y = fct_guess_price(x, final_a, final_b)
 	line.set_data(x, y)
+	step += 1
 
 	print("-----\n")
 	return line,
 
 # ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), fargs=(ani,), blit=True, interval=1000, repeat=False)
-ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval=10, repeat=True)
+ani = FuncAnimation(fig, update, frames=np.arange(-90, 90), blit=True, interval=1000, repeat=True)
 
 
 
