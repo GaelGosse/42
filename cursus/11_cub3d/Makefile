@@ -33,7 +33,7 @@ BOLD_WHITE=\033[1;37m
 NAME	= cub3D
 LIBNAME	= libft.a
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra -lreadline -g3 -MMD -MP
+CFLAGS	= -Wall -Werror -Wextra -lreadline -g3 -MMD -MP -O3
 SRCDIR	= srcs
 OBJDIR	= objs
 INCDIR	= incs
@@ -117,7 +117,7 @@ _SRCS	=	angle_len.c \
 SRC            = $(addprefix $(SRCDIR)/, $(_SRCS))
 OBJ            = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 HEADER         = $(addprefix $(INCDIR)/, $(NAME).h)
-LIBX           = -L minilibx/ 
+LIBX           = -L minilibx/
 LIBXFLAGS      = -lmlx -lXext -lX11 -lz -lm
 
 
@@ -134,15 +134,15 @@ $(NAME): $(OBJ) $(HEADER)
 	@echo -e "Baking $(LIBDIR)..."
 	@make -s -C $(LIBDIR)
 	@echo -e "$(GREEN)OK!$(END)"
-	
+
 	@echo -e "Baking $(LIBDIR)..."
 	@make --no-print-directory -C minilibx
 	@echo -e "$(GREEN)OK!$(END)"
-	
+
 	@echo -e "Baking $(NAME)..."
 	@$(CC) -I$(INCDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS) $(LIBX) $(LIBXFLAGS)
 	@echo -e "$(GREEN)OK!$(END)"
-	
+
 	@echo -e "$(BOLD_GREEN)$(NAME) READY !$(END)"
 
 clean:
