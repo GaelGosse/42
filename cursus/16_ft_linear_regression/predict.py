@@ -1,76 +1,54 @@
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-data = pd.read_csv('data.csv')
-if (not data):
-	print("something wrong with the file data.csv")
+HEADER = '\033[95m'
+BLUE = '\033[94m'
+CYAN = '\033[96m'
+GREEN = '\033[92m'
+WARNING = '\033[93m'
+FAIL = '\033[91m'
+RESET = '\033[0m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+
+final_a = 0
+final_b = 0
+
+# ----- ----- file A ----- -----
+if os.path.isfile("a") and os.access('a', os.R_OK):
+	f_a = open("a", "r")
+	final_a = f_a.read()
+	f_a.close()
+
+
+# ----- ----- file B ----- -----
+if os.path.isfile("b") and os.access('b', os.R_OK):
+	f_b = open("b", "r")
+	final_b = f_b.read()
+	f_b.close()
+else:
+	print(WARNING, "\n\tit will be better if you launch training.py firstly but a and b for now are equal to 0\n", RESET)
+
+print(f"final_a: {final_a}")
+print(f"final_b: {final_b}")
+
+
+km_input = input("What is the mileage of your vehicle ?\n")
+
+if not km_input.isdigit() or int(km_input) <= 0:
+	print(FAIL, "\n\tMileage must be a positive number and not null\n", RESET)
 	exit(1)
 
-x_label = data.columns[0]
-y_label = data.columns[1]
 
-x = data[x_label].values
-y = data[y_label].values
+result_price = float(final_a) * float(km_input) + float(final_b)
+print(result_price)
 
-x_mean = np.mean(x)
-y_mean = np.mean(y)
 
-x_std = np.std(x)
-y_std = np.std(y)
-
-x = (x - x_mean) / np.std(x)
-y = (y - y_mean) / np.std(y)
-
-a = 0.0
-b = 0.0
-learning_rate = 0.1
-num_ite = 100
-
-fig, ax = plt.subplots()
-ax.scatter(x, y, color="red")
-line, = ax.plot([], [], color="blue")
-
-def	update(frame):
-	global a, b, ani
-	m = len(y)
-	estimatePrice = a * x + b
-	da = (1 / m) * np.sum((estimatePrice - y) * x)
-	db = (1 / m) * np.sum(estimatePrice - y)
-	a -= learning_rate * da
-	b -= learning_rate * db
-
-	line.set_data(x, a * x + b)
-	return line,
-
-ani = FuncAnimation(fig, update, frames=num_ite, blit=True, interval=10, repeat=False)
-
-is_paused = False
-def on_key(event):
-	global is_paused
-	if event.key == 'escape':
-		plt.close(fig)
-	# elif event.key == ' ':
-	# 	if is_paused:
-	# 		ani.event_source.start()
-	# 	else:
-	# 		ani.event_source.stop()
-	# 	is_paused = not is_paused
-
-fig.canvas.mpl_connect('key_press_event', on_key)
-
-plt.show()
-
-final_a = a * (y_std / x_std)
-final_b = b * y_std + y_mean - final_a * x_mean
-
-x = x * x_std + x_mean
-y = y * y_std + y_mean
-
-fig, ax = plt.subplots()
-ax.scatter(x, y, color='red')
-ax.plot(x, final_a * x + final_b, color="blue")
-fig.canvas.mpl_connect('key_press_event', on_key)
-
-plt.show()
+if result_price < 0:
+	print(WARNING, "\nBecause it's a linear regression project with linear function and not so much complicated, I consider negative value close to zero in real life")
+	print(f" so {result_price} will be > 0", RESET)
+else:
+	print(BOLD, f"\nThe price of your vehicke is estimated to : {result_price}", RESET)
